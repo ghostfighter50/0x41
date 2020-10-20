@@ -26,6 +26,7 @@ userPoints += result[1].points;
 
 
 client.points.set(`${message.guild.id}-${user.id}`, userPoints, "points")
+
 const verified = new Discord.MessageEmbed()
 .setThumbnail(message.author.avatarURL)
 .setURL("https://discord.gg/s6aFpGq")
