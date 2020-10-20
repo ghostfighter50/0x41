@@ -1,0 +1,25 @@
+{
+  "name": "hack-harder",
+  "version": "1.0.0",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ghostfighter50",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.3.1",
+    "enmap": "^5.8.0",
+    "serp": "^2.1.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ghostfighter50/Hack-Harder.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ghostfighter50/Hack-Harder/issues"
+  },
+  "homepage": "https://github.com/ghostfighter50/Hack-Harder#readme",
+  "description": ""
+}
