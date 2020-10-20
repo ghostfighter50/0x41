@@ -1,4 +1,12 @@
 const Discord = require('discord.js');
+
+const verified = new Discord.MessageEmbed()
+.setThumbnail(message.author.avatarURL)
+.setURL("https://discord.gg/s6aFpGq")
+.setFooter("Hack-Harder : https://discord.gg/s6aFpGq")
+.setTitle(`✅ Challenge finished ! `) 
+.setDescription(`${user.tag} has received **${result[1].points}** points and now has **${userPoints}** points.`)
+.setColor(0x00AE86);
 const flag = {
  flag1: { value: 'test', points: 20 },
  flag2: { value: 'test2', points: 30 },
@@ -27,13 +35,6 @@ userPoints += result[1].points;
 
 client.points.set(`${message.guild.id}-${user.id}`, userPoints, "points")
 
-const verified = new Discord.MessageEmbed()
-.setThumbnail(message.author.avatarURL)
-.setURL("https://discord.gg/s6aFpGq")
-.setFooter("Hack-Harder : https://discord.gg/s6aFpGq")
-.setTitle(`✅ Challenge finished ! `) 
-.setDescription(`${user.tag} has received **${result[1].points}** points and now has **${userPoints}** points.`)
-.setColor(0x00AE86);
 
 message.channel.send(verified);
 };
