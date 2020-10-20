@@ -9,10 +9,8 @@
   "author": "Ghostfighter50",
   "license": "ISC",
   "dependencies": {
-    "canvas": "^2.6.1",
     "discord.js": "^12.3.1",
     "enmap": "^5.8.0",
-    "google": "^2.1.0",
     "serp": "^2.1.0"
   }
 }
