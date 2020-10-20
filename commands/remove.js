@@ -17,13 +17,10 @@ exports.run = (client, message, args) => {
     if(!pointsToDel) 
     return message.reply("You didn't tell me how many points to remove...")
     
-    client.points.ensure(`${message.guild.id}-${user.id}`, {
-    user: message.author.id,
-    guild: message.guild.id,
-    points: 0,
-    });
+    
     
     let userPoints = client.points.get(`${message.guild.id}-${user.id}`, "points");
+    
     userPoints -= pointsToDel;
     
     

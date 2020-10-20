@@ -1,12 +1,13 @@
 const Discord = require('discord.js');
 
 
-
-module.exports.run = async (client, message) => {
+exports.run = async (client, message) => {
+    try{
  let args = message.content.slice(4).split(' ');
  let challenge = args[2]
  let value = args[3]
  let user = message.author.id
+ const key = `${message.guild.id}-${message.author.id}`;
 
 
  const flag = {
@@ -27,7 +28,11 @@ module.exports.run = async (client, message) => {
  .setFooter("Hack-Harder : https://discord.gg/s6aFpGq")
  message.channel.send(embed)
 }
+
+
 let userPoints = client.points.get(`${message.guild.id}-${user}`, "points");
+userPoints += result[1].points;
+client.points.set(key, userPoints, "points")
 
 const verified = new Discord.MessageEmbed()
 .setThumbnail(message.author.avatarURL)
@@ -36,11 +41,11 @@ const verified = new Discord.MessageEmbed()
 .setTitle(`✅ Challenge finished ! `) 
 .setDescription(`${user.tag} has received **${result[1].points}** points and now has **${userPoints}** points.`)
 .setColor(0x00AE86);
-userPoints += result[1].points;
 
-
-client.points.set(`${message.guild.id}-${user.id}`, userPoints, "points")
-
+;
 
 message.channel.send(verified);
+    }catch(e){
+        return console.log(e)
+    }
 };

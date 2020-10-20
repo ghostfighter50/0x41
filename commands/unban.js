@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 
-module.exports.run = async (client, message) => {
+exports.run = async (client, message) => {
     let args = message.content.slice(4).split(' ')
 
     if(!message.member.hasPermission(["BAN_MEMBERS", "ADMINISTRATOR"])) return message.channel.send("**Insufficient permissions :no_entry:.**")
