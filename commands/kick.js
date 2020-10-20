@@ -20,7 +20,7 @@ exports.run = async (client, message) => {
 		.setThumbnail(banMember.guild.iconURL)
         .setColor(0x00AE86)
         .setURL("https://discord.gg/s6aFpGq")
-		.setFooter(`Banned by ${message.author.username}`);
+		.setFooter(`Kicked by ${message.author.username}`);
 
 	message.channel.send('❓ Are you sure you want to kick this user?\nreply with "yes" or "no" in the next 10 seconds');
 
