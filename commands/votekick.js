@@ -3,7 +3,7 @@ const Discord  = require('discord.js');
 const agree    = "✅";
 const disagree = "❎";
 
-exports.run = async (bot, message, args) => {
+exports.run = async (bot, message) => {
 
   if (message.mentions.users.size === 0){
     return message.reply(":x: " + "| Please Mention A User To Kick!");
@@ -25,11 +25,11 @@ exports.run = async (bot, message, args) => {
     return message.reply(":x: " + "| I need the \"KICK_MEMBERS\" permission!").catch(console.error);
   }
 
-  await msg.react(agree);
-  await msg.react(disagree);
+  await   message.react(agree);
+  await message.react(disagree);
 
-  const reactions = await msg.awaitReactions(reaction => reaction.emoji.name === agree || reaction.emoji.name === disagree, {time: 10000});
-  msg.delete();
+  const reactions = await message.awaitReactions(reaction => reaction.emoji.name === agree || reaction.emoji.name === disagree, {time: 10000});
+  message.delete();
 
   var NO_Count = reactions.get(disagree).count;
   var YES_Count = reactions.get(agree);
@@ -58,7 +58,7 @@ exports.run = async (bot, message, args) => {
 
   if(YES_Count >= 4 && YES_Count > NO_Count){
 
-    kickmember.kick().then(member => {
+    kickmember.kick().then(member => {  
     })
   }else{
 

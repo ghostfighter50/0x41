@@ -9,7 +9,7 @@ exports.run = async (client, message) => {
 
     if (userinp > 100 || userinp < 2) return message.reply('❌ Please supply a number between 2 and 100 to delete.');
 
-    message.channel.bulkDelete(userinp + 1).then(messages => {message.channel.send(`✅ deleted ${messages.size - 1} messages`).then(message =>   message.delete({ timeout: 2 }))
+    message.channel.bulkDelete(userinp + 1).then(messages => {message.channel.send(`✅ deleted ${messages.size - 1} messages`).then(message =>   message.delete({ timeout: 1000 }))
 })
 
 }
