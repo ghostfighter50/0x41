@@ -20,7 +20,6 @@ exports.run = async  (client, message) => {
     {name: "`sudo stats `", value : "Shows the bot's stats"},
     {name: "`sudo userinfo (@user) `", value : "Returns the infos about a user"},
     {name: "`sudo ping `", value : "Returns the ping of the bot and the API"},
-    {name: "`sudo vote <question> `", value : "Creates a vote"},
     {name: "`sudo leaderboard `", value : "Returns the leaderboard of the server"},
     {name: "`sudo verify <challenge-name> <flag> `", value : "Submits the flag of a challenge/ctf"},
     {name: "`sudo updateroles `", value : "Gives the role of your points"},
