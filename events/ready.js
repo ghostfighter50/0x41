@@ -7,8 +7,8 @@ module.exports = client => {
 "Hack-Harder : https://discord.gg/s6aFpGq"];
   setInterval(() => {
     const index = Math.floor(Math.random() * (activities_list.length - 1) + 1); 
-    client.user.setActivity(activities_list[index]); 
-}, 10000); 
+    client.user.setActivity(activities_list[index],{type : "WATCHING"}); 
+}, 1500); 
 
   console.log(`[+] Ready to serve in ${client.channels.cache.size} channels on ${client.guilds.cache.size} servers, for a total of ${client.users.cache.size} users.`);
 

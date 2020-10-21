@@ -10,9 +10,13 @@
   "dependencies": {
     "discord.js": "^12.3.1",
     "enmap": "^5.8.0",
+    "github-search-api": "0.0.3",
+    "hastebin-gen": "^2.0.5",
     "moment": "^2.29.1",
     "ms": "^2.1.2",
+    "node-url-shortener": "^1.1.11",
     "os-utils": "0.0.14",
+    "request": "^2.88.2",
     "serp": "^2.1.0"
   },
   "devDependencies": {},
