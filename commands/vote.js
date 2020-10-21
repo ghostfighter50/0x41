@@ -5,6 +5,7 @@ const disagree = "❎";
 
 exports.run = async (client, message) => {
     let args = message.content.slice(10).split(' ');
+    let question = args
 
 const verified = new Discord.MessageEmbed()
 .setThumbnail(message.author.avatarURL)
@@ -13,7 +14,6 @@ const verified = new Discord.MessageEmbed()
 .setTitle(`Vote ! `) 
 .addField(`Question: ${question} \nVote now! (Vote time: 2min)`, "react with ❎ to say no and with ✅ to say yes ")
 .setColor(0x00AE86);
-  let question = args
   if(question.length < 1){
     let msg = await message.channel.send(`Vote now! (Vote time: 2min)`);
     await msg.react(agree);
