@@ -16,8 +16,25 @@ let embed = new Discord.MessageEmbed()
 let user = message.author
 let userPoints = client.points.get(`${message.guild.id}-${user.id}`, "points");
 let member = message.member;
+if (userPoints >= "100") {
+    
+   let testedRole = message.guild.roles.cache.get('764884869133500437');
+   let testedUser = member
+   
 
-     if (userPoints >= "20") {
+   testedUser.roles.add(testedRole);
+   message.channel.send(verified);
+}
+else if (userPoints >= "50") {
+    
+   let testedRole = message.guild.roles.cache.get('764884966089687051');
+   let testedUser = member
+   
+
+   testedUser.roles.add(testedRole);
+   message.channel.send(verified);
+}
+else if (userPoints >= "20") {
     
         let testedRole = message.guild.roles.cache.get('764885057700626452');
         let testedUser = member
@@ -26,24 +43,8 @@ let member = message.member;
         testedUser.roles.add(testedRole);
      message.channel.send(verified);
       }
-     else if (userPoints >= "50") {
+   
     
-        let testedRole = message.guild.roles.cache.get('764884966089687051');
-        let testedUser = member
-        
-    
-        testedUser.roles.add(testedRole);
-        message.channel.send(verified);
-    }
-     else if (userPoints >= "100") {
-    
-        let testedRole = message.guild.roles.cache.get('764884869133500437');
-        let testedUser = member
-        
-    
-        testedUser.roles.add(testedRole);
-        message.channel.send(verified);
-    }
     else return message.channel.send(embed)
     }    
     
