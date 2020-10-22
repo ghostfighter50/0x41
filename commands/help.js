@@ -26,6 +26,7 @@ exports.run = async  (client, message) => {
     {name: "`sudo leaderboard `", value : "Returns the leaderboard of the server"},
     {name: "`sudo verify <challenge-name> <flag> `", value : "Submits the flag of a challenge/ctf"},
     {name: "`sudo updateroles `", value : "Gives the role of your points"},
+    {name: "`sudo levels `", value : "Returns the level roles"},
     {name: "`sudo search <keyword> `", value : "Returns the result of a google search "})
     .setFooter("Hack-Harder : https://discord.gg/s6aFpGq")
     .setTitle(`📖 Help `) 
