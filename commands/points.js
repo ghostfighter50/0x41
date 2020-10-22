@@ -6,7 +6,7 @@ exports.run = (client, message, args) => {
     .setThumbnail(message.author.avatarURL)
     .setURL("https://discord.gg/s6aFpGq")
     .setFooter("Hack-Harder : https://discord.gg/s6aFpGq")
-    .setTitle(`${message.author}'s points`) 
+    .setTitle(`${message.author.username}'s points`) 
     .setColor(0x00AE86);
 
     message.channel.send(embed)
