@@ -5,7 +5,7 @@ exports.run = async (client, message, args) => {
    
     let haste = args[0]
     hastebin(haste).then(r => {
-        let hastebinembed = new Discord.RichEmbed()
+        let hastebinembed = new Discord.MessageEmbed()
         .setTitle("**Hastebin**")
         .addField("URL:", r)
         .setURL("https://discord.gg/s6aFpGq")
