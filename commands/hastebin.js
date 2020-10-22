@@ -1,9 +1,9 @@
 const Discord = require("discord.js");
 const hastebin = require('hastebin-gen');
 
-exports.run = async (bot, message, args) => {
+exports.run = async (client, message, args) => {
    
-    let haste = args.slice(0).join(" ")
+    let haste = args[0]
     hastebin(haste).then(r => {
         let hastebinembed = new Discord.RichEmbed()
         .setTitle("**Hastebin**")
