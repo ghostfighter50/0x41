@@ -1,11 +1,11 @@
 exports.run = async  (client, message) => {
-    let args = message.content.slice(4).split(' ')
-const serp = require("serp");
+  let args = message.content.split(' ').splice(2).join(' ')
+  const serp = require("serp");
 const Discord = require("discord.js")
 var options = {
   host : "google.com",
   qs : {
-    q : args[2],
+    q : args,
     filter : 0,
     pws : 0
   },
