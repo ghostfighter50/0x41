@@ -7,14 +7,12 @@ function checkDays(date) {
   return days + (days == 1 ? " day" : " days") + " ago";
 };
 exports.run = async (client, message, args) => {
-  let user = message.mentions.users.first();
+  try {
+    
+
+  let user = message.mentions.users.first(); 
   let muser = message.guild.member(message.mentions.users.first());
-  if(!message.mentions.users.first() && args.length > 0){
-    user = message.guild.member(args[0]).user
-    muser = message.guild.member(args[0]);
-  }
-  if (!muser) muser = message.member;
-  if(!user) user = message.author;
+
 
   let status = ""
   if(status === null) status = "No Game"
@@ -45,5 +43,24 @@ exports.run = async (client, message, args) => {
           .addField('Roles', `${muser.roles.cache.array()}`, true)
           .addField('Is Bot', `${user.bot.toString().toUpperCase()}`, true)
           .setFooter("Hack-Harder : https://discord.gg/s6aFpGq")
-          .setColor(0x00AE86);      message.channel.send({embed});
+          .setColor(0x00AE86);      
+          message.channel.send(embed);
+        } catch  {
+          let user = message.mentions.users.first(); 
+          let muser = message.guild.member(user);
+          const error = new Discord.MessageEmbed();
+          error.addField("Username", `${user.username}#${user.discriminator}`, true)
+                  .addField("ID", `${user.id}`, true)
+                  .setThumbnail(`${user.avatarURL()}`)
+                  .setURL(`${user.avatarURL()}`)
+                  .addField('Currently', `${muser.presence.status.toUpperCase()}`, true)
+                  .addField('Game', 'NO GAME', true)
+                  .addField('Joined Discord', `${moment(user.createdAt).toString().substr(0, 15)}\n(${moment(user.createdAt).fromNow()})`, true)
+                  .addField('Joined Server', `${moment(muser.joinedAt).toString().substr(0, 15)}\n(${moment(muser.joinedAt).fromNow()})`, true)
+                  .addField('Roles', `${muser.roles.cache.array()}`, true)
+                  .addField('Is Bot', `${user.bot.toString().toUpperCase()}`, true)
+                  .setFooter("Hack-Harder : https://discord.gg/s6aFpGq")
+                  .setColor(0x00AE86);      
+                  message.channel.send(error);
+        }
 }
