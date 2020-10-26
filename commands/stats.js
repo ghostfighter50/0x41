@@ -27,7 +27,6 @@ exports.run = async (client, message) => {
         .setTitle('Hack-Harder BOT stats.')
         .setURL("https://discord.gg/s6aFpGq")
         .setThumbnail(client.user.avatarURL({ format: 'png', dynamic: true, size: 2048 }))
-        .setURL(client.user.avatarURL({ format: 'png', dynamic: true, size: 2048 }))
         .addField("---------------------------------------------------------------------",("-------------------------------------------------------------------"),false)
         .addField("Global Prefix", globalprefix, true)
         .addField("Total Commands", `${totcmds} commands`, true)

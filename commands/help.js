@@ -19,6 +19,7 @@ exports.run = async  (client, message) => {
     {name: "`sudo clear <number>`", value : "Delete the amount of message requested (mod only)"},
     {name: "`sudo stats `", value : "Shows the bot's stats"},
     {name: "`sudo userinfo (@user) `", value : "Returns the infos about a user"},
+    {name: "`sudo serverinfo  `", value : "Returns the infos about the server"},
     {name: "`sudo ping `", value : "Returns the ping of the bot and the API"},
     {name: "`sudo hastebin <value> `", value : "Returns the hastebin url of the string"},
     {name: "`sudo encode base64|hex <value> `", value : "Returns the encoded value of a string"},
