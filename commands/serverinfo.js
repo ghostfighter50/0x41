@@ -33,7 +33,7 @@ exports.run = (client, message, args) => {
   .addField("Channels", message.guild.channels.cache.size, true)
   .addField("Emojis", `${emojis}/100`, true)
   .addField("Verification Level", message.guild.verificationLevel, true)
-  .setFooter("Hack-Harder : https://discord.gg/s6aFpGq")
+  .setFooter("Dystopia : https://discord.gg/pU2JHgG5Mj")
 
 
   message.channel.send(embed);

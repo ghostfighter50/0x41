@@ -2,8 +2,8 @@ exports.run = (client, message, args) => {
 const Discord = require("discord.js")
 const deniedembed = new Discord.MessageEmbed()
 .setThumbnail(message.author.avatarURL)
-.setURL("https://discord.gg/s6aFpGq")
-.setFooter("Hack-Harder : https://discord.gg/s6aFpGq")
+.setURL("https://discord.gg/pU2JHgG5Mj")
+.setFooter("Dystopia : https://discord.gg/pU2JHgG5Mj")
 .setTitle(`❌ Acces Denied ! `) 
 .setColor(0x00AE86);
 
@@ -26,8 +26,8 @@ userPoints += pointsToAdd;
 client.points.set(`${message.guild.id}-${user.id}`, userPoints, "points")
 const giveembed = new Discord.MessageEmbed()
 .setThumbnail(message.author.avatarURL)
-.setURL("https://discord.gg/s6aFpGq")
-.setFooter("Hack-Harder : https://discord.gg/s6aFpGq")
+.setURL("https://discord.gg/pU2JHgG5Mj")
+.setFooter("Dystopia : https://discord.gg/pU2JHgG5Mj")
 .setTitle(`✅ Points added ! `) 
 .setDescription(`${user.tag} has received **${pointsToAdd}** points and now has **${userPoints}** points.`)
 .setColor(0x00AE86);

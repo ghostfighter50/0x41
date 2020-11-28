@@ -12,8 +12,8 @@ exports.run = (client, message, args) => {
     .setDescription(`I've nuked the points of  ${toRemove.size} user.`)
     .setColor(0x00AE86)
     .setThumbnail(message.author.avatarURL)
-    .setURL("https://discord.gg/s6aFpGq")
-    .setFooter("Hack-Harder : https://discord.gg/s6aFpGq")
+    .setURL("https://discord.gg/pU2JHgG5Mj")
+    .setFooter("Dystopia : https://discord.gg/pU2JHgG5Mj")
 
     message.channel.send(embed);
   }

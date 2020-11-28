@@ -6,7 +6,7 @@ exports.run = (client, message, args) => {
     let embed = new Discord.MessageEmbed()
     .setThumbnail(message.author.avatarURL)
 
-    .setFooter("Hack-Harder : https://discord.gg/s6aFpGq")
+    .setFooter("Dystopia : https://discord.gg/pU2JHgG5Mj")
  
     .setColor(0x00AE86);
 

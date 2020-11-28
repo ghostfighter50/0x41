@@ -19,7 +19,7 @@ exports.run = async (client, message) => {
 		.setDescription(banMember.guild)
 		.setThumbnail(banMember.guild.iconURL)
         .setColor(0x00AE86)
-        .setURL("https://discord.gg/s6aFpGq")
+        .setURL("https://discord.gg/pU2JHgG5Mj")
 		.setFooter(`Banned by ${message.author.username}`);
 
 	message.channel.send('❓ Are you sure you want to ban this user?\nreply with "yes" or "no" in the next 10 seconds');

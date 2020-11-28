@@ -2,8 +2,8 @@ exports.run = async (client, message) => {
 const Discord = require('discord.js');
 const verified = new Discord.MessageEmbed()
 .setThumbnail(message.author.avatarURL)
-.setURL("https://discord.gg/s6aFpGq")
-.setFooter("Hack-Harder : https://discord.gg/s6aFpGq")
+.setURL("https://discord.gg/pU2JHgG5Mj")
+.setFooter("Dystopia : https://discord.gg/pU2JHgG5Mj")
 .setTitle(`✅ Roles updated ! `) 
 .setColor(0x00AE86);
 let embed = new Discord.MessageEmbed()
@@ -11,8 +11,8 @@ let embed = new Discord.MessageEmbed()
 .setDescription("Don't give up, you can make those challenges !")
 .setThumbnail(message.guild.iconURL)
 .setColor(0x00AE86)
-.setURL("https://discord.gg/s6aFpGq")
-.setFooter("Hack-Harder : https://discord.gg/s6aFpGq")
+.setURL("https://discord.gg/pU2JHgG5Mj")
+.setFooter("Dystopia : https://discord.gg/pU2JHgG5Mj")
 let user = message.author
 let userPoints = client.points.get(`${message.guild.id}-${user.id}`, "points");
 let member = message.member;

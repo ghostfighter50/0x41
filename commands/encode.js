@@ -6,8 +6,8 @@ let hex = Buffer.from(args[1]).toString('hex')
 
 let embed = new Discord.MessageEmbed()
 .setThumbnail(message.author.avatarURL)
-.setURL("https://discord.gg/s6aFpGq")
-.setFooter("Hack-Harder : https://discord.gg/s6aFpGq")
+.setURL("https://discord.gg/pU2JHgG5Mj")
+.setFooter("Dystopia : https://discord.gg/pU2JHgG5Mj")
 .setTitle(args[0]) 
 .setColor(0x00AE86);
 
@@ -22,8 +22,8 @@ else if(args[0] == 'hex'){
 else {
     const error = new Discord.MessageEmbed()
     .setThumbnail(message.author.avatarURL)
-    .setURL("https://discord.gg/s6aFpGq")
-    .setFooter("Hack-Harder : https://discord.gg/s6aFpGq")
+    .setURL("https://discord.gg/pU2JHgG5Mj")
+    .setFooter("Dystopia : https://discord.gg/pU2JHgG5Mj")
     .setTitle(`❌ Invalid Syntax  ! `) 
     .setColor(0x00AE86);
     return message.channel.send(error)

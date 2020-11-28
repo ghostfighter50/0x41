@@ -36,9 +36,9 @@ exports.run = async (client, message) => {
     .addField('User:', `${tomute.username}#${tomute.discriminator} (${tomute.id})`)
     .addField('Moderator:', `${message.author.username}#${message.author.discriminator}`)
     .addField('Length', mutetime +" sec")
-    .setURL("https://discord.gg/s6aFpGq")
+    .setURL("https://discord.gg/pU2JHgG5Mj")
     .setColor(0x00AE86)
-    .setFooter("Hack-Harder : https://discord.gg/s6aFpGq")
+    .setFooter("Dystopia : https://discord.gg/pU2JHgG5Mj")
     message.channel.send({embed});
 
     message.guild.member(tomute).roles.add(muteRole);
