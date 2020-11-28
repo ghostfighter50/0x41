@@ -12,7 +12,6 @@ exports.run = async  (client, message) => {
     {name: "`sudo tempmute <@user> (reason)`", value : "Temp mutes a user (mod only)"},  
     {name: "`sudo unmute <@user> (reason)`", value : "Unmutes a user (mod only)"},    
     {name: "`sudo mute <@user> (reason)`", value : "Mutes a user (mod only)"}, 
-    {name: "`sudo rename <@user> <new-nickname>`", value : "Changes the nickname of a user (mod only)"}, 
     {name: "`sudo kick <@user> (reason)`", value : "Kicks a user (mod only)"},      
     {name: "`sudo ban <@user> (reason)`", value : "Bans a user (admin only)"}, 
     {name: "`sudo unban <user id> (reason)`", value : "Unbans a user (admin only)"}, 
