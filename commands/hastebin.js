@@ -5,7 +5,7 @@ exports.run = async (client, message, args) => {
    try {
        
   
-    let haste = args.slice(8)
+    let haste = args.join(" ")
     hastebin(haste).then(r => {
         let hastebinembed = new Discord.MessageEmbed()
         .setTitle("**Hastebin**")
