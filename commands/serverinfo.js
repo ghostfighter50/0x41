@@ -6,7 +6,6 @@ exports.run = (client, message, args) => {
         let days = Math.floor(diff / 86400000);
         return days + (days == 1 ? " day" : " days") + " ago";
     };
-    let verifLevels = ["None", "Low", "Medium", "(╯°□°）╯︵  ┻━┻", "┻━┻ミヽ(ಠ益ಠ)ノ彡┻━┻"];
  
     
     var emojis;
@@ -26,8 +25,8 @@ exports.run = (client, message, args) => {
   .addField("Owner", `${message.guild.owner.user.username}#${message.guild.owner.user.discriminator}`, true)
   .addField("Region", message.guild.region, true)
   .addField("User Count", message.guild.memberCount, true)
-  .addField("Member Count", message.guild.members.cache.filter(m => !m.user.bot).size, true)
-  .addField("Bot Count", message.guild.members.cache.filter(m => m.user.bot).size, true)
+  .addField("Member Count", message.guild.members.cache.size, true)
+  .addField("Bot Count", message.guild.members.cache.size, true)
   .addField("AFK Timeout", message.guild.afkTimeout / 60 + ' minutes', true)
   .addField("Roles", message.guild.roles.cache.size, true)
   .addField("Channels", message.guild.channels.cache.size, true)
