@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
 const ms = require("ms");
 
-exports.run = async (client, message) => {
-    let args = message.content.slice(4).split(' ');
+exports.run = async (client, message, args) => {
+    
 
     let tomute = message.mentions.users.first() || message.guild.members.cache.get(args[2]);
     if(!tomute) return message.reply("❌ Couldn't find that user.");
@@ -28,7 +28,7 @@ exports.run = async (client, message) => {
             console.log(e.stack);
         }
     }
-    let mutetime = args[3];
+    let mutetime = args[0];
     if(!mutetime) return message.reply("❌ You didnt specify a time for temporary mute.");
     
     const embed = new Discord.MessageEmbed()

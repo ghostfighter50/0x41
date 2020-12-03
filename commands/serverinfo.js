@@ -17,7 +17,6 @@ exports.run = (client, message, args) => {
 
     const embed = new Discord.MessageEmbed()
   .setColor(0x00AE86)
-
   .setAuthor(message.guild.name, message.guild.iconURL() ? message.guild.iconURL() : client.user.displayAvatarURL())
   .setThumbnail(message.guild.iconURL())
   .addField("Created", `${message.guild.createdAt.toString().substr(0, 15)},\n(${checkDays(message.guild.createdAt)})`, true)
