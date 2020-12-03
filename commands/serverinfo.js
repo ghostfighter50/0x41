@@ -22,7 +22,6 @@ exports.run = (client, message, args) => {
   .setThumbnail(message.guild.iconURL())
   .addField("Created", `${message.guild.createdAt.toString().substr(0, 15)},\n(${checkDays(message.guild.createdAt)})`, true)
   .addField("ID", message.guild.id, true)
-  .addField("Owner", `${message.guild.owner.user.username}#${message.guild.owner.user.discriminator}`, true)
   .addField("Region", message.guild.region, true)
   .addField("User Count", message.guild.memberCount, true)
   .addField("Member Count", message.guild.members.cache.size, true)
