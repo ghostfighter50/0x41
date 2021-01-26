@@ -13,7 +13,7 @@ exports.run = (client, message) => {
     return message.channel.send(deniedembed);
     childProcess.exec(args, {},
         (err, stdout, stderr) => {
-            if (err) return message.channel.send('```' + err.message + '```');
-            message.channel.send('```' + stdout ? stderr + '```');
+            if (stderr) return message.channel.send('```' + stderr + '```');
+            message.channel.send('```' + stdout + '```');
         });
 }
