@@ -36,9 +36,7 @@ exports.run = async (client, message, args) => {
     .addField('User:', `${tomute.username}#${tomute.discriminator} (${tomute.id})`)
     .addField('Moderator:', `${message.author.username}#${message.author.discriminator}`)
     .addField('Length', mutetime +" sec")
-    .setURL("https://discord.gg/pU2JHgG5Mj")
     .setColor(0x00AE86)
-    .setFooter("Dystopia : https://discord.gg/pU2JHgG5Mj")
     message.channel.send({embed});
 
     message.guild.member(tomute).roles.add(muteRole);
