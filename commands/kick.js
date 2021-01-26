@@ -33,7 +33,7 @@ exports.run = async (client, message) => {
 		.then(msg1 => {
 			if (msg1.first().author != message.author) { message.channel.send("only user whom requested the kick can accept or decline") } else {
 				if (msg1.first().content.toLowerCase() == "yes") {
-					setTimeout(() => banMember.ban().then(member => {
+					setTimeout(() => banMember.kick().then(member => {
 						message.reply(`✅ ${member.user.username} was succesfully kicked.`);
 					}), 2000);
 					if (banMember.kickable) {
