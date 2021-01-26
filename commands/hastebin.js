@@ -10,8 +10,6 @@ exports.run = async (client, message, args) => {
         let hastebinembed = new Discord.MessageEmbed()
         .setTitle("**Hastebin**")
         .addField("URL:", r)
-        .setURL("https://discord.gg/pU2JHgG5Mj")
-        .setFooter("Dystopia : https://discord.gg/pU2JHgG5Mj")
         .setColor(0x00AE86);
         message.channel.send(hastebinembed);
     })
@@ -19,8 +17,6 @@ exports.run = async (client, message, args) => {
         let hastebinembed = new Discord.MessageEmbed()
         .setTitle("**Hastebin**")
         .addField("URL : SERVICE UNAVAILABLE")
-        .setURL("https://discord.gg/pU2JHgG5Mj")
-        .setFooter("Dystopia : https://discord.gg/pU2JHgG5Mj")
         .setColor(0x00AE86);
         message.channel.send(hastebinembed);
 
