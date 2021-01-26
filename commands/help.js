@@ -2,7 +2,6 @@ exports.run = async  (client, message) => {
     const Discord = require("discord.js")
     const embed = new Discord.MessageEmbed()
     .addField("** **", "** **",true)
-    .addField("** **", "** **")
     .setThumbnail(message.author.avatarURL)
     .addField("\n\n** 📚 Informations **","`() = options`  `<> = required`, `< | > = possible values`   `@user = mention`")
     .addField("** **", "** **", true)
