@@ -24,8 +24,7 @@ exports.run = async (client, message) => {
       osutils.cpuUsage(function(v) {
         const embed = new Discord.MessageEmbed()
         .setColor(0x00AE86)
-        .setTitle('Hack-Harder BOT stats.')
-        .setURL("https://discord.gg/pU2JHgG5Mj")
+        .setTitle('0x00007f00 BOT stats.')
         .setThumbnail(client.user.avatarURL({ format: 'png', dynamic: true, size: 2048 }))
         .addField("---------------------------------------------------------------------",("-------------------------------------------------------------------"),false)
         .addField("Global Prefix", globalprefix, true)
@@ -46,8 +45,7 @@ exports.run = async (client, message) => {
         .addField("RAM Usage Of VPS %", `${(100 - osutils.freememPercentage() * 100).toString().split(".")[0] + "." + (100 - osutils.freememPercentage() * 100).toString().split(".")[1].split('')[0] + (100 - osutils.freememPercentage() * 100).toString().split(".")[1].split('')[1]}%`,true)
         .addField("Ping", Math.round(client.ws.ping) + "ms", true)
         .addField("Uptime", days + "d " + hours + "h " + minutes + "m " + seconds + "." + milliseconds + "s", true)
-        .setFooter("Dystopias : https://discord.gg/pU2JHgG5Mj")
-        message.channel.send({embed});
+        message.channel.send(embed);
       })
     })
   }
