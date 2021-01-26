@@ -39,8 +39,6 @@ exports.run = async (client, message) => {
       .addField('Moderator:', `${message.author.username}#${message.author.discriminator}`)
       .addField('Reason', reason)
       .setColor(0x00AE86)
-      .setURL("https://discord.gg/pU2JHgG5Mj")
-      .setFooter("Dystopia : https://discord.gg/pU2JHgG5Mj")     
    
       message.channel.send({embed})
   
