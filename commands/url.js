@@ -4,10 +4,7 @@ let Discord = require("discord.js")
 exports.run = (client, message, args) => {
     message.delete()
     let embed = new Discord.MessageEmbed()
-    .setThumbnail(message.author.avatarURL)
-
-    .setFooter("Dystopia : https://discord.gg/pU2JHgG5Mj")
- 
+    .setThumbnail(message.author.avatarURL) 
     .setColor(0x00AE86);
 
 shortUrl.short(args[0], (err, url)=>{
