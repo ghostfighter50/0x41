@@ -7,8 +7,8 @@ exports.run = async  (client, message) => {
     .addField("** ⚙️ Utilities**","`exec <command>`   `stats`   `userinfo <@user>`   `serverinfo`   `ping `   `hastebin <value>`   `encode <base64|hex> <value>`   `decode <base64|hex> <value>`   `search <keyword>`  ",false)
     .addField("** 📊 Points**","`give <user> <amount>`   `remove <user> <amount>`   `nukepoints`   `levels`   `updateroles`   `points`   `verify <challenge-name> <flag> `   `leaderboard `  ", false)
     .setTitle(`📖 Help `)
-    .setFooter(`Made by Ghostfighter50`)
-    .setColor(0x00AE86);    
+    .setFooter("Made by Ghostfighter50")
+    .setColor("0x00AE86");    
 
     message.channel.send(embed)
 }
