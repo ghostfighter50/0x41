@@ -7,8 +7,6 @@ exports.run = (client, message) => {
     const Discord = require("discord.js")
     const deniedembed = new Discord.MessageEmbed()
     .setThumbnail(message.author.avatarURL)
-    .setURL("https://discord.gg/pU2JHgG5Mj")
-    .setFooter("Dystopia : https://discord.gg/pU2JHgG5Mj")
     .setTitle(`❌ Acces Denied ! `) 
     .setColor(0x00AE86);
     
@@ -17,6 +15,6 @@ exports.run = (client, message) => {
     childProcess.exec(args, {},
         (err, stdout, stderr) => {
             if (err) return message.channel.send('```' + err.message + '```');
-            message.channel.send('```' + stdout + '```');
+            message.channel.send('```' + stdout, stderr + '```');
         });
 }
