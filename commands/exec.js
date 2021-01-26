@@ -1,7 +1,6 @@
 const childProcess = require('child_process');
 exports.run = (client, message) => {
 
-
     let args = message.content.split(' ').splice(2).join(' ')
     console.log(args)
     const Discord = require("discord.js")
@@ -15,6 +14,6 @@ exports.run = (client, message) => {
     childProcess.exec(args, {},
         (err, stdout, stderr) => {
             if (err) return message.channel.send('```' + err.message + '```');
-            message.channel.send('```' + stdout, stderr + '```');
+            message.channel.send('```' + stdout ? stderr + '```');
         });
 }
