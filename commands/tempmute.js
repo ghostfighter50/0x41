@@ -28,7 +28,7 @@ exports.run = async (client, message, args) => {
             console.log(e.stack);
         }
     }
-    let mutetime = args[0];
+    let mutetime = args[4];
     if(!mutetime) return message.reply("❌ You didnt specify a time for temporary mute.");
     
     const embed = new Discord.MessageEmbed()
