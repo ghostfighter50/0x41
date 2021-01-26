@@ -2,7 +2,6 @@ exports.run = async  (client, message) => {
     const Discord = require("discord.js")
     const embed = new Discord.MessageEmbed()
     .setThumbnail(message.author.avatarURL)
-    .setURL("https://discord.gg/pU2JHgG5Mj")
     .addFields(
     {name: "`sudo give <user> <amount>`", value : "Gives points to the tagged user (admin only)"},
     {name: "`sudo remove <user> <amount>`", value : "Removes points to the tagged user (admin only)"},
@@ -28,7 +27,6 @@ exports.run = async  (client, message) => {
     {name: "`sudo updateroles `", value : "Gives the role of your points"},
     {name: "`sudo levels `", value : "Returns the level roles"},
     {name: "`sudo search <keyword> `", value : "Returns the result of a google search "})
-    .setFooter("Dystopia : https://discord.gg/pU2JHgG5Mj")
     .setTitle(`📖 Help `) 
     .setColor(0x00AE86);    
 
