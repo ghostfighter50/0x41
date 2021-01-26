@@ -3,7 +3,6 @@ module.exports = client => {
   const activities_list = [
     `${client.guilds.cache.size} servers`, 
     `${client.channels.cache.size} channels`, 
-    `${client.users.cache.size} users`, 
 "sudo help"];
   setInterval(() => {
     const index = Math.floor(Math.random() * (activities_list.length - 1) + 1); 
