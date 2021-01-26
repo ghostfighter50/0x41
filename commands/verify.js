@@ -8,7 +8,7 @@ exports.run = async (client, message) => {
  let value = args[3]
  let user = message.author.id
  const key = `${message.guild.id}-${message.author.id}`;
-
+ message.delete()
 
  const flag = {
   flag1: { value: 'test', points: 20 },
@@ -24,8 +24,6 @@ exports.run = async (client, message) => {
  .setDescription("Don't give up, you can finish this challenge !")
  .setThumbnail(message.guild.iconURL)
  .setColor(0x00AE86)
- .setURL("https://discord.gg/pU2JHgG5Mj")
- .setFooter("Dystopia : https://discord.gg/pU2JHgG5Mj")
  message.channel.send(embed)
 }
 
@@ -36,8 +34,6 @@ client.points.set(key, userPoints, "points")
 
 const verified = new Discord.MessageEmbed()
 .setThumbnail(message.author.avatarURL)
-.setURL("https://discord.gg/pU2JHgG5Mj")
-.setFooter("Dystopia : https://discord.gg/pU2JHgG5Mj")
 .setTitle(`✅ Challenge finished ! `) 
 .setDescription(`${user.tag} has received **${result[1].points}** points and now has **${userPoints}** points.`)
 .setColor(0x00AE86);
