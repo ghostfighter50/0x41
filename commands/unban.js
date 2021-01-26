@@ -17,9 +17,7 @@ exports.run = async (client, message) => {
 		.setTitle("✅ Unbanned from server")
 		.setDescription(message.guild.name)
 		.setThumbnail(message.guild.iconURL)
-        .setColor(0x00AE86)
-        .setURL("https://discord.gg/pU2JHgG5Mj")
-		.setFooter(`Ubanned by ${message.author.username}`);
+        	.setColor(0x00AE86)
         message.guild.members.unban(bannedMember, {reason: reason})
         message.channel.send(embed)
     } catch(e) {
