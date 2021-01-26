@@ -1,7 +1,8 @@
 exports.run = async  (client, message) => {
     const Discord = require("discord.js")
     const embed = new Discord.MessageEmbed()
-    .addField("\u200b")
+    .addEmptyField()
+    .addEmptyField()
     .setThumbnail(message.author.avatarURL)
     .addField("\n\n** 📚 Informations **","`() = options`  `<> = required`, `< | > = possible values`   `@user = mention`")
     .addField("** 🔨 Moderation**","`tempmute <@user> (reason)`   `unmute <@user> (reason)`   `mute <@user> (reason)`   `kick <@user> (reason)`   `kick <@user> (reason)`   `unban <user id> (reason)`   `clear <number>`  ", false)
