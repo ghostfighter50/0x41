@@ -47,7 +47,8 @@ else if (userPoints >= "20") {
    
     
 else {
-    let removerole =  message.guild.roles.cache.get('803603102330126366');
+   let removerole =  message.guild.roles.cache.get('803603102330126366');
+   let testedUser = member
    testedUser.roles.remove(removerole)
     message.channel.send(embed)
     }
