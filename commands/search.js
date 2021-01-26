@@ -13,16 +13,12 @@ var options = {
 };
 const waitembed = new Discord.MessageEmbed()
 .setThumbnail(message.author.avatarURL)
-.setURL("https://discord.gg/pU2JHgG5Mj")
-.setFooter("Dystopia : https://discord.gg/pU2JHgG5Mj")
 .setTitle(`🔁 I'm preparing your search...`) 
 .setColor(0x00AE86);
 message.channel.send(waitembed)
 const links = await serp.search(options)
 const embed = new Discord.MessageEmbed()
 .setThumbnail(message.author.avatarURL)
-.setURL("https://discord.gg/pU2JHgG5Mj")
-.setFooter("Dystopia : https://discord.gg/pU2JHgG5Mj")
 .setTitle(`Google search results`) 
 .setColor(0x00AE86);
 
