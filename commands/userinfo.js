@@ -42,7 +42,6 @@ exports.run = async (client, message, args) => {
           .addField('Joined Server', `${moment(muser.joinedAt).toString().substr(0, 15)}\n(${moment(muser.joinedAt).fromNow()})`, true)
           .addField('Roles', `${muser.roles.cache.array()}`, true)
           .addField('Is Bot', `${user.bot.toString().toUpperCase()}`, true)
-          .setFooter("Dystopia : https://discord.gg/pU2JHgG5Mj")
           .setColor(0x00AE86);      
           message.channel.send(embed);
         } catch  {
@@ -59,7 +58,6 @@ exports.run = async (client, message, args) => {
                   .addField('Joined Server', `${moment(muser.joinedAt).toString().substr(0, 15)}\n(${moment(muser.joinedAt).fromNow()})`, true)
                   .addField('Roles', `${muser.roles.cache.array()}`, true)
                   .addField('Is Bot', `${user.bot.toString().toUpperCase()}`, true)
-                  .setFooter("Dystopia : https://discord.gg/pU2JHgG5Mj")
                   .setColor(0x00AE86);      
                   message.channel.send(error);
         }
