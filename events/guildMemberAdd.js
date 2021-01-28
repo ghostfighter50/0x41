@@ -22,7 +22,7 @@ module.exports = async (client, member) => {
                  member.send(new Discord.MessageEmbed().setDescription("What does `boot` mean ? \n\n1️⃣ : Ddos attack\n2️⃣ : starting a computer").setColor(0x00AE86)).then(question2 => {
                      question2.react("1️⃣")
                      question2.react("2️⃣")
-                    question2.channel.awaitReactions(response => response.content, {
+                    question2.awaitReactions(response => response.content, {
                             max: 1,
                             time: 20000,
                             errors: ['time'],
@@ -31,7 +31,7 @@ module.exports = async (client, member) => {
                                  member.send(new Discord.MessageEmbed().setDescription("What does the `ls` command does on a UNIX system ?\n\n1️⃣ : List files\n2️⃣ : navigate into a directory").setColor(0x00AE86)).then(question3 => {
                                      question3.react("1️⃣")
                                      question3.react("2️⃣")
-                                    question2.channel.awaitReactions(response => response.content, {
+                                    question3.awaitReactions(response => response.content, {
                                         max:1, 
                                         time: 20000,
                                         errors: ['time'],
