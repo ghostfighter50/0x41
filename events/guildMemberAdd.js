@@ -22,23 +22,17 @@ module.exports = async (client, member) => {
                  member.send(new Discord.MessageEmbed().setDescription("What does `boot` mean ? \n\n1️⃣ : Ddos attack\n2️⃣ : starting a computer").setColor(0x00AE86)).then(question2 => {
                      question2.react("1️⃣")
                      question2.react("2️⃣")
-                    question2.awaitReactions(response => response.content, {
-                            max: 1,
-                            time: 20000,
-                            errors: ['time'],
-                        }).then(async (collected) => {
+                     question2.awaitReactions(r => ['1️⃣', '2️⃣'].includes(r.emoji.name), {max: 1})
+                     .then(async (collected) => {
                             if (collected.first().emoji.name == "2️⃣") {
                                  member.send(new Discord.MessageEmbed().setDescription("What does the `ls` command does on a UNIX system ?\n\n1️⃣ : List files\n2️⃣ : navigate into a directory").setColor(0x00AE86)).then(question3 => {
                                      question3.react("1️⃣")
                                      question3.react("2️⃣")
-                                    question3.awaitReactions(response => response.content, {
-                                        max:1, 
-                                        time: 20000,
-                                        errors: ['time'],
-                                    }).then(async (collected) => {
+                                    question3.awaitReactions(r => ['1️⃣', '2️⃣'].includes(r.emoji.name), {max: 1})
+                                    .then(async (collected) => {
                                         if (collected.first().emoji.name == "2️⃣") {
                                              member.send("Congratulations, you passed the test !")
-                                             smember.roles.add(role)
+                                             member.roles.add(role)
                                         }
                                         else {
                                             member.send("Too bad, you're a skid");
