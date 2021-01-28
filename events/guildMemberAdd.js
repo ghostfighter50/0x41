@@ -17,7 +17,7 @@ module.exports = async (client, member) => {
             max: 1,
             time: 20000,
             errors: ['time'],
-        }).then((collected) => {
+        }).then(async (collected) => {
             if (collected.first() == "You passed the first question ! Prepare for the second one.") {
                 await member.send(new Discord.MessageEmbed().setDescription("What does `boot` mean ? \n\n1️⃣ : Ddos attack\n2️⃣ : starting a computer").setColor(0x00AE86)).then(question2 => {
                     await question2.react("1️⃣")
@@ -26,7 +26,7 @@ module.exports = async (client, member) => {
                             max: 1,
                             time: 20000,
                             errors: ['time'],
-                        }).then((collected) => {
+                        }).then(async (collected) => {
                             if (collected.first().emoji.name == "2️⃣") {
                                 await member.send(new Discord.MessageEmbed().setDescription("What does the `ls` command does on a UNIX system ?\n\n1️⃣ : List files\n2️⃣ : navigate into a directory").setColor(0x00AE86)).then(question3 => {
                                     await question3.react("1️⃣")
@@ -35,7 +35,7 @@ module.exports = async (client, member) => {
                                         max: 1,
                                         time: 20000,
                                         errors: ['time'],
-                                    }).then((collected) => {
+                                    }).then(async (collected) => {
                                         if (collected.first().emoji.name == "2️⃣") {
                                             await member.send("Congratulations, you passed the test !")
                                             await member.roles.add(role)
