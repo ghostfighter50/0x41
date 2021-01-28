@@ -2,7 +2,7 @@ module.exports = async (client, member) => {
 
     const Discord = require("discord.js")
 
-    let channel = member.guild.channels.find(c => c.name == "skid-test")
+    let channel = member.guild.channels.cache.find(c => c.name == "skid-test")
 
     let  role = member.guild.roles.cache.find(role => role.id == 803625942647570493);
     let embed = new Discord.MessageEmbed()
