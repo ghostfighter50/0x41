@@ -32,22 +32,22 @@ module.exports = async (client, member) => {
                                      question3.react("1️⃣")
                                      question3.react("2️⃣")
                                     question2.channel.awaitReactions(response => response.content, {
-                                        max: 1,
+                                        max:1, 
                                         time: 20000,
                                         errors: ['time'],
                                     }).then(async (collected) => {
                                         if (collected.first().emoji.name == "2️⃣") {
                                              member.send("Congratulations, you passed the test !")
-                                             member.roles.add(role)
+                                             smember.roles.add(role)
                                         }
                                         else {
                                             member.send("Too bad, you're a skid");
-                                            member.kick("Skid")
+                                            //member.kick("Skid")
                                         }
                                     }
                                     ).catch(() => {
                                         channel.send('You didn\'t answer, we are forced to kick you.');
-                                        member.kick("Didn't respond to the questionnaire")
+                                      //  member.kick("Didn't respond to the questionnaire")
                                       
                                     });
                                 })
@@ -56,16 +56,16 @@ module.exports = async (client, member) => {
                         })
                         .catch(() => {
                             channel.send('You didn\'t answer, we are forced to kick you.');
-                            member.kick("Didn't respond to the questionnaire")
+                          //  member.kick("Didn't respond to the questionnaire")
                         });
                 })
             } else {
                 member.send("Too bad, you're a skid");
-                member.kick("Skid")
+             //   member.kick("Skid")
             }
         }).catch(() => {
             channel.send('You didn\'t answer, we are forced to kick you.');
-            member.kick("Didn't respond to the questionnaire")
+           // member.kick("Didn't respond to the questionnaire")
         });
     })
 }
