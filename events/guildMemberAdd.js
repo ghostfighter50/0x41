@@ -18,7 +18,7 @@ module.exports = async (client, member) => {
             time: 20000,
             errors: ['time'],
         }).then(async (collected) => {
-            if (collected.first() == "You passed the first question ! Prepare for the second one.") {
+            if (collected.first().content == "You passed the first question ! Prepare for the second one.") {
                  member.send(new Discord.MessageEmbed().setDescription("What does `boot` mean ? \n\n1️⃣ : Ddos attack\n2️⃣ : starting a computer").setColor(0x00AE86)).then(question2 => {
                      question2.react("1️⃣")
                      question2.react("2️⃣")
