@@ -19,35 +19,35 @@ module.exports = async (client, member) => {
             errors: ['time'],
         }).then(async (collected) => {
             if (collected.first() == "You passed the first question ! Prepare for the second one.") {
-                await member.send(new Discord.MessageEmbed().setDescription("What does `boot` mean ? \n\n1️⃣ : Ddos attack\n2️⃣ : starting a computer").setColor(0x00AE86)).then(question2 => {
-                    await question2.react("1️⃣")
-                    await question2.react("2️⃣")
+                 member.send(new Discord.MessageEmbed().setDescription("What does `boot` mean ? \n\n1️⃣ : Ddos attack\n2️⃣ : starting a computer").setColor(0x00AE86)).then(question2 => {
+                     question2.react("1️⃣")
+                     question2.react("2️⃣")
                     question2.channel.awaitReactions(response => response.content, {
                             max: 1,
                             time: 20000,
                             errors: ['time'],
                         }).then(async (collected) => {
                             if (collected.first().emoji.name == "2️⃣") {
-                                await member.send(new Discord.MessageEmbed().setDescription("What does the `ls` command does on a UNIX system ?\n\n1️⃣ : List files\n2️⃣ : navigate into a directory").setColor(0x00AE86)).then(question3 => {
-                                    await question3.react("1️⃣")
-                                    await question3.react("2️⃣")
+                                 member.send(new Discord.MessageEmbed().setDescription("What does the `ls` command does on a UNIX system ?\n\n1️⃣ : List files\n2️⃣ : navigate into a directory").setColor(0x00AE86)).then(question3 => {
+                                     question3.react("1️⃣")
+                                     question3.react("2️⃣")
                                     question2.channel.awaitReactions(response => response.content, {
                                         max: 1,
                                         time: 20000,
                                         errors: ['time'],
                                     }).then(async (collected) => {
                                         if (collected.first().emoji.name == "2️⃣") {
-                                            await member.send("Congratulations, you passed the test !")
-                                            await member.roles.add(role)
+                                             member.send("Congratulations, you passed the test !")
+                                             member.roles.add(role)
                                         }
                                         else {
-                                            await member.send("Too bad, you're a skid");
+                                            member.send("Too bad, you're a skid");
                                             member.kick("Skid")
                                         }
                                     }
                                     ).catch(() => {
-                                        await msg.channel.send('You didn\'t answer, we are forced to kick you.');
-                                        await member.kick("Didn't respond to the questionnaire")
+                                        msg.channel.send('You didn\'t answer, we are forced to kick you.');
+                                        member.kick("Didn't respond to the questionnaire")
                                       
                                     });
                                 })
@@ -55,17 +55,17 @@ module.exports = async (client, member) => {
 
                         })
                         .catch(() => {
-                            await msg.channel.send('You didn\'t answer, we are forced to kick you.');
-                            await member.kick("Didn't respond to the questionnaire")
+                            msg.channel.send('You didn\'t answer, we are forced to kick you.');
+                            member.kick("Didn't respond to the questionnaire")
                         });
                 })
             } else {
-                await member.send("Too bad, you're a skid");
+                member.send("Too bad, you're a skid");
                 member.kick("Skid")
             }
         }).catch(() => {
-            await msg.channel.send('You didn\'t answer, we are forced to kick you.');
-            await member.kick("Didn't respond to the questionnaire")
+            msg.channel.send('You didn\'t answer, we are forced to kick you.');
+            member.kick("Didn't respond to the questionnaire")
         });
     })
 }
