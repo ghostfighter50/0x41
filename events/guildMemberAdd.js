@@ -15,62 +15,60 @@ module.exports = async (client, member) => {
     await member.send(new Discord.MessageEmbed().setDescription("Decode this string : `WW91IHBhc3NlZCB0aGUgZmlyc3QgcXVlc3Rpb24gISBQcmVwYXJlIGZvciB0aGUgc2Vjb25kIG9uZS4=`").setColor(0x00AE86))
         .then(question1 => {
             question1.channel.awaitMessages(response => response.content, {
-                max: 1,
-                time: 20000,
-                errors: ['time'],
-            }).then(collected => {
-                if (collected.first().content == "You passed the first question ! Prepare for the second one.") {
-                    let question2 = member.send(new Discord.MessageEmbed().setDescription("What does `boot` mean ? \n\n1️⃣ : Ddos attack\n2️⃣ : starting a computer").setColor(0x00AE86))
-                    question2.react("1️⃣")
-                    question2.react("2️⃣")
-                    question2.awaitReactions(r => {
-                            return ['1️⃣', '2️⃣'].includes(r.emoji.name)
-                        }, {
-                            max: 1
-                        })
-                        .then(collected => {
-                            if (collected.first().emoji.name == "2️⃣") {
-                                console.log("ok", collected)
-                                let question3 = member.send(new Discord.MessageEmbed().setDescription("What does the `ls` command does on a UNIX system ?\n\n1️⃣ : List files\n2️⃣ : navigate into a directory").setColor(0x00AE86))
-                                question3.react("1️⃣")
-                                question3.react("2️⃣")
-                                question3.awaitReactions(r => {
-                                        return ['1️⃣', '2️⃣'].includes(r.emoji.name)
-                                    }, {
+                    max: 1,
+                    time: 20000,
+                    errors: ['time'],
+                }).then(collected => {
+                    if (collected.first().content == "You passed the first question ! Prepare for the second one.") {
+                        member.send('Correct Answer,  1/3')
+                        member.send(new Discord.MessageEmbed().setDescription("What does `boot` mean ? \n\n1️⃣ : Ddos attack\n2️⃣ : starting a computer").setColor(0x00AE86))
+                            .then(question2 => {
+                                question2.react("1️⃣")
+                                question2.react("2️⃣")
+                                question2.awaitReactions((reaction) => (reaction.emoji.name == '1️⃣' || reaction.emoji.name == '2️⃣'), {
                                         max: 1
                                     })
+                                    .catch(err => console.log(err))
                                     .then(collected => {
-                                        if (collected.first().emoji.name == "2️⃣") {
-                                            member.send("Congratulations, you passed the test !")
-                                            member.roles.add(role)
+                                        if (collected.first().emoji.name == '2️⃣') {
+                                            member.send('Correct Answer,  2/3')
+                                                .catch(err => console.log(err));
+                                            member.send(new Discord.MessageEmbed().setDescription("What does the `ls` command does on a UNIX system ?\n\n1️⃣ : List files\n2️⃣ : navigate into a directory").setColor(0x00AE86))
+                                                .then(question3 => {
+                                                    question3.react("1️⃣")
+                                                    question3.react("2️⃣")
+                                                    question3.awaitReactions((reaction) => (reaction.emoji.name == '1️⃣' || reaction.emoji.name == '2️⃣'), {
+                                                            max: 1
+                                                        })
+                                                        .then(collected => {
+                                                            if (collected.first().emoji.name == '1️⃣') {
+
+                                                                member.send("Congratulations, you passed the test ! 3/3")
+                                                                member.roles.add(role)
+                                                            } else {
+                                                                member.send('Incorect Answer, you\'re going to be kicked');
+                                                                member.kick()
+                                                                    .catch(err => console.log(err));
+                                                            }
+                                                        })
+                                                })
                                         } else {
-                                            member.send("Too bad, you're a skid");
-                                            //member.kick("Skid")
+                                            member.send('Incorect Answer, you\'re going to be kicked');
+                                            member.kick()
+                                                .catch(err => console.log(err));
                                         }
-                                    }).catch((e) => {
-                                        console.log(e)
-                                        //  channel.send('You didn\'t answer, we are forced to kick you.');
-                                        //  member.kick("Didn't respond to the questionnaire")
+                                    })
 
-                                    });
+                            })
+                    }
 
-                            }
-
-                        })
-                        .catch((e) => {
-                            console.log(e)
-                            //channel.send('You didn\'t answer, we are forced to kick you.');
-                            //  member.kick("Didn't respond to the questionnaire")
-                        });
-
-                } else {
-                    member.send("Too bad, you're a skid");
-                    //   member.kick("Skid")
-                }
-            }).catch((e) => {
-                console.log(e)
-                //channel.send('You didn\'t answer, we are forced to kick you.');
-                // member.kick("Didn't respond to the questionnaire")
-            });
+                })
+                .catch((e) => {
+                    console.log(e)
+                    //channel.send('You didn\'t answer, we are forced to kick you.');
+                    //  member.kick("Didn't respond to the questionnaire")
+                });
         })
+
+
 }
