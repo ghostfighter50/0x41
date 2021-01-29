@@ -15,7 +15,7 @@ module.exports = async (client, member) => {
     await member.send(new Discord.MessageEmbed().setDescription("Decode this string : `WW91IHBhc3NlZCB0aGUgZmlyc3QgcXVlc3Rpb24gISBQcmVwYXJlIGZvciB0aGUgc2Vjb25kIG9uZS4=`").setColor(0x00AE86))
         .then(question1 => {
             question1.channel.awaitMessages(response => response.content, {
-                    max: 1,
+                    max: 4,
                     time: 20000,
                     errors: ['time'],
                 }).then(collected => {
