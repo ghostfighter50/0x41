@@ -25,7 +25,7 @@ module.exports = async (client, member) => {
                             .then(question2 => {
                                 question2.react("1️⃣")
                                 question2.react("2️⃣")
-                                question2.awaitReactions((reaction) => (reaction.emoji.name == '1️⃣' || reaction.emoji.name == '2️⃣'), {
+                                question2.awaitReactions((reaction) => (reaction.emoji.name == '1️⃣' || reaction.emoji.name == '2️⃣' && reaction.count > 2), {
                                         max: 1,
                                         time: 5000
                                     })
@@ -39,7 +39,7 @@ module.exports = async (client, member) => {
                                                 .then(question3 => {
                                                     question3.react("1️⃣")
                                                     question3.react("2️⃣")
-                                                    question3.awaitReactions((reaction) => (reaction.emoji.name == '1️⃣' || reaction.emoji.name == '2️⃣'), {
+                                                    question3.awaitReactions((reaction) => (reaction.emoji.name == '1️⃣' || reaction.emoji.name == '2️⃣' && reaction.count > 2), {
                                                             max: 1,
                                                             time: 5000
                                                         })
