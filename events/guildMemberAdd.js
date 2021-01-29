@@ -49,14 +49,14 @@ module.exports = async (client, member) => {
 
                                                                 member.send("Congratulations, you passed the test ! 3/3")
                                                                 member.roles.add(role)
-                                                            } else {
+                                                            } else if (collected.first().emoji.name == '2️⃣') {
                                                                 member.send('Incorect Answer, you\'re going to be kicked');
                                                                // member.kick()
                                                                     //.catch(err => console.log(err));
                                                             }
                                                         })
                                                 })
-                                        } else {
+                                        } else if (collected.first().emoji.name == '1️⃣'){
                                             member.send('Incorect Answer, you\'re going to be kicked');
                                             //member.kick()
                                                 //.catch(err => console.log(err));
