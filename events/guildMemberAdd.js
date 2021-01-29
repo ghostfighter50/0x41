@@ -41,7 +41,7 @@ module.exports = async (client, member) => {
                                                             max: 3,
                                                         })
                                                         .then(collected1 => {
-                                                        console.log(collected1)
+                                                        console.log(collected1.last().emoji.name)
                                                             if (collected1.last().emoji.name == '1️⃣') {
                                                                 member.send("Congratulations, you passed the test ! 3/3")
                                                                 member.roles.add(role)
