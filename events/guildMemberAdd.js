@@ -41,13 +41,13 @@ module.exports = async (client, member) => {
                                                     question3.awaitReactions((reaction, user) => (reaction.emoji.name == '1️⃣' || reaction.emoji.name == '2️⃣' ), {
                                                             max: 3,
                                                         })
-                                                        .then(collected => {
-                                                        console.log(collected)
-                                                            if (collected.last().emoji.name == '1️⃣') {
+                                                        .then(collected1 => {
+                                                        console.log(collected1)
+                                                            if (collected1.last().emoji.name == '1️⃣') {
 
                                                                 member.send("Congratulations, you passed the test ! 3/3")
                                                                 member.roles.add(role)
-                                                            } else if (collected.last().emoji.name == '2️⃣' ) {
+                                                            } else if (collected1.last().emoji.name == '2️⃣' ) {
                                                                 member.send('Incorect Answer, you\'re going to be kicked');
                                                                // member.kick()
                                                                     //.catch(err => console.log(err));
