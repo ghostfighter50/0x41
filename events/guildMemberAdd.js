@@ -6,7 +6,7 @@ module.exports = async (client, member) => {
 
     let  role = member.guild.roles.cache.find(role => role.id == 803625942647570493);
     let embed = new Discord.MessageEmbed()
-        .setTitle(`New Member : ${member}`)
+        .setTitle(`New Member : ${member.user.username}`)
         .setDescription(`Welcome to 0x41 ${member}, pass the anti-skid test in DM's to acces the whole server`)
         .setColor(0x00AE86)
         .setThumbnail(member.avatarURL)
@@ -23,37 +23,41 @@ module.exports = async (client, member) => {
                      question2.react("1️⃣")
                      question2.react("2️⃣")
                      question2.awaitReactions(r => ['1️⃣', '2️⃣'].includes(r.emoji.name), {max: 1})
-                     .then(async (collected) => {
-                            if (collected.first().emoji.name == "2️⃣") {
-                                 member.send(new Discord.MessageEmbed().setDescription("What does the `ls` command does on a UNIX system ?\n\n1️⃣ : List files\n2️⃣ : navigate into a directory").setColor(0x00AE86)).then(question3 => {
-                                     question3.react("1️⃣")
-                                     question3.react("2️⃣")
-                                    question3.awaitReactions(r => ['1️⃣', '2️⃣'].includes(r.emoji.name), {max: 1})
-                                    .then(async (collected) => {
-                                        if (collected.first().emoji.name == "2️⃣") {
-                                             member.send("Congratulations, you passed the test !")
-                                             member.roles.add(role)
-                                        }
-                                        else {
-                                            member.send("Too bad, you're a skid");
-                                            //member.kick("Skid")
-                                        }
-                                    }
-                                    ).catch(() => {
-                                        channel.send('You didn\'t answer, we are forced to kick you.');
-                                      //  member.kick("Didn't respond to the questionnaire")
-                                      
-                                    });
-                                })
-                            }
-
-                        })
-                        .catch(() => {
-                            channel.send('You didn\'t answer, we are forced to kick you.');
-                          //  member.kick("Didn't respond to the questionnaire")
-                        });
+                     .then(collected => {
+                       let r = collected.first();
+                 
+                       if (r.emoji.name == '1️⃣') {
+                        member.send(new Discord.MessageEmbed().setDescription("What does the `ls` command does on a UNIX system ?\n\n1️⃣ : List files\n2️⃣ : navigate into a directory").setColor(0x00AE86)).then(question3 => {
+                            question3.react("1️⃣")
+                            question3.react("2️⃣")
+                           question3.awaitReactions(r => ['1️⃣', '2️⃣'].includes(r.emoji.name), {max: 1})
+                           .then(collected => {
+                             let r = collected.first();
+                       
+                             if (r.emoji.name == '2️⃣') 
+                               member.roles.add(role)
+                                 .then(() => { console.log(`Added ${member.user.username} (${member.id}).`); })
+                                 .catch(console.error);
+                             else if (r.emoji.name == '1️⃣') member.kick("You got rejected.");
+                       
+                             r.remove(r.users.last())
+                           }).catch(() => {
+                               channel.send('You didn\'t answer, we are forced to kick you.');
+                               //member.kick("Didn't respond to the questionnaire")
+                             
+                           });
+                       })
+                   }
+                       else if (r.emoji.name == '2️⃣') member.kick("You got rejected.");
+                 
+                       r.remove(r.users.last())
+                     }).catch(() => {
+                        channel.send('You didn\'t answer, we are forced to kick you.');
+                        //member.kick("Didn't respond to the questionnaire")
+                      
+                    });
+                              
                 })
-            } else {
                 member.send("Too bad, you're a skid");
              //   member.kick("Skid")
             }
