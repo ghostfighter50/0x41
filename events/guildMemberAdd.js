@@ -27,6 +27,7 @@ module.exports = async (client, member) => {
                     question2.awaitReactions(r => {return ['1️⃣', '2️⃣'].includes(r.emoji.name)}, { max: 1 })
                         .then(collected => {
                             if (collected.first().emoji.name == "2️⃣") {
+                                console.log(collected)
                                 member.send(new Discord.MessageEmbed().setDescription("What does the `ls` command does on a UNIX system ?\n\n1️⃣ : List files\n2️⃣ : navigate into a directory").setColor(0x00AE86))
                                 .then(question3 => {
                                     question3.react("1️⃣")
