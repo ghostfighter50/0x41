@@ -32,7 +32,7 @@ module.exports = async (client, member) => {
                                     .catch(err => console.log(err))
                                     .then(collected => {
                                         console.log(collected)
-                                        if (collected.first().emoji.name == '2️⃣'  && collected.count == 3) {
+                                        if (collected.last().emoji.name == '2️⃣'  ) {
                                             member.send('Correct Answer,  2/3')
                                                 .catch(err => console.log(err));
                                             member.send(new Discord.MessageEmbed().setDescription("What does the `ls` command does on a UNIX system ?\n\n1️⃣ : List files\n2️⃣ : navigate into a directory").setColor(0x00AE86))
@@ -45,18 +45,18 @@ module.exports = async (client, member) => {
                                                         })
                                                         .then(collected => {
                                                         console.log(collected)
-                                                            if (collected.first().emoji.name == '1️⃣'  && collected.count == 3) {
+                                                            if (collected.last().emoji.name == '1️⃣') {
 
                                                                 member.send("Congratulations, you passed the test ! 3/3")
                                                                 member.roles.add(role)
-                                                            } else if (collected.first().emoji.name == '2️⃣'  && collected.count == 3) {
+                                                            } else if (collected.last().emoji.name == '2️⃣' ) {
                                                                 member.send('Incorect Answer, you\'re going to be kicked');
                                                                // member.kick()
                                                                     //.catch(err => console.log(err));
                                                             }
                                                         })
                                                 })
-                                        } else if (collected.first().emoji.name == '1️⃣'  && collected.count == 3){
+                                        } else if (collected.last().emoji.name == '1️⃣'){
                                             member.send('Incorect Answer, you\'re going to be kicked');
                                             //member.kick()
                                                 //.catch(err => console.log(err));
