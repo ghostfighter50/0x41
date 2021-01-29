@@ -26,8 +26,7 @@ module.exports = async (client, member) => {
                                 question2.react("1️⃣")
                                 question2.react("2️⃣")
                                 question2.awaitReactions((reaction, user) => (reaction.emoji.name == '1️⃣' || reaction.emoji.name == '2️⃣' ), {
-                                        max: 4,
-                                        time: 5000
+                                        max: 3,
                                     })
                                     .catch(err => console.log(err))
                                     .then(collected => {
@@ -40,8 +39,7 @@ module.exports = async (client, member) => {
                                                     question3.react("1️⃣")
                                                     question3.react("2️⃣")
                                                     question3.awaitReactions((reaction, user) => (reaction.emoji.name == '1️⃣' || reaction.emoji.name == '2️⃣' ), {
-                                                            max: 4,
-                                                            time: 5000
+                                                            max: 3,
                                                         })
                                                         .then(collected => {
                                                         console.log(collected)
