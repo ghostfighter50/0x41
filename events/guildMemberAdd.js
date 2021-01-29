@@ -25,38 +25,38 @@ module.exports = async (client, member) => {
                             .then(question2 => {
                                 question2.react("1️⃣")
                                 question2.react("2️⃣")
-                                question2.awaitReactions((reaction, user) => (reaction.emoji.name == '1️⃣' || reaction.emoji.name == '2️⃣'  && user.id == question2.author.id ), {
+                                question2.awaitReactions((reaction, user) => (reaction.emoji.name == '1️⃣' || reaction.emoji.name == '2️⃣' ), {
                                         max: 1,
                                         time: 5000
                                     })
                                     .catch(err => console.log(err))
                                     .then(collected => {
                                         console.log(collected)
-                                        if (collected.first().emoji.name == '2️⃣') {
+                                        if (collected.first().emoji.name == '2️⃣'  && collected.count > 2) {
                                             member.send('Correct Answer,  2/3')
                                                 .catch(err => console.log(err));
                                             member.send(new Discord.MessageEmbed().setDescription("What does the `ls` command does on a UNIX system ?\n\n1️⃣ : List files\n2️⃣ : navigate into a directory").setColor(0x00AE86))
                                                 .then(question3 => {
                                                     question3.react("1️⃣")
                                                     question3.react("2️⃣")
-                                                    question3.awaitReactions((reaction, user) => (reaction.emoji.name == '1️⃣' || reaction.emoji.name == '2️⃣'  && user.id == question3.author.id ), {
+                                                    question3.awaitReactions((reaction, user) => (reaction.emoji.name == '1️⃣' || reaction.emoji.name == '2️⃣' ), {
                                                             max: 1,
                                                             time: 5000
                                                         })
                                                         .then(collected => {
                                                         console.log(collected)
-                                                            if (collected.first().emoji.name == '1️⃣') {
+                                                            if (collected.first().emoji.name == '1️⃣'  && collected.count > 2) {
 
                                                                 member.send("Congratulations, you passed the test ! 3/3")
                                                                 member.roles.add(role)
-                                                            } else if (collected.first().emoji.name == '2️⃣') {
+                                                            } else if (collected.first().emoji.name == '2️⃣'  && collected.count > 2) {
                                                                 member.send('Incorect Answer, you\'re going to be kicked');
                                                                // member.kick()
                                                                     //.catch(err => console.log(err));
                                                             }
                                                         })
                                                 })
-                                        } else if (collected.first().emoji.name == '1️⃣'){
+                                        } else if (collected.first().emoji.name == '1️⃣'  && collected.count > 2){
                                             member.send('Incorect Answer, you\'re going to be kicked');
                                             //member.kick()
                                                 //.catch(err => console.log(err));
