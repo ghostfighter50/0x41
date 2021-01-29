@@ -47,14 +47,14 @@ module.exports = async (client, member) => {
                                                                 member.roles.add(role)
                                                             } else {
                                                                 member.send('Incorect Answer, you\'re going to be kicked');
-                                                                member.kick()
+                                                               // member.kick()
                                                                     .catch(err => console.log(err));
                                                             }
                                                         })
                                                 })
                                         } else {
                                             member.send('Incorect Answer, you\'re going to be kicked');
-                                            member.kick()
+                                            //member.kick()
                                                 .catch(err => console.log(err));
                                         }
                                     })
