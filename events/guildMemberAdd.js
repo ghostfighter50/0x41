@@ -35,18 +35,19 @@ module.exports = async (client, member) => {
                 await question2.react("1️⃣")
                 await question2.react("2️⃣")
 
-                await question2.awaitReactions(Filter1, {
-                        max: 3
-                    })
+                await question2.awaitReactions(Filter1, { max: 3 })
 
                     .then(async collected => {
+                    
+                        console.log(collected.first().emoji.name)
+                    
                         if (collected.first().emoji.name == '2️⃣') {
 
                             await member.send('Correct Answer,  2/3')
 
                             let question3 = await member.send(new Discord.MessageEmbed().setDescription("What does the `ls` command does on a UNIX system ?\n\n1️⃣ : List files\n2️⃣ : navigate into a directory").setColor(0x00AE86))
 
-                            const Filter2 = (reaction, user) => user.id == question2.author.id;
+                            const Filter2 = (reaction, user) => user.id == question3.author.id;
 
                             await question3.react("1️⃣")
                             await question3.react("2️⃣")
