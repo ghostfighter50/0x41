@@ -48,14 +48,14 @@ module.exports = async (client, member) => {
                                                                 member.send("Congratulations, you passed the test ! 3/3")
                                                                 member.roles.add(role)
                                                             } else if (collected1.last().emoji.name == '2️⃣' ) {
-                                                                member.send('Incorect Answer, you\'re going to be kicked');
+                                                                member.send('Incorect Answer, you\'re going to be kicked 2/3');
                                                                // member.kick()
                                                                     //.catch(err => console.log(err));
                                                             }
                                                         })
                                                 })
                                         } else if (collected.last().emoji.name == '1️⃣'){
-                                            member.send('Incorect Answer, you\'re going to be kicked');
+                                            member.send('Incorect Answer, you\'re going to be kicked 1/3');
                                             //member.kick()
                                                 //.catch(err => console.log(err));
                                         }
