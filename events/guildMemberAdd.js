@@ -44,8 +44,9 @@ module.exports = async (client, member) => {
                                                 member.send("Too bad, you're a skid");
                                                 //member.kick("Skid")
                                             }
-                                        }).catch(() => {
-                                            channel.send('You didn\'t answer, we are forced to kick you.');
+                                        }).catch((e) => {
+                                            console.log(e)
+                                            //  channel.send('You didn\'t answer, we are forced to kick you.');
                                             //  member.kick("Didn't respond to the questionnaire")
 
                                         });
@@ -53,8 +54,9 @@ module.exports = async (client, member) => {
                             }
 
                         })
-                        .catch(() => {
-                            channel.send('You didn\'t answer, we are forced to kick you.');
+                        .catch((e) => {
+                            console.log(e)
+                            //channel.send('You didn\'t answer, we are forced to kick you.');
                             //  member.kick("Didn't respond to the questionnaire")
                         });
                 })
@@ -62,8 +64,9 @@ module.exports = async (client, member) => {
                 member.send("Too bad, you're a skid");
                 //   member.kick("Skid")
             }
-        }).catch(() => {
-            channel.send('You didn\'t answer, we are forced to kick you.');
+        }).catch((e) => {
+            console.log(e)
+            //channel.send('You didn\'t answer, we are forced to kick you.');
             // member.kick("Didn't respond to the questionnaire")
         });
     })
