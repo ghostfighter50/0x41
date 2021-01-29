@@ -48,14 +48,14 @@ module.exports = async (client, member) => {
                                                             } else {
                                                                 member.send('Incorect Answer, you\'re going to be kicked');
                                                                // member.kick()
-                                                                    .catch(err => console.log(err));
+                                                                    //.catch(err => console.log(err));
                                                             }
                                                         })
                                                 })
                                         } else {
                                             member.send('Incorect Answer, you\'re going to be kicked');
                                             //member.kick()
-                                                .catch(err => console.log(err));
+                                                //.catch(err => console.log(err));
                                         }
                                     })
 
