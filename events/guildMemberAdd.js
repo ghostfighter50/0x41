@@ -31,6 +31,7 @@ module.exports = async (client, member) => {
                                     })
                                     .catch(err => console.log(err))
                                     .then(collected => {
+                                        console.log(collected)
                                         if (collected.first().emoji.name == '2️⃣') {
                                             member.send('Correct Answer,  2/3')
                                                 .catch(err => console.log(err));
