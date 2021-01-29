@@ -15,7 +15,7 @@ module.exports = async (client, member) => {
     await member.send(new Discord.MessageEmbed().setDescription("Decode this string : `WW91IHBhc3NlZCB0aGUgZmlyc3QgcXVlc3Rpb24gISBQcmVwYXJlIGZvciB0aGUgc2Vjb25kIG9uZS4=`").setColor(0x00AE86))
         .then(question1 => {
             question1.channel.awaitMessages(response => response.content, {
-                    max: 1,
+                    max: 3,
                     time: 20000,
                     errors: ['time'],
                 }).then(collected => {
@@ -26,7 +26,7 @@ module.exports = async (client, member) => {
                                 question2.react("1️⃣")
                                 question2.react("2️⃣")
                                 question2.awaitReactions((reaction, user) => (reaction.emoji.name == '1️⃣' || reaction.emoji.name == '2️⃣' ), {
-                                        max: 1,
+                                        max: 3,
                                         time: 5000
                                     })
                                     .catch(err => console.log(err))
