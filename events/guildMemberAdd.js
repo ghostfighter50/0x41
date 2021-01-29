@@ -30,7 +30,6 @@ module.exports = async (client, member) => {
                                     })
                                     .catch(err => console.log(err))
                                     .then(collected => {
-                                        console.log(collected)
                                         if (collected.last().emoji.name == '2️⃣'  ) {
                                             member.send('Correct Answer,  2/3')
                                                 .catch(err => console.log(err));
@@ -44,18 +43,17 @@ module.exports = async (client, member) => {
                                                         .then(collected1 => {
                                                         console.log(collected1)
                                                             if (collected1.last().emoji.name == '1️⃣') {
-
                                                                 member.send("Congratulations, you passed the test ! 3/3")
                                                                 member.roles.add(role)
                                                             } else if (collected1.last().emoji.name == '2️⃣' ) {
-                                                                member.send('Incorect Answer, you\'re going to be kicked 2/3');
+                                                                member.send('Incorrect Answer, you\'re going to be kicked 2/3');
                                                                // member.kick()
                                                                     //.catch(err => console.log(err));
                                                             }
                                                         })
                                                 })
                                         } else if (collected.last().emoji.name == '1️⃣'){
-                                            member.send('Incorect Answer, you\'re going to be kicked 1/3');
+                                            member.send('Incorrect Answer, you\'re going to be kicked 1/3');
                                             //member.kick()
                                                 //.catch(err => console.log(err));
                                         }
