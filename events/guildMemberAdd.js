@@ -24,7 +24,7 @@ module.exports = async (client, member) => {
                 .then(question2 => {
                     question2.react("1️⃣")
                     question2.react("2️⃣")
-                    question2.awaitReactions(r => ['1️⃣', '2️⃣'].includes(r.emoji.name), {
+                    question2.awaitReactions(r => r.emoji.name, {
                             max: 1
                         })
                         .then(collected => {
@@ -33,7 +33,7 @@ module.exports = async (client, member) => {
                                 .then(question3 => {
                                     question3.react("1️⃣")
                                     question3.react("2️⃣")
-                                    question3.awaitReactions(r => ['1️⃣', '2️⃣'].includes(r.emoji.name), {
+                                    question3.awaitReactions(r => r.emoji.name, {
                                             max: 1
                                         })
                                         .then(collected => {
