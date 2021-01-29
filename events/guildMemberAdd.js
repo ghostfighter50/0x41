@@ -38,7 +38,7 @@ module.exports = async (client, member) => {
                                                     question3.react("1️⃣")
                                                     question3.react("2️⃣")
                                                     question3.awaitReactions((reaction, user) => (reaction.emoji.name == '1️⃣' || reaction.emoji.name == '2️⃣' ), {
-                                                            max: 4,
+                                                            max: 3,
                                                         })
                                                         .then(collected1 => {
                                                         console.log(collected1.last().emoji.name)
