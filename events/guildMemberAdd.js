@@ -35,7 +35,7 @@ module.exports = async (client, member) => {
                 await question2.react("1️⃣")
                 await question2.react("2️⃣")
 
-                await question2.awaitReactions(Filter1, { max: 3 })
+                await question2.awaitReactions(Filter1, { max: 1 })
 
                     .then(async collected => {
                     
@@ -52,7 +52,7 @@ module.exports = async (client, member) => {
                             await question3.react("1️⃣")
                             await question3.react("2️⃣")
                             await question3.awaitReactions(Filter2, {
-                                    max: 3
+                                    max: 1
                                 })
 
                                 .then(async collected1 => {
@@ -64,7 +64,7 @@ module.exports = async (client, member) => {
 
                                         await member.roles.add(role)
 
-                                    } else if (collected1.last().emoji.name == '2️⃣') {
+                                    } else if (collected1.first().emoji.name == '2️⃣') {
 
                                         await member.send('Incorrect Answer, you\'re going to be kicked 2/3');
 
