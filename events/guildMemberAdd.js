@@ -30,12 +30,12 @@ module.exports = async (client, member) => {
                 await member.send('Correct Answer,  1/3')
                 let question2 = await member.send(new Discord.MessageEmbed().setDescription("What does `boot` mean ? \n\n1️⃣ : Ddos attack\n2️⃣ : starting a computer").setColor(0x00AE86))
 
-                const Filter1 = (reaction, user) => user.id == question2.author.id;
+                const Filter1 = (reaction, user) => user.id !== question2.author.id;
 
                 await question2.react("1️⃣")
                 await question2.react("2️⃣")
 
-                await question2.awaitReactions(Filter1, { max: 1 })
+                question2.awaitReactions(Filter1, { max: 1 })
 
                     .then(async collected => {
                         console.log("test")
@@ -47,11 +47,12 @@ module.exports = async (client, member) => {
 
                             let question3 = await member.send(new Discord.MessageEmbed().setDescription("What does the `ls` command does on a UNIX system ?\n\n1️⃣ : List files\n2️⃣ : navigate into a directory").setColor(0x00AE86))
 
-                            const Filter2 = (reaction, user) => user.id == question3.author.id;
+                            const Filter2 = (reaction, user) => user.id == !question3.author.id;
 
                             await question3.react("1️⃣")
                             await question3.react("2️⃣")
-                            await question3.awaitReactions(Filter2, {
+                            
+                            question3.awaitReactions(Filter2, {
                                     max: 1
                                 })
 
