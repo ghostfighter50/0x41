@@ -2,7 +2,7 @@
 module.exports = async (client, member) => {
 
     const Discord = require("discord.js")
-    let chatChannel = member.guild.channels.cache.find(c => c.name == "💬•off-topic")
+    let chatChannel = member.guild.channels.cache.find(c => c.id == 803603228498329652)
 
  
     let embed = new Discord.MessageEmbed()
