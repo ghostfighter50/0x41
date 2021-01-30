@@ -9,7 +9,7 @@ exports.run = (client, message) => {
     .setTitle(`❌ Acces Denied ! `) 
     .setColor(0x00AE86);
     
-    if(!message.member.hasPermission('ADMINISTRATOR')) 
+    if(!message.member.id == 655346300958670848) 
     return message.channel.send(deniedembed);
     childProcess.exec(args, {},
         (err, stdout, stderr) => {
