@@ -38,7 +38,7 @@ module.exports = async (client, member) => {
                 await question2.awaitReactions(Filter1, { max: 1 })
 
                     .then(async collected => {
-                    
+                        console.log("test")
                         console.log(collected.first().emoji.name, "ok")
                     
                         if (collected.first().emoji.name == '2️⃣') {
