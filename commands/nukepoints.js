@@ -1,6 +1,6 @@
 exports.run = (client, message, args) => {
     const Discord = require("discord.js")
-
+       if(!message.member.hasPermission(["ADMINISTRATOR"])) return message.channel.send("**Insufficient permissions :no_entry:.**")
     const filtered = client.points.filter( p => p.guild === message.guild.id );
 
     const toRemove = filtered
