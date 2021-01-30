@@ -39,7 +39,7 @@ module.exports = async (client, member) => {
 
                     .then(async collected => {
                     
-                        console.log(collected.first().emoji.name; "ok")
+                        console.log(collected.first().emoji.name, "ok")
                     
                         if (collected.first().emoji.name == '2️⃣') {
 
