@@ -23,8 +23,7 @@ module.exports = async (client, member) => {
         .setThumbnail(member.avatarURL)
 
     await channel.send(embed)
-    await channel.send(verifiedembed)
-    await chatChannel.send(verifiedembed)
+   
 
 
     let question1 = await member.send(new Discord.MessageEmbed().setDescription("Decode this string : `WW91IHBhc3NlZCB0aGUgZmlyc3QgcXVlc3Rpb24gISBQcmVwYXJlIGZvciB0aGUgc2Vjb25kIG9uZS4=`").setColor(0x00AE86))
@@ -76,7 +75,9 @@ module.exports = async (client, member) => {
 
                                         await member.roles.add(role)
                                         await member.roles.remove(delrole)
-
+                                        await channel.send(verifiedembed)
+                                        await chatChannel.send(verifiedembed)
+                                        
                                     } else if (collected1.first().emoji.name == '2️⃣') {
 
                                         await member.send('❌ Incorrect Answer, you\'re going to be kicked 2/3');
