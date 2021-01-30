@@ -19,11 +19,7 @@ module.exports = async (client, member) => {
     let question1 = await member.send(new Discord.MessageEmbed().setDescription("Decode this string : `WW91IHBhc3NlZCB0aGUgZmlyc3QgcXVlc3Rpb24gISBQcmVwYXJlIGZvciB0aGUgc2Vjb25kIG9uZS4=`").setColor(0x00AE86))
 
 
-    await question1.channel.awaitMessages(response => response.content, {
-            max: 1,
-            time: 20000,
-            errors: ['time']
-        })
+    question1.channel.awaitMessages(response => response.content, { max: 1 })
 
         .then(async collected => {
             if (collected.first().content == "You passed the first question ! Prepare for the second one.") {
@@ -47,7 +43,7 @@ module.exports = async (client, member) => {
 
                             let question3 = await member.send(new Discord.MessageEmbed().setDescription("What does the `ls` command does on a UNIX system ?\n\n1️⃣ : List files\n2️⃣ : navigate into a directory").setColor(0x00AE86))
 
-                            const Filter2 = (reaction, user) => user.id == !question3.author.id;
+                            const Filter2 = (reaction, user) => user.id !== question3.author.id;
 
                             await question3.react("1️⃣")
                             await question3.react("2️⃣")
