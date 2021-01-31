@@ -22,8 +22,8 @@ exports.run = async (client, message) => {
         })
 
         .then(collected => {
-            console.log(collected.first().emoji.name)
             if (collected.first().emoji.name == "📩") {
+            TicketMessage.delete()
 
                 collected.first().remove()
 
@@ -60,5 +60,4 @@ exports.run = async (client, message) => {
             }
         })
 
-    await TicketMessage.delete()
 }
