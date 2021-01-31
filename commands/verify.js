@@ -10,10 +10,8 @@ exports.run = async (client, message) => {
  const key = `${message.guild.id}-${message.author.id}`;
  message.delete()
 
- const flag = {
-  flag1: { value: 'test', points: 20 },
-  flag2: { value: 'test2', points: 30 },
- };
+ const flag = require("../flags.json")
+
  const result = Object.entries(flag).find(
   ([flag, data]) => flag === challenge && data.value === value
  );
