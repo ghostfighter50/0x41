@@ -33,7 +33,7 @@ exports.run = async (client, message) => {
                         channel.setParent(category.id);
                         let CloseMessage = channel.send(CloseEmbed).then(msg => {
                         msg.react("🔒")   
-                        msg.awaitReactions((reaction, user) =>  user.id !== CloseMessage.author.id, {max : 1})
+                        msg.awaitReactions((reaction, user) =>  user.id !== TicketMessage.author.id, {max : 1})
                             .then(collected => {
                                 if (collected.first().emoji.name == "🔒") {
                                     channel.delete()
