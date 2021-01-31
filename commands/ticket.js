@@ -39,7 +39,7 @@ exports.run = async (client, message) => {
 
                         let CloseMessage = await channel.send(CloseEmbed).then(async msg => {
                             await msg.react("🔒")
-                            await channel.send(message.author.String()).then(m => m.delete())
+                            await channel.send(message.author.String())
                             msg.awaitReactions((reaction, user) => user.id !== client.user.id, {
                                     max: 1
                                 })
