@@ -28,15 +28,15 @@ exports.run = async (client, message) => {
                 collected.first().remove()
 
                 message.guild.channels.create("ticket-" + message.author.id)
-                      .then(channel => {
-                       channel.overwritePermissions([
+                      .then(async channel => {
+                       await channel.overwritePermissions([
                                 {
                                     id: message.author.id,
                                     allow: ['VIEW_CHANNEL'],
                                 },
                             ]);
                         let category = message.guild.channels.cache.find(c => c.name == "TICKETS" && c.type == "category");
-                        channel.setParent(category.id);
+                        await channel.setParent(category.id);
                         let CloseMessage = channel.send(CloseEmbed).then(msg => {
                             msg.react("🔒")
                             msg.awaitReactions((reaction, user) => user.id !== client.user.id, {
