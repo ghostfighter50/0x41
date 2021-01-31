@@ -18,7 +18,7 @@ exports.run = async (client, message) => {
     
     await TicketMessage.react('📩')
 
-    TicketMessage.awaitReactions((reaction, user) => user.id !== TicketMessage.author.id)
+    TicketMessage.awaitReactions((reaction, user) => user.id !== TicketMessage.author.id, {max : 1})
 
         .then(collected => {
             console.log(collected.first().emoji.name)
