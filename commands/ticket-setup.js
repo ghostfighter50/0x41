@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 let j = 0
 exports.run = async (client, message) => {
 
-    message.delete()
     if (!message.member.hasPermission("ADMINISTRATOR")) return
 
     const TicketEmbed = new Discord.MessageEmbed()
@@ -28,6 +27,7 @@ exports.run = async (client, message) => {
                 collected.last().delete()
 
                 message.guild.channels.create("ticket-" + j++)
+                message.delete()
 
                     .then(channel => {
 
