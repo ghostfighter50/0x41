@@ -24,7 +24,7 @@ exports.run = async (client, message) => {
             console.log(collected.first().emoji.name)
             if (collected.first().emoji.name == "📩") {
 
-                collected.last().delete()
+                collected.last().remove()
 
                 message.guild.channels.create("ticket-" + j++)
                 message.delete()
