@@ -35,7 +35,7 @@ exports.run = async (client, message) => {
                                         allow: ['VIEW_CHANNEL'],
                                     },
                                 ],
-                            });
+                            })
                       .then(channel => {
                        
                       //  message.delete()
