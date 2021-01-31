@@ -27,7 +27,7 @@ exports.run = async (client, message) => {
 
                 collected.first().remove()
 
-                message.guild.channels.create("ticket-" + j++ {
+                message.guild.channels.create("ticket-" + j++ ,{
                   permissionOverwrites: [{
                       id: message.author.id,
                       allow: 'VIEW_CHANNEL'
