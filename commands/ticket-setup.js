@@ -31,8 +31,9 @@ exports.run = async (client, message) => {
                         message.delete()
                         let category = message.guild.channels.cache.find(c => c.name == "TICKETS" && c.type == "category");
                         channel.setParent(category.id);
-                        let CloseMessage = channel.send(CloseEmbed).react("🔒")
-                        Closemessage.awaitReactions((reaction, user) =>  user.id !== CloseMessage.author.id, {max : 1})
+                        let CloseMessage = channel.send(CloseEmbed)
+                        CloseMessage.react("🔒")
+                        CloseMessage.awaitReactions((reaction, user) =>  user.id !== CloseMessage.author.id, {max : 1})
 
                             .then(collected => {
                                 if (collected.first().emoji.name == "🔒") {
