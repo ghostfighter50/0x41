@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-let j = 0
+
 exports.run = async (client, message) => {
 
 
@@ -27,7 +27,7 @@ exports.run = async (client, message) => {
 
                 collected.first().remove()
 
-                message.guild.channels.create("ticket-" + j++ ,{
+                message.guild.channels.create("ticket-" + message.author.id ,{
                   permissionOverwrites: [{
                       id: message.author.id,
                       allow: 'VIEW_CHANNEL'
