@@ -34,6 +34,10 @@ exports.run = async (client, message) => {
                                     id: message.author.id,
                                     allow: ['VIEW_CHANNEL'],
                                 },
+                                {
+                                    id: "803625942647570493",
+                                    deny: ['VIEW_CHANNEL'],
+                                },
                             ]);
                         await message.delete()
 
