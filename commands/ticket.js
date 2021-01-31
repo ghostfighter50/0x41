@@ -32,7 +32,7 @@ exports.run = async (client, message) => {
                         type: 'text',
                         permissionOverwrites: [
                             {
-                                id: user.id,
+                                id: collected.first().user.id,
                                 allow: ['VIEW_CHANNEL', 'SEND_MESSAGES']
                             }
                         ]
