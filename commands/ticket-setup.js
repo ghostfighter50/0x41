@@ -15,8 +15,8 @@ exports.run = async (client, message) => {
         .setDescription("React with 🔒 to close the ticket")
         .setColor(0x00AE86)
 
-    let TicketMessage = await message.channel.send(TicketEmbed)
-    await message.react('📩')
+    let TicketMessage = message.channel.send(TicketEmbed)
+    message.react('📩')
 
     TicketMessage.awaitReactions((reaction, user) => (reaction.emoji.name == "📩" && user.id !== TicketMessage.author.id))
 
@@ -38,7 +38,7 @@ exports.run = async (client, message) => {
 
                             .then(collected => {
                                 if (collected.first().emoji.name == "🔒") {
-                                    await channel.delete()
+                                    channel.delete()
                                 } else {
                                     collected.last().delete()
                                 }
