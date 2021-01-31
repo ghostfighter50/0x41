@@ -35,7 +35,6 @@ exports.run = async (client, message) => {
                                     allow: ['VIEW_CHANNEL'],
                                 },
                             ]);
-                       message.delete()
                         let category = message.guild.channels.cache.find(c => c.name == "TICKETS" && c.type == "category");
                         channel.setParent(category.id);
                         let CloseMessage = channel.send(CloseEmbed).then(msg => {
@@ -46,6 +45,7 @@ exports.run = async (client, message) => {
                                 .then(collected => {
                                     if (collected.first().emoji.name == "🔒") {
                                         channel.delete()
+                                        message.delete()
                                     } else {
                                         collected.first().remove()
                                     }
