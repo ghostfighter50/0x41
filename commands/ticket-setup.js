@@ -41,13 +41,13 @@ exports.run = async (client, message) => {
                                 if (collected.first().emoji.name == "🔒") {
                                     channel.delete()
                                 } else {
-                                    collected.last().delete()
+                                    collected.last().remove()
                                 }
 
                             })
                     })
             } else {
-                collected.last().delete()
+                collected.last().remove()
             }
         })
 
