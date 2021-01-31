@@ -24,28 +24,27 @@ exports.run = async (client, message) => {
             console.log(collected.first().emoji.name)
             if (collected.first().emoji.name == "📩") {
 
-                collected.last().remove()
+                collected.first().remove()
 
                 message.guild.channels.create("ticket-" + j++)
                     .then(channel => {
                         message.delete()
                         let category = message.guild.channels.cache.find(c => c.name == "TICKETS" && c.type == "category");
                         channel.setParent(category.id);
-                        let CloseMessage = channel.send(CloseEmbed)
-                        CloseMessage.react("🔒")
-                        Closemessage.awaitReactions((reaction, user) => (reaction.emoji.name == "🔒" && user.id !== CloseMessage.author.id), {max : 1})
+                        let CloseMessage = channel.send(CloseEmbed).react("🔒")
+                        Closemessage.awaitReactions((reaction, user) =>  user.id !== CloseMessage.author.id, {max : 1})
 
                             .then(collected => {
                                 if (collected.first().emoji.name == "🔒") {
                                     channel.delete()
                                 } else {
-                                    collected.last().remove()
+                                    collected.first().remove()
                                 }
 
                             })
                     })
             } else {
-                collected.last().remove()
+                collected.first().remove()
             }
         })
 
