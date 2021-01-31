@@ -31,7 +31,7 @@ exports.run = async (client, message) => {
                                 type: 'text',
                                 permissionOverwrites: [
                                     {
-                                        id: 805374027795267615,
+                                        id: "805374027795267615",
                                         allow: ['VIEW_CHANNEL'],
                                     },
                                 ],
