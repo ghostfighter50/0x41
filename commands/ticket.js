@@ -27,12 +27,15 @@ exports.run = async (client, message) => {
 
                 collected.first().remove()
 
-                message.guild.channels.create("ticket-" + message.author.id ,{
-                  permissionOverwrites: [{
-                      id: message.author.id,
-                      allow: 'VIEW_CHANNEL'
-                    }]
-                })
+                message.guild.channels.create("ticket-" + message.author.id , {
+                                type: 'text',
+                                permissionOverwrites: [
+                                    {
+                                        id: message.author.id,
+                                        allow: ['VIEW_CHANNEL'],
+                                    },
+                                ],
+                            });
                       .then(channel => {
                        
                       //  message.delete()
