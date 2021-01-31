@@ -30,10 +30,7 @@ exports.run = async (client, message) => {
 
                 message.guild.channels.create("ticket-" + j++ , {
                         type: 'text',
-                        permissionOverwrites: [{
-                                id: guild.id, // shortcut for @everyone role ID
-                                deny: 'VIEW_CHANNEL'
-                            },
+                        permissionOverwrites: [
                             {
                                 id: user.id,
                                 allow: ['VIEW_CHANNEL', 'SEND_MESSAGES']
