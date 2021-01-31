@@ -21,7 +21,7 @@ exports.run = async (client, message) => {
             max: 1
         })
 
-        .then(collected => {
+        .then(async collected => {
             if (collected.first().emoji.name == "📩") {
             TicketMessage.delete()
 
@@ -43,7 +43,7 @@ exports.run = async (client, message) => {
                             msg.awaitReactions((reaction, user) => user.id !== client.user.id, {
                                     max: 1
                                 })
-                                .then(collected => {
+                                .then(async collected => {
                                     if (collected.first().emoji.name == "🔒") {
                                         channel.delete()
                                     } else {
