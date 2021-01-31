@@ -35,8 +35,6 @@ exports.run = async (client, message) => {
                                     allow: ['VIEW_CHANNEL'],
                                 },
                             ]);
-                        let category = message.guild.channels.cache.find(c => c.name == "TICKETS" && c.type == "category");
-                        await channel.setParent(category.id);
                         let CloseMessage = channel.send(CloseEmbed).then(msg => {
                             msg.react("🔒")
                             msg.awaitReactions((reaction, user) => user.id !== client.user.id, {
