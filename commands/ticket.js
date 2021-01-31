@@ -46,7 +46,7 @@ exports.run = async (client, message) => {
                         channel.setParent(category.id);
                         let CloseMessage = channel.send(CloseEmbed).then(msg => {
                             msg.react("🔒")
-                            msg.awaitReactions((reaction, user) => user.id !== client.id, {
+                            msg.awaitReactions((reaction, user) => user.id !== client.user.id, {
                                     max: 1
                                 })
                                 .then(collected => {
