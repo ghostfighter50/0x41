@@ -18,7 +18,7 @@ exports.run = async (client, message) => {
     let TicketMessage = message.channel.send(TicketEmbed)
     message.react('📩')
 
-    TicketMessage.awaitReactions((reaction, user) => (reaction.emoji.name == "📩" && user.id !== TicketMessage.author.id))
+    TicketMessage.awaitReactions((reaction, user) => (reaction.emoji.name == "📩" && user.id !== TicketMessage.author.id), {})
 
         .then(collected => {
 
