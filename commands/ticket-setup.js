@@ -15,10 +15,11 @@ exports.run = async (client, message) => {
         .setDescription("React with 🔒 to close the ticket")
         .setColor(0x00AE86)
 
-    let TicketMessage = message.channel.send(TicketEmbed)
-    message.react('📩')
+    let TicketMessage = await message.channel.send(TicketEmbed)
+    
+    await message.react('📩')
 
-    TicketMessage.awaitReactions((reaction, user) => (reaction.emoji.name == "📩" && user.id !== TicketMessage.author.id), {})
+    TicketMessage.awaitReactions((reaction, user) => reaction.emoji.name == "📩" && user.id !== TicketMessage.author.id, {})
 
         .then(collected => {
 
