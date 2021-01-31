@@ -29,7 +29,7 @@ exports.run = async (client, message) => {
 
                 message.guild.channels.create("ticket-" + j++ )
                     .then(channel => {
-                    channel.updateOverwrite(message.author, {
+                    channel.overwritePermissions(message.author, {
                              SEND_MESSAGES: true,
                                VIEW_CHANNEL: true
                         })
