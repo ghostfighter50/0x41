@@ -35,7 +35,7 @@ exports.run = async (client, message) => {
                         channel.setParent(category.id);
                         let CloseMessage = channel.send(CloseEmbed)
                         CloseMessage.react("🔒")
-                        Closemessage.awaitReactions((reaction, user) => (reaction.emoji.name == "🔒" && user.id !== CloseMessage.author.id))
+                        Closemessage.awaitReactions((reaction, user) => (reaction.emoji.name == "🔒" && user.id !== CloseMessage.author.id), {max : 1})
 
                             .then(collected => {
                                 if (collected.first().emoji.name == "🔒") {
