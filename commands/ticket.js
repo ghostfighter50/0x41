@@ -28,7 +28,7 @@ exports.run = async (client, message) => {
 
                 collected.first().remove()
 
-                message.guild.channels.create("ticket-" + j++, , {
+                message.guild.channels.create("ticket-" + j++ , {
                         type: 'text',
                         permissionOverwrites: [{
                                 id: guild.id, // shortcut for @everyone role ID
