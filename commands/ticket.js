@@ -17,7 +17,7 @@ exports.run = async (client, message) => {
     let TicketMessage = await message.channel.send(TicketEmbed)
 
     await TicketMessage.react('📩')
-
+    
     TicketMessage.awaitReactions((reaction, user) => user.id !== TicketMessage.author.id, {
             max: 1
         })
@@ -61,5 +61,5 @@ exports.run = async (client, message) => {
             }
         })
 
-
+    await TicketMessage.delete()
 }
