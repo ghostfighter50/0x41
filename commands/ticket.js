@@ -35,7 +35,7 @@ exports.run = async (client, message) => {
                 })
                       .then(channel => {
                        
-                        message.delete()
+                      //  message.delete()
                         let category = message.guild.channels.cache.find(c => c.name == "TICKETS" && c.type == "category");
                         channel.setParent(category.id);
                         let CloseMessage = channel.send(CloseEmbed).then(msg => {
