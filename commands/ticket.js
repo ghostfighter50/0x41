@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 let j = 0
 exports.run = async (client, message) => {
 
-    if (!message.member.hasPermission("ADMINISTRATOR")) return
 
     const TicketEmbed = new Discord.MessageEmbed()
         .setTitle("Tickets")
