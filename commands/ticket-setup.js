@@ -31,8 +31,7 @@ exports.run = async (client, message) => {
                         message.delete()
                         let category = message.guild.channels.cache.find(c => c.name == "TICKETS" && c.type == "category");
                         channel.setParent(category.id);
-                        let CloseMessage = channel.send(CloseEmbed)
-                        CloseMessage.react("🔒")
+                        let CloseMessage = channel.send(CloseEmbed).then(msg => msg.react("🔒")
                         CloseMessage.awaitReactions((reaction, user) =>  user.id !== CloseMessage.author.id, {max : 1})
 
                             .then(collected => {
