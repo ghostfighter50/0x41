@@ -27,10 +27,8 @@ exports.run = async (client, message) => {
                 collected.last().remove()
 
                 message.guild.channels.create("ticket-" + j++)
-                message.delete()
-
                     .then(channel => {
-
+                        message.delete()
                         let category = message.guild.channels.cache.find(c => c.name == "TICKETS" && c.type == "category");
                         channel.setParent(category.id);
                         let CloseMessage = channel.send(CloseEmbed)
