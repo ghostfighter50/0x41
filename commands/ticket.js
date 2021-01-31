@@ -35,15 +35,17 @@ exports.run = async (client, message) => {
                                     allow: ['VIEW_CHANNEL'],
                                 },
                             ]);
-                        let CloseMessage = channel.send(CloseEmbed).then(msg => {
-                            msg.react("🔒")
+                        await message.delete()
+
+                        let CloseMessage = await channel.send(CloseEmbed).then(msg => {
+                            await msg.react("🔒")
+                            await channel.send(message.author.String()).then(m => m.delete())
                             msg.awaitReactions((reaction, user) => user.id !== client.user.id, {
                                     max: 1
                                 })
                                 .then(collected => {
                                     if (collected.first().emoji.name == "🔒") {
                                         channel.delete()
-                                        message.delete()
                                     } else {
                                         collected.first().remove()
                                     }
