@@ -11,7 +11,7 @@ exports.run = async (client, message) => {
  message.delete()
 
  const flag =  {
-  re-1 : { value: 'cljrfjdm526vh5w2', points: 20 },
+  "re-1" : { value: 'cljrfjdm526vh5w2', points: 20 },
  }
 
  const result = Object.entries(flag).find(
