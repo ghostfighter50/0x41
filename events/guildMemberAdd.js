@@ -5,7 +5,11 @@ module.exports = async (client, member) => {
     let channel = member.guild.channels.cache.find(c => c.name == "skid-test")
     let role = member.guild.roles.cache.find(role => role.id == 803625942647570493);
     let delrole = member.guild.roles.cache.find(role => role.id == 803603107002974228);
-
+   client.points.ensure(`${member.guild.id}-${member.id}`, {
+          user: member.id,
+          guild: member.guild.id,
+          points: 0,
+        });
     let embed = new Discord.MessageEmbed()
         .setTitle(`New Member : ${member.user.username}`)
         .setDescription(`Welcome to 0x41 ${member}, pass the anti-skid test in DM's to acces the whole server`)
