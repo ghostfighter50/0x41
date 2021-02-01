@@ -13,9 +13,7 @@ module.exports = (client, message) => {
     };
     
     if (message.guild) {
-        if(client.points.has(`${message.guild.id}-${message.author.id}`, 0) == true ) console.log("ok")
-        else {
-         console.log("not ok")
+        if(client.points.has(`${message.guild.id}-${message.author.id}`, 0) == false ) {
          client.points.ensure(`${message.guild.id}-${message.author.id}`, {
           user: message.author.id,
           guild: message.guild.id,
