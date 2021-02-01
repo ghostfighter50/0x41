@@ -13,7 +13,7 @@ module.exports = (client, message) => {
     };
     
     if (message.guild) {
-        let userPoints = client.points.get(`${message.guild.id}-${user.id}`, "points");
+        let userPoints = client.points.get(`${message.guild.id}-${message.author.id}`, "points");
         if(userPoints > 0) {
         client.points.ensure(`${message.guild.id}-${message.author.id}`, {
           user: message.author.id,
