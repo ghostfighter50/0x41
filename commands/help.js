@@ -11,7 +11,7 @@ exports.run = async  (client, message) => {
     .addField("** **", "** **", true)
     .addField("** 📊 Points**","`give <user> <amount>` \n  `remove <user> <amount>` \n  `nukepoints` \n  `levels` \n  `updateroles` \n  `points` \n  `verify <challenge-name> <flag> ` \n  `leaderboard `  ", false)
     .addField("** **", "** **", true)
-    .addField("** 📩 Tickets**","`ticket`",false)
+    .addField("** 📩 Tickets**","`ticket`\n`close-all`",false)
     .addField("** **", "** **", true)
     .setTitle(`📖 Help `)
     .setFooter("Made by Ghostfighter50")
