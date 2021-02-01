@@ -12,12 +12,12 @@ module.exports = (client, message) => {
         message.channel.reply("my prefix is `sudo`, try `sudo help` to see all my commands.");
     };
     
-    if (message.guild) {
-         client.points.ensure(`${message.guild.id}-${message.author.id}`, {
-          user: message.author.id,
-          guild: message.guild.id,
-          points: 0,
-        });
+   // if (message.guild) {
+    //     client.points.ensure(`${message.guild.id}-${message.author.id}`, {
+    //      user: message.author.id,
+   //       guild: message.guild.id,
+   //       points: 0,
+  //      });
       
     }
     if (!cmd) return;
