@@ -19,7 +19,7 @@ module.exports = (client, message) => {
    //       points: 0,
   //      });
       
-    }
+//    }
     if (!cmd) return;
   
     cmd.run(client, message, args);
