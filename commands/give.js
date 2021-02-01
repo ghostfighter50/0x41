@@ -8,7 +8,7 @@ const deniedembed = new Discord.MessageEmbed()
 if(!message.member.hasPermission('ADMINISTRATOR')) 
 return message.channel.send(deniedembed);
 
-const user = message.mentions.users.first() || client.users.get(args[0]);
+const user = message.mentions.users.first() || client.users.cache.get(args[0]);
 if(!user) return message.reply("You must mention someone or give their ID!");
 
 const pointsToAdd = parseInt(args[1], 10);
@@ -30,3 +30,5 @@ const giveembed = new Discord.MessageEmbed()
 
 message.channel.send(giveembed);
 }
+   
+                
