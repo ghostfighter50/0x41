@@ -13,21 +13,14 @@ module.exports = (client, message) => {
     };
     
     if (message.guild) {
-        try {
-        let userPoints = client.points.get(`${message.guild.id}-${message.author.id}`, "points");
-        client.points.ensure(`${message.guild.id}-${message.author.id}`, {
-          user: message.author.id,
-          guild: message.guild.id,
-          points: userPoints,
-        });
-        }
-        catch {
+        if(client.points.has(`${message.guild.id}-${message.author.id}`, 0) == true ) console.log("ok")
+        else {
          client.points.ensure(`${message.guild.id}-${message.author.id}`, {
           user: message.author.id,
           guild: message.guild.id,
           points: 0,
         });
-        }
+      } 
     }
     if (!cmd) return;
   
