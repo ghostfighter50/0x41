@@ -11,5 +11,5 @@ let embed = new Discord.MessageEmbed
   .setDescription(`Reported user : ${TargetUser.toString()}\n\nReason : ${reason}`)
   .setColor(0x00AE86)
  channel.send(embed)
-message.channel.send(new Discord.MessageEmbed.setDescription(`✅ ${TargetUser.toString()} was reported by ${message.author.toString()} `
+message.channel.send(new Discord.MessageEmbed.setDescription(`✅ ${TargetUser.toString()} was reported by ${message.author.toString()} `)
 }
