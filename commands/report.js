@@ -10,6 +10,7 @@ let embed = new Discord.MessageEmbed()
   .setTitle("New Report by " + message.author.tag)
   .setDescription(`Reported user : ${TargetUser.toString()}\nReason : ${reason}`)
   .setColor(0x00AE86)
+  .setTimestamp()
  channel.send(embed)
 message.channel.send(new Discord.MessageEmbed().setDescription(`✅ ${TargetUser.toString()} was reported by ${message.author.toString()} `))
 }
