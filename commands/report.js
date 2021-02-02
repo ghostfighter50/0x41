@@ -7,7 +7,7 @@ let reason = args[1]
 if(!TargetUser) return message.reply("❌ specify a user !")
 if(!reason) return message.reply("❌ enter a reason !")
 let embed = new Discord.MessageEmbed()
-  .setTitle("New Report by " + message.author.tag)
+  .setTitle("❗ New Report by " + message.author.tag)
   .setDescription(`Reported user : ${TargetUser.toString()}\nReason : ${reason}`)
   .setColor(0x00AE86)
   .setTimestamp()
