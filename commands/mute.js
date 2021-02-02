@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 exports.run = async (client, message) => {
-    let args = message.content.slice(4).split(' ');
-
+  let args = message.content.slice(4).split(' ');
   let reason = args[3]
+  if (reason == undefined) reason = '❌ No reason Supplied';
   if(!message.mentions.users.first()) return message.reply("❌ Please mention someone to mute them")
   let user = message.mentions.users.first();
   let muteRole = client.guilds.cache.get(message.guild.id).roles.cache.find(val => val.name === 'Muted');
