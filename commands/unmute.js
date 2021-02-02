@@ -1,8 +1,7 @@
 const Discord = require('discord.js');
 exports.run = async (client, message) => {
-    let args = message.content.slice(4).split(' ');
+  let args = message.content.slice(4).split(' ');
 
-  let reason = args[3]
   if(!message.mentions.users.first())return message.reply("❌ Please mention someone to unmute them")
   let user = message.mentions.users.first();
   let muteRole = client.guilds.cache.get(message.guild.id).roles.cache.find(val => val.name === 'Muted');
@@ -26,7 +25,8 @@ exports.run = async (client, message) => {
         console.log(e.stack);
     }
   }
-  if (reason.length < 1) reason = '❌ No reason Supplied';
+  let reason = args[3]
+  if (reason == undefined) reason = '❌ No reason Supplied';
   if (message.mentions.users.size < 1) return message.reply('❌ You must mention someone to mute them.').catch(console.error);
 
   if (!message.guild.member(client.user).hasPermission('MANAGE_ROLES')) return message.reply('❌ I do not have the correct permissions.').catch(console.error);
