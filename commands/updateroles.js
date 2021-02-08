@@ -17,18 +17,18 @@ let userPoints = client.points.get(`${message.guild.id}-${user.id}`, "points");
 let member = message.member;
 if (userPoints >= "100") {
     
-   let testedRole = message.guild.roles.cache.get('803603102330126366');
+   let testedRole = message.guild.roles.cache.get('808327981020741643');
    let testedUser = member
-   let removerole =  message.guild.roles.cache.get('803603102653218837');
+   let removerole =  message.guild.roles.cache.get('808327981764182028');
    testedUser.roles.remove(removerole)
    testedUser.roles.add(testedRole);
    message.channel.send(verified);
 }
 else if (userPoints >= "50") {
     
-   let testedRole = message.guild.roles.cache.get('803603102653218837');
+   let testedRole = message.guild.roles.cache.get('808327981764182028');
    let testedUser = member
-   let removerole =  message.guild.roles.cache.get('803603103961841674');
+   let removerole =  message.guild.roles.cache.get('808327983039119360');
    testedUser.roles.remove(removerole)
    
 
@@ -37,7 +37,7 @@ else if (userPoints >= "50") {
 }
 else if (userPoints >= "20") {
     
-        let testedRole = message.guild.roles.cache.get('803603103961841674');
+        let testedRole = message.guild.roles.cache.get('808327983039119360');
         let testedUser = member
         
     
@@ -47,7 +47,7 @@ else if (userPoints >= "20") {
    
     
 else {
-   let removerole =  message.guild.roles.cache.get('803603102330126366');
+   let removerole =  message.guild.roles.cache.get('808327983039119360');
    let testedUser = member
    testedUser.roles.remove(removerole)
     message.channel.send(embed)
