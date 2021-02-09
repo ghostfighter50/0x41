@@ -18,6 +18,7 @@ module.exports = async (client, member) => {
 
     let role = member.guild.roles.cache.find(role => role.id == 808327986377261086);
     let delrole = member.guild.roles.cache.find(role => role.id == 808328008040841236);
+    member.roles.add(delrole)
    client.points.ensure(`${member.guild.id}-${member.id}`, {
           user: member.id,
           guild: member.guild.id,
