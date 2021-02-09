@@ -1,8 +1,21 @@
 module.exports = async (client, member) => {
 
     const Discord = require("discord.js")
+    
     let chatChannel = member.guild.channels.cache.find(c => c.id == 808328017687347231)
     let channel = member.guild.channels.cache.find(c => c.name == "skid-test")
+    let role1 = member.guild.roles.cache.find(role => role.id == 808655634563465287);
+    let role2 = member.guild.roles.cache.find(role => role.id == 808652927756533770);
+    let role3 = member.guild.roles.cache.find(role => role.id == 808653685353218068);
+    let role4 = member.guild.roles.cache.find(role => role.id == 808653688087511060);
+    let role5 = member.guild.roles.cache.find(role => role.id == 808653954392915969);
+    
+    member.roles.add(role1)
+    member.roles.add(role2)
+    member.roles.add(role3)
+    member.roles.add(role4)
+    member.roles.add(role5)
+
     let role = member.guild.roles.cache.find(role => role.id == 808327986377261086);
     let delrole = member.guild.roles.cache.find(role => role.id == 808328008040841236);
    client.points.ensure(`${member.guild.id}-${member.id}`, {
