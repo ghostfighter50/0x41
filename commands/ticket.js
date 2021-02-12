@@ -39,7 +39,7 @@ exports.run = async (client, message) => {
                                     deny: ['VIEW_CHANNEL'],
                                 },
                                 {
-                                    id: "803603107002974228",
+                                    id: "808328008040841236",
                                     deny: ['VIEW_CHANNEL'],
                                 },
                             ]);
