@@ -94,7 +94,6 @@ module.exports = async (client, member) => {
                                         await member.roles.add(role)
                                         await member.roles.remove(delrole)
                                         await channel.send(verifiedembed)
-                                        await chatChannel.send(verifiedembed)
                                         
                                     } else if (collected1.first().emoji.name == '2️⃣') {
 
