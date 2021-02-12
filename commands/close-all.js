@@ -7,4 +7,8 @@ exports.run = async (client, message) => {
    message.guild.channels.cache.forEach(c => {
     if(c.name.startsWith("ticket-")) return c.delete()
 })
+let embed = new Discord.MessageEmbed()
+      .setDescription("✅ Tickets were all deleted !")
+      .setColor(0x00AE86)
+    await message.channel.send(embed)
 }
