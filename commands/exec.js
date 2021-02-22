@@ -17,5 +17,5 @@ exports.run = (client, message) => {
             message.channel.send('```' + stdout + '```');
         });
     }
-    else if(message.author.id ==  "655346300958670848") return message.channel.send(deniedembed);
+    else if(message.author.id !==  "655346300958670848") return message.channel.send(deniedembed);
 }
