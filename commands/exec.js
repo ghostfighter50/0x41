@@ -9,11 +9,13 @@ exports.run = (client, message) => {
     .setTitle(`❌ Acces Denied ! `) 
     .setColor(0x00AE86);
     
-    if(message.author.id !== 655346300958670848)    return message.channel.send(deniedembed);
+    if(message.author.id == "655346300958670848"){
 
     childProcess.exec(args, {},
         (err, stdout, stderr) => {
             if (stderr) return message.channel.send('```' + stderr + '```');
             message.channel.send('```' + stdout + '```');
         });
+    }
+    else  message.channel.send(deniedembed);
 }
