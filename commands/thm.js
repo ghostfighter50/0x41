@@ -17,7 +17,7 @@ exports.run = async (client, message, args) => {
    .setColor(0x00AE86)
    .setImage(`https://tryhackme-badges.s3.amazonaws.com/${args[0]}.png`)
    .setFooter("You might want to reload the image in your profile")
-    if(imageExists == true) {
+    if(imageExists() == true) {
     await message.channel.send(embed)
     await message.delete()
     } else {
