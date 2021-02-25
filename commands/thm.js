@@ -5,7 +5,7 @@ exports.run = async (client, message, args) => {
     let user = args[0]
     let embed = new Discord.MessageEmbed()
    .setColor(0x00AE86)
-   .setThumbnail(`https://tryhackme-badges.s3.amazonaws.com/${args[0]}.png`)
+   .setImage(`https://tryhackme-badges.s3.amazonaws.com/${args[0]}.png`)
    .setFooter("You might want to reload the image in your profile")
     try {
     await message.channel.send(embed)
