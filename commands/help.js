@@ -7,7 +7,7 @@ exports.run = async  (client, message) => {
     .addField("** **", "** **", true)
     .addField("** 🔨 Moderation**","`tempmute <@user> (reason)` \n  `unmute <@user> (reason)` \n  `mute <@user> (reason)` \n  `kick <@user> (reason)` \n  `kick <@user> (reason)` \n  `unban <user id> (reason)` \n  `clear <number>`\n  `report <@user> <reason>`  ", false)
     .addField("** **", "** **", true)
-    .addField("** ⚙️ Utilities**","`exec <command>` \n  `stats` \n  `userinfo <@user>` \n  `serverinfo` \n  `ping ` \n  `hastebin <value>` \n  `encode <base64|hex> <value>` \n  `decode <base64|hex> <value>` \n  `search <keyword>`\n`embed <content>`  ",false)
+    .addField("** ⚙️ Utilities**","`exec <command>` \n  `stats` \n  `userinfo <@user>` \n  `serverinfo` \n  `ping ` \n  `hastebin <value>` \n  `encode <base64|hex> <value>` \n  `decode <base64|hex> <value>` \n  `search <keyword>`\n`embed <content>`  \n `thm <user>`  ",false)
     .addField("** **", "** **", true)
     .addField("** 📊 Points**","`give <user> <amount>` \n  `remove <user> <amount>` \n  `nukepoints` \n  `levels` \n  `updateroles` \n  `points` \n  `verify <challenge-name> <flag> ` \n  `leaderboard `  ", false)
     .addField("** **", "** **", true)
