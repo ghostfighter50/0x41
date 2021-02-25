@@ -18,7 +18,7 @@ exports.run = async (client, message, args) => {
     await message.channel.send(embed)
     await message.delete()
     } 
-  res.on("error",() => {
+  res.on("error",async () => {
     await message.reply(`:x: Username ${args[0]} not found`)
     await message.delete()  
   })
