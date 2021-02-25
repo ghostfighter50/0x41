@@ -13,15 +13,15 @@ exports.run = async (client, message, args) => {
    .setFooter("You might want to reload the image in your profile")
     
     
-  https.request(`https://tryhackme-badges.s3.amazonaws.com/${args[0]}.png`, async res => {
+ https.request(`https://tryhackme-badges.s3.amazonaws.com/${args[0]}.png`, async res => {
   if(res.statusCode == 200) {
     await message.channel.send(embed)
     await message.delete()
-    } else {
+    } 
+  res.on("error",() => {
     await message.reply(`:x: Username ${args[0]} not found`)
-    await message.delete()
-    }
-  
+    await message.delete()  
+  })
 })
 
 }
