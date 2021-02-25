@@ -4,9 +4,7 @@ const https = require("https")
 
 exports.run = async (client, message, args) => {      
 
-   
-
-    let user = args[0]
+   if(!args[0]) return message.reply(":x: Please enter a username !")
     let embed = new Discord.MessageEmbed()
    .setColor(0x00AE86)
    .setImage(`https://tryhackme-badges.s3.amazonaws.com/${args[0]}.png`)
@@ -16,8 +14,6 @@ exports.run = async (client, message, args) => {
 
     await message.channel.send(embed)
     await message.delete()
-    
-  
-})
+   
 
 }
