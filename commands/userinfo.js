@@ -11,7 +11,7 @@ exports.run = async (client, message, args) => {
     
 
   let user = message.mentions.users.first(); 
-  let muser = message.guild.member(message.mentions.users.first());
+  let muser = message.guild.member(message.mentions.users.first()); || message.author
 
 
   let status = ""
