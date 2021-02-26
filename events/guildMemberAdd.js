@@ -1,9 +1,8 @@
 module.exports = async (client, member) => {
 
     const Discord = require("discord.js")
-    
-    let chatChannel = member.guild.channels.cache.find(c => c.id == 808328017687347231)
-    let channel = member.guild.channels.cache.find(c => c.name == "skid-test")
+    let WelcomeChannel = member.guild.channels.cache.find(c => c.id == 814906779402109018)
+    let channel = member.guild.channels.cache.find(c => c.id == 808328017687347231)
     let role1 = member.guild.roles.cache.find(role => role.id == 808655634563465287);
     let role2 = member.guild.roles.cache.find(role => role.id == 808652927756533770);
     let role3 = member.guild.roles.cache.find(role => role.id == 808653685353218068);
@@ -41,7 +40,8 @@ module.exports = async (client, member) => {
         .setThumbnail(member.avatarURL)
 
     await channel.send(embed)
-   
+    await member.send(embed).catch(() => {return channel.send(`:x: Could not send a DM to ${member}, activate server DMs and rejoin  the server !`)})
+
 
 
     let question1 = await member.send(new Discord.MessageEmbed().setDescription("Decode this string : `WW91IHBhc3NlZCB0aGUgZmlyc3QgcXVlc3Rpb24gISBQcmVwYXJlIGZvciB0aGUgc2Vjb25kIG9uZS4=`").setColor(0x00AE86))
@@ -93,13 +93,14 @@ module.exports = async (client, member) => {
 
                                         await member.roles.add(role)
                                         await member.roles.remove(delrole)
+                                        await WelcomeChannel.send(embed)
                                         await channel.send(verifiedembed)
                                         
                                     } else if (collected1.first().emoji.name == '2️⃣') {
 
                                         await member.send('❌ Incorrect Answer, you\'re going to be kicked 2/3');
-                                        channel.send(deniedembed)
-                                        member.kick()
+                                        await channel.send(deniedembed)
+                                        await member.kick()
 
                                     }
                                 })
