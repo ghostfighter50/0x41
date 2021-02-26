@@ -9,7 +9,7 @@ var options = {
     filter : 0,
     pws : 0
   },
-  num : 20
+  num : 10
 };
 const waitembed = new Discord.MessageEmbed()
 .setThumbnail(message.author.avatarURL)
@@ -22,7 +22,7 @@ const embed = new Discord.MessageEmbed()
 .setTitle(`Google search results`) 
 .setColor(0x00AE86);
 
-links.forEach(link =>{ embed.addField( link.title,` (${link.url})`, false)
+links.forEach(link =>{ embed.addField( link.title,` (${link.url.slice(30)})`, false)
 })
 message.channel.send(embed)
 }
