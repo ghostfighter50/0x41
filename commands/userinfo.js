@@ -47,6 +47,7 @@ exports.run = async (client, message, args) => {
         } catch  {
           let user = message.mentions.users.first(); 
           let muser = message.guild.member(user);
+          if(muser == undefined) muser = message.author
           const error = new Discord.MessageEmbed();
           error.addField("Username", `${user.username}#${user.discriminator}`, true)
                   .addField("ID", `${user.id}`, true)
