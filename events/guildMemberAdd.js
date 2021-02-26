@@ -27,7 +27,7 @@ module.exports = async (client, member) => {
         .setTitle(`New Member : ${member.user.username}`)
         .setDescription(`Welcome to 0x41 ${member}, pass the anti-skid test in DM's to acces the whole server`)
         .setColor(0x00AE86)
-        .setImage("https://cdn.discordapp.com/attachments/782327092368506903/814909037320601610/unknown.png")
+      //  .setImage("https://cdn.discordapp.com/attachments/782327092368506903/814909037320601610/unknown.png")
         .setThumbnail(member.avatarURL)
 
     let verifiedembed = new Discord.MessageEmbed()
