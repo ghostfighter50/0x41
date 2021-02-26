@@ -8,7 +8,7 @@ module.exports = (client, message) => {
   
     const cmd = client.commands.get(command);
     
-    if (message.mentions.has(client.user)) {
+    if (message.mentions.has(client.user.id)) {
         message.channel.reply("my prefix is `sudo`, try `sudo help` to see all my commands.");
     };
     
