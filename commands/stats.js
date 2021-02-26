@@ -24,7 +24,7 @@ exports.run = async (client, message) => {
       osutils.cpuUsage(function(v) {
         const embed = new Discord.MessageEmbed()
         .setColor(0x00AE86)
-        .setTitle('0x00007f00 BOT stats.')
+        .setTitle('0x41 BOT stats.')
         .setThumbnail(client.user.avatarURL({ format: 'png', dynamic: true, size: 2048 }))
         .addField("** **", "** **")
         .addField("Global Prefix", globalprefix, true)
