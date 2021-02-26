@@ -11,8 +11,8 @@ exports.run = async (client, message, args) => {
     
 
   let user = message.mentions.users.first(); 
-  let muser = message.guild.member(message.mentions.users.first()); || message.author
-
+  let muser = message.guild.member(message.mentions.users.first()); 
+  if(muser == undefined) muser = message.author
 
   let status = ""
   if(status === null) status = "No Game"
