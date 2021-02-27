@@ -4,8 +4,8 @@ module.exports = async (client, member) => {
     let WelcomeChannel = member.guild.channels.cache.find(c => c.id == client.config.WelcomeChannel)
     let channel = member.guild.channels.cache.find(c => c.id == client.config.TestChannel);
      for(let role in client.config.autoroles){
-       let autorole = member.guild.roles.cache.find(r => r.id == role)
-       member.roles.add(autorole)
+         console.log(role)
+       member.guild.roles.cache.find(r => r.id == role)
 
      }
    
