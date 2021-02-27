@@ -1,4 +1,4 @@
-{
+[{
     "token" : "NzU5MzgzNTczNTc1ODkyOTky.X28tEA.PDROsSw2iz-Ag84l5ZdSZf06HLY",
     "prefix" : "sudo ",
     "WelcomeChannel" : "814906779402109018",
@@ -14,4 +14,4 @@
     "VerifiedRole" : "808327986377261086",
     "Unverifiedole" : "808328008040841236",
     "EmbedColor" : "client.config.EmbedColor"
-}
+}]
