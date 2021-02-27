@@ -13,11 +13,11 @@ exports.run = (client, message, args) => {
     .setTitle("✅ Succesfully set autoroles !")
     if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(deniedembed);
 
-   message.mentions.roles.forEach(role => {
-        console.log(role.id)
-        config.autoroles.push(role.id)
-        embed.addField(i++, role.toString(), true)
-    })
+     let role = message.mentions.roles.first()
+     console.log(role.id)
+     config.autoroles.push(role.id)
+     embed.addField(i++, role.toString(), true)
+    
     fs.writeFileSync("../config.json", JSON.stringify(config, null, 2))
     message.channel.send(embed)
 }
