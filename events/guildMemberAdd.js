@@ -3,10 +3,10 @@ module.exports = async (client, member) => {
     const Discord = require("discord.js")
     let WelcomeChannel = member.guild.channels.cache.find(c => c.id == client.config.WelcomeChannel)
     let channel = member.guild.channels.cache.find(c => c.id == client.config.TestChannel);
-   
-    client.config.autoroles.forEach(role => {
+     for(let role in client.config.autoroles){
         member.guild.roles.cache.find(r => r.id == role).then(autorole => member.roles.add(autorole))
-    })
+
+     }
    
 
     let role = member.guild.roles.cache.find(role => role.id == client.config.VerifiedRole);
