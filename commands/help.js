@@ -15,7 +15,7 @@ exports.run = async  (client, message) => {
     .addField("** **", "** **", true)
     .setTitle(`📖 Help `)
     .setFooter("Made by Ghostfighter50")
-    .setColor("client.config.EmbedColor");    
+    .setColor(client.config.EmbedColor);    
 
     message.channel.send(embed)
 }

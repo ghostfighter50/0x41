@@ -1,12 +1,16 @@
 exports.run = async  (client, message) => {
     const Discord = require("discord.js")
+    let level1 = message.guild.roles.cache.get(client.config.LevelRoles.level1)
+    let level2 = message.guild.roles.cache.get(client.config.LevelRoles.level2)
+    let level3 = message.guild.roles.cache.get(client.config.LevelRoles.level3)
+
     const embed = new Discord.MessageEmbed()
     .setThumbnail(message.author.avatarURL)
     .addFields(
-    {name: "1️⃣ Beginner", value : "20 Points"},
-    {name: "2️⃣ Intermediate", value : "50 Points"},
-    {name: "3️⃣ Expert", value : "100 Points"})
-    .setTitle(`📖 Help `) 
+    {name: level1.name, value : "20 Points"},
+    {name: level2.name, value : "50 Points"},
+    {name: level3.name, value : "100 Points"})
+    .setTitle(`📖 Levels `) 
     .setColor(client.config.EmbedColor)   
 
     message.channel.send(embed)

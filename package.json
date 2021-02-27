@@ -28,5 +28,8 @@
     "url": "https://github.com/ghostfighter50/Hack-Harder/issues"
   },
   "homepage": "https://github.com/ghostfighter50/Hack-Harder#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^14.14.31"
+  }
 }
