@@ -14,6 +14,7 @@ exports.run = (client, message, args) => {
     if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(deniedembed);
 
    message.mentions.roles.forEach(role => {
+        console.log(role.id)
         config.autoroles.push(role.id)
         embed.addField(i++, role.toString(), true)
     })
