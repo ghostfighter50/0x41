@@ -11,19 +11,20 @@ exports.run = (client, message, args) => {
 
     const errorembed = new Discord.MessageEmbed()
     .setThumbnail(message.author.avatarURL)
-    .setTitle(`❌ The role is equal or higher than the bot's highest Role or the role is not found ! `) 
+    .setTitle(`❌ Error`) 
     .setColor(client .config [message.guild.id] .EmbedColor);    
 
     const embed = new Discord.MessageEmbed()
     .setThumbnail(message.author.avatarURL)
     .setColor(client .config [message.guild.id] .EmbedColor) 
-    .setTitle("✅ Succesfully set unverified role !")
+    .setTitle("✅ Succesfully set test channel !")
 
     if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(deniedembed);
 
     try {
-     let role = message.mentions.roles.first()
-     client.config [message.guild.id].UnverifiedRole = role.id
+     let channel = message.mentions.channels.first()
+     config   [message.guild.id].TestChannel = channel.id
+      
      fs.writeFileSync("/root/Downloads/0x41/config.json", JSON.stringify(config, null, 2));
       
      message.channel.send(embed)

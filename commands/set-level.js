@@ -7,23 +7,27 @@ exports.run = (client, message, args) => {
     const deniedembed = new Discord.MessageEmbed()
     .setThumbnail(message.author.avatarURL)
     .setTitle(`❌ Acces Denied ! `) 
-    .setColor(client .config [message.guild.id] .EmbedColor);   
+    .setColor(client.config [message.guild.id] .EmbedColor);   
 
     const errorembed = new Discord.MessageEmbed()
     .setThumbnail(message.author.avatarURL)
     .setTitle(`❌ The role is equal or higher than the bot's highest Role or the role is not found ! `) 
-    .setColor(client .config [message.guild.id] .EmbedColor);    
+    .setColor(client.config [message.guild.id] .EmbedColor);    
 
     const embed = new Discord.MessageEmbed()
     .setThumbnail(message.author.avatarURL)
-    .setColor(client .config [message.guild.id] .EmbedColor) 
-    .setTitle("✅ Succesfully set unverified role !")
+    .setColor(client.config [message.guild.id] .EmbedColor) 
+    .setTitle("✅ Succesfully set level role !")
 
     if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(deniedembed);
 
     try {
+     client.config [message.guild.id].Levels = true
      let role = message.mentions.roles.first()
-     client.config [message.guild.id].UnverifiedRole = role.id
+     if(args[0] = "1") client.config [message.guild.id].LevelRole.level1 = role.id
+     else if(args[0] = "2") client.config [message.guild.id].LevelRole.level2 = role.id
+     else if(args[0] = "3") client.config [message.guild.id].LevelRole.level3 = role.id
+     else message.reply(":x: Ivalid usage check `sudo help`")
      fs.writeFileSync("/root/Downloads/0x41/config.json", JSON.stringify(config, null, 2));
       
      message.channel.send(embed)

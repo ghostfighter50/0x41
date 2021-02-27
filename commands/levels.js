@@ -1,8 +1,8 @@
 exports.run = async  (client, message) => {
     const Discord = require("discord.js")
-    let level1 = message.guild.roles.cache.get(client.config.LevelRoles.level1)
-    let level2 = message.guild.roles.cache.get(client.config.LevelRoles.level2)
-    let level3 = message.guild.roles.cache.get(client.config.LevelRoles.level3)
+    let level1 = message.guild.roles.cache.get(client.config[message.guild.id].LevelRoles.level1)
+    let level2 = message.guild.roles.cache.get(client.config[message.guild.id].LevelRoles.level2)
+    let level3 = message.guild.roles.cache.get(client.config[message.guild.id].LevelRoles.level3)
 
     const embed = new Discord.MessageEmbed()
     .setThumbnail(message.author.avatarURL)
