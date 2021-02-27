@@ -17,7 +17,7 @@ exports.run = (client, message, args) => {
     const embed = new Discord.MessageEmbed()
     .setTitle("Nuked !")
     .setDescription(`I've nuked the points of  ${toRemove.size} user.`)
-    .setColor(0x00AE86)
+    .setColor(client.config.EmbedColor)
     .setThumbnail(message.author.avatarURL)
 
     message.channel.send(embed);

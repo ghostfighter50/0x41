@@ -6,12 +6,12 @@ exports.run = async (client, message) => {
     const TicketEmbed = new Discord.MessageEmbed()
         .setTitle("Tickets")
         .setDescription("React with 📩 to create a ticket")
-        .setColor(0x00AE86)
+        .setColor(client.config.EmbedColor)
 
     const CloseEmbed = new Discord.MessageEmbed()
         .setTitle("Close Ticket")
         .setDescription("React with 🔒 to close the ticket")
-        .setColor(0x00AE86)
+        .setColor(client.config.EmbedColor)
 
     let TicketMessage = await message.channel.send(TicketEmbed)
 

@@ -10,14 +10,14 @@ exports.run = async (client, message, args) => {
         let hastebinembed = new Discord.MessageEmbed()
         .setTitle("**Hastebin**")
         .addField("URL:", r)
-        .setColor(0x00AE86);
+        .setColor(client.config.EmbedColor);
         message.channel.send(hastebinembed);
     })
 } catch  {
         let hastebinembed = new Discord.MessageEmbed()
         .setTitle("**Hastebin**")
         .addField("URL : SERVICE UNAVAILABLE")
-        .setColor(0x00AE86);
+        .setColor(client.config.EmbedColor);
         message.channel.send(hastebinembed);
 
 }

@@ -18,7 +18,7 @@ exports.run = async (client, message) => {
 		.setTitle("✅ Banned from server")
 		.setDescription(banMember.guild)
 		.setThumbnail(banMember.guild.iconURL)
-        .setColor(0x00AE86)
+        .setColor(client.config.EmbedColor)
 		.setFooter(`Banned by ${message.author.username}`);
 
 	message.channel.send('❓ Are you sure you want to ban this user?\nreply with "yes" or "no" in the next 10 seconds');

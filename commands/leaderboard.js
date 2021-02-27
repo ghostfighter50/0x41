@@ -11,7 +11,7 @@ exports.run = (client, message, args) => {
    .setTitle("Leaderboard")
    .setAuthor(client.user.username, message.guild.iconURL())
    .setDescription("Our top 10 points leaders!")
-   .setColor(0x00AE86);
+   .setColor(client.config.EmbedColor);
  for(const data of top10) {
    try {
      embed.addField(client.users.cache.get(data.user).tag, `${data.points} points `);

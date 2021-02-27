@@ -23,7 +23,7 @@ exports.run = async (client, message) => {
  .setTitle("❌ Error, incorrect value/challenge")
  .setDescription("Don't give up, you can finish this challenge !")
  .setThumbnail(message.guild.iconURL)
- .setColor(0x00AE86)
+ .setColor(client.config.EmbedColor)
  message.channel.send(embed)
 }
 
@@ -36,7 +36,7 @@ const verified = new Discord.MessageEmbed()
 .setThumbnail(message.author.avatarURL)
 .setTitle(`✅ Challenge finished ! `) 
 .setDescription(`${user.tag} has received **${result[1].points}** points and now has **${userPoints}** points.`)
-.setColor(0x00AE86);
+.setColor(client.config.EmbedColor);
 
 ;
 

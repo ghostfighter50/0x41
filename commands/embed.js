@@ -4,7 +4,7 @@ exports.run = async (client, message, args) => {
     let content = args.join(" ")
     let embed = new Discord.MessageEmbed()
       .setDescription(content)
-      .setColor(0x00AE86)
+      .setColor(client.config.EmbedColor)
     await message.channel.send(embed)
     await message.delete()
 

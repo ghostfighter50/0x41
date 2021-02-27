@@ -9,6 +9,6 @@ exports.run = async (client, message) => {
 })
 let embed = new Discord.MessageEmbed()
       .setDescription("✅ Tickets were all deleted !")
-      .setColor(0x00AE86)
+      .setColor(client.config.EmbedColor)
     await message.channel.send(embed)
 }

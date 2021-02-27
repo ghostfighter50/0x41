@@ -5,7 +5,7 @@ exports.run = (client, message, args) => {
     .addField("\n\n**Points** : ",  `${client.points.get(key, "points")}`)
     .setThumbnail(message.author.avatarURL)
     .setTitle(`${message.author.username}'s points`) 
-    .setColor(0x00AE86);
+    .setColor(client.config.EmbedColor);
 
     message.channel.send(embed)
 

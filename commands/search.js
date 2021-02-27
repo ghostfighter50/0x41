@@ -14,13 +14,13 @@ var options = {
 const waitembed = new Discord.MessageEmbed()
 .setThumbnail(message.author.avatarURL)
 .setTitle(`🔁 I'm preparing your search...`) 
-.setColor(0x00AE86);
+.setColor(client.config.EmbedColor);
 message.channel.send(waitembed)
 const links = await serp.search(options)
 const embed = new Discord.MessageEmbed()
 .setThumbnail(message.author.avatarURL)
 .setTitle(`Google search results`) 
-.setColor(0x00AE86);
+.setColor(client.config.EmbedColor);
 
 links.forEach(link =>{ embed.addField( link.title,` (${link.url.slice(30)})`, false)
 })

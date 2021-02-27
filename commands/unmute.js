@@ -38,7 +38,7 @@ exports.run = async (client, message) => {
       .addField('User:', `${user.username}#${user.discriminator} (${user.id})`)
       .addField('Moderator:', `${message.author.username}#${message.author.discriminator}`)
       .addField('Reason', reason)
-      .setColor(0x00AE86)
+      .setColor(client.config.EmbedColor)
    
       message.channel.send({embed})
   

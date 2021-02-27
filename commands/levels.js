@@ -7,7 +7,7 @@ exports.run = async  (client, message) => {
     {name: "2️⃣ Intermediate", value : "50 Points"},
     {name: "3️⃣ Expert", value : "100 Points"})
     .setTitle(`📖 Help `) 
-    .setColor(0x00AE86)   
+    .setColor(client.config.EmbedColor)   
 
     message.channel.send(embed)
 }

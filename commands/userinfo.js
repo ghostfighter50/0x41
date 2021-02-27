@@ -42,7 +42,7 @@ exports.run = async (client, message, args) => {
           .addField('Joined Server', `${moment(muser.joinedAt).toString().substr(0, 15)}\n(${moment(muser.joinedAt).fromNow()})`, true)
           .addField('Roles', `${muser.roles.cache.array()}`, true)
           .addField('Is Bot', `${user.bot.toString().toUpperCase()}`, true)
-          .setColor(0x00AE86);      
+          .setColor(client.config.EmbedColor);      
           message.channel.send(embed);
         } catch  {
           let user = message.mentions.users.first(); 
@@ -59,7 +59,7 @@ exports.run = async (client, message, args) => {
                   .addField('Joined Server', `${moment(muser.joinedAt).toString().substr(0, 15)}\n(${moment(muser.joinedAt).fromNow()})`, true)
                   .addField('Roles', `${muser.roles.cache.array()}`, true)
                   .addField('Is Bot', `${user.bot.toString().toUpperCase()}`, true)
-                  .setColor(0x00AE86);      
+                  .setColor(client.config.EmbedColor);      
                   message.channel.send(error);
         }
 }

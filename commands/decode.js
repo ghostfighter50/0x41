@@ -6,7 +6,7 @@ exports.run = (client, message, args) => {
     
     let embed = new Discord.MessageEmbed()
     .setThumbnail(message.author.avatarURL)
-    .setColor(0x00AE86);
+    .setColor(client.config.EmbedColor);
     
     if(args[0] == 'base64'){
         embed.setTitle(base64 )
@@ -20,7 +20,7 @@ exports.run = (client, message, args) => {
         const error = new Discord.MessageEmbed()
         .setThumbnail(message.author.avatarURL)
         .setTitle(`❌ Invalid Syntax  ! `) 
-        .setColor(0x00AE86);
+        .setColor(client.config.EmbedColor);
         return message.channel.send(error)
     }
     }

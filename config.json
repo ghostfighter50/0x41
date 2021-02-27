@@ -1,4 +1,17 @@
 {
     "token" : "NzU5MzgzNTczNTc1ODkyOTky.X28tEA.PDROsSw2iz-Ag84l5ZdSZf06HLY",
-    "prefix" : "sudo "
+    "prefix" : "sudo ",
+    "WelcomeChannel" : "814906779402109018",
+    "ReportChannel": "808328048432775198",
+    "TestChannel" : "808328017687347231",
+    "autoroles" : {
+        "role1" : "808655634563465287",
+        "role2" : "808652927756533770",
+        "role3" : "808653685353218068",
+        "role4" : "808653688087511060",
+        "role5" : "808653954392915969"
+    },
+    "VerifiedRole" : "808327986377261086",
+    "Unverifiedole" : "808328008040841236",
+    "EmbedColor" : "client.config.EmbedColor"
 }
