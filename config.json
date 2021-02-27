@@ -13,5 +13,11 @@
     ],
     "VerifiedRole" : "808327986377261086",
     "UnverifieRole" : "808328008040841236",
-    "EmbedColor" : "0x00AE86"
+    "EmbedColor" : "0x00AE86",
+    "LevelRoles" : {
+        "level1": "808327983039119360",
+        "level2": "808327981764182028",
+        "level3": "808327981020741643"
+    }
+
 }

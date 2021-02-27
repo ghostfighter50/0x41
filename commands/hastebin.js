@@ -7,12 +7,13 @@ exports.run = async (client, message, args) => {
   
     let haste = args.join(" ")
     hastebin(haste).then(r => {
+        
         let hastebinembed = new Discord.MessageEmbed()
         .setTitle("**Hastebin**")
         .addField("URL:", r)
         .setColor(client.config.EmbedColor);
         message.channel.send(hastebinembed);
-    })
+    }).catch(() => {return message.reply(":x: Service Unavailable !")})
 } catch  {
         let hastebinembed = new Discord.MessageEmbed()
         .setTitle("**Hastebin**")

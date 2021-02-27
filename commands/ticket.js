@@ -35,11 +35,11 @@ exports.run = async (client, message) => {
                                     allow: ['VIEW_CHANNEL'],
                                 },
                                 {
-                                    id: "808327986377261086",
+                                    id: client.config.VerifiedRole,
                                     deny: ['VIEW_CHANNEL'],
                                 },
                                 {
-                                    id: "808328008040841236",
+                                    id: client.config.UnverifiedRole,
                                     deny: ['VIEW_CHANNEL'],
                                 },
                             ]);
