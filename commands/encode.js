@@ -6,7 +6,7 @@ let hex = Buffer.from(args[1]).toString('hex')
 
 let embed = new Discord.MessageEmbed()
 .setThumbnail(message.author.avatarURL)
-.setColor(client.config.EmbedColor);
+.setColor(client.config [message.guild.id] .EmbedColor);
 
 if(args[0] == 'base64'){
     embed.setTitle(base64 )
@@ -20,7 +20,7 @@ else {
     const error = new Discord.MessageEmbed()
     .setThumbnail(message.author.avatarURL)
     .setTitle(`❌ Invalid Syntax  ! `) 
-    .setColor(client.config.EmbedColor);
+    .setColor(client.config [message.guild.id] .EmbedColor);
     return message.channel.send(error)
 }
 }

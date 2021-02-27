@@ -11,20 +11,19 @@ exports.run = (client, message, args) => {
 
     const errorembed = new Discord.MessageEmbed()
     .setThumbnail(message.author.avatarURL)
-    .setTitle(`❌ The role is equal or higher than the bot's highest Role or the role is not found ! `) 
+    .setTitle(`❌ Error ! `) 
     .setColor(client.config [message.guild.id] .EmbedColor);    
 
     const embed = new Discord.MessageEmbed()
     .setThumbnail(message.author.avatarURL)
     .setColor(client.config [message.guild.id] .EmbedColor) 
-    .setTitle("✅ Succesfully set autorole !")
+    .setTitle("✅ Succesfully cleared autorole !")
 
     if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(deniedembed);
 
     try {
      let role = message.mentions.roles.first()
-     config [message.guild.id] .autoroles.push(role.id)
-      
+     config [message.guild.id] .autoroles = []
      fs.writeFileSync("/root/Downloads/0x41/config.json", JSON.stringify(config, null, 2));
       
      message.channel.send(embed)

@@ -8,7 +8,7 @@ module.exports = async (client, member) => {
  
     let embed = new Discord.MessageEmbed()
         .setTitle(`❌ ${member.user.username} left...`)
-        .setColor(client.config.EmbedColor)
+        .setColor(client.config [message.guild.id] .EmbedColor)
         .setThumbnail(member.avatarURL)
 
     await channel.send(embed)

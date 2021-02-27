@@ -37,7 +37,7 @@ exports.run = async (client, message, args) => {
     .addField('Moderator:', `${message.author.username}#${message.author.discriminator}`)
     .addField('Reason :', reason)
     .addField('Length', mutetime +" sec")
-    .setColor(client.config.EmbedColor)
+    .setColor(client.config [message.guild.id] .EmbedColor)
     message.channel.send({embed});
 
     message.guild.member(tomute).roles.add(muteRole);

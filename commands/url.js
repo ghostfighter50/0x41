@@ -5,7 +5,7 @@ exports.run = (client, message, args) => {
     message.delete()
     let embed = new Discord.MessageEmbed()
     .setThumbnail(message.author.avatarURL) 
-    .setColor(client.config.EmbedColor);
+    .setColor(client.config [message.guild.id] .EmbedColor);
 
 shortUrl.short(args[0], (err, url)=>{
 if(err) return console.log(err)

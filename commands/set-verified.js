@@ -17,13 +17,13 @@ exports.run = (client, message, args) => {
     const embed = new Discord.MessageEmbed()
     .setThumbnail(message.author.avatarURL)
     .setColor(client.config [message.guild.id] .EmbedColor) 
-    .setTitle("✅ Succesfully set autorole !")
+    .setTitle("✅ Succesfully set verified role !")
 
     if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(deniedembed);
 
     try {
      let role = message.mentions.roles.first()
-     config [message.guild.id] .autoroles.push(role.id)
+     client.config [message.guild.id].VerifiedRole = role.id
       
      fs.writeFileSync("/root/Downloads/0x41/config.json", JSON.stringify(config, null, 2));
       

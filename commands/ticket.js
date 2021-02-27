@@ -6,12 +6,12 @@ exports.run = async (client, message) => {
     const TicketEmbed = new Discord.MessageEmbed()
         .setTitle("Tickets")
         .setDescription("React with 📩 to create a ticket")
-        .setColor(client.config.EmbedColor)
+        .setColor(client.config [message.guild.id] .EmbedColor)
 
     const CloseEmbed = new Discord.MessageEmbed()
         .setTitle("Close Ticket")
         .setDescription("React with 🔒 to close the ticket")
-        .setColor(client.config.EmbedColor)
+        .setColor(client.config [message.guild.id] .EmbedColor)
 
     let TicketMessage = await message.channel.send(TicketEmbed)
 
@@ -35,11 +35,11 @@ exports.run = async (client, message) => {
                                     allow: ['VIEW_CHANNEL'],
                                 },
                                 {
-                                    id: client.config.VerifiedRole,
+                                    id: client.config [message.guild.id].VerifiedRole,
                                     deny: ['VIEW_CHANNEL'],
                                 },
                                 {
-                                    id: client.config.UnverifiedRole,
+                                    id: client.config [message.guild.id].UnverifiedRole,
                                     deny: ['VIEW_CHANNEL'],
                                 },
                             ]);

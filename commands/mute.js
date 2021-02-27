@@ -37,7 +37,7 @@ exports.run = async (client, message) => {
       .addField('User:', `${user.username}#${user.discriminator} (${user.id})`)
       .addField('Moderator:', `${message.author.username}#${message.author.discriminator}`)
       .addField('Reason', reason)
-      .setColor(client.config.EmbedColor)
+      .setColor(client.config [message.guild.id] .EmbedColor)
       message.channel.send({embed})
   
       if(user.bot) return;

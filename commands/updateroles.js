@@ -4,13 +4,13 @@ const Discord = require('discord.js');
 const verified = new Discord.MessageEmbed()
 .setThumbnail(message.author.avatarURL)
 .setTitle(`✅ Roles updated ! `) 
-.setColor(client.config.EmbedColor);
+.setColor(client.config [message.guild.id] .EmbedColor);
     
 let embed = new Discord.MessageEmbed()
 .setTitle("❌ Not enough points ")
 .setDescription("Don't give up, you can make those challenges !")
 .setThumbnail(message.guild.iconURL)
-.setColor(client.config.EmbedColor)
+.setColor(client.config [message.guild.id] .EmbedColor)
 
 let user = message.author
 let userPoints = client.points.get(`${message.guild.id}-${user.id}`, "points");

@@ -3,7 +3,7 @@ const Discord = require("discord.js")
 const config = require("../config.json")
 
 exports.run = (client, message, args) => {
-
+    var i = 1
     const deniedembed = new Discord.MessageEmbed()
     .setThumbnail(message.author.avatarURL)
     .setTitle(`❌ Acces Denied ! `) 
@@ -11,21 +11,23 @@ exports.run = (client, message, args) => {
 
     const errorembed = new Discord.MessageEmbed()
     .setThumbnail(message.author.avatarURL)
-    .setTitle(`❌ The role is equal or higher than the bot's highest Role or the role is not found ! `) 
+    .setTitle(`❌ Error ! `) 
     .setColor(client.config [message.guild.id] .EmbedColor);    
 
     const embed = new Discord.MessageEmbed()
     .setThumbnail(message.author.avatarURL)
     .setColor(client.config [message.guild.id] .EmbedColor) 
-    .setTitle("✅ Succesfully set autorole !")
+    .setTitle("Autoroles")
 
     if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(deniedembed);
 
     try {
-     let role = message.mentions.roles.first()
-     config [message.guild.id] .autoroles.push(role.id)
-      
-     fs.writeFileSync("/root/Downloads/0x41/config.json", JSON.stringify(config, null, 2));
+    
+     config [message.guild.id] .autoroles.forEach(r => {
+         let role = message.guild.roles.cache.find(role => role.id == r);
+         embed.addField("Role " + i++, role , true)
+        })
+        if(config [message.guild.id] .autoroles.length == 0) embed.addField("Role 1 :","No roles !",true )
       
      message.channel.send(embed)
 

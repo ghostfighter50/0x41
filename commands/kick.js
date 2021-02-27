@@ -18,7 +18,7 @@ exports.run = async (client, message) => {
 		.setTitle("✅ Kicked from server")
 		.setDescription(banMember.guild)
 		.setThumbnail(banMember.guild.iconURL)
-       		.setColor(client.config.EmbedColor)
+       		.setColor(client.config [message.guild.id] .EmbedColor)
 		.setFooter(`Kicked by ${message.author.username}`);
 
 	message.channel.send('❓ Are you sure you want to kick this user?\nreply with "yes" or "no" in the next 10 seconds');

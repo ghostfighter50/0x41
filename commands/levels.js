@@ -11,7 +11,7 @@ exports.run = async  (client, message) => {
     {name: level2.name, value : "50 Points"},
     {name: level3.name, value : "100 Points"})
     .setTitle(`📖 Levels `) 
-    .setColor(client.config.EmbedColor)   
+    .setColor(client.config [message.guild.id] .EmbedColor)   
 
     message.channel.send(embed)
 }

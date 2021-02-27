@@ -3,7 +3,7 @@ exports.run = (client, message, args) => {
     const deniedembed = new Discord.MessageEmbed()
     .setThumbnail(message.author.avatarURL)
     .setTitle(`❌ Acces Denied ! `) 
-    .setColor(client.config.EmbedColor);
+    .setColor(client.config [message.guild.id] .EmbedColor);
     
     if(!message.member.hasPermission('ADMINISTRATOR')) 
     return message.channel.send(deniedembed);
@@ -27,7 +27,7 @@ exports.run = (client, message, args) => {
     .setThumbnail(message.author.avatarURL)
     .setTitle(`✅ Points removed  ! `) 
     .setDescription(`${user.tag} had  **${pointsToDel}** points removed and now has **${userPoints}** points.`)
-    .setColor(client.config.EmbedColor);
+    .setColor(client.config [message.guild.id] .EmbedColor);
     
     message.channel.send(giveembed);
     }

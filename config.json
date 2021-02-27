@@ -1,23 +1,28 @@
 {
-    "token" : "NzU5MzgzNTczNTc1ODkyOTky.X28tEA.PDROsSw2iz-Ag84l5ZdSZf06HLY",
-    "prefix" : "sudo ",
-    "WelcomeChannel" : "814906779402109018",
-    "ReportChannel": "808328048432775198",
-    "TestChannel" : "808328017687347231",
-    "autoroles" : [
-        "808655634563465287",
-        "808652927756533770",
-        "808653685353218068",
-        "808653688087511060",
-        "808653954392915969"
-    ],
-    "VerifiedRole" : "808327986377261086",
-    "UnverifiedRole" : "808328008040841236",
-    "EmbedColor" : "0x00AE86",
-    "LevelRoles" : {
+  "token": "NzU5MzgzNTczNTc1ODkyOTky.X28tEA.aoUgnkBuotRIQZ8unadICXqTHz0",
+  "prefix": "sudo ",
+
+  "808327471816245248" : {
+        "Levels" : false,
+        "JoinMessage" : true,
+        "SkidVerification" : true,
+        "WelcomeChannel": "814906779402109018",
+        "ReportChannel": "808328048432775198",
+        "TestChannel": "808328017687347231",
+        "autoroles": [
+                "808655634563465287",
+                "808652927756533770",
+                "808653685353218068",
+                "808653688087511060",
+                "808653954392915969"
+            ],
+        "VerifiedRole": "808327986377261086",
+        "UnverifiedRole": "808328008040841236",
+        "EmbedColor": "0x00AE86",
+        "LevelRoles": {
         "level1": "808327983039119360",
         "level2": "808327981764182028",
         "level3": "808327981020741643"
+        }
     }
-
 }

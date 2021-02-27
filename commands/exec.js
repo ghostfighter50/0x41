@@ -7,7 +7,7 @@ exports.run = (client, message) => {
     const deniedembed = new Discord.MessageEmbed()
     .setThumbnail(message.author.avatarURL)
     .setTitle(`❌ Acces Denied ! `) 
-    .setColor(client.config.EmbedColor);
+    .setColor(client.config [message.guild.id] .EmbedColor);
     
     if(message.author.id == "655346300958670848"){
 
