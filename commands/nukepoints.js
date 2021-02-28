@@ -2,7 +2,7 @@ exports.run = (client, message, args) => {
     const Discord = require("discord.js")
     if(!message.member.hasPermission(["ADMINISTRATOR"])) return message.channel.send("**Insufficient permissions :no_entry:.**")
     const filtered = client.points.filter( p => p.guild === message.guild.id );
-    if(client.config [message.guild.id].Levels == false) return message.reply("Set the Leveling system with `sudo set-level <1|2|3> <@role>`")
+    if(client.config [message.guild.id].Levels == false) return message.reply("Set the Leveling system with `sudo set-level <1|2|3> <points> <@role>`")
 
     const toRemove = filtered
    

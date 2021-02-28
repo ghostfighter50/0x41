@@ -3,7 +3,7 @@ const Discord = require("discord.js")
 const config = require("../config.json")
 
 exports.run = (client, message, args) => {
-    if(client.config [message.guild.id].Levels == false) return message.reply("Set the Leveling system with `sudo set-level <1|2|3> <@role>`")
+    if(client.config [message.guild.id].Levels == false) return message.reply("Set the Leveling system with `sudo set-level <1|2|3> <points> <@role>`")
 
     const deniedembed = new Discord.MessageEmbed()
     .setThumbnail(message.author.avatarURL)
@@ -24,7 +24,7 @@ exports.run = (client, message, args) => {
 
     try {
     
-    config[message.guild.id].Flags = [{}]
+    config[message.guild.id].Flags = []
    
 
     fs.writeFileSync("/root/Downloads/0x41/config.json", JSON.stringify(config, null, 2));

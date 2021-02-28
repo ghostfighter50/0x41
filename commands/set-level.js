@@ -3,6 +3,7 @@ const Discord = require("discord.js")
 const config = require("../config.json")
 
 exports.run = (client, message, args) => {
+    if(client.config [message.guild.id].Levels == false) return message.reply("Set the Leveling system with `sudo set-level <1|2|3> <points> <@role>`")
 
     const deniedembed = new Discord.MessageEmbed()
     .setThumbnail(message.author.avatarURL)
@@ -23,11 +24,11 @@ exports.run = (client, message, args) => {
 
     try {
      client.config [message.guild.id].Levels = true
-     
+     if(!args[1]) args[1] = "10"
      let role = message.mentions.roles.first()
-    if(args[0] == "1") {config [message.guild.id].LevelRoles.level1 = role.id}
-    if(args[0] == "2") {config [message.guild.id].LevelRoles.level2 = role.id}
-    if(args[0] == "3") {config [message.guild.id].LevelRoles.level3 = role.id}
+    if(args[0] == "1") {config [message.guild.id].LevelRoles.level1 =  {id : role.id,points : args[1]}}
+    if(args[0] == "2") {config [message.guild.id].LevelRoles.level2 =  {id : role.id,points : args[1]}}
+    if(args[0] == "3") {config [message.guild.id].LevelRoles.level3 = {id : role.id,points : args[1]}}
     fs.writeFileSync("/root/Downloads/0x41/config.json", JSON.stringify(config, null, 2));
       
      message.channel.send(embed)

@@ -16,6 +16,7 @@ exports.run = async  (client, message) => {
     .addField("**Anti-Skid Verification **", client.config [message.guild.id] .SkidVerification, true)
     .addField("**Join Logger **", client.config [message.guild.id] .JoinLogger, true)
     .addField("**Autoroles **", "**`sudo list-autoroles`**", true)
+    .addField("**Challenges/flags **", "**`sudo list-flags`**", true)
     .addField("**Report Channel **", report, true)
     .addField("**Test Channel **", test, true)
     .addField("**Welcome Channel **", welcome, true)

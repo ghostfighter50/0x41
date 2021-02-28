@@ -3,7 +3,7 @@ const config = require("../config.json")
 
 exports.run = (client, message, args) => {
     var i = 1
-    if(client.config [message.guild.id].Levels == false) return message.reply("Set the Leveling system with `sudo set-level <1|2|3> <@role>`")
+    if(client.config [message.guild.id].Levels == false) return message.reply("Set the Leveling system with `sudo set-level <1|2|3> <points> <@role>`")
 
     const deniedembed = new Discord.MessageEmbed()
     .setThumbnail(message.author.avatarURL)
@@ -23,8 +23,10 @@ exports.run = (client, message, args) => {
   
     if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(deniedembed);
     try {
-    if(config [message.guild.id] .Flags.length == 0) embed.addField("Flags :","No Flags !",true )
+    if(config [message.guild.id] .Flags.length == 1)  {embed.addField("Flags :","No Flags !",true );return message.channel.send(embed)
+}
         config[message.guild.id].Flags.forEach(flag =>{
+          if(flag.name ==undefined) return
           embed.addField("Flag "+i++,"**Name :** "+"`"+flag.name+"`"+ "**Value :** "+ "`"+flag.value+ "`"+" **Points :** "+ "`"+flag.points+ "`", false); 
      })
      message.channel.send(embed)

@@ -19,30 +19,30 @@ if(client.config [message.guild.id].Levels == false) return message.reply("Set t
 
 if (userPoints >= "100") {
     
-   let Role = message.guild.roles.cache.get(client.config[message.guild.id].LevelRoles.level3);
-   let removerole =  message.guild.roles.cache.get(client.config[message.guild.id].LevelRoles.level2);
+   let Role = message.guild.roles.cache.get(client.config[message.guild.id].LevelRoles.level3.id);
+   let removerole =  message.guild.roles.cache.get(client.config[message.guild.id].LevelRoles.level2.id);
    member.roles.remove(removerole)
    member.roles.add(Role);
    message.channel.send(verified);
 }
 else if (userPoints >= "50") {
     
-   let Role = message.guild.roles.cache.get(client.config[message.guild.id].LevelRoles.level2);
-   let removerole =  message.guild.roles.cache.get(client.config[message.guild.id].LevelRoles.level1);
+   let Role = message.guild.roles.cache.get(client.config[message.guild.id].LevelRoles.level2.id);
+   let removerole =  message.guild.roles.cache.get(client.config[message.guild.id].LevelRoles.level1.id);
    member.roles.remove(removerole)
    member.roles.add(Role);
    message.channel.send(verified);
 }
 else if (userPoints >= "20") {
     
-   let Role = message.guild.roles.cache.get(client.config[message.guild.id].LevelRoles.level1);
+   let Role = message.guild.roles.cache.get(client.config[message.guild.id].LevelRoles.level1.id);
    member.roles.add(Role);
    message.channel.send(verified);
    }
    
     
 else {
-   let removerole =  message.guild.roles.cache.get(client.config[message.guild.id].LevelRoles.level1);
+   let removerole =  message.guild.roles.cache.get(client.config[message.guild.id].LevelRoles.level1.id);
    member.roles.remove(removerole)
     message.channel.send(embed)
     }

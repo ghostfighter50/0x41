@@ -1,5 +1,5 @@
 exports.run = (client, message, args) => {
-    if(client.config [message.guild.id].Levels == false) return message.reply("Set the Leveling system with `sudo set-level <1|2|3> <@role>`")
+    if(client.config [message.guild.id].Levels == false) return message.reply("Set the Leveling system with `sudo set-level <1|2|3> <points> <@role>`")
 
     const Discord = require("discord.js")
     const key = `${message.guild.id}-${message.author.id}`;
