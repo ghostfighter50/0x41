@@ -3,6 +3,10 @@ exports.run = async  (client, message) => {
     let level1 = message.guild.roles.cache.get(client.config[message.guild.id].LevelRoles.level1)
     let level2 = message.guild.roles.cache.get(client.config[message.guild.id].LevelRoles.level2)
     let level3 = message.guild.roles.cache.get(client.config[message.guild.id].LevelRoles.level3)
+    if(level1 == undefined)  {return message.reply(":x: you must set the 3 level roles before using command `sudo set-level <1|2|3> <@role>`")}
+    else if(level2 == undefined)  {return message.reply(":x: you must set the 3 level roles before using command `sudo set-level <1|2|3> <@role>`")}
+    else if(level3 == undefined)  {return message.reply(":x: you must set the 3 level roles before using command `sudo set-level <1|2|3> <@role>`")}
+
     if(client.config [message.guild.id].Levels == false) return message.reply("Set the Leveling system with `sudo set-level <1|2|3> <@role>`")
     const embed = new Discord.MessageEmbed()
     .setThumbnail(message.author.avatarURL)

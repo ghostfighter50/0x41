@@ -1,7 +1,13 @@
 module.exports = async (client, guild) => {
 const fs = require("fs")
 let config = require("../config.json")
-
+    guild.members.cache.forEach(member => {
+          client.points.ensure(`${guild.id}-${member.id}`, {
+          user: member.id,
+          guild: member.guild.id,
+          points: 0,
+        });
+    })
 config[guild.id] = {}
 config[guild.id].Levels =  false
 config[guild.id].JoinLogger = true
