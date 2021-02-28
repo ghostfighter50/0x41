@@ -40,11 +40,17 @@ module.exports = async (client, member) => {
         .setTitle(`❌ ${member.user.username} failed the test`)
         .setColor(client.config [member.guild.id] .EmbedColor)
         .setThumbnail(member.avatarURL)
-
+    let errorembed = new Discord.MessageEmbed()
+        .setTitle(`❌ to activate the skid test you must define the verified and unverified role`)
+        .setColor(client.config [member.guild.id] .EmbedColor)
+        .setThumbnail(member.avatarURL)
     await channel.send(embed)
     await member.send(embed).catch(() => {return channel.send(`:x: Could not send a DM to ${member}, activate server DMs and rejoin  the server !`)})
 
-
+    if(client.config[member.guild.id].SkidVerification == false) return
+    else if(client.config[member.guild.id].SkidVerification == false){
+    if(role == undefined) return channel.send(errorembed)
+    if(delrole == undefined) return channel.send(errorembed)
 
     let question1 = await member.send(new Discord.MessageEmbed().setDescription("Decode this string : `WW91IHBhc3NlZCB0aGUgZmlyc3QgcXVlc3Rpb24gISBQcmVwYXJlIGZvciB0aGUgc2Vjb25kIG9uZS4=`").setColor(client.config [member.guild.id] .EmbedColor))
 
@@ -123,4 +129,5 @@ module.exports = async (client, member) => {
             }
         })
 
+}
 }

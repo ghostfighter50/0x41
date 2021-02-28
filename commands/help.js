@@ -12,7 +12,7 @@ exports.run = async  (client, message) => {
     .addField("** 📊 Points**","`give <user> <amount>` \n  `remove <user> <amount>` \n  `nukepoints` \n  `levels` \n  `updateroles` \n  `points` \n  `verify <challenge-name> <flag> ` \n  `leaderboard `  ", false)
     .addField("** **", "** **", true)
     .addField("** 📩 Tickets**","`ticket`\n`close-all`",false)
-    .addField("** 🛠️ Config**","`set-autorole <@role>` \n`clear-autorole` \n `list-autorole` \n `set-report <@channel>` \n `set-welcome <@channel>` \n `set-test <@channel>` \n`set-verified <@role>` \n`set-unverified <@role>` \n`set-join` \n`unset-join`\n`set-level <1|2|3> <@role>` \n`config`",false)
+    .addField("** 🛠️ Config**","`set-autorole <@role>` \n`clear-autorole` \n `list-autorole` \n `set-report <@channel>` \n `set-welcome <@channel>` \n `set-test <@channel>` \n `unset-test`\n`set-verified <@role>` \n`set-unverified <@role>` \n`set-join` \n`unset-join`\n`set-level <1|2|3> <@role>` \n `unset-levels` \n`config`",false)
     .addField("** **", "** **", true)
     .setTitle(`📖 Help `)
     .setFooter("Made by Ghostfighter50")

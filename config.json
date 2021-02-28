@@ -3,7 +3,8 @@
   "prefix": "sudo ",
   "808327471816245248": {
     "Levels": false,
-    "JoinMessage": true,
+    "JoinLogger": true,
+    "SkidVerification": true,
     "WelcomeChannel": "814906779402109018",
     "ReportChannel": "808328048432775198",
     "TestChannel": "808328017687347231",
@@ -21,6 +22,25 @@
       "level1": "808327983039119360",
       "level2": "808327981764182028",
       "level3": "808327981020741643"
+    }
+  },
+  "750055344188948490": {
+    "Levels": true,
+    "JoinLogger": true,
+    "SkidVerification": true,
+    "WelcomeChannel": "750083402140745748",
+    "ReportChannel": "",
+    "TestChannel": "750083697193254994",
+    "autoroles": [
+      "750057530495074304"
+    ],
+    "VerifiedRole": "750356175865905253",
+    "UnverifiedRole": "",
+    "EmbedColor": "0x00AE86",
+    "LevelRoles": {
+      "level1": "750058468345380985",
+      "level2": "750058330545717268",
+      "level3": "750058330545717268"
     }
   }
 }

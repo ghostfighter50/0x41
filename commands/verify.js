@@ -3,6 +3,8 @@ const Discord = require('discord.js');
 
 exports.run = async (client, message) => {
     try{
+ if(client.config [message.guild.id].Levels == false) return message.reply("Set the Leveling system with `sudo set-level <1|2|3> <@role>`")
+
  let args = message.content.slice(4).split(' ');
  let challenge = args[2]
  let value = args[3]

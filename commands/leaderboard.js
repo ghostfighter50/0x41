@@ -6,6 +6,7 @@ exports.run = (client, message, args) => {
  const sorted = filtered.sort((a, b) => b.points - a.points);
 
  const top10 = sorted.splice(0, 10);
+ if(client.config [message.guild.id].Levels == false) return message.reply("Set the Leveling system with `sudo set-level <1|2|3> <@role>`")
 
  const embed = new Discord.MessageEmbed()
    .setTitle("Leaderboard")

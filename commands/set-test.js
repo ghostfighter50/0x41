@@ -23,8 +23,9 @@ exports.run = (client, message, args) => {
 
     try {
      let channel = message.mentions.channels.first()
-     config   [message.guild.id].TestChannel = channel.id
-      
+     config[message.guild.id].TestChannel = channel.id
+     config [message.guild.id].SkidVerification = true
+
      fs.writeFileSync("/root/Downloads/0x41/config.json", JSON.stringify(config, null, 2));
       
      message.channel.send(embed)

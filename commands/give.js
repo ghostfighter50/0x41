@@ -4,6 +4,7 @@ const deniedembed = new Discord.MessageEmbed()
 .setThumbnail(message.author.avatarURL)
 .setTitle(`❌ Acces Denied ! `) 
 .setColor(client.config [message.guild.id] .EmbedColor);
+if(client.config [message.guild.id].Levels == false) return message.reply("Set the Leveling system with `sudo set-level <1|2|3> <@role>`")
 
 if(!message.member.hasPermission('ADMINISTRATOR')) 
 return message.channel.send(deniedembed);

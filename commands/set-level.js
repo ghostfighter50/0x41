@@ -23,12 +23,12 @@ exports.run = (client, message, args) => {
 
     try {
      client.config [message.guild.id].Levels = true
+     
      let role = message.mentions.roles.first()
-     if(args[0] = "1") client.config [message.guild.id].LevelRole.level1 = role.id
-     else if(args[0] = "2") client.config [message.guild.id].LevelRole.level2 = role.id
-     else if(args[0] = "3") client.config [message.guild.id].LevelRole.level3 = role.id
-     else message.reply(":x: Ivalid usage check `sudo help`")
-     fs.writeFileSync("/root/Downloads/0x41/config.json", JSON.stringify(config, null, 2));
+    if(args[0] = "1") config [message.guild.id].LevelRoles.level1 = role.id
+    else if(args[0] = "2") config [message.guild.id].LevelRoles.level2 = role.id
+    else if(args[0] = "3") config [message.guild.id].LevelRoles.level3 = role.id
+    fs.writeFileSync("/root/Downloads/0x41/config.json", JSON.stringify(config, null, 2));
       
      message.channel.send(embed)
 
