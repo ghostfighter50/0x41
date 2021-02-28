@@ -2,7 +2,7 @@
   "token": "NzU5MzgzNTczNTc1ODkyOTky.X28tEA.aoUgnkBuotRIQZ8unadICXqTHz0",
   "prefix": "sudo ",
   "808327471816245248": {
-    "Levels": false,
+    "Levels": true,
     "JoinLogger": true,
     "SkidVerification": true,
     "WelcomeChannel": "814906779402109018",
@@ -22,7 +22,10 @@
       "level1": "808327983039119360",
       "level2": "808327981764182028",
       "level3": "808327981020741643"
-    }
+    },
+    "Flags": [
+      {}
+    ]
   },
   "750055344188948490": {
     "Levels": true,
@@ -41,6 +44,9 @@
       "level1": "750057530495074304",
       "level2": "750058330545717268",
       "level3": "750058468345380985"
-    }
+    },
+    "Flags": [
+      {}
+    ]
   }
 }

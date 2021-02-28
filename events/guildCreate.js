@@ -23,6 +23,7 @@ config[guild.id].LevelRoles = {}
 config[guild.id].LevelRoles.level1 = ""
 config[guild.id].LevelRoles.level2 = ""
 config[guild.id].LevelRoles.level3 = ""
+config[guild.id].Challenges = [{}]
 fs.writeFileSync("/root/Downloads/0x41/config.json", JSON.stringify(config, null, 2));
 
 }
