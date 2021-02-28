@@ -1,24 +1,21 @@
 const Discord = require("discord.js");
 
-exports.run = async (client, message, args) => {	
-
-	const role = args[0]
+exports.run = async (client, message, args) => {
+	const role = args[0];
 	const embed = new Discord.MessageEmbed()
-		.setTitle(message.guild.name+"'channels")
-        .setColor(client.config[message.guild.id].EmbedColor)					
-		try {
-            let i = 0
-            message.guild.channels.cache.forEach(r => {
-                i++
-                if(i == 1) return
-                embed.description += "\n"+r.name
-            })
-            
-			message.channel.send(embed);
-						
-		} catch  (e){
-            console.log(e)
-			message.channel.send(`❌ Failed to list channels`);
-		}
-				
-}
+		.setTitle(message.guild.name + "'channels")
+		.setColor(client.config[message.guild.id].EmbedColor);
+	try {
+		let i = 0;
+		message.guild.channels.cache.forEach((r) => {
+			i++;
+			if (i == 1) return;
+			embed.description += "\n" + r.name;
+		});
+
+		message.channel.send(embed);
+	} catch (e) {
+		console.log(e);
+		message.channel.send(`❌ Failed to list channels`);
+	}
+};

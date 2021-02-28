@@ -1,35 +1,35 @@
 {
-  "name": "0x41",
-  "version": "3.1.0",
-  "main": "bot.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Ghostfighter50",
-  "license": "ISC",
-  "dependencies": {
-    "discord-player": "^3.4.0",
-    "discord.js": "^12.3.1",
-    "enmap": "^5.8.0",
-    "github-search-api": "0.0.3",
-    "hastebin-gen": "^2.0.5",
-    "moment": "^2.29.1",
-    "ms": "^2.1.2",
-    "node-url-shortener": "^1.1.11",
-    "os-utils": "0.0.14",
-    "request": "^2.88.2",
-    "serp": "^2.1.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ghostfighter50/Hack-Harder.git"
-  },
-  "bugs": {
-    "url": "https://github.com/ghostfighter50/Hack-Harder/issues"
-  },
-  "homepage": "https://github.com/ghostfighter50/Hack-Harder#readme",
-  "description": "",
-  "devDependencies": {
-    "@types/node": "^14.14.31"
-  }
+	"name": "0x41",
+	"version": "3.1.0",
+	"main": "bot.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Ghostfighter50",
+	"license": "ISC",
+	"dependencies": {
+		"discord-player": "^3.4.0",
+		"discord.js": "^12.3.1",
+		"enmap": "^5.8.0",
+		"github-search-api": "0.0.3",
+		"hastebin-gen": "^2.0.5",
+		"moment": "^2.29.1",
+		"ms": "^2.1.2",
+		"node-url-shortener": "^1.1.11",
+		"os-utils": "0.0.14",
+		"request": "^2.88.2",
+		"serp": "^2.1.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ghostfighter50/Hack-Harder.git"
+	},
+	"bugs": {
+		"url": "https://github.com/ghostfighter50/Hack-Harder/issues"
+	},
+	"homepage": "https://github.com/ghostfighter50/Hack-Harder#readme",
+	"description": "",
+	"devDependencies": {
+		"@types/node": "^14.14.31"
+	}
 }

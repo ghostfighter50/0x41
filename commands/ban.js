@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 
 exports.run = async (client, message) => {
-
 	if (!message.member.hasPermission("BAN_MEMBERS"))
 		return message.reply("❌ you can't use this command.");
 	if (message.mentions.members.size === 0)
@@ -12,26 +11,24 @@ exports.run = async (client, message) => {
 		return message.reply("❌ can't ban an Admin :p");
 
 	const banMember = message.mentions.members.first();
-    let args = message.content.slice(4).split(' ')
-    var reason = args[3]
+	let args = message.content.slice(4).split(" ");
+	var reason = args[3];
 	const embed = new Discord.MessageEmbed()
 		.setTitle("✅ Banned from server")
 		.setDescription(banMember.guild)
 		.setThumbnail(banMember.guild.iconURL)
-        .setColor(client.config.EmbedColor)
+		.setColor(client.config.EmbedColor)
 		.setFooter(`Banned by ${message.author.username}`);
 
-					if (banMember.bannable) {
-						if (reason != "") {
-							embed.addField("Reason for ban", `${reason.join(" ")}`);
-							banMember.send(embed);
-						}
-						else {
-							embed.addField("Reason for ban", "No reason was specified");
-							banMember.send(embed);
-						}
-					} else {
-						message.channel.send(`❌ Failed to ban member ${banMember}`);
-					}
-				
-}
+	if (banMember.bannable) {
+		if (reason != "") {
+			embed.addField("Reason for ban", `${reason.join(" ")}`);
+			banMember.send(embed);
+		} else {
+			embed.addField("Reason for ban", "No reason was specified");
+			banMember.send(embed);
+		}
+	} else {
+		message.channel.send(`❌ Failed to ban member ${banMember}`);
+	}
+};

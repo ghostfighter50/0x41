@@ -1,0 +1,517 @@
+{
+	"extension": "linecounter",
+	"version": "0.2.7",
+	"workspace": "/root/Downloads/0x41",
+	"linecount": [
+		{
+			"version": "0.2.7",
+			"counttime": "2021-02-28 19:56:35",
+			"filesum": 80,
+			"codesum": 3781,
+			"commentsum": 18,
+			"blanksum": 453,
+			"statistics": {
+				".json": {
+					"code": 2014,
+					"comment": 0,
+					"blank": 2
+				},
+				".js": {
+					"code": 1760,
+					"comment": 18,
+					"blank": 451
+				},
+				"": {
+					"code": 7,
+					"comment": 0,
+					"blank": 0
+				}
+			},
+			"filelist": [
+				{
+					"blank": 0,
+					"code": 2,
+					"comment": 0,
+					"filename": ".gitignore"
+				},
+				{
+					"blank": 0,
+					"code": 4,
+					"comment": 0,
+					"filename": ".prettierrc"
+				},
+				{
+					"blank": 9,
+					"code": 29,
+					"comment": 0,
+					"filename": "bot.js"
+				},
+				{
+					"blank": 5,
+					"code": 32,
+					"comment": 0,
+					"filename": "commands/ban.js"
+				},
+				{
+					"blank": 8,
+					"code": 27,
+					"comment": 0,
+					"filename": "commands/clear-autorole.js"
+				},
+				{
+					"blank": 11,
+					"code": 27,
+					"comment": 0,
+					"filename": "commands/clear-flags.js"
+				},
+				{
+					"blank": 6,
+					"code": 9,
+					"comment": 0,
+					"filename": "commands/clear.js"
+				},
+				{
+					"blank": 2,
+					"code": 12,
+					"comment": 0,
+					"filename": "commands/close-all.js"
+				},
+				{
+					"blank": 2,
+					"code": 30,
+					"comment": 0,
+					"filename": "commands/config.js"
+				},
+				{
+					"blank": 9,
+					"code": 19,
+					"comment": 0,
+					"filename": "commands/create-role.js"
+				},
+				{
+					"blank": 6,
+					"code": 21,
+					"comment": 0,
+					"filename": "commands/decode.js"
+				},
+				{
+					"blank": 8,
+					"code": 44,
+					"comment": 0,
+					"filename": "commands/default.js"
+				},
+				{
+					"blank": 9,
+					"code": 16,
+					"comment": 0,
+					"filename": "commands/del-role.js"
+				},
+				{
+					"blank": 2,
+					"code": 9,
+					"comment": 0,
+					"filename": "commands/embed.js"
+				},
+				{
+					"blank": 5,
+					"code": 21,
+					"comment": 0,
+					"filename": "commands/encode.js"
+				},
+				{
+					"blank": 3,
+					"code": 18,
+					"comment": 0,
+					"filename": "commands/exec.js"
+				},
+				{
+					"blank": 11,
+					"code": 24,
+					"comment": 0,
+					"filename": "commands/give.js"
+				},
+				{
+					"blank": 6,
+					"code": 20,
+					"comment": 0,
+					"filename": "commands/hastebin.js"
+				},
+				{
+					"blank": 8,
+					"code": 59,
+					"comment": 0,
+					"filename": "commands/help.js"
+				},
+				{
+					"blank": 3,
+					"code": 11,
+					"comment": 0,
+					"filename": "commands/invite.js"
+				},
+				{
+					"blank": 6,
+					"code": 32,
+					"comment": 0,
+					"filename": "commands/kick.js"
+				},
+				{
+					"blank": 4,
+					"code": 20,
+					"comment": 0,
+					"filename": "commands/leaderboard.js"
+				},
+				{
+					"blank": 1,
+					"code": 5,
+					"comment": 0,
+					"filename": "commands/leave.js"
+				},
+				{
+					"blank": 2,
+					"code": 20,
+					"comment": 0,
+					"filename": "commands/levels.js"
+				},
+				{
+					"blank": 8,
+					"code": 30,
+					"comment": 0,
+					"filename": "commands/list-autorole.js"
+				},
+				{
+					"blank": 5,
+					"code": 19,
+					"comment": 0,
+					"filename": "commands/list-channels.js"
+				},
+				{
+					"blank": 6,
+					"code": 32,
+					"comment": 0,
+					"filename": "commands/list-flags.js"
+				},
+				{
+					"blank": 5,
+					"code": 19,
+					"comment": 0,
+					"filename": "commands/list-roles.js"
+				},
+				{
+					"blank": 6,
+					"code": 37,
+					"comment": 0,
+					"filename": "commands/mute-all.js"
+				},
+				{
+					"blank": 5,
+					"code": 44,
+					"comment": 0,
+					"filename": "commands/mute.js"
+				},
+				{
+					"blank": 3,
+					"code": 17,
+					"comment": 0,
+					"filename": "commands/nukepoints.js"
+				},
+				{
+					"blank": 0,
+					"code": 3,
+					"comment": 0,
+					"filename": "commands/ping.js"
+				},
+				{
+					"blank": 1,
+					"code": 8,
+					"comment": 0,
+					"filename": "commands/points.js"
+				},
+				{
+					"blank": 9,
+					"code": 31,
+					"comment": 0,
+					"filename": "commands/raidmode.js"
+				},
+				{
+					"blank": 10,
+					"code": 24,
+					"comment": 0,
+					"filename": "commands/remove.js"
+				},
+				{
+					"blank": 1,
+					"code": 15,
+					"comment": 0,
+					"filename": "commands/report.js"
+				},
+				{
+					"blank": 0,
+					"code": 16,
+					"comment": 0,
+					"filename": "commands/search.js"
+				},
+				{
+					"blank": 4,
+					"code": 31,
+					"comment": 0,
+					"filename": "commands/serverinfo.js"
+				},
+				{
+					"blank": 3,
+					"code": 11,
+					"comment": 0,
+					"filename": "commands/set-autorole.js"
+				},
+				{
+					"blank": 9,
+					"code": 26,
+					"comment": 0,
+					"filename": "commands/set-color.js"
+				},
+				{
+					"blank": 10,
+					"code": 30,
+					"comment": 0,
+					"filename": "commands/set-flag.js"
+				},
+				{
+					"blank": 9,
+					"code": 26,
+					"comment": 0,
+					"filename": "commands/set-join.js"
+				},
+				{
+					"blank": 9,
+					"code": 26,
+					"comment": 0,
+					"filename": "commands/set-leave-msg.js"
+				},
+				{
+					"blank": 3,
+					"code": 11,
+					"comment": 0,
+					"filename": "commands/set-level.js"
+				},
+				{
+					"blank": 9,
+					"code": 27,
+					"comment": 0,
+					"filename": "commands/set-report.js"
+				},
+				{
+					"blank": 9,
+					"code": 28,
+					"comment": 0,
+					"filename": "commands/set-test.js"
+				},
+				{
+					"blank": 3,
+					"code": 11,
+					"comment": 0,
+					"filename": "commands/set-unverified.js"
+				},
+				{
+					"blank": 3,
+					"code": 11,
+					"comment": 0,
+					"filename": "commands/set-verified.js"
+				},
+				{
+					"blank": 9,
+					"code": 26,
+					"comment": 0,
+					"filename": "commands/set-welcome-msg.js"
+				},
+				{
+					"blank": 9,
+					"code": 27,
+					"comment": 0,
+					"filename": "commands/set-welcome.js"
+				},
+				{
+					"blank": 4,
+					"code": 47,
+					"comment": 0,
+					"filename": "commands/stats.js"
+				},
+				{
+					"blank": 5,
+					"code": 44,
+					"comment": 0,
+					"filename": "commands/tempmute.js"
+				},
+				{
+					"blank": 7,
+					"code": 12,
+					"comment": 1,
+					"filename": "commands/thm.js"
+				},
+				{
+					"blank": 13,
+					"code": 56,
+					"comment": 0,
+					"filename": "commands/ticket.js"
+				},
+				{
+					"blank": 5,
+					"code": 21,
+					"comment": 0,
+					"filename": "commands/unban.js"
+				},
+				{
+					"blank": 8,
+					"code": 38,
+					"comment": 0,
+					"filename": "commands/unmute-all.js"
+				},
+				{
+					"blank": 7,
+					"code": 45,
+					"comment": 0,
+					"filename": "commands/unmute.js"
+				},
+				{
+					"blank": 9,
+					"code": 26,
+					"comment": 0,
+					"filename": "commands/unset-join.js"
+				},
+				{
+					"blank": 8,
+					"code": 27,
+					"comment": 0,
+					"filename": "commands/unset-levels.js"
+				},
+				{
+					"blank": 8,
+					"code": 28,
+					"comment": 0,
+					"filename": "commands/unset-test.js"
+				},
+				{
+					"blank": 10,
+					"code": 40,
+					"comment": 0,
+					"filename": "commands/updateroles.js"
+				},
+				{
+					"blank": 3,
+					"code": 14,
+					"comment": 0,
+					"filename": "commands/url.js"
+				},
+				{
+					"blank": 4,
+					"code": 59,
+					"comment": 2,
+					"filename": "commands/userinfo.js"
+				},
+				{
+					"blank": 17,
+					"code": 33,
+					"comment": 0,
+					"filename": "commands/verify.js"
+				},
+				{
+					"blank": 2,
+					"code": 119,
+					"comment": 0,
+					"filename": "config.json"
+				},
+				{
+					"filename": "data/enmap.sqlite",
+					"isbinaryfile": true,
+					"blank": 0,
+					"code": 0,
+					"comment": 0
+				},
+				{
+					"filename": "data/enmap.sqlite-shm",
+					"isbinaryfile": true,
+					"blank": 0,
+					"code": 0,
+					"comment": 0
+				},
+				{
+					"filename": "data/enmap.sqlite-wal",
+					"isbinaryfile": true,
+					"blank": 0,
+					"code": 0,
+					"comment": 0
+				},
+				{
+					"blank": 1,
+					"code": 3,
+					"comment": 0,
+					"filename": "events/disconnect.js"
+				},
+				{
+					"blank": 1,
+					"code": 31,
+					"comment": 0,
+					"filename": "events/guildCreate.js"
+				},
+				{
+					"blank": 1,
+					"code": 6,
+					"comment": 0,
+					"filename": "events/guildDelete.js"
+				},
+				{
+					"blank": 40,
+					"code": 90,
+					"comment": 1,
+					"filename": "events/guildMemberAdd.js"
+				},
+				{
+					"blank": 7,
+					"code": 10,
+					"comment": 0,
+					"filename": "events/guildMemberRemove.js"
+				},
+				{
+					"blank": 8,
+					"code": 12,
+					"comment": 7,
+					"filename": "events/message.js"
+				},
+				{
+					"blank": 8,
+					"code": 12,
+					"comment": 7,
+					"filename": "events/messageUpdate.js"
+				},
+				{
+					"blank": 3,
+					"code": 12,
+					"comment": 0,
+					"filename": "events/ready.js"
+				},
+				{
+					"blank": 0,
+					"code": 3,
+					"comment": 0,
+					"filename": "events/reconnecting.js"
+				},
+				{
+					"blank": 0,
+					"code": 1860,
+					"comment": 0,
+					"filename": "package-lock.json"
+				},
+				{
+					"blank": 0,
+					"code": 35,
+					"comment": 0,
+					"filename": "package.json"
+				},
+				{
+					"blank": 0,
+					"code": 1,
+					"comment": 0,
+					"filename": "Procfile"
+				}
+			]
+		}
+	]
+}

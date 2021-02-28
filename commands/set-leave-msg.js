@@ -16,14 +16,13 @@ exports.run = (client, message, args) => {
 	const embed = new Discord.MessageEmbed()
 		.setThumbnail(message.author.avatarURL)
 		.setColor(client.config[message.guild.id].EmbedColor)
-		.setTitle("✅ Succesfully set report channel !");
+		.setTitle("✅ Succesfully set leave message !");
 
 	if (!message.member.hasPermission("ADMINISTRATOR"))
 		return message.channel.send(deniedembed);
 
 	try {
-		let channel = message.mentions.channels.first();
-		config[message.guild.id].ReportChannel = channel.id;
+		config[message.guild.id].LeaveMessage = args.join(" ");
 
 		fs.writeFileSync(
 			"/root/Downloads/0x41/config.json",

@@ -16,15 +16,31 @@ exports.run = (client, message, args) => {
 	const embed = new Discord.MessageEmbed()
 		.setThumbnail(message.author.avatarURL)
 		.setColor(client.config[message.guild.id].EmbedColor)
-		.setTitle("✅ Succesfully set report channel !");
+		.setTitle("✅ Succesfully set settings to default !");
 
 	if (!message.member.hasPermission("ADMINISTRATOR"))
 		return message.channel.send(deniedembed);
 
 	try {
-		let channel = message.mentions.channels.first();
-		config[message.guild.id].ReportChannel = channel.id;
-
+		config[guild.id] = {};
+		config[guild.id].JoinMessage = "Welcome {user} to {guild}";
+		config[guild.id].LeaveMessage = ":x: {user} left...";
+		config[guild.id].RaidMode = false;
+		config[guild.id].Levels = false;
+		config[guild.id].JoinLogger = true;
+		config[guild.id].SkidVerification = false;
+		config[guild.id].WelcomeChannel = "";
+		config[guild.id].ReportChannel = "";
+		config[guild.id].TestChannel = "";
+		config[guild.id].autoroles = [];
+		config[guild.id].VerifiedRole = "";
+		config[guild.id].UnverifiedRole = "";
+		config[guild.id].EmbedColor = "0x00AE86";
+		config[guild.id].LevelRoles = {};
+		config[guild.id].LevelRoles.level1 = "";
+		config[guild.id].LevelRoles.level2 = "";
+		config[guild.id].LevelRoles.level3 = "";
+		config[guild.id].Flags = [{}];
 		fs.writeFileSync(
 			"/root/Downloads/0x41/config.json",
 			JSON.stringify(config, null, 2)
