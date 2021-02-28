@@ -1,4 +1,7 @@
 module.exports = (client, message) => {
+  if (message.content == (`<@${client.user.id}>`) || message.content == (`<@!${client.user.id}>`) || message.content == (client.user.tag)) {  
+   message.reply("my prefix is `sudo`, try `sudo help` to see all my commands.");
+  }
     if (message.author.bot) return;
   
     if (message.content.indexOf(client.config.prefix) !== 0) return;
@@ -8,9 +11,7 @@ module.exports = (client, message) => {
   
     const cmd = client.commands.get(command);
     
-    if (message.mentions.has(client.user.toString())) {
-        message.channel.reply("my prefix is `sudo`, try `sudo help` to see all my commands.");
-    };
+    
     
    // if (message.guild) {
     //     client.points.ensure(`${message.guild.id}-${message.author.id}`, {

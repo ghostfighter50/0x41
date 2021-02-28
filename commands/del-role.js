@@ -10,19 +10,16 @@ exports.run = async (client, message, args) => {
 
 	const role = args[0]
 	const embed = new Discord.MessageEmbed()
-		.setTitle("✅ Created a role succesfully")
+		.setTitle("✅ Deleted a role succesfully")
         .setColor(client.config[message.guild.id].EmbedColor)					
 		try {
-            message.guild.roles.create({
-                data:{
-                name: `${args[0]}`,
-                color: "DEFAULT"
-            }})
-     
+            message.guild.roles.cache.find(r => r.id == message.mentions.roles.first().id).delete()
+            
 			message.channel.send(embed);
 						
-		} catch {
-			message.channel.send(`❌ Failed to create role ${args[0]}`);
+		} catch  (e){
+            console.log(e)
+			message.channel.send(`❌ Failed to delete role ${args[0]}`);
 		}
 				
 }

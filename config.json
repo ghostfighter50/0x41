@@ -3,6 +3,7 @@
   "prefix": "sudo ",
   "808327471816245248": {
     "Levels": true,
+    "RaidMode": false,
     "JoinLogger": true,
     "SkidVerification": true,
     "WelcomeChannel": "814906779402109018",
@@ -32,7 +33,8 @@
         "points": "100"
       }
     },
-    "Flags": [{},
+    "Flags": [
+      {},
       {
         "name": "JeSuisUnH4x0r",
         "value": "accesgranted(nasa)",
@@ -43,6 +45,7 @@
   "750055344188948490": {
     "Levels": true,
     "JoinLogger": true,
+    "RaidMode": false,
     "SkidVerification": true,
     "WelcomeChannel": "750083402140745748",
     "ReportChannel": "",
@@ -57,6 +60,57 @@
       "level1": "750057530495074304",
       "level2": "750058330545717268",
       "level3": "750058468345380985"
+    },
+    "Flags": [
+      {}
+    ]
+  },
+  "782325863072137266": {
+    "Levels": true,
+    "JoinLogger": true,
+    "RaidMode": false,
+    "SkidVerification": false,
+    "WelcomeChannel": "782565757556097044",
+    "ReportChannel": "782605458178703400",
+    "TestChannel": "",
+    "autoroles": [],
+    "VerifiedRole": "",
+    "UnverifiedRole": "",
+    "EmbedColor": "ff0000",
+    "LevelRoles": {
+      "level1": {
+        "id": "782565687628398609",
+        "points": "20"
+      },
+      "level2": {
+        "id": "782565686948921354",
+        "points": "50"
+      },
+      "level3": {
+        "id": "782565686236282880",
+        "points": "100"
+      }
+    },
+    "Flags": [
+      {}
+    ]
+  },
+  "815557538887106601": {
+    "Levels": false,
+    "JoinLogger": true,
+    "RaidMode": false,
+    "SkidVerification": false,
+    "WelcomeChannel": "",
+    "ReportChannel": "",
+    "TestChannel": "",
+    "autoroles": [],
+    "VerifiedRole": "",
+    "UnverifiedRole": "",
+    "EmbedColor": "0x00AE86",
+    "LevelRoles": {
+      "level1": "",
+      "level2": "",
+      "level3": ""
     },
     "Flags": [
       {}

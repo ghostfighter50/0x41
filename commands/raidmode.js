@@ -11,25 +11,26 @@ exports.run = (client, message, args) => {
 
     const errorembed = new Discord.MessageEmbed()
     .setThumbnail(message.author.avatarURL)
-    .setTitle(`❌ The role is equal or higher than the bot's highest Role or the role is not found ! `) 
+    .setTitle(`❌ Error`) 
     .setColor(client.config [message.guild.id] .EmbedColor);    
 
     const embed = new Discord.MessageEmbed()
     .setThumbnail(message.author.avatarURL)
     .setColor(client.config [message.guild.id] .EmbedColor) 
-    .setTitle("✅ Succesfully set level role !")
+    .setTitle("✅ Succesfully changed raidmode  !")
 
     if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(deniedembed);
 
     try {
-     client.config [message.guild.id].Levels = true
-     if(!args[1]) args[1] = "10"
-     let role = message.mentions.roles.first()
-    if(args[0] == "1") {config [message.guild.id].LevelRoles.level1 =  {id : role.id,points : args[1]}}
-    if(args[0] == "2") {config [message.guild.id].LevelRoles.level2 =  {id : role.id,points : args[1]}}
-    if(args[0] == "3") {config [message.guild.id].LevelRoles.level3 = {id : role.id,points : args[1]}}
-    fs.writeFileSync("/root/Downloads/0x41/config.json", JSON.stringify(config, null, 2));
-      
+     if(args[0] == "on"){
+     client.config [message.guild.id].RaidMode = true
+     fs.writeFileSync("/root/Downloads/0x41/config.json", JSON.stringify(config, null, 2));
+
+     } else if(args[0] == "off"){
+        client.config [message.guild.id].RaidMode = false
+        fs.writeFileSync("/root/Downloads/0x41/config.json", JSON.stringify(config, null, 2));
+
+     }
      message.channel.send(embed)
 
     } catch (e) {

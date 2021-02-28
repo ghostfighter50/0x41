@@ -9,9 +9,10 @@ let config = require("../config.json")
         });
     })
 config[guild.id] = {}
+config[guild.id].RaidMode = false
 config[guild.id].Levels =  false
 config[guild.id].JoinLogger = true
-config[guild.id].SkidVerification = true
+config[guild.id].SkidVerification = false
 config[guild.id].WelcomeChannel = ""
 config[guild.id].ReportChannel = ""
 config[guild.id].TestChannel = ""

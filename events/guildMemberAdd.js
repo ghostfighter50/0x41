@@ -1,6 +1,7 @@
 module.exports = async (client, member) => {
 
     const Discord = require("discord.js")
+    if(client.config[member.guild.id].RaidMode == true) return member.kick()
 
     if(client.config[member.guild.id].JoinMessage == false) return
 
@@ -50,8 +51,6 @@ module.exports = async (client, member) => {
     if(client.config[member.guild.id].SkidVerification == false) return
     else if(client.config[member.guild.id].SkidVerification == false){
     if(role == undefined) return channel.send(errorembed)
-    if(role == undefined) return channel.send(errorembed)
-
     let question1 = await member.send(new Discord.MessageEmbed().setDescription("Decode this string : `WW91IHBhc3NlZCB0aGUgZmlyc3QgcXVlc3Rpb24gISBQcmVwYXJlIGZvciB0aGUgc2Vjb25kIG9uZS4=`").setColor(client.config [member.guild.id] .EmbedColor))
 
 
