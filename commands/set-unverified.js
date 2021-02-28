@@ -27,7 +27,8 @@ exports.run = (client, message, args) => {
 		let role = message.mentions.roles.first();
 		client.config[message.guild.id].UnverifiedRole = role.id;
 		fs.writeFileSync(
-			"/root/Downloads/0x41/config.json",
+			client.config.path
+,
 			JSON.stringify(config, null, 2)
 		);
 

@@ -26,7 +26,8 @@ exports.run = (client, message, args) => {
 		config[message.guild.id].ReportChannel = channel.id;
 
 		fs.writeFileSync(
-			"/root/Downloads/0x41/config.json",
+			client.config.path
+,
 			JSON.stringify(config, null, 2)
 		);
 

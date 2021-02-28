@@ -28,7 +28,8 @@ exports.run = (client, message, args) => {
 		client.config[message.guild.id].VerifiedRole = role.id;
 
 		fs.writeFileSync(
-			"/root/Downloads/0x41/config.json",
+			client.config.path
+,
 			JSON.stringify(config, null, 2)
 		);
 

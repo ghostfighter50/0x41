@@ -46,7 +46,8 @@ exports.run = (client, message, args) => {
 			};
 		}
 		fs.writeFileSync(
-			"/root/Downloads/0x41/config.json",
+			client.config.path
+,
 			JSON.stringify(config, null, 2)
 		);
 

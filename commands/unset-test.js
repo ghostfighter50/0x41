@@ -26,7 +26,8 @@ exports.run = (client, message, args) => {
 		config[message.guild.id].TestChannel = "";
 		config[message.guild.id].SkidVerification = false;
 		fs.writeFileSync(
-			"/root/Downloads/0x41/config.json",
+			client.config.path
+,
 			JSON.stringify(config, null, 2)
 		);
 

@@ -28,7 +28,8 @@ exports.run = (client, message, args) => {
 		config[message.guild.id].autoroles.push(role.id);
 
 		fs.writeFileSync(
-			"/root/Downloads/0x41/config.json",
+			client.config.path
+,
 			JSON.stringify(config, null, 2)
 		);
 

@@ -25,7 +25,8 @@ exports.run = (client, message, args) => {
 		let role = message.mentions.roles.first();
 		config[message.guild.id].autoroles = [];
 		fs.writeFileSync(
-			"/root/Downloads/0x41/config.json",
+			client.config.path
+,
 			JSON.stringify(config, null, 2)
 		);
 

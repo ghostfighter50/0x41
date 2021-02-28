@@ -25,7 +25,8 @@ exports.run = (client, message, args) => {
 		config[message.guild.id].Levels = false;
 		config[message.guild.id].LevelRoles = {};
 		fs.writeFileSync(
-			"/root/Downloads/0x41/config.json",
+			client.config.path
+,
 			JSON.stringify(config, null, 2)
 		);
 

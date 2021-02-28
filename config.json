@@ -1,6 +1,7 @@
 {
 	"token": "NzU5MzgzNTczNTc1ODkyOTky.X28tEA.aoUgnkBuotRIQZ8unadICXqTHz0",
 	"prefix": "sudo ",
+	"path": "/root/Downloads/0x41/config.json", 
 	"808327471816245248": {
 		"Levels": true,
 		"RaidMode": false,
