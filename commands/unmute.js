@@ -27,7 +27,7 @@ exports.run = async (client, message) => {
   }
   let reason = args[3]
   if (reason == undefined) reason = '❌ No reason Supplied';
-  if (message.mentions.users.size < 1) return message.reply('❌ You must mention someone to mute them.').catch(console.error);
+  if (message.mentions.users.size < 1) return message.reply('❌ You must mention someone to unmute them.').catch(console.error);
 
   if (!message.guild.member(client.user).hasPermission('MANAGE_ROLES')) return message.reply('❌ I do not have the correct permissions.').catch(console.error);
   if (message.guild.member(user).roles.cache.has(muteRole.id)) {

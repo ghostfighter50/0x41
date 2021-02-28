@@ -32,7 +32,13 @@
         "points": "100"
       }
     },
-    "Flags": []
+    "Flags": [{},
+      {
+        "name": "JeSuisUnH4x0r",
+        "value": "accesgranted(nasa)",
+        "points": "20"
+      }
+    ]
   },
   "750055344188948490": {
     "Levels": true,

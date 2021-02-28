@@ -33,7 +33,7 @@ client.config[message.guild.id].Flags.forEach(flag =>{
         .setTitle(`✅ Challenge finished ! `) 
         .setDescription(`${user.tag} has received **${flag.points}** points and now has **${userPoints.slice(1)}** points.`)
         .setColor(client.config [message.guild.id] .EmbedColor);        
-        client.points.set(key, userPoints, "points")
+        client.points.set(key, userPoints.slice(1), "points")
         message.channel.send(verified);
     }
     else if(flag.name == args[0] && flag.value !== args[1] ){

@@ -12,7 +12,7 @@ exports.run = async  (client, message) => {
     .setTitle(`🔨 Moderation`)
     .setFooter("Made by Ghostfighter50")
     .setColor(client.config [message.guild.id] .EmbedColor)
-    .setDescription("\n\n`tempmute <@user> (reason)` = mutes a user for a time period\n  `unmute <@user> (reason)` = unmutes an user\n  `mute <@user> (reason)` = mutes an user\n `kick <@user> (reason)` = kicks an user\n  `ban <@user> (reason)` = bans an user\n  `unban <user id> (reason)` = unbans an user\n  `clear <number>` = deletes the specified number if messages\n  `report <@user> <reason>` = reports an users ")
+    .setDescription("\n\n`create-role <name>` = creates the specified role\n`mute-all` = mutes every user in the server\n`unmute-all` = unmutes every user in the server\n`tempmute <@user> (reason)` = mutes a user for a time period\n  `unmute <@user> (reason)` = unmutes an user\n  `mute <@user> (reason)` = mutes an user\n `kick <@user> (reason)` = kicks an user\n  `ban <@user> (reason)` = bans an user\n  `unban <user id> (reason)` = unbans an user\n  `clear <number>` = deletes the specified number if messages\n  `report <@user> <reason>` = reports an users ")
     const utilembed = new Discord.MessageEmbed()
     .setTitle(`⚙️ Utilities`)
     .setFooter("Made by Ghostfighter50")
