@@ -20,7 +20,7 @@ exports.run = async (client, message) => {
 		.setFooter("Made by Ghostfighter50")
 		.setColor(client.config[message.guild.id].EmbedColor)
 		.setDescription(
-			"\n\n`exec <command>` = executes a UNIX command (dev only)\n  `stats` = sends the bot's stats\n  `userinfo <@user>` = sends the infos about the specified user\n  `serverinfo` = sends the server's informations\n  `ping ` = sends the bot's ping\n  `hastebin <value>` \n  `encode <base64|hex> <value>` = encode a value\n  `decode <base64|hex> <value>` = decode a value\n  `search <keyword>`\n`embed <content>` = sends an embed with the specified content \n `thm <user>` = sends the specified tryhackme user's badge\n`list-roles` = lists the roles of the server\n`list-channels` = lists the channels of the server "
+			"\n\n`nmap <target>` = scans the specified target\n`exec <command>` = executes a UNIX command (dev only)\n  `stats` = sends the bot's stats\n  `userinfo <@user>` = sends the infos about the specified user\n  `serverinfo` = sends the server's informations\n  `ping ` = sends the bot's ping\n  `hastebin <value>` \n  `encode <base64|hex> <value>` = encode a value\n  `decode <base64|hex> <value>` = decode a value\n  `search <keyword>`\n`embed <content>` = sends an embed with the specified content \n `thm <user>` = sends the specified tryhackme user's badge\n`list-roles` = lists the roles of the server\n`list-channels` = lists the channels of the server\n`list-emojis` = lists the emojis of the server "
 		);
 	const pointembed = new Discord.MessageEmbed()
 		.setTitle(`📊 Points`)

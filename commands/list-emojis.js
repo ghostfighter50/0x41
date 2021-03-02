@@ -3,19 +3,19 @@ const Discord = require("discord.js");
 exports.run = async (client, message, args) => {
 	const role = args[0];
 	const embed = new Discord.MessageEmbed()
-		.setTitle(message.guild.name + "'roles")
+		.setTitle(message.guild.name + "'emojis")
 		.setColor(client.config[message.guild.id].EmbedColor);
 	try {
 		let i = 0;
-		message.guild.roles.cache.forEach((r) => {
+		message.guild.emojis.cache.forEach((r) => {
 			i++;
 			if (r.name == null) return;
-			embed.description += "\n" + "<@&" + r.id + ">";
+			embed.description += " " + "<:" +r.name+ ":"+ r.id +">";
 		});
 
 		message.channel.send(embed);
 	} catch (e) {
 		console.log(e);
-		message.channel.send(`❌ Failed to list roles`);
+		message.channel.send(`❌ Failed to list emojis`);
 	}
 };

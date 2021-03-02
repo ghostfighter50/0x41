@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 exports.run = async (client, message, args) => {
 	let channel = message.guild.channels.cache.find(
-		(c) => c.name == client.config.ReportChannel
+		(c) => c.id == client.config[message.guild.id].ReportChannel
 	);
 	let TargetUser = message.mentions.members.first();
 	let reason = args.slice(1).join(" ");
@@ -20,5 +20,6 @@ exports.run = async (client, message, args) => {
 		new Discord.MessageEmbed().setDescription(
 			`✅ ${TargetUser.toString()} was reported by ${message.author.toString()} `
 		)
+		.setColor(client.config[message.guild.id].EmbedColor)
 	);
 };
