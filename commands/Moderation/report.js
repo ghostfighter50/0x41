@@ -17,9 +17,10 @@ exports.run = async (client, message, args) => {
 		.setTimestamp();
 	channel.send(embed);
 	message.channel.send(
-		new Discord.MessageEmbed().setDescription(
-			`✅ ${TargetUser.toString()} was reported by ${message.author.toString()} `
-		)
-		.setColor(client.serverconfig[message.guild.id].EmbedColor)
+		new Discord.MessageEmbed()
+			.setDescription(
+				`✅ ${TargetUser.toString()} was reported by ${message.author.toString()} `
+			)
+			.setColor(client.serverconfig[message.guild.id].EmbedColor)
 	);
 };

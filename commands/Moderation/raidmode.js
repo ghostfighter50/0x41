@@ -25,15 +25,13 @@ exports.run = (client, message, args) => {
 		if (args[0] == "on") {
 			client.serverconfig[message.guild.id].RaidMode = true;
 			fs.writeFileSync(
-				client.serverconfig.path
-,
+				client.serverconfig.path,
 				JSON.stringify(config, null, 2)
 			);
 		} else if (args[0] == "off") {
 			client.serverconfig[message.guild.id].RaidMode = false;
 			fs.writeFileSync(
-				client.serverconfig.path
-,
+				client.serverconfig.path,
 				JSON.stringify(config, null, 2)
 			);
 		}

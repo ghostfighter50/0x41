@@ -36,11 +36,7 @@ exports.run = (client, message, args) => {
 			points: args[2],
 		});
 
-		fs.writeFileSync(
-			client.serverconfig.path
-,
-			JSON.stringify(config, null, 2)
-		);
+		fs.writeFileSync(client.serverconfig.path, JSON.stringify(config, null, 2));
 
 		message.channel.send(embed);
 	} catch (e) {

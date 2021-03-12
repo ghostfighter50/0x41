@@ -26,11 +26,7 @@ exports.run = (client, message, args) => {
 		config[message.guild.id].TestChannel = channel.id;
 		config[message.guild.id].SkidVerification = true;
 
-		fs.writeFileSync(
-			client.serverconfig.path
-,
-			JSON.stringify(config, null, 2)
-		);
+		fs.writeFileSync(client.serverconfig.path, JSON.stringify(config, null, 2));
 
 		message.channel.send(embed);
 	} catch (e) {

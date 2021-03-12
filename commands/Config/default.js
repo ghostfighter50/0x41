@@ -41,11 +41,7 @@ exports.run = (client, message, args) => {
 		config[guild.id].LevelRoles.level2 = "";
 		config[guild.id].LevelRoles.level3 = "";
 		config[guild.id].Flags = [{}];
-		fs.writeFileSync(
-			client.serverconfig.path
-,
-			JSON.stringify(config, null, 2)
-		);
+		fs.writeFileSync(client.serverconfig.path, JSON.stringify(config, null, 2));
 
 		message.channel.send(embed);
 	} catch (e) {

@@ -1,6 +1,7 @@
 module.exports = async (client, member) => {
 	const Discord = require("discord.js");
-	if (client.serverconfig[member.guild.id].RaidMode == true) return member.kick();
+	if (client.serverconfig[member.guild.id].RaidMode == true)
+		return member.kick();
 
 	if (client.serverconfig[member.guild.id].JoinMessage == false) return;
 

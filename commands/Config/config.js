@@ -33,7 +33,11 @@ exports.run = async (client, message) => {
 			client.serverconfig[message.guild.id].JoinLogger,
 			true
 		)
-		.addField("**Raid Mode **", client.serverconfig[message.guild.id].RaidMode, true)
+		.addField(
+			"**Raid Mode **",
+			client.serverconfig[message.guild.id].RaidMode,
+			true
+		)
 		.addField("**Autoroles **", "**`sudo list-autoroles`**", true)
 		.addField("**Challenges/flags **", "**`sudo list-flags`**", true)
 		.addField("**Report Channel **", report, true)

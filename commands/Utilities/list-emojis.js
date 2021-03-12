@@ -10,7 +10,7 @@ exports.run = async (client, message, args) => {
 		message.guild.emojis.cache.forEach((r) => {
 			i++;
 			if (r.name == null) return;
-			embed.description += " " + "<:" +r.name+ ":"+ r.id +">";
+			embed.description += " " + "<:" + r.name + ":" + r.id + ">";
 		});
 
 		message.channel.send(embed);

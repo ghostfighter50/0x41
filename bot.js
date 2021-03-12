@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./config.json");
 const serverconfig = require("./serverconfig.json");
-client.config = config
+client.config = config;
 client.serverconfig = serverconfig;
 client.points = new Enmap({ name: "points" });
 
@@ -19,15 +19,17 @@ fs.readdir("./events/", (err, files) => {
 });
 
 client.commands = new Enmap();
-const commandFolders = fs.readdirSync('./commands');
+const commandFolders = fs.readdirSync("./commands");
 
 for (const folder of commandFolders) {
-    const commandFiles = fs.readdirSync(`./commands/${folder}`).filter(file => file.endsWith('.js'));
-    for (const file of commandFiles) {
+	const commandFiles = fs
+		.readdirSync(`./commands/${folder}`)
+		.filter((file) => file.endsWith(".js"));
+	for (const file of commandFiles) {
 		const command = require(`./commands/${folder}/${file}`);
-		console.log(file.split(".")[0])
-        client.commands.set(file.split(".")[0], command);
-    }
+		console.log(file.split(".")[0]);
+		client.commands.set(file.split(".")[0], command);
+	}
 }
-process.on("warning", warn => console.log(warn.message))
+process.on("warning", (warn) => console.log(warn.message));
 client.login(config.token);

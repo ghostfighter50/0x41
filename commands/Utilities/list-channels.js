@@ -10,7 +10,7 @@ exports.run = async (client, message, args) => {
 		message.guild.channels.cache.forEach((r) => {
 			i++;
 			if (r.name == null) return;
-			embed.description += "\n" + "<#" +r.id+ ">";
+			embed.description += "\n" + "<#" + r.id + ">";
 		});
 
 		message.channel.send(embed);

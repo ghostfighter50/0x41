@@ -33,17 +33,20 @@ exports.run = async (client, message) => {
 			{
 				name: "1 " + level1.name,
 				value:
-					client.serverconfig[message.guild.id].LevelRoles.level1.points + " points",
+					client.serverconfig[message.guild.id].LevelRoles.level1.points +
+					" points",
 			},
 			{
 				name: "2 " + level2.name,
 				value:
-					client.serverconfig[message.guild.id].LevelRoles.level2.points + " points",
+					client.serverconfig[message.guild.id].LevelRoles.level2.points +
+					" points",
 			},
 			{
 				name: "3 " + level3.name,
 				value:
-					client.serverconfig[message.guild.id].LevelRoles.level3.points + " points",
+					client.serverconfig[message.guild.id].LevelRoles.level3.points +
+					" points",
 			}
 		)
 		.setTitle(`📖 Levels `)

@@ -22,14 +22,14 @@ exports.run = async (client, message, args) => {
 	if (kcikMember.kickable) {
 		if (reason) {
 			embed.addField("Reason for kick", `${reason.join(" ")}`);
-			message.channel.send(embed)
+			message.channel.send(embed);
 			kcikMember.send(embed);
-			kcikMember.kick()
+			kcikMember.kick();
 		} else {
 			embed.addField("Reason for kick", "No reason was specified");
-			message.channel.send(embed)
+			message.channel.send(embed);
 			kcikMember.send(embed);
-			kcikMember.kick()
+			kcikMember.kick();
 		}
 	} else {
 		message.channel.send(`❌ Failed to kick member ${kcikMember}`);

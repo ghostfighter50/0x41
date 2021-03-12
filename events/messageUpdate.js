@@ -1,7 +1,14 @@
 module.exports = (client, oldmessage, newmessage) => {
-	const Discord  = require("discord.js");
+	const Discord = require("discord.js");
 
-	if(newmessage.content == "sudo su") return newmessage.reply(new Discord.MessageEmbed().setDescription("```/bin/sh: exit code 0``` Full report : https://bit.ly/3kR9fll").setColor(client.serverconfig[message.guild.id].EmbedColor))
+	if (newmessage.content == "sudo su")
+		return newmessage.reply(
+			new Discord.MessageEmbed()
+				.setDescription(
+					"```/bin/sh: exit code 0``` Full report : https://bit.ly/3kR9fll"
+				)
+				.setColor(client.serverconfig[message.guild.id].EmbedColor)
+		);
 	if (
 		newmessage.content == `<@${client.user.id}>` ||
 		newmessage.content == `<@!${client.user.id}>` ||

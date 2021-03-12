@@ -22,17 +22,16 @@ exports.run = async (client, message, args) => {
 	if (banMember.bannable) {
 		if (reason) {
 			embed.addField("Reason for ban", `${reason.join(" ")}`);
-			message.channel.send(embed)
+			message.channel.send(embed);
 			banMember.send(embed);
-			banMember.ban()
+			banMember.ban();
 		} else {
 			embed.addField("Reason for ban", "No reason was specified");
-			message.channel.send(embed)
+			message.channel.send(embed);
 			banMember.send(embed);
-			banMember.ban()
+			banMember.ban();
 		}
 	} else {
 		message.channel.send(`❌ Failed to ban member ${banMember}`);
 	}
-
 };

@@ -24,11 +24,7 @@ exports.run = (client, message, args) => {
 	try {
 		let role = message.mentions.roles.first();
 		config[message.guild.id].autoroles = [];
-		fs.writeFileSync(
-			client.serverconfig.path
-,
-			JSON.stringify(config, null, 2)
-		);
+		fs.writeFileSync(client.serverconfig.path, JSON.stringify(config, null, 2));
 
 		message.channel.send(embed);
 	} catch (e) {

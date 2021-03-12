@@ -1,8 +1,14 @@
 const Discord = require("discord.js");
 
 exports.run = async (client, message) => {
-	if(client.serverconfig[message.guild.id].VerifiedRole == "") return message.reply(":x: Set the verified (member) role ! `sudo set-verified <@role>`")
-	if(client.serverconfig[message.guild.id].UnverifiedRole == "") return message.reply(":x: Set the unverified role ! `sudo set-unverified <@role>`")
+	if (client.serverconfig[message.guild.id].VerifiedRole == "")
+		return message.reply(
+			":x: Set the verified (member) role ! `sudo set-verified <@role>`"
+		);
+	if (client.serverconfig[message.guild.id].UnverifiedRole == "")
+		return message.reply(
+			":x: Set the unverified role ! `sudo set-unverified <@role>`"
+		);
 
 	const TicketEmbed = new Discord.MessageEmbed()
 		.setTitle("Tickets")
@@ -23,8 +29,7 @@ exports.run = async (client, message) => {
 		{
 			max: 1,
 		}
-	)
-	.then(async (collected) => {
+	).then(async (collected) => {
 		if (collected.first().emoji.name == "📩") {
 			TicketMessage.delete();
 
