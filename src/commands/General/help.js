@@ -5,7 +5,7 @@ module.exports = {
 	usage: "sudo help (command)",
 	type: "util",
 	admin: false,
-	run: async (client, message) => {
+	run: async (client, message, args) => {
 		const Discord = require("discord.js");
 
 		const infoembed = new Discord.MessageEmbed()
@@ -13,7 +13,7 @@ module.exports = {
 			.setFooter("Made by Ghostfighter50")
 			.setColor(client.serverconfig[message.guild.id].EmbedColor)
 			.setDescription(
-				"\n\n`() = optional` \n `<> = required`\n`< | > = possible values` \n  `@user/role = mention`\n`#channel = channel mention`  \n`prefix = sudo `\n`{user}` = username for join/leave messages\n`{guild}` = guild name for join/leave messages\n\nInvite me ! (`sudo  invite`)"
+				"\n\n`sudo help <command>` = gives more informations \n\n`() = optional` \n `<> = required`\n`< | > = possible values` \n  `@user/role = mention`\n`#channel = channel mention`  \n`prefix = sudo `\n`{user}` = username for join/leave messages\n`{guild}` = guild name for join/leave messages\n\nInvite me ! (`sudo  invite`)"
 			);
 		const modembed = new Discord.MessageEmbed()
 			.setTitle(`🔨 Moderation`)
@@ -50,6 +50,7 @@ module.exports = {
 			.setDescription(
 				"\n\n`set-autorole <@role>` = adds an autorole\n`clear-autorole` = deletes all of the autoroles\n `list-autorole` = lists autoroles\n `set-report <@channel>` = sets the report channel\n `set-welcome <@channel>` = sets the welcome channel\n `set-test <@channel>` = sets the skid-test channel\n `unset-test` = unsets the skid-test module\n`set-verified <@role>` = set a verified role\n`set-unverified <@role>` = set san unverified role\n`set-join` = sets the join logger \n`unset-join` = unsets the join logger\n`set-level <1|2|3> <@role>` = sets a level role (1 to 3) \n `unset-levels` = unsets the level module\n `set-color <color>` = sets an embed color\n `set-flag <name> <value> <points>` = sets a flag for a challenge\n `list-flags` = list the challenges of the server\n `clear-flags` = deletes all the flags of the server\n`raidmode <on|off>` = kicks users on join\n`set-welcome-msg <message>` = sets a custom welcome message\n`set-leave-msg <message>` = set custom leave message\n`default` = sets settings to default\n`config` = retrieves the config of the server"
 			);
+
 		const reactembed = new Discord.MessageEmbed()
 			.setTitle(`📖 Help `)
 			.setFooter("Made by Ghostfighter50")
@@ -57,33 +58,47 @@ module.exports = {
 			.setDescription(
 				"\n** 📚 Informations **\n** 🔨 Moderation**\n** ⚙️ Utilities**\n** 📊 Points**\n** 📩 Tickets**\n** 🛠️ Config**"
 			);
-
-		message.channel.send(reactembed).then((msg) => {
-			msg.react("📚");
-			msg.react("🔨");
-			msg.react("⚙️");
-			msg.react("📊");
-			msg.react("📩");
-			msg.react("🛠️");
-			const filter = (reaction, user) => {
-				if (user.id == msg.author.id) return;
-				reaction.users.remove(user);
-				let emoji = reaction.emoji.name;
-				if (emoji == "📚") {
-					msg.edit(infoembed);
-				} else if (emoji == "🔨") {
-					msg.edit(modembed);
-				} else if (emoji == "⚙️") {
-					msg.edit(utilembed);
-				} else if (emoji == "📊") {
-					msg.edit(pointembed);
-				} else if (emoji == "📩") {
-					msg.edit(ticketembed);
-				} else if (emoji == "🛠️") {
-					msg.edit(configembed);
-				}
-			};
-			msg.awaitReactions(filter, { time: 60000 }).then((collected) => {});
-		});
+		if (!args[0]) {
+			message.channel.send(reactembed).then((msg) => {
+				msg.react("📚");
+				msg.react("🔨");
+				msg.react("⚙️");
+				msg.react("📊");
+				msg.react("📩");
+				msg.react("🛠️");
+				const filter = (reaction, user) => {
+					if (user.id == msg.author.id) return;
+					reaction.users.remove(user);
+					let emoji = reaction.emoji.name;
+					if (emoji == "📚") {
+						msg.edit(infoembed);
+					} else if (emoji == "🔨") {
+						msg.edit(modembed);
+					} else if (emoji == "⚙️") {
+						msg.edit(utilembed);
+					} else if (emoji == "📊") {
+						msg.edit(pointembed);
+					} else if (emoji == "📩") {
+						msg.edit(ticketembed);
+					} else if (emoji == "🛠️") {
+						msg.edit(configembed);
+					}
+				};
+				msg.awaitReactions(filter, { time: 60000 }).then((collected) => {});
+			});
+		} else if (args[0]) {
+			let cmd = client.commands.find((cmd) => cmd.name == args[0]);
+			if (!cmd)
+				return message.reply(":x: Command not found ! try : `sudo help`");
+			let embed = new Discord.MessageEmbed()
+				.setTitle("📖 " + cmd.name)
+				.addField("Aliases", "`" + cmd.aliases + "`")
+				.addField("Descriptions", "`" + cmd.description + "`")
+				.addField("Usage", "`" + cmd.usage + "`")
+				.addField("Admin", "`" + cmd.admin + "`")
+				.setFooter("Made by Ghostfighter50")
+				.setColor(client.serverconfig[message.guild.id].EmbedColor);
+			message.channel.send(embed);
+		}
 	},
 };

@@ -32,14 +32,13 @@ module.exports = (client, oldmessage, newmessage) => {
 		.setThumbnail(message.author.avatarURL)
 		.setTitle(`❌ Acces Denied ! Required Permission : \`ADMINISTRATOR\` `)
 		.setColor(client.serverconfig[message.guild.id].EmbedColor);
-	const cmd = client.commands.get(
-		command ||
-			client.commands.find(
-				(cmd) => cmd.aliases && cmd.aliases.includes(command)
-			)
-	);
-	if (cmd.admin && !message.member.hasPermission("ADMINISTRATOR"))
-		return newmessage.channel.send(embed);
+	const cmd =
+		client.commands.get(command) ||
+		client.commands.find((cmd) => cmd.aliases && cmd.aliases.includes(command));
+	if (!cmd) return;
+
+	if (cmd.admin && !newmessage.member.hasPermission("ADMINISTRATOR"))
+		return newmessage.channel.send(deniedembed);
 	// if (message.guild) {
 	//     client.points.ensure(`${message.guild.id}-${message.author.id}`, {
 	//      user: message.author.id,
@@ -48,7 +47,6 @@ module.exports = (client, oldmessage, newmessage) => {
 	//      });
 
 	//    }
-	if (!cmd) return;
 
 	cmd.run(client, newmessage, args);
 };
