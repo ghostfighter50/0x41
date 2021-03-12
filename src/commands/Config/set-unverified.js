@@ -2,38 +2,38 @@ const fs = require("fs");
 const Discord = require("discord.js");
 const config = require("../../../serverconfig.json");
 
-module.exports.run = (client, message, args) => {
-
-
-	const errorembed = new Discord.MessageEmbed()
-		.setThumbnail(message.author.avatarURL)
-		.setTitle(
-			`❌ The role is equal or higher than the bot's highest Role or the role is not found ! `
-		)
-		.setColor(client.serverconfig[message.guild.id].EmbedColor);
-
-	const embed = new Discord.MessageEmbed()
-		.setThumbnail(message.author.avatarURL)
-		.setColor(client.serverconfig[message.guild.id].EmbedColor)
-		.setTitle("✅ Succesfully set unverified role !");
-
-	
-	try {
-		let role = message.mentions.roles.first();
-		client.serverconfig[message.guild.id].UnverifiedRole = role.id;
-		fs.writeFileSync(client.serverconfig.path, JSON.stringify(config, null, 2));
-
-		message.channel.send(embed);
-	} catch (e) {
-		console.log(e);
-		message.channel.send(errorembed);
-	}
-	
-};
 module.exports = {
-	name: 'set-unverified',
-	description: 'sets the unverified role',
-	aliases: ['set-un'],
-	usage: 'sudo set-unverified <@channel>',
+	name: "set-unverified",
+	description: "sets the unverified role",
+	aliases: ["set-un"],
+	usage: "sudo set-unverified <@channel>",
 	type: "config",
-	admin:true,};
+	admin: true,
+	run: (client, message, args) => {
+		const errorembed = new Discord.MessageEmbed()
+			.setThumbnail(message.author.avatarURL)
+			.setTitle(
+				`❌ The role is equal or higher than the bot's highest Role or the role is not found ! `
+			)
+			.setColor(client.serverconfig[message.guild.id].EmbedColor);
+
+		const embed = new Discord.MessageEmbed()
+			.setThumbnail(message.author.avatarURL)
+			.setColor(client.serverconfig[message.guild.id].EmbedColor)
+			.setTitle("✅ Succesfully set unverified role !");
+
+		try {
+			let role = message.mentions.roles.first();
+			client.serverconfig[message.guild.id].UnverifiedRole = role.id;
+			fs.writeFileSync(
+				client.serverconfig.path,
+				JSON.stringify(config, null, 2)
+			);
+
+			message.channel.send(embed);
+		} catch (e) {
+			console.log(e);
+			message.channel.send(errorembed);
+		}
+	},
+};

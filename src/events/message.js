@@ -27,8 +27,13 @@ module.exports = (client, message) => {
 		.trim()
 		.split(/ +/g);
 	const command = args.shift().toLowerCase();
-
+	const deniedembed = new Discord.MessageEmbed()
+		.setThumbnail(message.author.avatarURL)
+		.setTitle(`❌ Acces Denied ! Required Permission : \`ADMINISTRATOR\` `)
+		.setColor(client.serverconfig[message.guild.id].EmbedColor);
 	const cmd = client.commands.get(command);
+	if (cmd.admin && !message.member.hasPermission("ADMINISTRATOR"))
+		return message.channel.send(deniedembed);
 
 	// if (message.guild) {
 	//     client.points.ensure(`${message.guild.id}-${message.author.id}`, {
@@ -39,6 +44,6 @@ module.exports = (client, message) => {
 
 	//    }
 	if (!cmd) return;
-
+	console.log(cmd);
 	cmd.run(client, message, args);
 };
