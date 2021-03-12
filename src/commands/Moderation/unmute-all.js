@@ -47,4 +47,12 @@ exports.run = async (client, message) => {
 		)
 		.setColor(client.serverconfig[message.guild.id].EmbedColor);
 	message.channel.send({ embed });
+	module.exports = {
+		name: 'unmute-all',
+		description: 'unmutes everyone in the server',
+		aliases: ['un-all'],
+		usage: client.config.prefix+'unmute-all',
+		type: "mod",
+		admin:true
+	};
 };

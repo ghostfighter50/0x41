@@ -12,4 +12,12 @@ exports.run = (client, message, args) => {
 		embed.setTitle("✅ New URL : " + url).setURL(url);
 		message.channel.send(embed);
 	});
+	module.exports = {
+		name: 'url',
+		description: 'shorten the specified url',
+		aliases: ['shorten'],
+		usage: client.config.prefix+'url <url>',
+		type: "util",
+		admin:false
+	};
 };

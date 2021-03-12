@@ -8,4 +8,12 @@ exports.run = (client, message) => {
 				}ms. Web Socket: ${Math.round(client.ws.ping)}ms.`
 			)
 		);
+		module.exports = {
+			name: 'ping',
+			description: 'get the bot`s ping',
+			aliases: ['resp'],
+			usage: client.config.prefix+'ping',
+			type: "gen",
+			admin:false
+		};
 };

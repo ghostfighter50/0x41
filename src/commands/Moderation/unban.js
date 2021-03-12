@@ -1,16 +1,15 @@
 const Discord = require("discord.js");
 
-exports.run = async (client, message) => {
-	let args = message.content.slice(4).split(" ");
+exports.run = async (client, message, args) => {
 
-	if (!message.member.hasPermission(["BAN_MEMBERS", "ADMINISTRATOR"]))
+	if (!message.member.hasPermission("ADMINISTRATOR"))
 		return message.channel.send("**Insufficient permissions :no_entry:.**");
 
-	let bannedMember = await client.users.fetch(args[2]);
-	if (!bannedMember)
+	let member = await client.users.fetch(args[0]);
+	if (!member)
 		return message.channel.send("**No targeted user :warning:.**");
 
-	let reason = args[3];
+	let reason = args[1];
 	if (!reason) reason = "No Reason given!";
 
 	if (!message.guild.me.hasPermission(["BAN_MEMBERS", "ADMINISTRATOR"]))
@@ -21,9 +20,17 @@ exports.run = async (client, message) => {
 			.setDescription(message.guild.name)
 			.setThumbnail(message.guild.iconURL)
 			.setColor(client.serverconfig[message.guild.id].EmbedColor);
-		message.guild.members.unban(bannedMember, { reason: reason });
+		message.guild.members.unban(member, { reason: reason });
 		message.channel.send(embed);
 	} catch (e) {
 		console.log(e.message);
 	}
+	module.exports = {
+		name: 'unban',
+		description: 'unbans the specified id from the server',
+		aliases: ['ub'],
+		usage: client.config.prefix+'unban <id> (reason)',
+		type: "mod",
+		admin:true
+	};
 };

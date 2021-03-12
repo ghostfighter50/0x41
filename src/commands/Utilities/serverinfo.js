@@ -46,4 +46,12 @@ exports.run = (client, message, args) => {
 		.addField("Verification Level", message.guild.verificationLevel, true);
 
 	message.channel.send(embed);
+	module.exports = {
+		name: 'serverinfo',
+		description: 'retrieves the server\'s informations',
+		aliases: ['srv'],
+		usage: client.config.prefix+'serverinfo',
+		type: "util",
+		admin:false
+	};
 };

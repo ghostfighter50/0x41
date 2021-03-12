@@ -1,6 +1,6 @@
 const fs = require("fs");
 const Discord = require("discord.js");
-const config = require("../../serverconfig.json");
+const config = require("../../../serverconfig.json");
 
 exports.run = (client, message, args) => {
 	if (client.serverconfig[message.guild.id].Levels == false)
@@ -43,4 +43,12 @@ exports.run = (client, message, args) => {
 		console.log(e);
 		message.channel.send(errorembed);
 	}
+	module.exports = {
+		name: 'set-flag',
+		description: 'creates a challenge',
+		aliases: ['set-f' , "create-flag", "create-chall"],
+		usage: client.config.prefix+'set-flag <name> <value> <points>',
+		type: "config",
+		admin: true
+	};
 };

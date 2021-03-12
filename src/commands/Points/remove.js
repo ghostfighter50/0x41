@@ -36,4 +36,12 @@ exports.run = (client, message, args) => {
 		.setColor(client.serverconfig[message.guild.id].EmbedColor);
 
 	message.channel.send(giveembed);
+	module.exports = {
+		name: 'remove',
+		description: 'remove a specified amount of points to the specified member',
+		aliases: ['rm'],
+		usage: client.config.prefix+'remove <@user> <amount>',
+		type: "points",
+		admin:true
+	};
 };

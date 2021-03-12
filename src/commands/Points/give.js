@@ -6,7 +6,7 @@ exports.run = (client, message, args) => {
 		.setColor(client.serverconfig[message.guild.id].EmbedColor);
 	if (client.serverconfig[message.guild.id].Levels == false)
 		return message.reply(
-			"Set the Leveling system with `sudo set-level <1|2|3> <@role>`"
+			"Set the Leveling system with sudo set-level <1|2|3> <@role>"
 		);
 
 	if (!message.member.hasPermission("ADMINISTRATOR"))
@@ -36,4 +36,12 @@ exports.run = (client, message, args) => {
 		.setColor(client.serverconfig[message.guild.id].EmbedColor);
 
 	message.channel.send(giveembed);
+	module.exports = {
+		name: 'give',
+		description: 'give a specified amount of points to the specified member',
+		aliases: ['p'],
+		usage: client.config.prefix+'give <@user> <amount>',
+		type: "points",
+		admin:true
+	};
 };

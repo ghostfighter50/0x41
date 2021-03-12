@@ -18,4 +18,12 @@ exports.run = async (client, message, args) => {
 		console.log(e);
 		message.channel.send(`❌ Failed to list roles`);
 	}
+	module.exports = {
+		name: 'list-roles',
+		description: 'lists the server\'s roles',
+		aliases: ['l-r'],
+		usage: client.config.prefix+'list-roles',
+		type: "util",
+		admin:false
+	};
 };

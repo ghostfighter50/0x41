@@ -88,4 +88,12 @@ exports.run = async (client, message, args) => {
 			.setColor(client.serverconfig[message.guild.id].EmbedColor);
 		message.channel.send(error);
 	}
+	module.exports = {
+		name: 'userinfo',
+		description: 'retrieves the specified user\'s informations',
+		aliases: ['usr'],
+		usage: client.config.prefix+'userinfo <@user>',
+		type: "util",
+		admin:false
+	};
 };

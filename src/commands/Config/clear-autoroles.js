@@ -1,6 +1,6 @@
 const fs = require("fs");
 const Discord = require("discord.js");
-const config = require("../../serverconfig.json");
+const config = require("../../../serverconfig.json");
 
 exports.run = (client, message, args) => {
 	const deniedembed = new Discord.MessageEmbed()
@@ -31,4 +31,12 @@ exports.run = (client, message, args) => {
 		console.log(e);
 		message.channel.send(errorembed);
 	}
+	module.exports = {
+		name: 'clear-autoroles',
+		description: 'deletes all of the autoroles.',
+		aliases: ['del-autoroles'],
+		usage: client.config.prefix+'clear-autoroles',
+		type: "config",
+		admin:true
+	};
 };

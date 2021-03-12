@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
-const settings = require("../../serverconfig.json");
+const settings = require("../../../serverconfig.json");
 const fs = require("fs");
 const osutils = require("os-utils");
-const version = require("../../package.json");
+const version = require("../../../package.json");
 
 exports.run = async (client, message) => {
 	var milliseconds = parseInt((client.uptime % 1000) / 100),
@@ -123,4 +123,12 @@ exports.run = async (client, message) => {
 			message.channel.send(embed);
 		});
 	});
+	module.exports = {
+		name: 'stats',
+		description: 'retrieves the bot\'s stats',
+		aliases: ['botinfo'],
+		usage: client.config.prefix+'stats',
+		type: "util",
+		admin:false
+	};
 };

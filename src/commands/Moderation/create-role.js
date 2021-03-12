@@ -20,4 +20,12 @@ exports.run = async (client, message, args) => {
 	} catch {
 		message.channel.send(`❌ Failed to create role ${args[0]}`);
 	}
+	module.exports = {
+		name: 'create-role',
+		description: 'creates a role',
+		aliases: ['c-r'],
+		usage: client.config.prefix+'create-role <name>',
+		type: "mod",
+		admin:false
+	};
 };

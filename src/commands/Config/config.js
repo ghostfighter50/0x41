@@ -63,4 +63,12 @@ exports.run = async (client, message) => {
 		.setColor(client.serverconfig[message.guild.id].EmbedColor);
 
 	message.channel.send(embed);
+	module.exports = {
+		name: 'config',
+		description: 'retrieves the server\'s configuration',
+		aliases: ['c' , "conf"],
+		usage: client.config.prefix+'config',
+		type: "config",
+		admin: false
+	};
 };

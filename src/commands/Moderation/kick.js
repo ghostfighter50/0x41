@@ -5,7 +5,7 @@ exports.run = async (client, message, args) => {
 		return message.reply("❌ you can't use this command.");
 	if (message.mentions.members.size === 0)
 		return message.reply("❌ please mention a user to kick...");
-	if (!message.guild.me.hasPermission("BAN_MEMBERS"))
+	if (!message.guild.me.hasPermission("kick_MEMBERS"))
 		return message.reply("❌ I need permissions to kick!");
 	if (message.mentions.members.first().hasPermission("ADMINISTRATOR"))
 		return message.reply("❌ can't kick an Admin :p");
@@ -34,4 +34,12 @@ exports.run = async (client, message, args) => {
 	} else {
 		message.channel.send(`❌ Failed to kick member ${kcikMember}`);
 	}
+	module.exports = {
+		name: 'kick',
+		description: 'kick the specified user',
+		aliases: ['k'],
+		usage: client.config.prefix+'kick <@user> (reason)',
+		type: "mod",
+		admin:false
+	};
 };

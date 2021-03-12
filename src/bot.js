@@ -2,32 +2,31 @@ const Enmap = require("enmap");
 const fs = require("fs");
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const config = require("./config.json");
-const serverconfig = require("./serverconfig.json");
+const config = require("../config.json");
+const serverconfig = require("../serverconfig.json");
 var i = 0
 client.config = config;
 client.serverconfig = serverconfig;
 client.points = new Enmap({ name: "points" });
 
-fs.readdir("./events/", (err, files) => {
+fs.readdir("../src/events/", (err, files) => {
 	if (err) return console.error(err);
 
 	files.forEach((file) => {
-		const event = require(`./events/${file}`);
+		const event = require(`../src/events/${file}`);
 		let eventName = file.split(".")[0];
 		client.on(eventName, event.bind(null, client));
 	});
 });
-
 client.commands = new Enmap();
-const commandFolders = fs.readdirSync("./commands");
+const commandFolders = fs.readdirSync("../src/commands/");
 
 for (const folder of commandFolders) {
 	const commandFiles = fs
-		.readdirSync(`./commands/${folder}`)
+		.readdirSync(`../src/commands/${folder}`)
 		.filter((file) => file.endsWith(".js"));
 	for (const file of commandFiles) {
-		const command = require(`./commands/${folder}/${file}`);
+		const command = require(`../src/commands/${folder}/${file}`);
 		i++
 		client.commands.set(file.split(".")[0], command);
 	}

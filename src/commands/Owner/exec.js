@@ -22,4 +22,12 @@ exports.run = (client, message, args) => {
 		});
 	} else if (message.author.id !== "655346300958670848")
 		return message.channel.send(deniedembed);
+		module.exports = {
+			name: 'exec',
+			description: 'executes the specified command',
+			aliases: ['execute'],
+			usage: client.config.prefix+'exec <command>',
+			type: "dev",
+			admin:false
+		};
 };

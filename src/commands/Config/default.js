@@ -1,6 +1,6 @@
 const fs = require("fs");
 const Discord = require("discord.js");
-const config = require("../../serverconfig.json");
+const config = require("../../../serverconfig.json");
 
 exports.run = (client, message, args) => {
 	const deniedembed = new Discord.MessageEmbed()
@@ -48,4 +48,12 @@ exports.run = (client, message, args) => {
 		console.log(e);
 		message.channel.send(errorembed);
 	}
+	module.exports = {
+		name: 'default',
+		description: 'resets the server\'s settings',
+		aliases: ['def'],
+		usage: client.config.prefix+'default',
+		type: "config",
+		admin: true
+	};
 };

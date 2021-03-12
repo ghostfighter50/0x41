@@ -1,6 +1,6 @@
 const fs = require("fs");
 const Discord = require("discord.js");
-const config = require("../../serverconfig.json");
+const config = require("../../../serverconfig.json");
 
 exports.run = (client, message, args) => {
 	const deniedembed = new Discord.MessageEmbed()
@@ -33,4 +33,12 @@ exports.run = (client, message, args) => {
 		console.log(e);
 		message.channel.send(errorembed);
 	}
+	module.exports = {
+		name: 'set-unverified',
+		description: 'sets the unverified role',
+		aliases: ['set-un'],
+		usage: client.config.prefix+'set-unverified <@channel>',
+		type: "config",
+		admin:true
+	};
 };

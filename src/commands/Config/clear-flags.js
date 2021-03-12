@@ -1,6 +1,6 @@
 const fs = require("fs");
 const Discord = require("discord.js");
-const config = require("../../serverconfig.json");
+const config = require("../../../serverconfig.json");
 
 exports.run = (client, message, args) => {
 	if (client.serverconfig[message.guild.id].Levels == false)
@@ -36,4 +36,12 @@ exports.run = (client, message, args) => {
 		console.log(e);
 		message.channel.send(errorembed);
 	}
+	module.exports = {
+		name: 'clear-autoroles',
+		description: 'deletes all of the flags.',
+		aliases: ['del-flags'],
+		usage: client.config.prefix+'clear-flags',
+		type: "config",
+		admin: true
+	};
 };

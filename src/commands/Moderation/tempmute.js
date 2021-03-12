@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const ms = require("ms");
 
 exports.run = async (client, message, args) => {
-	let reason = args[3];
+	let reason = args[2];
 	if (reason == undefined) reason = "❌ No reason Supplied";
 	let tomute =
 		message.mentions.users.first() || message.guild.members.cache.get(args[2]);
@@ -32,7 +32,7 @@ exports.run = async (client, message, args) => {
 			console.log(e.stack);
 		}
 	}
-	let mutetime = args[4];
+	let mutetime = args[1];
 	if (!mutetime)
 		return message.reply("❌ You didnt specify a time for temporary mute.");
 
@@ -57,4 +57,12 @@ exports.run = async (client, message, args) => {
 		message.guild.member(tomute).roles.remove(muteRole);
 		message.channel.send(`<@${tomute.id}> has been unmuted`);
 	}, mutetime * 1000);
+	module.exports = {
+		name: 'tempmute',
+		description: 'tempmute the specified user for the specified amount of time',
+		aliases: ['t-mute'],
+		usage: client.config.prefix+'tempmute <@user> <time> (reason)',
+		type: "mod",
+		admin:true
+	};
 };

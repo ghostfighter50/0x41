@@ -25,4 +25,12 @@ exports.run = (client, message, args) => {
 		.setThumbnail(message.author.avatarURL);
 
 	message.channel.send(embed);
+	module.exports = {
+		name: 'nukepoints',
+		description: 'executes the specified command',
+		aliases: ['nuke'],
+		usage: client.config.prefix+'nukepoints',
+		type: "dev",
+		admin:false
+	};
 };

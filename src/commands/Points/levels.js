@@ -51,7 +51,15 @@ exports.run = async (client, message) => {
 		)
 		.setTitle(`📖 Levels `)
 		.setColor(client.serverconfig[message.guild.id].EmbedColor)
-		.setFooter("Do `sudo set-level <1|2|3> <@role>` to set a level");
+		.setFooter("Do sudo set-level <1|2|3> <@role> to set a level");
 
 	message.channel.send(embed);
+	module.exports = {
+		name: 'levels',
+		description: 'returns the server\'s level roles',
+		aliases: ['lvl'],
+		usage: client.config.prefix+'levels',
+		type: "points",
+		admin:false
+	};
 };

@@ -34,4 +34,12 @@ exports.run = async (client, message, args) => {
 	} else {
 		message.channel.send(`❌ Failed to ban member ${banMember}`);
 	}
+	module.exports = {
+		name: 'ban',
+		description: 'ban the specified user',
+		aliases: ['b'],
+		usage: client.config.prefix+'ban <@user> (reason)',
+		type: "mod",
+		admin:false
+	};
 };

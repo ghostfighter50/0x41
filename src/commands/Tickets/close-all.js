@@ -10,4 +10,12 @@ exports.run = async (client, message) => {
 		.setDescription("✅ Tickets were all deleted !")
 		.setColor(client.serverconfig[message.guild.id].EmbedColor);
 	await message.channel.send(embed);
+	module.exports = {
+		name: 'close-all',
+		description: 'deletes all the tickets',
+		aliases: ['cl-all'],
+		usage: client.config.prefix+'clear-all',
+		type: "ticket",
+		admin:true
+	};
 };

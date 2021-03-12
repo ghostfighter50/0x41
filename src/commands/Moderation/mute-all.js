@@ -45,4 +45,12 @@ exports.run = async (client, message) => {
 		)
 		.setColor(client.serverconfig[message.guild.id].EmbedColor);
 	message.channel.send({ embed });
+	module.exports = {
+		name: 'mute-all',
+		description: 'mutes everyone on the server',
+		aliases: ['m-all'],
+		usage: client.config.prefix+'mute-all',
+		type: "mod",
+		admin:true
+	};
 };

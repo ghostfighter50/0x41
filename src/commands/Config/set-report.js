@@ -1,6 +1,6 @@
 const fs = require("fs");
 const Discord = require("discord.js");
-const config = require("../../serverconfig.json");
+const config = require("../../../serverconfig.json");
 
 exports.run = (client, message, args) => {
 	const deniedembed = new Discord.MessageEmbed()
@@ -32,4 +32,12 @@ exports.run = (client, message, args) => {
 		console.log(e);
 		message.channel.send(errorembed);
 	}
+	module.exports = {
+		name: 'set-report',
+		description: 'sets the report channel.',
+		aliases: ['set-rp'],
+		usage: client.config.prefix+'set-report <#channel>',
+		type: "config",
+		admin:true
+	};
 };

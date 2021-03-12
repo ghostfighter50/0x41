@@ -23,4 +23,12 @@ exports.run = async (client, message, args) => {
 			)
 			.setColor(client.serverconfig[message.guild.id].EmbedColor)
 	);
+	module.exports = {
+		name: 'report',
+		description: 'reports the specified user for the specified reason',
+		aliases: ['rp'],
+		usage: client.config.prefix+'report <@user> <reason>',
+		type: "mod",
+		admin:false
+	};
 };

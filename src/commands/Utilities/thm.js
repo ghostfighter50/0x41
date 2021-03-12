@@ -1,5 +1,4 @@
 const Discord = require("discord.js");
-const https = require("https");
 
 exports.run = async (client, message, args) => {
 	if (!args[0]) return message.reply(":x: Please enter a username !");
@@ -13,4 +12,12 @@ exports.run = async (client, message, args) => {
 
 	await message.channel.send(embed);
 	await message.delete();
+	module.exports = {
+		name: 'thm',
+		description: 'get the tryhackme badge of the specified tryhackme user',
+		aliases: ['tryhackme'],
+		usage: client.config.prefix+'thm <user>',
+		type: "util",
+		admin:false
+	};
 };

@@ -26,4 +26,12 @@ exports.run = async (client, message) => {
 		embed.addField(link.title, ` (${link.url.slice(30)})`, false);
 	});
 	message.channel.send(embed);
+	module.exports = {
+		name: 'search',
+		description: 'make a google search',
+		aliases: ['google'],
+		usage: client.config.prefix+'search <keyword>',
+		type: "util",
+		admin:false
+	};
 };

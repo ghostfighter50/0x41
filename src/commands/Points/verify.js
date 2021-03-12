@@ -41,4 +41,12 @@ exports.run = async (client, message, args) => {
 	} catch (e) {
 		return console.log(e);
 	}
+	module.exports = {
+		name: 'verify',
+		description: 'submit a flag',
+		aliases: ['submit'],
+		usage: client.config.prefix+'verify <challenge name> <flag>',
+		type: "points",
+		admin:false
+	};
 };

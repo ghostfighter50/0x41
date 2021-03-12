@@ -13,7 +13,7 @@ exports.run = async (client, message, args) => {
 				message.channel.send(hastebinembed);
 			})
 			.catch(() => {
-				return message.reply(":x: Service Unavailable !");
+				return message.reply(":x: Hastebin Service Unavailable !");
 			});
 	} catch {
 		let hastebinembed = new Discord.MessageEmbed()
@@ -22,4 +22,12 @@ exports.run = async (client, message, args) => {
 			.setColor(client.serverconfig[message.guild.id].EmbedColor);
 		message.channel.send(hastebinembed);
 	}
+	module.exports = {
+		name: 'hastebin',
+		description: 'create a hastebin with the specified text',
+		aliases: ['haste'],
+		usage: client.config.prefix+'hastebin <text>',
+		type: "util",
+		admin:false
+	};
 };

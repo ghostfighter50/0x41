@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const config = require("../../serverconfig.json");
+const config = require("../../../serverconfig.json");
 
 exports.run = (client, message, args) => {
 	var i = 1;
@@ -55,4 +55,12 @@ exports.run = (client, message, args) => {
 		console.log(e);
 		message.channel.send(errorembed);
 	}
+	module.exports = {
+		name: 'list-flags',
+		description: 'lists the flags/challenges.',
+		aliases: ['list-f', 'l-f', 'list-challs'],
+		usage: client.config.prefix+'list-flags',
+		type: "config",
+		admin:true
+	};
 };

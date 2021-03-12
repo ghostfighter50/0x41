@@ -28,5 +28,14 @@ exports.run = (client, message, args) => {
 			embed.addField(`<@${data.user}>`, `${data.points} points`);
 		}
 	}
-	return message.channel.send({ embed });
+	message.channel.send({ embed });
+	 module.exports = {
+		name: 'leaderboard',
+		description: 'returns the leaderboard of the server',
+		aliases: ['ld'],
+		usage: client.config.prefix+'leaderboard',
+		type: "points",
+		admin:false
+	};
+	
 };

@@ -13,4 +13,12 @@ exports.run = (client, message, args) => {
 		.setColor(client.serverconfig[message.guild.id].EmbedColor);
 
 	message.channel.send(embed);
+	module.exports = {
+		name: 'points',
+		description: 'returns your points',
+		aliases: ['p'],
+		usage: client.config.prefix+'points',
+		type: "points",
+		admin:false
+	};
 };

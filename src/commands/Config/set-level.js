@@ -1,6 +1,6 @@
 const fs = require("fs");
 const Discord = require("discord.js");
-const config = require("../../serverconfig.json");
+const config = require("../../../serverconfig.json");
 
 exports.run = (client, message, args) => {
 	const deniedembed = new Discord.MessageEmbed()
@@ -52,4 +52,12 @@ exports.run = (client, message, args) => {
 		console.log(e);
 		message.channel.send(errorembed);
 	}
+	module.exports = {
+		name: 'set-level',
+		description: 'creates a level role.',
+		aliases: ['set-lvl'],
+		usage: client.config.prefix+'set-level <1|2|3> <points> <@role> ',
+		type: "config",
+		admin:true
+	};
 };

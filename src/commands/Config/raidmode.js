@@ -1,9 +1,8 @@
 const fs = require("fs");
 const Discord = require("discord.js");
-const config = require("../../serverconfig.json");
+const config = require("../../../serverconfig.json");
 
 exports.run = (client, message, args) => {
-	var i = 1;
 	const deniedembed = new Discord.MessageEmbed()
 		.setThumbnail(message.author.avatarURL)
 		.setTitle(`❌ Acces Denied ! `)
@@ -11,28 +10,42 @@ exports.run = (client, message, args) => {
 
 	const errorembed = new Discord.MessageEmbed()
 		.setThumbnail(message.author.avatarURL)
-		.setTitle(`❌ Error ! `)
+		.setTitle(`❌ Error`)
 		.setColor(client.serverconfig[message.guild.id].EmbedColor);
 
 	const embed = new Discord.MessageEmbed()
 		.setThumbnail(message.author.avatarURL)
 		.setColor(client.serverconfig[message.guild.id].EmbedColor)
-		.setTitle("Autoroles");
+		.setTitle("✅ Succesfully changed raidmode  !");
 
 	if (!message.member.hasPermission("ADMINISTRATOR"))
 		return message.channel.send(deniedembed);
 
 	try {
-		config[message.guild.id].autoroles.forEach((r) => {
-			let role = message.guild.roles.cache.find((role) => role.id == r);
-			embed.addField("Role " + i++, role, true);
-		});
-		if (config[message.guild.id].autoroles.length == 0)
-			embed.addField("Role 1 :", "No roles !", true);
-
+		if (args[0] == "on") {
+			client.serverconfig[message.guild.id].RaidMode = true;
+			fs.writeFileSync(
+				client.serverconfig.path,
+				JSON.stringify(config, null, 2)
+			);
+		} else if (args[0] == "off") {
+			client.serverconfig[message.guild.id].RaidMode = false;
+			fs.writeFileSync(
+				client.serverconfig.path,
+				JSON.stringify(config, null, 2)
+			);
+		}
 		message.channel.send(embed);
 	} catch (e) {
 		console.log(e);
 		message.channel.send(errorembed);
 	}
+module.exports = {
+		name: 'raidmode',
+		description: 'toggle the raidmode module',
+		aliases: ['raid'],
+		usage: client.config.prefix+'raidmode <on|off>',
+		type: "config",
+		admin:true
+	};
 };

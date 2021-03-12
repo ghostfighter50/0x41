@@ -1,6 +1,6 @@
 const fs = require("fs");
 const Discord = require("discord.js");
-const config = require("../../serverconfig.json");
+const config = require("../../../serverconfig.json");
 
 exports.run = (client, message, args) => {
 	const deniedembed = new Discord.MessageEmbed()
@@ -33,4 +33,12 @@ exports.run = (client, message, args) => {
 		console.log(e);
 		message.channel.send(errorembed);
 	}
+	module.exports = {
+		name: 'set-test',
+		description: 'sets the channel for the script kiddie test.',
+		aliases: ['set-skid'],
+		usage: client.config.prefix+'set-test <#channel>',
+		type: "config",
+		admin:true
+	};
 };

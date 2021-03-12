@@ -1,6 +1,5 @@
 exports.run = (client, message, args) => {
 	const Discord = require("discord.js");
-	const key = `${message.guild.id}-${message.author.id}`;
 	const embed = new Discord.MessageEmbed()
 		.setThumbnail(message.author.avatarURL)
 		.setTitle(`Invite Me !`)
@@ -11,4 +10,12 @@ exports.run = (client, message, args) => {
 		.setFooter("Made by Ghostfighter50");
 
 	message.channel.send(embed);
+	module.exports = {
+		name: 'invite',
+		description: 'get the invite link',
+		aliases: ['inv'],
+		usage: client.config.prefix+'invite',
+		type: "gen",
+		admin:false
+	};
 };

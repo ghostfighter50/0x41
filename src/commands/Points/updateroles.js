@@ -55,5 +55,13 @@ exports.run = async (client, message) => {
 		);
 		member.roles.remove(removerole);
 		message.channel.send(embed);
+		module.exports = {
+			name: 'updateroles',
+			description: 'get roles for your amount of points',
+			aliases: ['update'],
+			usage: client.config.prefix+'updateroles',
+			type: "points",
+			admin:false
+		};
 	}
 };
