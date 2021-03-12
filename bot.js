@@ -4,6 +4,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./config.json");
 const serverconfig = require("./serverconfig.json");
+var i = 0
 client.config = config;
 client.serverconfig = serverconfig;
 client.points = new Enmap({ name: "points" });
@@ -27,9 +28,11 @@ for (const folder of commandFolders) {
 		.filter((file) => file.endsWith(".js"));
 	for (const file of commandFiles) {
 		const command = require(`./commands/${folder}/${file}`);
-		console.log(file.split(".")[0]);
+		i++
 		client.commands.set(file.split(".")[0], command);
 	}
+	
 }
+console.log(`[+] ${i} commands`)
 process.on("warning", (warn) => console.log(warn.message));
 client.login(config.token);
