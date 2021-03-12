@@ -2,11 +2,8 @@ const fs = require("fs");
 const Discord = require("discord.js");
 const config = require("../../../serverconfig.json");
 
-exports.run = (client, message, args) => {
-	const deniedembed = new Discord.MessageEmbed()
-		.setThumbnail(message.author.avatarURL)
-		.setTitle(`❌ Acces Denied ! `)
-		.setColor(client.serverconfig[message.guild.id].EmbedColor);
+module.exports.run = (client, message, args) => {
+
 
 	const errorembed = new Discord.MessageEmbed()
 		.setThumbnail(message.author.avatarURL)
@@ -20,9 +17,7 @@ exports.run = (client, message, args) => {
 		.setColor(client.serverconfig[message.guild.id].EmbedColor)
 		.setTitle("✅ Succesfully set level role !");
 
-	if (!message.member.hasPermission("ADMINISTRATOR"))
-		return message.channel.send(deniedembed);
-
+	
 	try {
 		client.serverconfig[message.guild.id].Levels = true;
 		if (!args[1]) args[1] = "10";
@@ -52,12 +47,12 @@ exports.run = (client, message, args) => {
 		console.log(e);
 		message.channel.send(errorembed);
 	}
-	module.exports = {
-		name: 'set-level',
-		description: 'creates a level role.',
-		aliases: ['set-lvl'],
-		usage: client.config.prefix+'set-level <1|2|3> <points> <@role> ',
-		type: "config",
-		admin:true
-	};
+
 };
+module.exports = {
+	name: 'set-level',
+	description: 'creates a level role.',
+	aliases: ['set-lvl'],
+	usage: 'sudo set-level <1|2|3> <points> <@role> ',
+	type: "config",
+	admin:true,};

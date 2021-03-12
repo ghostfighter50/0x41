@@ -1,4 +1,4 @@
-exports.run = async (client, message) => {
+module.exports.run = async (client, message) => {
 	const Discord = require("discord.js");
 
 	const infoembed = new Discord.MessageEmbed()
@@ -6,7 +6,7 @@ exports.run = async (client, message) => {
 		.setFooter("Made by Ghostfighter50")
 		.setColor(client.serverconfig[message.guild.id].EmbedColor)
 		.setDescription(
-			"\n\n`() = optional` \n `<> = required`\n`< | > = possible values` \n  `@user/role = mention`\n`#channel = channel mention`  \n`prefix = sudo`\n`{user}` = username for join/leave messages\n`{guild}` = guild name for join/leave messages\n\nInvite me ! (`sudo invite`)"
+			"\n\n`() = optional` \n `<> = required`\n`< | > = possible values` \n  `@user/role = mention`\n`#channel = channel mention`  \n`prefix = sudo `\n`{user}` = username for join/leave messages\n`{guild}` = guild name for join/leave messages\n\nInvite me ! (`sudo  invite`)"
 		);
 	const modembed = new Discord.MessageEmbed()
 		.setTitle(`🔨 Moderation`)
@@ -78,4 +78,12 @@ exports.run = async (client, message) => {
 		};
 		msg.awaitReactions(filter, { time: 60000 }).then((collected) => {});
 	});
+};
+module.exports = {
+	name: 'help',
+	description: 'sends the help message',
+	aliases: ['?','cmd','commands'],
+	usage: 'sudo help (command)',
+	type: "util",
+	admin:false
 };

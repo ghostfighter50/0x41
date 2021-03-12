@@ -1,10 +1,10 @@
 const Discord = require("discord.js");
 
-exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
 	try {
 		if (client.serverconfig[message.guild.id].Levels == false)
 			return message.reply(
-				"Set the Leveling system with `sudo set-level <1|2|3> <@role>`"
+				"Set the Leveling system with `sudo  set-level <1|2|3> <@role>`"
 			);
 
 		let user = message.author.id;
@@ -41,12 +41,13 @@ exports.run = async (client, message, args) => {
 	} catch (e) {
 		return console.log(e);
 	}
-	module.exports = {
-		name: 'verify',
-		description: 'submit a flag',
-		aliases: ['submit'],
-		usage: client.config.prefix+'verify <challenge name> <flag>',
-		type: "points",
-		admin:false
-	};
+
+};
+module.exports = {
+	name: 'verify',
+	description: 'submit a flag',
+	aliases: ['submit'],
+	usage: 'sudo verify <challenge name> <flag>',
+	type: "points",
+	admin:false
 };

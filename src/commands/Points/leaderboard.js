@@ -1,4 +1,4 @@
-exports.run = (client, message, args) => {
+module.exports.run = (client, message, args) => {
 	const Discord = require("discord.js");
 
 	const filtered = client.points
@@ -10,7 +10,7 @@ exports.run = (client, message, args) => {
 	const top10 = sorted.splice(0, 10);
 	if (client.serverconfig[message.guild.id].Levels == false)
 		return message.reply(
-			"Set the Leveling system with `sudo set-level <1|2|3> <@role>`"
+			"Set the Leveling system with `sudo  set-level <1|2|3> <@role>`"
 		);
 
 	const embed = new Discord.MessageEmbed()
@@ -29,13 +29,14 @@ exports.run = (client, message, args) => {
 		}
 	}
 	message.channel.send({ embed });
-	 module.exports = {
-		name: 'leaderboard',
-		description: 'returns the leaderboard of the server',
-		aliases: ['ld'],
-		usage: client.config.prefix+'leaderboard',
-		type: "points",
-		admin:false
-	};
+
 	
+};
+module.exports = {
+	name: 'leaderboard',
+	description: 'returns the leaderboard of the server',
+	aliases: ['ld'],
+	usage: 'sudo leaderboard',
+	type: "points",
+	admin:false
 };

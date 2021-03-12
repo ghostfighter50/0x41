@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const hastebin = require("hastebin-gen");
 
-exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
 	try {
 		let haste = args.join(" ");
 		hastebin(haste)
@@ -22,12 +22,13 @@ exports.run = async (client, message, args) => {
 			.setColor(client.serverconfig[message.guild.id].EmbedColor);
 		message.channel.send(hastebinembed);
 	}
-	module.exports = {
-		name: 'hastebin',
-		description: 'create a hastebin with the specified text',
-		aliases: ['haste'],
-		usage: client.config.prefix+'hastebin <text>',
-		type: "util",
-		admin:false
-	};
+
+};
+module.exports = {
+	name: 'hastebin',
+	description: 'create a hastebin with the specified text',
+	aliases: ['haste'],
+	usage: 'sudo hastebin <text>',
+	type: "util",
+	admin:false
 };

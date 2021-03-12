@@ -1,4 +1,4 @@
-exports.run = (client, message, args) => {
+module.exports.run = (client, message, args) => {
 	const Discord = require("discord.js");
 	const embed = new Discord.MessageEmbed()
 		.setThumbnail(message.author.avatarURL)
@@ -10,12 +10,13 @@ exports.run = (client, message, args) => {
 		.setFooter("Made by Ghostfighter50");
 
 	message.channel.send(embed);
-	module.exports = {
-		name: 'invite',
-		description: 'get the invite link',
-		aliases: ['inv'],
-		usage: client.config.prefix+'invite',
-		type: "gen",
-		admin:false
-	};
+	
+};
+module.exports = {
+	name: 'invite',
+	description: 'get the invite link',
+	aliases: ['inv'],
+	usage: 'sudo invite',
+	type: "gen",
+	admin:false
 };

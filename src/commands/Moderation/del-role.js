@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
 	if (!message.member.hasPermission("MANAGE_ROLES"))
 		return message.reply("❌ you can't use this command.");
 
@@ -18,12 +18,13 @@ exports.run = async (client, message, args) => {
 		console.log(e);
 		message.channel.send(`❌ Failed to delete role ${args[0]}`);
 	}
-	module.exports = {
-		name: 'del-role',
-		description: 'deletes the specified role',
-		aliases: ['d-r'],
-		usage: client.config.prefix+'del-role <@role>',
-		type: "mod",
-		admin:false
-	};
+	
+};
+module.exports = {
+	name: 'del-role',
+	description: 'deletes the specified role',
+	aliases: ['d-r'],
+	usage: 'sudo del-role <@role>',
+	type: "mod",
+	admin:false
 };

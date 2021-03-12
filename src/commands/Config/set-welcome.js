@@ -2,11 +2,8 @@ const fs = require("fs");
 const Discord = require("discord.js");
 const config = require("../../../serverconfig.json");
 
-exports.run = (client, message, args) => {
-	const deniedembed = new Discord.MessageEmbed()
-		.setThumbnail(message.author.avatarURL)
-		.setTitle(`❌ Acces Denied ! `)
-		.setColor(client.serverconfig[message.guild.id].EmbedColor);
+module.exports.run = (client, message, args) => {
+
 
 	const errorembed = new Discord.MessageEmbed()
 		.setThumbnail(message.author.avatarURL)
@@ -18,9 +15,7 @@ exports.run = (client, message, args) => {
 		.setColor(client.serverconfig[message.guild.id].EmbedColor)
 		.setTitle("✅ Succesfully set welcome channel !");
 
-	if (!message.member.hasPermission("ADMINISTRATOR"))
-		return message.channel.send(deniedembed);
-
+	
 	try {
 		let channel = message.mentions.channels.first();
 		config[message.guild.id].WelcomeChannel = channel.id;
@@ -33,3 +28,10 @@ exports.run = (client, message, args) => {
 		message.channel.send(errorembed);
 	}
 };
+module.exports = {
+	name: 'set-welcome',
+	description: 'sets the welcome channel.',
+	aliases: ['set-wlc'],
+	usage: 'sudo set-welcome <#channel>',
+	type: "config",
+	admin:true,};

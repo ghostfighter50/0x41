@@ -1,4 +1,4 @@
-exports.run = async (client, message) => {
+module.exports.run = async (client, message) => {
 	const Discord = require("discord.js");
 
 	const verified = new Discord.MessageEmbed()
@@ -20,7 +20,7 @@ exports.run = async (client, message) => {
 	let member = message.member;
 	if (client.serverconfig[message.guild.id].Levels == false)
 		return message.reply(
-			"Set the Leveling system with `sudo set-level <1|2|3> <@role>`"
+			"Set the Leveling system with `sudo  set-level <1|2|3> <@role>`"
 		);
 
 	if (userPoints >= "100") {
@@ -55,13 +55,14 @@ exports.run = async (client, message) => {
 		);
 		member.roles.remove(removerole);
 		message.channel.send(embed);
-		module.exports = {
-			name: 'updateroles',
-			description: 'get roles for your amount of points',
-			aliases: ['update'],
-			usage: client.config.prefix+'updateroles',
-			type: "points",
-			admin:false
-		};
+	
 	}
+};
+module.exports = {
+	name: 'updateroles',
+	description: 'get roles for your amount of points',
+	aliases: ['update'],
+	usage: 'sudo updateroles',
+	type: "points",
+	admin:false
 };

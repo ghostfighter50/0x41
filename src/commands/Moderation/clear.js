@@ -1,4 +1,4 @@
-exports.run = async (client, message) => {
+module.exports.run = async (client, message) => {
 	let args = message.content.slice(4).split(" ");
 
 	let userinp = parseInt(args[2], 10);
@@ -19,12 +19,13 @@ exports.run = async (client, message) => {
 			.send(`✅ deleted ${messages.size - 1} messages`)
 			.then((message) => message.delete({ timeout: 1000 }));
 	});
-	module.exports = {
-		name: 'clear',
-		description: 'clears the specified amount of messages',
-		aliases: ['c', "purge"],
-		usage: client.config.prefix+'clear <amount>',
-		type: "mod",
-		admin:false
-	};
+
+};
+module.exports = {
+	name: 'clear',
+	description: 'clears the specified amount of messages',
+	aliases: ['c', "purge"],
+	usage: 'sudo clear <amount>',
+	type: "mod",
+	admin:false
 };

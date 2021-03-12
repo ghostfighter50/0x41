@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
 
 	if (!message.member.hasPermission("ADMINISTRATOR"))
 		return message.channel.send("**Insufficient permissions :no_entry:.**");
@@ -25,12 +25,12 @@ exports.run = async (client, message, args) => {
 	} catch (e) {
 		console.log(e.message);
 	}
-	module.exports = {
-		name: 'unban',
-		description: 'unbans the specified id from the server',
-		aliases: ['ub'],
-		usage: client.config.prefix+'unban <id> (reason)',
-		type: "mod",
-		admin:true
-	};
+
 };
+module.exports = {
+	name: 'unban',
+	description: 'unbans the specified id from the server',
+	aliases: ['ub'],
+	usage: 'sudo unban <id> (reason)',
+	type: "mod",
+	admin:true,};

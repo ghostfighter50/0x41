@@ -1,13 +1,13 @@
 const Discord = require("discord.js");
 
-exports.run = async (client, message) => {
+module.exports.run = async (client, message) => {
 	if (client.serverconfig[message.guild.id].VerifiedRole == "")
 		return message.reply(
-			":x: Set the verified (member) role ! `sudo set-verified <@role>`"
+			":x: Set the verified (member) role ! `sudo  set-verified <@role>`"
 		);
 	if (client.serverconfig[message.guild.id].UnverifiedRole == "")
 		return message.reply(
-			":x: Set the unverified role ! `sudo set-unverified <@role>`"
+			":x: Set the unverified role ! `sudo  set-unverified <@role>`"
 		);
 
 	const TicketEmbed = new Discord.MessageEmbed()
@@ -79,12 +79,13 @@ exports.run = async (client, message) => {
 			collected.first().remove();
 		}
 	});
-	module.exports = {
-		name: 'ticket',
-		description: 'open a ticket',
-		aliases: ['open', 't'],
-		usage: client.config.prefix+'ticket',
-		type: "ticket",
-		admin:false
-	};
+
+};
+module.exports = {
+	name: 'ticket',
+	description: 'open a ticket',
+	aliases: ['open', 't'],
+	usage: 'sudo ticket',
+	type: "ticket",
+	admin:false
 };

@@ -1,12 +1,7 @@
 const Discord = require("discord.js");
-exports.run = async (client, message) => {
-	const deniedembed = new Discord.MessageEmbed()
-		.setThumbnail(message.author.avatarURL)
-		.setTitle(`❌ Acces Denied ! `)
-		.setColor(client.serverconfig[message.guild.id].EmbedColor);
-	if (!message.member.hasPermission("ADMINISTRATOR"))
-		return message.channel.send(deniedembed);
-	let muteRole = client.guilds.cache
+module.exports.run = async (client, message) => {
+
+		let muteRole = client.guilds.cache
 		.get(message.guild.id)
 		.roles.cache.find((val) => val.name === "Muted");
 	if (message.author.id === message.mentions.users.first())
@@ -45,12 +40,12 @@ exports.run = async (client, message) => {
 		)
 		.setColor(client.serverconfig[message.guild.id].EmbedColor);
 	message.channel.send({ embed });
-	module.exports = {
-		name: 'mute-all',
-		description: 'mutes everyone on the server',
-		aliases: ['m-all'],
-		usage: client.config.prefix+'mute-all',
-		type: "mod",
-		admin:true
-	};
+
 };
+module.exports = {
+	name: 'mute-all',
+	description: 'mutes everyone on the server',
+	aliases: ['m-all'],
+	usage: 'sudo mute-all',
+	type: "mod",
+	admin:true,};

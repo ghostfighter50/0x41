@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
 	const role = args[0];
 	const embed = new Discord.MessageEmbed()
 		.setTitle(message.guild.name + "'channels")
@@ -18,12 +18,13 @@ exports.run = async (client, message, args) => {
 		console.log(e);
 		message.channel.send(`❌ Failed to list channels`);
 	}
-	module.exports = {
-		name: 'list-channels',
-		description: 'lists the server\'s channels',
-		aliases: ['l-c'],
-		usage: client.config.prefix+'list-channels',
-		type: "util",
-		admin:false
-	};
+
+};
+module.exports = {
+	name: 'list-channels',
+	description: 'lists the server\'s channels',
+	aliases: ['l-c'],
+	usage: 'sudo list-channels',
+	type: "util",
+	admin:false
 };

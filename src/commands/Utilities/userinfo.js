@@ -6,7 +6,7 @@ function checkDays(date) {
 	let days = Math.floor(diff / 86400000);
 	return days + (days == 1 ? " day" : " days") + " ago";
 }
-exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
 	try {
 		let user = message.mentions.users.first();
 		let muser = message.guild.member(message.mentions.users.first());
@@ -88,12 +88,13 @@ exports.run = async (client, message, args) => {
 			.setColor(client.serverconfig[message.guild.id].EmbedColor);
 		message.channel.send(error);
 	}
-	module.exports = {
-		name: 'userinfo',
-		description: 'retrieves the specified user\'s informations',
-		aliases: ['usr'],
-		usage: client.config.prefix+'userinfo <@user>',
-		type: "util",
-		admin:false
-	};
+	
+};
+module.exports = {
+	name: 'userinfo',
+	description: 'retrieves the specified user\'s informations',
+	aliases: ['usr'],
+	usage: 'sudo userinfo <@user>',
+	type: "util",
+	admin:false
 };

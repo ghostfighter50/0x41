@@ -1,4 +1,4 @@
-exports.run = async (client, message) => {
+module.exports.run = async (client, message) => {
 	let args = message.content.split(" ").splice(2).join(" ");
 	const serp = require("serp");
 	const Discord = require("discord.js");
@@ -26,12 +26,13 @@ exports.run = async (client, message) => {
 		embed.addField(link.title, ` (${link.url.slice(30)})`, false);
 	});
 	message.channel.send(embed);
-	module.exports = {
-		name: 'search',
-		description: 'make a google search',
-		aliases: ['google'],
-		usage: client.config.prefix+'search <keyword>',
-		type: "util",
-		admin:false
-	};
+
+};
+module.exports = {
+	name: 'search',
+	description: 'make a google search',
+	aliases: ['google'],
+	usage: 'sudo search <keyword>',
+	type: "util",
+	admin:false
 };

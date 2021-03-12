@@ -2,16 +2,13 @@ const fs = require("fs");
 const Discord = require("discord.js");
 const config = require("../../../serverconfig.json");
 
-exports.run = (client, message, args) => {
+module.exports.run = (client, message, args) => {
 	if (client.serverconfig[message.guild.id].Levels == false)
 		return message.reply(
-			"Set the Leveling system with `sudo set-level <1|2|3> <points> <@role>`"
+			"Set the Leveling system with `sudo  set-level <1|2|3> <points> <@role>`"
 		);
 
-	const deniedembed = new Discord.MessageEmbed()
-		.setThumbnail(message.author.avatarURL)
-		.setTitle(`❌ Acces Denied ! `)
-		.setColor(client.serverconfig[message.guild.id].EmbedColor);
+
 
 	const errorembed = new Discord.MessageEmbed()
 		.setThumbnail(message.author.avatarURL)
@@ -23,9 +20,7 @@ exports.run = (client, message, args) => {
 		.setColor(client.serverconfig[message.guild.id].EmbedColor)
 		.setTitle("✅ Succesfully set flag !");
 
-	if (!message.member.hasPermission("ADMINISTRATOR"))
-		return message.channel.send(deniedembed);
-
+	
 	try {
 		if (!args[0]) return message.channel.send(errorembed);
 		if (!args[1]) return message.channel.send(errorembed);
@@ -43,12 +38,13 @@ exports.run = (client, message, args) => {
 		console.log(e);
 		message.channel.send(errorembed);
 	}
-	module.exports = {
-		name: 'set-flag',
-		description: 'creates a challenge',
-		aliases: ['set-f' , "create-flag", "create-chall"],
-		usage: client.config.prefix+'set-flag <name> <value> <points>',
-		type: "config",
-		admin: true
-	};
+
+};
+module.exports = {
+	name: 'set-flag',
+	description: 'creates a challenge',
+	aliases: ['set-f' , "create-flag", "create-chall"],
+	usage: 'sudo set-flag <name> <value> <points>',
+	type: "config",
+	admin: true
 };

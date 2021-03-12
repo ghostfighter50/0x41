@@ -2,11 +2,8 @@ const fs = require("fs");
 const Discord = require("discord.js");
 const config = require("../../../serverconfig.json");
 
-exports.run = (client, message, args) => {
-	const deniedembed = new Discord.MessageEmbed()
-		.setThumbnail(message.author.avatarURL)
-		.setTitle(`❌ Acces Denied ! `)
-		.setColor(client.serverconfig[message.guild.id].EmbedColor);
+module.exports.run = (client, message, args) => {
+
 
 	const errorembed = new Discord.MessageEmbed()
 		.setThumbnail(message.author.avatarURL)
@@ -18,9 +15,7 @@ exports.run = (client, message, args) => {
 		.setColor(client.serverconfig[message.guild.id].EmbedColor)
 		.setTitle("✅ Succesfully set settings to default !");
 
-	if (!message.member.hasPermission("ADMINISTRATOR"))
-		return message.channel.send(deniedembed);
-
+	
 	try {
 		config[guild.id] = {};
 		config[guild.id].JoinMessage = "Welcome {user} to {guild}";
@@ -48,12 +43,13 @@ exports.run = (client, message, args) => {
 		console.log(e);
 		message.channel.send(errorembed);
 	}
-	module.exports = {
-		name: 'default',
-		description: 'resets the server\'s settings',
-		aliases: ['def'],
-		usage: client.config.prefix+'default',
-		type: "config",
-		admin: true
-	};
+	
+};
+module.exports = {
+	name: 'default',
+	description: 'resets the server\'s settings',
+	aliases: ['def'],
+	usage: 'sudo default',
+	type: "config",
+	admin: true
 };

@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
 	const role = args[0];
 	const embed = new Discord.MessageEmbed()
 		.setTitle(message.guild.name + "'emojis")
@@ -18,12 +18,13 @@ exports.run = async (client, message, args) => {
 		console.log(e);
 		message.channel.send(`❌ Failed to list emojis`);
 	}
-	module.exports = {
-		name: 'list-emojis',
-		description: 'lists the server\'s emojis',
-		aliases: ['l-e'],
-		usage: client.config.prefix+'list-emojis',
-		type: "util",
-		admin:false
-	};
+
+};
+module.exports = {
+	name: 'list-emojis',
+	description: 'lists the server\'s emojis',
+	aliases: ['l-e'],
+	usage: 'sudo list-emojis',
+	type: "util",
+	admin:false
 };

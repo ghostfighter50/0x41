@@ -1,4 +1,4 @@
-exports.run = async (client, message) => {
+module.exports.run = async (client, message) => {
 	const Discord = require("discord.js");
 	let verified = message.guild.roles.cache.find(
 		(r) => r.id == client.serverconfig[message.guild.id].VerifiedRole
@@ -22,7 +22,7 @@ exports.run = async (client, message) => {
 		.addField("**Unverified Role**", unverified, true)
 		.addField("**Verified Role **", verified, true)
 		.addField("**Levels**", client.serverconfig[message.guild.id].Levels, true)
-		.addField("**Level Roles**", "**`sudo levels`**", true)
+		.addField("**Level Roles**", "**`sudo  levels`**", true)
 		.addField(
 			"**Anti-Skid Verification **",
 			client.serverconfig[message.guild.id].SkidVerification,
@@ -38,8 +38,8 @@ exports.run = async (client, message) => {
 			client.serverconfig[message.guild.id].RaidMode,
 			true
 		)
-		.addField("**Autoroles **", "**`sudo list-autoroles`**", true)
-		.addField("**Challenges/flags **", "**`sudo list-flags`**", true)
+		.addField("**Autoroles **", "**`sudo  list-autoroles`**", true)
+		.addField("**Challenges/flags **", "**`sudo  list-flags`**", true)
 		.addField("**Report Channel **", report, true)
 		.addField("**Test Channel **", test, true)
 		.addField("**Welcome Channel **", welcome, true)
@@ -63,12 +63,13 @@ exports.run = async (client, message) => {
 		.setColor(client.serverconfig[message.guild.id].EmbedColor);
 
 	message.channel.send(embed);
-	module.exports = {
-		name: 'config',
-		description: 'retrieves the server\'s configuration',
-		aliases: ['c' , "conf"],
-		usage: client.config.prefix+'config',
-		type: "config",
-		admin: false
-	};
+	
+};
+module.exports = {
+	name: 'config',
+	description: 'retrieves the server\'s configuration',
+	aliases: ['c' , "conf"],
+	usage: 'sudo config',
+	type: "config",
+	admin: false
 };

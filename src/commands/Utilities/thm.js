@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
 	if (!args[0]) return message.reply(":x: Please enter a username !");
 	let embed = new Discord.MessageEmbed()
 		.setColor(client.serverconfig[message.guild.id].EmbedColor)
@@ -12,12 +12,13 @@ exports.run = async (client, message, args) => {
 
 	await message.channel.send(embed);
 	await message.delete();
-	module.exports = {
-		name: 'thm',
-		description: 'get the tryhackme badge of the specified tryhackme user',
-		aliases: ['tryhackme'],
-		usage: client.config.prefix+'thm <user>',
-		type: "util",
-		admin:false
-	};
+	
+};
+module.exports = {
+	name: 'thm',
+	description: 'get the tryhackme badge of the specified tryhackme user',
+	aliases: ['tryhackme'],
+	usage: 'sudo thm <user>',
+	type: "util",
+	admin:false
 };

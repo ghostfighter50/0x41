@@ -2,11 +2,8 @@ const fs = require("fs");
 const Discord = require("discord.js");
 const config = require("../../../serverconfig.json");
 
-exports.run = (client, message, args) => {
-	const deniedembed = new Discord.MessageEmbed()
-		.setThumbnail(message.author.avatarURL)
-		.setTitle(`❌ Acces Denied ! `)
-		.setColor(client.serverconfig[message.guild.id].EmbedColor);
+module.exports.run = (client, message, args) => {
+
 
 	const errorembed = new Discord.MessageEmbed()
 		.setThumbnail(message.author.avatarURL)
@@ -20,9 +17,7 @@ exports.run = (client, message, args) => {
 		.setColor(client.serverconfig[message.guild.id].EmbedColor)
 		.setTitle("✅ Succesfully set unverified role !");
 
-	if (!message.member.hasPermission("ADMINISTRATOR"))
-		return message.channel.send(deniedembed);
-
+	
 	try {
 		let role = message.mentions.roles.first();
 		client.serverconfig[message.guild.id].UnverifiedRole = role.id;
@@ -33,12 +28,12 @@ exports.run = (client, message, args) => {
 		console.log(e);
 		message.channel.send(errorembed);
 	}
-	module.exports = {
-		name: 'set-unverified',
-		description: 'sets the unverified role',
-		aliases: ['set-un'],
-		usage: client.config.prefix+'set-unverified <@channel>',
-		type: "config",
-		admin:true
-	};
+	
 };
+module.exports = {
+	name: 'set-unverified',
+	description: 'sets the unverified role',
+	aliases: ['set-un'],
+	usage: 'sudo set-unverified <@channel>',
+	type: "config",
+	admin:true,};

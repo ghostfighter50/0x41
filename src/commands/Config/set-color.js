@@ -2,11 +2,8 @@ const fs = require("fs");
 const Discord = require("discord.js");
 const config = require("../../../serverconfig.json");
 
-exports.run = (client, message, args) => {
-	const deniedembed = new Discord.MessageEmbed()
-		.setThumbnail(message.author.avatarURL)
-		.setTitle(`❌ Acces Denied ! `)
-		.setColor(client.serverconfig[message.guild.id].EmbedColor);
+module.exports.run = (client, message, args) => {
+
 
 	const errorembed = new Discord.MessageEmbed()
 		.setThumbnail(message.author.avatarURL)
@@ -18,9 +15,7 @@ exports.run = (client, message, args) => {
 		.setColor(client.serverconfig[message.guild.id].EmbedColor)
 		.setTitle("✅ Succesfully set embed color !");
 
-	if (!message.member.hasPermission("ADMINISTRATOR"))
-		return message.channel.send(deniedembed);
-
+	
 	try {
 		config[message.guild.id].EmbedColor = args[0];
 
@@ -31,12 +26,12 @@ exports.run = (client, message, args) => {
 		console.log(e);
 		message.channel.send(errorembed);
 	}
-	module.exports = {
-		name: 'set-color',
-		description: 'sets the color of the embeds.',
-		aliases: ['color'],
-		usage: client.config.prefix+'set-color <color hex>',
-		type: "config",
-		admin:true
-	};
+
 };
+module.exports = {
+	name: 'set-color',
+	description: 'sets the color of the embeds.',
+	aliases: ['color'],
+	usage: 'sudo set-color <color hex>',
+	type: "config",
+	admin:true,};

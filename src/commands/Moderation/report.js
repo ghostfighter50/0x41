@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
 	let channel = message.guild.channels.cache.find(
 		(c) => c.id == client.serverconfig[message.guild.id].ReportChannel
 	);
@@ -23,12 +23,13 @@ exports.run = async (client, message, args) => {
 			)
 			.setColor(client.serverconfig[message.guild.id].EmbedColor)
 	);
-	module.exports = {
-		name: 'report',
-		description: 'reports the specified user for the specified reason',
-		aliases: ['rp'],
-		usage: client.config.prefix+'report <@user> <reason>',
-		type: "mod",
-		admin:false
-	};
+	
+};
+module.exports = {
+	name: 'report',
+	description: 'reports the specified user for the specified reason',
+	aliases: ['rp'],
+	usage: 'sudo report <@user> <reason>',
+	type: "mod",
+	admin:false
 };

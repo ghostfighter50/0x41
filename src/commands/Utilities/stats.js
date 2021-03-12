@@ -4,7 +4,7 @@ const fs = require("fs");
 const osutils = require("os-utils");
 const version = require("../../../package.json");
 
-exports.run = async (client, message) => {
+module.exports.run = async (client, message) => {
 	var milliseconds = parseInt((client.uptime % 1000) / 100),
 		seconds = parseInt((client.uptime / 1000) % 60),
 		minutes = parseInt((client.uptime / (1000 * 60)) % 60),
@@ -123,12 +123,13 @@ exports.run = async (client, message) => {
 			message.channel.send(embed);
 		});
 	});
-	module.exports = {
-		name: 'stats',
-		description: 'retrieves the bot\'s stats',
-		aliases: ['botinfo'],
-		usage: client.config.prefix+'stats',
-		type: "util",
-		admin:false
-	};
+
+};
+module.exports = {
+	name: 'stats',
+	description: 'retrieves the bot\'s stats',
+	aliases: ['botinfo'],
+	usage: 'sudo stats',
+	type: "util",
+	admin:false
 };

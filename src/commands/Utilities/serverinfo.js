@@ -1,4 +1,4 @@
-exports.run = (client, message, args) => {
+module.exports.run = (client, message, args) => {
 	const Discord = require("discord.js");
 	function checkDays(date) {
 		let now = new Date();
@@ -46,12 +46,13 @@ exports.run = (client, message, args) => {
 		.addField("Verification Level", message.guild.verificationLevel, true);
 
 	message.channel.send(embed);
-	module.exports = {
-		name: 'serverinfo',
-		description: 'retrieves the server\'s informations',
-		aliases: ['srv'],
-		usage: client.config.prefix+'serverinfo',
-		type: "util",
-		admin:false
-	};
+	
+};
+module.exports = {
+	name: 'serverinfo',
+	description: 'retrieves the server\'s informations',
+	aliases: ['srv'],
+	usage: 'sudo serverinfo',
+	type: "util",
+	admin:false
 };

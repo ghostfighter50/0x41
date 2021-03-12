@@ -1,11 +1,11 @@
-exports.run = (client, message, args) => {
+module.exports.run = (client, message, args) => {
 	const Discord = require("discord.js");
 	if (!message.member.id == "655346300958670848")
 		return message.channel.send("**Dev only command :no_entry:.**");
 	const filtered = client.points.filter((p) => p.guild === message.guild.id);
 	if (client.serverconfig[message.guild.id].Levels == false)
 		return message.reply(
-			"Set the Leveling system with `sudo set-level <1|2|3> <points> <@role>`"
+			"Set the Leveling system with `sudo  set-level <1|2|3> <points> <@role>`"
 		);
 
 	const toRemove = filtered;
@@ -25,12 +25,13 @@ exports.run = (client, message, args) => {
 		.setThumbnail(message.author.avatarURL);
 
 	message.channel.send(embed);
-	module.exports = {
-		name: 'nukepoints',
-		description: 'executes the specified command',
-		aliases: ['nuke'],
-		usage: client.config.prefix+'nukepoints',
-		type: "dev",
-		admin:false
-	};
+
+};
+module.exports = {
+	name: 'nukepoints',
+	description: 'executes the specified command',
+	aliases: ['nuke'],
+	usage: 'sudo nukepoints',
+	type: "dev",
+	admin:false
 };

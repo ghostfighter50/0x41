@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
 	if (!message.member.hasPermission("KICK_MEMBERS"))
 		return message.reply("❌ you can't use this command.");
 	if (message.mentions.members.size === 0)
@@ -34,12 +34,13 @@ exports.run = async (client, message, args) => {
 	} else {
 		message.channel.send(`❌ Failed to kick member ${kcikMember}`);
 	}
-	module.exports = {
-		name: 'kick',
-		description: 'kick the specified user',
-		aliases: ['k'],
-		usage: client.config.prefix+'kick <@user> (reason)',
-		type: "mod",
-		admin:false
-	};
+
+};
+module.exports = {
+	name: 'kick',
+	description: 'kick the specified user',
+	aliases: ['k'],
+	usage: 'sudo kick <@user> (reason)',
+	type: "mod",
+	admin:false
 };

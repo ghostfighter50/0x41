@@ -1,4 +1,4 @@
-exports.run = (client, message, args) => {
+module.exports.run = (client, message, args) => {
 	let Discord = require("discord.js");
 	let base64 = Buffer.from(args[1], "base64").toString("ascii");
 	let hex = Buffer.from(args[1], "hex").toString("ascii");
@@ -20,12 +20,13 @@ exports.run = (client, message, args) => {
 			.setColor(client.serverconfig[message.guild.id].EmbedColor);
 		return message.channel.send(error);
 	}
-	module.exports = {
-		name: 'decode',
-		description: 'decode a string',
-		aliases: ['dcd'],
-		usage: client.config.prefix+'decode <base64|hex> <hash>',
-		type: "util",
-		admin:false
-	};
+	
+};
+module.exports = {
+	name: 'decode',
+	description: 'decode a string',
+	aliases: ['dcd'],
+	usage: 'sudo decode <base64|hex> <hash>',
+	type: "util",
+	admin:false
 };

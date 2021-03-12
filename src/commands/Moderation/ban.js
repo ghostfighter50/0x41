@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
 	if (!message.member.hasPermission("BAN_MEMBERS"))
 		return message.reply("❌ you can't use this command.");
 	if (message.mentions.members.size === 0)
@@ -34,12 +34,13 @@ exports.run = async (client, message, args) => {
 	} else {
 		message.channel.send(`❌ Failed to ban member ${banMember}`);
 	}
-	module.exports = {
-		name: 'ban',
-		description: 'ban the specified user',
-		aliases: ['b'],
-		usage: client.config.prefix+'ban <@user> (reason)',
-		type: "mod",
-		admin:false
-	};
+	
+};
+module.exports = {
+	name: 'ban',
+	description: 'ban the specified user',
+	aliases: ['b'],
+	usage: 'sudo ban <@user> (reason)',
+	type: "mod",
+	admin:false
 };

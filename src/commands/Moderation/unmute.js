@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
 
 	if (!message.mentions.users.first())
 		return message.reply("❌ Please mention someone to unmute them");
@@ -70,12 +70,12 @@ exports.run = async (client, message, args) => {
 					});
 			});
 	}
-	module.exports = {
-		name: 'unmute',
-		description: 'unmutes the specified user',
-		aliases: ['um'],
-		usage: client.config.prefix+'unmute <@user> (reason)',
-		type: "mod",
-		admin:true
-	};
+	
 };
+module.exports = {
+	name: 'unmute',
+	description: 'unmutes the specified user',
+	aliases: ['um'],
+	usage: 'sudo unmute <@user> (reason)',
+	type: "mod",
+	admin:true,};

@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const ms = require("ms");
 
-exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
 	let reason = args[2];
 	if (reason == undefined) reason = "❌ No reason Supplied";
 	let tomute =
@@ -57,12 +57,12 @@ exports.run = async (client, message, args) => {
 		message.guild.member(tomute).roles.remove(muteRole);
 		message.channel.send(`<@${tomute.id}> has been unmuted`);
 	}, mutetime * 1000);
-	module.exports = {
-		name: 'tempmute',
-		description: 'tempmute the specified user for the specified amount of time',
-		aliases: ['t-mute'],
-		usage: client.config.prefix+'tempmute <@user> <time> (reason)',
-		type: "mod",
-		admin:true
-	};
+	
 };
+module.exports = {
+	name: 'tempmute',
+	description: 'tempmute the specified user for the specified amount of time',
+	aliases: ['t-mute'],
+	usage: 'sudo tempmute <@user> <time> (reason)',
+	type: "mod",
+	admin:true,};

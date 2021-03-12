@@ -1,7 +1,7 @@
-exports.run = (client, message, args) => {
+module.exports.run = (client, message, args) => {
 	if (client.serverconfig[message.guild.id].Levels == false)
 		return message.reply(
-			"Set the Leveling system with `sudo set-level <1|2|3> <points> <@role>`"
+			"Set the Leveling system with `sudo  set-level <1|2|3> <points> <@role>`"
 		);
 
 	const Discord = require("discord.js");
@@ -13,12 +13,13 @@ exports.run = (client, message, args) => {
 		.setColor(client.serverconfig[message.guild.id].EmbedColor);
 
 	message.channel.send(embed);
-	module.exports = {
-		name: 'points',
-		description: 'returns your points',
-		aliases: ['p'],
-		usage: client.config.prefix+'points',
-		type: "points",
-		admin:false
-	};
+	
+};
+module.exports = {
+	name: 'points',
+	description: 'returns your points',
+	aliases: ['p'],
+	usage: 'sudo points',
+	type: "points",
+	admin:false
 };

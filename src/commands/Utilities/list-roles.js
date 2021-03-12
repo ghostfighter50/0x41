@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-exports.run = async (client, message, args) => {
+module.exports.run = async (client, message, args) => {
 	const role = args[0];
 	const embed = new Discord.MessageEmbed()
 		.setTitle(message.guild.name + "'roles")
@@ -18,12 +18,13 @@ exports.run = async (client, message, args) => {
 		console.log(e);
 		message.channel.send(`❌ Failed to list roles`);
 	}
-	module.exports = {
-		name: 'list-roles',
-		description: 'lists the server\'s roles',
-		aliases: ['l-r'],
-		usage: client.config.prefix+'list-roles',
-		type: "util",
-		admin:false
-	};
+
+};
+module.exports = {
+	name: 'list-roles',
+	description: 'lists the server\'s roles',
+	aliases: ['l-r'],
+	usage: 'sudo list-roles',
+	type: "util",
+	admin:false
 };

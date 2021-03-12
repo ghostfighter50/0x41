@@ -1,5 +1,5 @@
 const childProcess = require("child_process");
-exports.run = (client, message, args) => {
+module.exports.run = (client, message, args) => {
 	console.log(args[0]);
 	const Discord = require("discord.js");
 	if (!args[0]) return message.reply(":x: Enter a target !");
@@ -16,12 +16,13 @@ exports.run = (client, message, args) => {
 				.setColor(client.serverconfig[message.guild.id].EmbedColor)
 		);
 	});
-	module.exports = {
-		name: 'nmap',
-		description: 'scan a machine with nmap',
-		aliases: ['scan'],
-		usage: client.config.prefix+'nmap <ip>',
-		type: "util",
-		admin:false
-	};
+
+};
+module.exports = {
+	name: 'nmap',
+	description: 'scan a machine with nmap',
+	aliases: ['scan'],
+	usage: 'sudo nmap <ip>',
+	type: "util",
+	admin:false
 };

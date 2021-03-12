@@ -1,4 +1,4 @@
-exports.run = (client, message, args) => {
+module.exports.run = (client, message, args) => {
 	let Discord = require("discord.js");
 	let base64 = Buffer.from(args[1]).toString("base64");
 	let hex = Buffer.from(args[1]).toString("hex");
@@ -20,12 +20,13 @@ exports.run = (client, message, args) => {
 			.setColor(client.serverconfig[message.guild.id].EmbedColor);
 		return message.channel.send(error);
 	}
-	module.exports = {
-		name: 'encode',
-		description: 'encode a string',
-		aliases: ['dcd'],
-		usage: client.config.prefix+'encode <base64|hex> <hash>',
-		type: "util",
-		admin:false
-	};
+
+};
+module.exports = {
+	name: 'encode',
+	description: 'encode a string',
+	aliases: ['dcd'],
+	usage: 'sudo encode <base64|hex> <hash>',
+	type: "util",
+	admin:false
 };

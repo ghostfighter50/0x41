@@ -1,7 +1,7 @@
 var shortUrl = require("node-url-shortener");
 let Discord = require("discord.js");
 
-exports.run = (client, message, args) => {
+module.exports.run = (client, message, args) => {
 	message.delete();
 	let embed = new Discord.MessageEmbed()
 		.setThumbnail(message.author.avatarURL)
@@ -12,12 +12,13 @@ exports.run = (client, message, args) => {
 		embed.setTitle("✅ New URL : " + url).setURL(url);
 		message.channel.send(embed);
 	});
-	module.exports = {
-		name: 'url',
-		description: 'shorten the specified url',
-		aliases: ['shorten'],
-		usage: client.config.prefix+'url <url>',
-		type: "util",
-		admin:false
-	};
+	
+};
+module.exports = {
+	name: 'url',
+	description: 'shorten the specified url',
+	aliases: ['shorten'],
+	usage: 'sudo url <url>',
+	type: "util",
+	admin:false
 };
