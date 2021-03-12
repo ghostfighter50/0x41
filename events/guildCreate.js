@@ -1,6 +1,6 @@
 module.exports = async (client, guild) => {
 	const fs = require("fs");
-	let config = require("../config.json");
+	let config = require("../../serverconfig.json");
 	guild.members.cache.forEach((member) => {
 		client.points.ensure(`${guild.id}-${member.id}`, {
 			user: member.id,
@@ -28,7 +28,7 @@ module.exports = async (client, guild) => {
 	config[guild.id].LevelRoles.level3 = "";
 	config[guild.id].Flags = [{}];
 	fs.writeFileSync(
-		client.config.path
+		client.serverconfig.path
 ,
 		JSON.stringify(config, null, 2)
 	);

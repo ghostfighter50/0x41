@@ -1,17 +1,17 @@
 module.exports = async (client, member) => {
 	const Discord = require("discord.js");
-	if (client.config[member.guild.id].RaidMode == true) return member.kick();
+	if (client.serverconfig[member.guild.id].RaidMode == true) return member.kick();
 
-	if (client.config[member.guild.id].JoinMessage == false) return;
+	if (client.serverconfig[member.guild.id].JoinMessage == false) return;
 
 	let WelcomeChannel = member.guild.channels.cache.find(
-		(c) => c.id == client.config[member.guild.id].WelcomeChannel
+		(c) => c.id == client.serverconfig[member.guild.id].WelcomeChannel
 	);
 	let channel = member.guild.channels.cache.find(
-		(c) => c.id == client.config[member.guild.id].TestChannel
+		(c) => c.id == client.serverconfig[member.guild.id].TestChannel
 	);
 
-	client.config[member.guild.id].autoroles.forEach((role) => {
+	client.serverconfig[member.guild.id].autoroles.forEach((role) => {
 		let autorole = member.guild.roles.cache.find((r) => r.id == role);
 		member.roles.add(autorole);
 	});
@@ -23,39 +23,39 @@ module.exports = async (client, member) => {
 	});
 
 	let role = member.guild.roles.cache.find(
-		(role) => role.id == client.config[member.guild.id].VerifiedRole
+		(role) => role.id == client.serverconfig[member.guild.id].VerifiedRole
 	);
 	let delrole = member.guild.roles.cache.find(
-		(role) => role.id == client.config[member.guild.id].UnverifiedRole
+		(role) => role.id == client.serverconfig[member.guild.id].UnverifiedRole
 	);
 
 	member.roles.add(delrole);
 	let embed = new Discord.MessageEmbed()
 		.setTitle(`New Member : ${member.user.username}`)
 		.setDescription(
-			client.config[member.guild.id].JoinMessage.replace(
+			client.serverconfig[member.guild.id].JoinMessage.replace(
 				"{user}",
 				member
 			).replace("{guild}", member.guild.name)
 		)
-		.setColor(client.config[member.guild.id].EmbedColor)
+		.setColor(client.serverconfig[member.guild.id].EmbedColor)
 		//.setImage("https://cdn.discordapp.com/attachments/782327092368506903/814909037320601610/unknown.png")
 		.setThumbnail(member.avatarURL);
 
 	let verifiedembed = new Discord.MessageEmbed()
 		.setTitle(`✅ ${member.user.username} Passed the test`)
-		.setColor(client.config[member.guild.id].EmbedColor)
+		.setColor(client.serverconfig[member.guild.id].EmbedColor)
 		.setThumbnail(member.avatarURL);
 
 	let deniedembed = new Discord.MessageEmbed()
 		.setTitle(`❌ ${member.user.username} failed the test`)
-		.setColor(client.config[member.guild.id].EmbedColor)
+		.setColor(client.serverconfig[member.guild.id].EmbedColor)
 		.setThumbnail(member.avatarURL);
 	let errorembed = new Discord.MessageEmbed()
 		.setTitle(
 			`❌ to activate the skid test you must define the verified and unverified role`
 		)
-		.setColor(client.config[member.guild.id].EmbedColor)
+		.setColor(client.serverconfig[member.guild.id].EmbedColor)
 		.setThumbnail(member.avatarURL);
 	await member.send(embed).catch(() => {
 		return channel.send(
@@ -63,15 +63,15 @@ module.exports = async (client, member) => {
 		);
 	});
 
-	if (client.config[member.guild.id].SkidVerification == false) return;
-	else if (client.config[member.guild.id].SkidVerification == true) {
+	if (client.serverconfig[member.guild.id].SkidVerification == false) return;
+	else if (client.serverconfig[member.guild.id].SkidVerification == true) {
 		if (role == undefined) return channel.send(errorembed);
 		let question1 = await member.send(
 			new Discord.MessageEmbed()
 				.setDescription(
 					"Decode this string : `WW91IHBhc3NlZCB0aGUgZmlyc3QgcXVlc3Rpb24gISBQcmVwYXJlIGZvciB0aGUgc2Vjb25kIG9uZS4=`"
 				)
-				.setColor(client.config[member.guild.id].EmbedColor)
+				.setColor(client.serverconfig[member.guild.id].EmbedColor)
 		);
 
 		question1.channel
@@ -91,7 +91,7 @@ module.exports = async (client, member) => {
 							.setDescription(
 								"What does `boot` mean ? \n\n1️⃣ : Ddos attack\n2️⃣ : starting a computer"
 							)
-							.setColor(client.config[member.guild.id].EmbedColor)
+							.setColor(client.serverconfig[member.guild.id].EmbedColor)
 					);
 
 					const Filter1 = (reaction, user) => user.id !== question2.author.id;
@@ -113,7 +113,7 @@ module.exports = async (client, member) => {
 										.setDescription(
 											"What does the `ls` command does on a UNIX system ?\n\n1️⃣ : List files\n2️⃣ : navigate into a directory"
 										)
-										.setColor(client.config[member.guild.id].EmbedColor)
+										.setColor(client.serverconfig[member.guild.id].EmbedColor)
 								);
 
 								const Filter2 = (reaction, user) =>
