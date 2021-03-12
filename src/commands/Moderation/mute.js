@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
-exports.run = async (client, message) => {
-	let args = message.content.slice(4).split(" ");
-	let reason = args[3];
+exports.run = async (client, message, args) => {
+	let reason = args[1];
 	if (reason == undefined) reason = "❌ No reason Supplied";
 	if (!message.mentions.users.first())
 		return message.reply("❌ Please mention someone to mute them");
@@ -62,4 +61,12 @@ exports.run = async (client, message) => {
 					if (e) return;
 				});
 		});
+		module.exports = {
+			name: 'mute',
+			description: 'mutes the specified user',
+			aliases: ['m'],
+			usage: client.config.prefix+'mute <@user> (reason)',
+			type: "mod",
+			admin:true
+		};
 };

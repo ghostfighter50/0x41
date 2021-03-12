@@ -18,4 +18,12 @@ exports.run = async (client, message, args) => {
 		console.log(e);
 		message.channel.send(`❌ Failed to list emojis`);
 	}
+	module.exports = {
+		name: 'list-emojis',
+		description: 'lists the server\'s emojis',
+		aliases: ['l-e'],
+		usage: client.config.prefix+'list-emojis',
+		type: "util",
+		admin:false
+	};
 };

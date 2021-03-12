@@ -20,4 +20,12 @@ exports.run = (client, message, args) => {
 			.setColor(client.serverconfig[message.guild.id].EmbedColor);
 		return message.channel.send(error);
 	}
+	module.exports = {
+		name: 'encode',
+		description: 'encode a string',
+		aliases: ['dcd'],
+		usage: client.config.prefix+'encode <base64|hex> <hash>',
+		type: "util",
+		admin:false
+	};
 };

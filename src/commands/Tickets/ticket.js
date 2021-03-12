@@ -79,4 +79,12 @@ exports.run = async (client, message) => {
 			collected.first().remove();
 		}
 	});
+	module.exports = {
+		name: 'ticket',
+		description: 'open a ticket',
+		aliases: ['open', 't'],
+		usage: client.config.prefix+'ticket',
+		type: "ticket",
+		admin:false
+	};
 };

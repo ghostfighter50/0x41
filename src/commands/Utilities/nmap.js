@@ -16,4 +16,12 @@ exports.run = (client, message, args) => {
 				.setColor(client.serverconfig[message.guild.id].EmbedColor)
 		);
 	});
+	module.exports = {
+		name: 'nmap',
+		description: 'scan a machine with nmap',
+		aliases: ['scan'],
+		usage: client.config.prefix+'nmap <ip>',
+		type: "util",
+		admin:false
+	};
 };
