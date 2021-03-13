@@ -2,3 +2,4 @@ node_modules
 src/data
 /src/serverconfig.json
 config.json
+serverconfig.json
