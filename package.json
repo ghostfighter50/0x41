@@ -1,7 +1,7 @@
 {
 	"name": "0x41",
 	"version": "3.1.0",
-	"main": "bot.js",
+	"main": "src/bot.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
