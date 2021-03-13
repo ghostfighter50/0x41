@@ -1,5 +1,4 @@
 const Discord = require("discord.js");
-const config = require("../../../serverconfig.json");
 
 module.exports = {
 	name: "list-flags",
@@ -8,7 +7,9 @@ module.exports = {
 	usage: "sudo list-flags",
 	type: "config",
 	admin: true,
-	run: (client, message, args) => {
+	async run(client, message, args) {
+		const config = require("../../../serverconfig.json");
+
 		var i = 1;
 		if (client.serverconfig[message.guild.id].Levels == false)
 			return message.reply(

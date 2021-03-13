@@ -18,7 +18,7 @@ module.exports = {
 			return message.reply("❌ can't kick an Admin :p");
 
 		const kcikMember = message.mentions.members.first();
-		var reason = args[1];
+		var reason = args.slice(1);
 		const embed = new Discord.MessageEmbed()
 			.setTitle("✅ Kicked from server")
 			.setDescription(kcikMember.guild)
@@ -27,7 +27,7 @@ module.exports = {
 			.setFooter(`Kicked by ${message.author.username}`);
 
 		if (kcikMember.kickable) {
-			if (reason) {
+			if (reason.length > 0) {
 				embed.addField("Reason for kick", `${reason.join(" ")}`);
 				message.channel.send(embed);
 				kcikMember.send(embed);

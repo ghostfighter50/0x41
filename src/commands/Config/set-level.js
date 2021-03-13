@@ -1,6 +1,5 @@
 const fs = require("fs");
 const Discord = require("discord.js");
-const config = require("../../../serverconfig.json");
 
 module.exports = {
 	name: "set-level",
@@ -9,7 +8,9 @@ module.exports = {
 	usage: "sudo set-level <1|2|3> <points> <@role> ",
 	type: "config",
 	admin: true,
-	run: (client, message, args) => {
+	async run(client, message, args) {
+		const config = require("../../../serverconfig.json");
+
 		const errorembed = new Discord.MessageEmbed()
 			.setThumbnail(message.author.avatarURL)
 			.setTitle(

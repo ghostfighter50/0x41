@@ -9,7 +9,7 @@ module.exports = {
 	usage: "sudo list-autoroles",
 	type: "util",
 	admin: false,
-	run: (client, message, args) => {
+	async run(client, message, args) {
 		var i = 1;
 
 		const errorembed = new Discord.MessageEmbed()

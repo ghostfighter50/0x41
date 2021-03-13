@@ -5,7 +5,7 @@ module.exports = {
 	usage: "sudo points",
 	type: "points",
 	admin: false,
-	run: (client, message, args) => {
+	async run(client, message, args) {
 		if (client.serverconfig[message.guild.id].Levels == false)
 			return message.reply(
 				"Set the Leveling system with `sudo  set-level <1|2|3> <points> <@role>`"

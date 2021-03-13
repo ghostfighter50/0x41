@@ -5,7 +5,7 @@ module.exports = {
 	usage: "sudo nukepoints",
 	type: "dev",
 	admin: false,
-	run: (client, message, args) => {
+	async run(client, message, args) {
 		const Discord = require("discord.js");
 		if (!message.member.id == "655346300958670848")
 			return message.channel.send("**Dev only command :no_entry:.**");

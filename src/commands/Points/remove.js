@@ -5,7 +5,7 @@ module.exports = {
 	usage: "sudo remove <@user> <amount>",
 	type: "points",
 	admin: true,
-	run: (client, message, args) => {
+	async run(client, message, args) {
 		const Discord = require("discord.js");
 
 		if (client.serverconfig[message.guild.id].Levels == false)

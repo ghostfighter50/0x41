@@ -1,6 +1,5 @@
 const fs = require("fs");
 const Discord = require("discord.js");
-const config = require("../../../serverconfig.json");
 
 module.exports = {
 	name: "clear-autoroles",
@@ -9,7 +8,9 @@ module.exports = {
 	usage: "sudo clear-flags",
 	type: "config",
 	admin: true,
-	run: (client, message, args) => {
+	async run(client, message, args) {
+		const config = require("../../../serverconfig.json");
+
 		if (client.serverconfig[message.guild.id].Levels == false)
 			return message.reply(
 				"Set the Leveling system with `sudo  set-level <1|2|3> <points> <@role>`"

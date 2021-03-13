@@ -18,16 +18,16 @@ module.exports = {
 			return message.reply("❌ can't ban an Admin :p");
 
 		const banMember = message.mentions.members.first();
-		var reason = args[1];
+		var reason = args.slice(1);
 		const embed = new Discord.MessageEmbed()
 			.setTitle("✅ Banned from server")
 			.setDescription(banMember.guild)
 			.setThumbnail(banMember.guild.iconURL)
-			.setColor(client.serverconfig.EmbedColor)
+			.setColor(client.serverconfig[message.guild.id].EmbedColor)
 			.setFooter(`Banned by ${message.author.username}`);
 
 		if (banMember.bannable) {
-			if (reason) {
+			if (reason.length > 0) {
 				embed.addField("Reason for ban", `${reason.join(" ")}`);
 				message.channel.send(embed);
 				banMember.send(embed);

@@ -27,7 +27,6 @@ for (const folder of commandFolders) {
 		.filter((file) => file.endsWith(".js"));
 	for (const file of commandFiles) {
 		const command = require(`../src/commands/${folder}/${file}`);
-		console.log(command.name);
 		i++;
 		client.commands.set(command.name, command);
 	}

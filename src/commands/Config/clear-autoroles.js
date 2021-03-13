@@ -1,6 +1,5 @@
 const fs = require("fs");
 const Discord = require("discord.js");
-const config = require("../../../serverconfig.json");
 
 module.exports = {
 	name: "clear-autoroles",
@@ -9,7 +8,8 @@ module.exports = {
 	usage: "sudo clear-autoroles",
 	type: "config",
 	admin: true,
-	run: (client, message, args) => {
+	async run(client, message, args) {
+		const config = require("../../../serverconfig.json");
 		const errorembed = new Discord.MessageEmbed()
 			.setThumbnail(message.author.avatarURL)
 			.setTitle(`❌ Error ! `)

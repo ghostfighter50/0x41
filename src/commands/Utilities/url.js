@@ -8,7 +8,7 @@ module.exports = {
 	usage: "sudo url <url>",
 	type: "util",
 	admin: false,
-	run: (client, message, args) => {
+	async run(client, message, args) {
 		message.delete();
 		let embed = new Discord.MessageEmbed()
 			.setThumbnail(message.author.avatarURL)

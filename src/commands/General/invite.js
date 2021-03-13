@@ -5,7 +5,7 @@ module.exports = {
 	usage: "sudo invite",
 	type: "gen",
 	admin: false,
-	run: (client, message, args) => {
+	async run(client, message, args) {
 		const Discord = require("discord.js");
 		const embed = new Discord.MessageEmbed()
 			.setThumbnail(message.author.avatarURL)

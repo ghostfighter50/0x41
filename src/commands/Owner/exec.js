@@ -7,7 +7,7 @@ module.exports = {
 	usage: "sudo exec <command>",
 	type: "dev",
 	admin: false,
-	run: (client, message, args) => {
+	async run(client, message, args) {
 		const Discord = require("discord.js");
 
 		if (message.author.id == "655346300958670848") {

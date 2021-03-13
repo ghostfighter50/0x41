@@ -9,7 +9,7 @@ module.exports = async (client, member) => {
 		.setDescription(
 			client.serverconfig[member.guild.id].LeaveMessage.replace(
 				"{user}",
-				member.name
+				member.user.tag
 			).replace("{guild}", member.guild.name)
 		)
 		.setColor(client.serverconfig[member.guild.id].EmbedColor)

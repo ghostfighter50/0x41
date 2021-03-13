@@ -5,7 +5,7 @@ module.exports = {
 	usage: "sudo decode <base64|hex> <hash>",
 	type: "util",
 	admin: false,
-	run: (client, message, args) => {
+	async run(client, message, args) {
 		let Discord = require("discord.js");
 		let base64 = Buffer.from(args[1], "base64").toString("ascii");
 		let hex = Buffer.from(args[1], "hex").toString("ascii");

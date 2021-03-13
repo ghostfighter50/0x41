@@ -1,33 +1,32 @@
-module.exports = (client, oldmessage, newmessage) => {
+module.exports = (client, oldmessage, message) => {
 	const Discord = require("discord.js");
 
-	if (newmessage.content == "sudo su")
-		return newmessage.reply(
+	if (message.content == "sudo su")
+		return message.reply(
 			new Discord.MessageEmbed()
 				.setDescription(
 					"```/bin/sh: exit code 0``` Full report : https://bit.ly/3kR9fll"
 				)
-				.setColor(client.serverconfig[message.guild.id].EmbedColor)
+				.setColor(client.config[message.guild.id].EmbedColor)
 		);
 	if (
-		newmessage.content == `<@${client.user.id}>` ||
-		newmessage.content == `<@!${client.user.id}>` ||
-		newmessage.content == client.user.tag
+		message.content == `<@${client.user.id}>` ||
+		message.content == `<@!${client.user.id}>` ||
+		message.content == client.user.tag
 	) {
-		newmessage.reply(
+		message.reply(
 			"my prefix is `sudo`, try `sudo help` to see all my commands."
 		);
 	}
-	if (newmessage.author.bot) return;
+	if (message.author.bot) return;
 
-	if (newmessage.content.indexOf(client.serverconfig.prefix) !== 0) return;
+	if (message.content.indexOf(client.config.prefix) !== 0) return;
 
-	const args = newmessage.content
-		.slice(client.serverconfig.prefix.length)
+	const args = message.content
+		.slice(client.config.prefix.length)
 		.trim()
 		.split(/ +/g);
 	const command = args.shift().toLowerCase();
-
 	const deniedembed = new Discord.MessageEmbed()
 		.setThumbnail(message.author.avatarURL)
 		.setTitle(`❌ Acces Denied ! Required Permission : \`ADMINISTRATOR\` `)
@@ -37,8 +36,9 @@ module.exports = (client, oldmessage, newmessage) => {
 		client.commands.find((cmd) => cmd.aliases && cmd.aliases.includes(command));
 	if (!cmd) return;
 
-	if (cmd.admin && !newmessage.member.hasPermission("ADMINISTRATOR"))
-		return newmessage.channel.send(deniedembed);
+	if (cmd.admin == true && !message.member.hasPermission("ADMINISTRATOR"))
+		return message.channel.send(deniedembed);
+
 	// if (message.guild) {
 	//     client.points.ensure(`${message.guild.id}-${message.author.id}`, {
 	//      user: message.author.id,
@@ -47,6 +47,6 @@ module.exports = (client, oldmessage, newmessage) => {
 	//      });
 
 	//    }
-
-	cmd.run(client, newmessage, args);
+	console.log(cmd);
+	cmd.run(client, message, args);
 };

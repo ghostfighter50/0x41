@@ -7,7 +7,7 @@ module.exports = {
 	usage: "sudo nmap <ip>",
 	type: "util",
 	admin: false,
-	run: (client, message, args) => {
+	async run(client, message, args) {
 		console.log(args[0]);
 		const Discord = require("discord.js");
 		if (!args[0]) return message.reply(":x: Enter a target !");

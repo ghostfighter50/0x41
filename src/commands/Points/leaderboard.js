@@ -5,7 +5,7 @@ module.exports = {
 	usage: "sudo leaderboard",
 	type: "points",
 	admin: false,
-	run: (client, message, args) => {
+	async run(client, message, args) {
 		const Discord = require("discord.js");
 
 		const filtered = client.points

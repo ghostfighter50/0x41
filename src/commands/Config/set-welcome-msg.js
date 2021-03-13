@@ -1,6 +1,5 @@
 const fs = require("fs");
 const Discord = require("discord.js");
-const config = require("../../../serverconfig.json");
 
 module.exports = {
 	name: "set-welcome-msg",
@@ -10,7 +9,9 @@ module.exports = {
 	usage: "sudo set-welcome-msg <message>",
 	type: "config",
 	admin: true,
-	run: (client, message, args) => {
+	async run(client, message, args) {
+		const config = require("../../../serverconfig.json");
+
 		const errorembed = new Discord.MessageEmbed()
 			.setThumbnail(message.author.avatarURL)
 			.setTitle(`❌ Error`)

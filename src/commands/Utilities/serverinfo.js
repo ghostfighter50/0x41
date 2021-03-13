@@ -5,7 +5,7 @@ module.exports = {
 	usage: "sudo serverinfo",
 	type: "util",
 	admin: false,
-	run: (client, message, args) => {
+	async run(client, message, args) {
 		const Discord = require("discord.js");
 		function checkDays(date) {
 			let now = new Date();
