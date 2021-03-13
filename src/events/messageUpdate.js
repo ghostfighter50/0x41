@@ -1,7 +1,7 @@
-module.exports = (client, oldmessage, message) => {
+module.exports = async (client, oldmessage, message) => {
 	const Discord = require("discord.js");
 
-	if (message.content == "sudo su")
+	if (message.content == " su")
 		return message.reply(
 			new Discord.MessageEmbed()
 				.setDescription(
@@ -15,7 +15,7 @@ module.exports = (client, oldmessage, message) => {
 		message.content == client.user.tag
 	) {
 		message.reply(
-			"my prefix is `sudo`, try `sudo help` to see all my commands."
+			"my prefix is ``, try ` help` to see all my commands."
 		);
 	}
 	if (message.author.bot) return;
@@ -39,14 +39,6 @@ module.exports = (client, oldmessage, message) => {
 	if (cmd.admin == true && !message.member.hasPermission("ADMINISTRATOR"))
 		return message.channel.send(deniedembed);
 
-	// if (message.guild) {
-	//     client.points.ensure(`${message.guild.id}-${message.author.id}`, {
-	//      user: message.author.id,
-	//       guild: message.guild.id,
-	//       points: 0,
-	//      });
 
-	//    }
-	console.log(cmd);
-	cmd.run(client, message, args);
+	await cmd.run(client, message, args);
 };
