@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Ghostfighter50">
+
+    <title><%=client.username%> Settings</title>
+
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/one-page-wonder.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+  </head>
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/profile"><%=status%></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  <header class="masthead text-center text-white">
+    <div class="masthead-content">
+              <%if (guild.icon) {%>
+              <img src="https://cdn.discordapp.com/icons/<%=guild.id%>/<%=guild.icon%>.png?size=128" class="client-avatar rounded-circle" width="150px" height="150px">
+              <%}else{%>
+              <canvas class="client-avatar rounded-circle" id="<%= guild.name.replace(/\w+/g, name => name[0]).replace(/\s/g, '') %>" width="150px" height="150px"></canvas>
+
+              <script>
+              function createIcone() {
+                const nameAcronym = document.getElementById("<%= guild.name.replace(/\w+/g, name => name[0]).replace(/\s/g, '')  %>").getContext('2d');
+                  nameAcronym.font = '90px Arial';
+                  nameAcronym.textAlign = "center";
+                  nameAcronym.fillStyle = "white";
+                  nameAcronym.fillText("<%= guild.name.replace(/\w+/g, name => name[0]).replace(/\s/g, '')  %>", 75, 105);
+              }
+              createIcone();
+              </script>
+            <%}%>
+            <h3 class="masthead-heading mb-0" style="font-size: 3em !important;"><%=guild.name%></h3>
+
+            <br/>
+            <br/>
+            <button type="button" class="btn1 btn" data-toggle="modal" data-target="#Channels">
+              Edit Channels
+            </button>
+            <br/>
+            <br/>
+            <button type="button" class="btn1 btn" data-toggle="modal" data-target="#Roles">
+              Edit Roles
+            </button> 
+            <br/>
+            <br/>
+            <button type="button" class="btn1 btn" data-toggle="modal" data-target="#Messages">
+              Edit Messages
+            </button>
+            <br/>
+            <br/>
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#Danger">
+              Danger Zone
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <br/>
+     
+      <div class="modal fade" id="Messages">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+          
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h3 class="modal-title">Edit Messages</h3>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            
+            <!-- Modal body -->
+            <div class="modal-body">
+              <form action="/servers/<%=guild.id%>/settings" method='post' id="msg">
+                  <b>Join Message: </b> <br/>
+                  <textarea value="none" aria-valuemax="200" placeholder="Welcome {user} to {guild} !" class="form-control form-control-sm"id="JoinMessage" name='JoinMessage'></textarea><br>
+                  <b>Leave Message: </b> <br/>
+                  <textarea value="none" aria-valuemax="200" placeholder="{user} left {guild} !" id="LeaveMessage" class="form-control form-control-sm" name='LeaveMessage'></textarea>
+                  <button type="submit" class="btn btn-success float-right"  onclick="msg()"style="color: #363636 !important;border-color: #ced4da !important " data-dismiss="modal">Send</button>            
+
+                </form> 
+                  <br/>
+            
+       
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="Roles">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+          
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h3 class="modal-title">Edit Roles</h3>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            
+            <!-- Modal body -->
+            <div class="modal-body">
+              <form action="/servers/<%=guild.id%>/settings" method='post' id="rolesedit">
+                  <h4 class="display-5">Verified Role</h4>
+                  <b>Select a role: </b>
+                  <select id="VerifiedRole" name="VerifiedRole" aria-controls="config" class="form-control form-control-sm" style="margin-bottom: 5px;">
+                    <% guild.roles.cache.forEach(c => { %>
+                    <option value="<%= c.id %>"  > @<%= c.name %></option>
+                    <% }); %>
+                    <option value="none" selected>None</option>
+                  </select>
+                  <br> <br>
+                  <h4 class="display-5">Unverified Role</h4>
+                  <b>Select a role: </b>
+                  <select id="UnverifiedRole" name="UnverifiedRole" aria-controls="config" class="form-control form-control-sm" style="margin-bottom: 5px;">
+                    <% guild.roles.cache.forEach(c => { %>
+                    <option value="<%= c.id %>"  >@<%= c.name %></option>
+                    <% }); %>
+                    <option value="none" selected>None</option>
+                    <br> <br>
+                    <h4 class="display-5">Add Auto-role</h4>
+                    <b>Select a role: </b>
+                    <select id="Autorole" name="Autorole" aria-controls="config" class="form-control form-control-sm" style="margin-bottom: 5px;">
+                      <% guild.roles.cache.forEach(c => { %>
+                      <option value="<%= c.id %>"  > @<%= c.name %></option>
+                      <% }); %>
+                      <option value="none" selected>None</option>
+                    </select>
+                  </select>
+                  <button type="submit" class="btn btn-success float-right"  onclick="editchannels()"style="color: #363636 !important;border-color: #ced4da !important " data-dismiss="modal">Send</button>
+              </form>
+                 </div>
+            
+            
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="Channels">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+          
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h3 class="modal-title">Edit Channels</h3>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            
+            <!-- Modal body -->
+            <div class="modal-body">
+              <form action="/servers/<%=guild.id%>/settings" method='post' id="editchannels">
+                <h4 class="display-5">Report Channel</h4>
+                <b>Select a channel: </b>
+                <select id="ReportChannel" name="ReportChannel" aria-controls="config" class="form-control form-control-sm" style="margin-bottom: 5px;">
+                  <% guild.channels.cache.filter(c => c.type === 'text').filter(c => c.permissionsFor(client)
+    .has("SEND_MESSAGES") && c.permissionsFor(client)
+    .has("READ_MESSAGES")).forEach(c => { %>
+                  <option value="<%= c.id %>"  >#<%= c.name %></option>
+                  <% }); %>
+                  <option value="none" selected>None</option>
+                </select>
+                <br> <br>
+                <h4 class="display-5">Welcome Channel</h4>
+                <b>Select a channel: </b>
+                <select id="WelcomeChannel" name="WelcomeChannel" aria-controls="config" class="form-control form-control-sm" style="margin-bottom: 5px;">
+                  <% guild.channels.cache.filter(c => c.type === 'text').filter(c => c.permissionsFor(client)
+    .has("SEND_MESSAGES") && c.permissionsFor(client)
+    .has("READ_MESSAGES")).forEach(c => { %>
+                  <option value="<%= c.id %>"  >#<%= c.name %></option>
+                  <% }); %>
+                  <option value="none" selected>None</option>
+                </select>
+                <br> <br>
+                <h4 class="display-5">Skid Test Channel</h4>
+                <b>Select a channel: </b>
+                <select id="TestChannel" name="TestChannel" aria-controls="config" class="form-control form-control-sm" style="margin-bottom: 5px;">
+                  <% guild.channels.cache.filter(c => c.type === 'text').filter(c => c.permissionsFor(client)
+    .has("SEND_MESSAGES") && c.permissionsFor(client)
+    .has("READ_MESSAGES")).forEach(c => { %>
+                  <option value="<%= c.id %>"  >#<%= c.name %></option>
+                  <% }); %>
+                  <option value="none" selected>None</option>
+                </select>
+                <button type="submit" class="btn btn-success float-right"  onclick="editchannels()"style="color: #363636 !important;border-color: #ced4da !important " data-dismiss="modal">Send</button>            </div>
+
+                  </form> 
+                  <br/>
+            </div>
+           
+            
+          </div>
+        </div>
+        <div class="modal fade" id="Danger">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+          
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h3 class="modal-title">Danger Zone</h3>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            
+            <!-- Modal body -->
+            <div class="modal-body">
+              
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="raid">
+                  <label class="custom-control-label" for="raid">Set Raidmode</label>
+                </div>
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="logger">
+                  <label class="custom-control-label" for="logger">Set Join Logger</label>
+                </div>
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="verif">
+                  <label class="custom-control-label" for="verif">Set Skid Verification</label>
+                </div>
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="lvl">
+                  <label class="custom-control-label" for="lvl">Set Leveling</label>
+                </div>
+                <h1>Soon !</h1>
+                  <button type="submit" class="btn btn-danger float-right"  onclick="msg()"style="color: #363636 !important;border-color: #ced4da !important " data-dismiss="modal">Send</button>            
+
+                </form> 
+                  <br/>
+            
+       
+            </div>
+            
+          </div>
+        </div>
+    
+    
+    
+    <script>
+    function msg() {
+      $("#msg").submit()
+    }
+    function editroles() {
+      $("#rolesedit").submit()
+    }  function editchannels() {
+      $("#editchannels").submit()
+    }    
+    </script>
+
+
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+    <footer class="py-5 bg-black">
+  <div class="container">
+    <p class="m-0 text-center text-white small"> &copy; <%=client.username%>  | <a href="https://github.com/Ghostfighter50/0x41">GitHub</a></p>
+  </div>
+</footer>
+</html>

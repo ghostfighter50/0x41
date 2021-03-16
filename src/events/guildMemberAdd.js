@@ -1,9 +1,9 @@
 module.exports = async (client, member) => {
 	const Discord = require("discord.js");
 	if (client.serverconfig[member.guild.id].RaidMode == true)
-		return member.kick();
+		return await member.kick();
 
-	if (client.serverconfig[member.guild.id].JoinMessage == false) return;
+	if (client.serverconfig[member.guild.id].JoinLogger == false) return;
 
 	let WelcomeChannel = member.guild.channels.cache.find(
 		(c) => c.id == client.serverconfig[member.guild.id].WelcomeChannel
@@ -58,6 +58,7 @@ module.exports = async (client, member) => {
 		)
 		.setColor(client.serverconfig[member.guild.id].EmbedColor)
 		.setThumbnail(member.avatarURL);
+	await WelcomeChannel.send(embed);
 	await member.send(embed).catch(() => {
 		return channel.send(
 			`:x: Could not send a DM to ${member}, activate server DMs and rejoin  the server !`
@@ -66,7 +67,7 @@ module.exports = async (client, member) => {
 
 	if (client.serverconfig[member.guild.id].SkidVerification == false) return;
 	else if (client.serverconfig[member.guild.id].SkidVerification == true) {
-		if (role == undefined) return channel.send(errorembed);
+		if (role == undefined) return await channel.send(errorembed);
 		let question1 = await member.send(
 			new Discord.MessageEmbed()
 				.setDescription(
@@ -136,7 +137,6 @@ module.exports = async (client, member) => {
 
 											await member.roles.add(role);
 											await member.roles.remove(delrole);
-											await WelcomeChannel.send(embed);
 											await channel.send(verifiedembed);
 										} else if (collected1.first().emoji.name == "2️⃣") {
 											await member.send(

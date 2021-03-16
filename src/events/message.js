@@ -15,7 +15,7 @@ module.exports = async (client, message) => {
 		message.content == client.user.tag
 	) {
 		message.reply(
-		`"my prefix is \`${client.config.prefix}\`, try \`${client.config.prefix} help\` to see all my commands.`
+			`"my prefix is \`${client.config.prefix}\`, try \`${client.config.prefix} help\` to see all my commands.`
 		);
 	}
 	if (message.author.bot) return;

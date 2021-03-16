@@ -14,9 +14,7 @@ module.exports = async (client, oldmessage, message) => {
 		message.content == `<@!${client.user.id}>` ||
 		message.content == client.user.tag
 	) {
-		message.reply(
-			"my prefix is ``, try ` help` to see all my commands."
-		);
+		message.reply("my prefix is ``, try ` help` to see all my commands.");
 	}
 	if (message.author.bot) return;
 
@@ -38,7 +36,6 @@ module.exports = async (client, oldmessage, message) => {
 
 	if (cmd.admin == true && !message.member.hasPermission("ADMINISTRATOR"))
 		return message.channel.send(deniedembed);
-
 
 	await cmd.run(client, message, args);
 };

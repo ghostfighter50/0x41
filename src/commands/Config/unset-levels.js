@@ -24,10 +24,7 @@ module.exports = {
 		try {
 			config[message.guild.id].Levels = false;
 			config[message.guild.id].LevelRoles = {};
-			fs.writeFileSync(
-				client.serverconfig.path,
-				JSON.stringify(config, null, 2)
-			);
+			fs.writeFileSync(client.config.path, JSON.stringify(config, null, 2));
 
 			message.channel.send(embed);
 		} catch (e) {

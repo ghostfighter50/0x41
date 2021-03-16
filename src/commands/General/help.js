@@ -2,7 +2,7 @@ module.exports = {
 	name: "help",
 	description: "sends the help message",
 	aliases: ["?", "cmd", "commands"],
-	usage: "sudo help (command)",
+	usage: "help (command)",
 	type: "gen",
 	admin: false,
 	async run(client, message, args) {
@@ -10,30 +10,30 @@ module.exports = {
 
 		const infoembed = new Discord.MessageEmbed()
 			.setTitle(`📚 Informations `)
-			.setFooter("Made by Ghostfighter50 | sudo help <command>")
+			.setFooter("Made by Ghostfighter50 |  help <command>")
 			.setColor(client.serverconfig[message.guild.id].EmbedColor)
 			.setDescription(
-				"\n\n`() = optional` \n `<> = required`\n`< | > = possible values` \n  `@user/role = mention`\n`#channel = channel mention`  \n`prefix = sudo `\n`{user}` = username for join/leave messages\n`{guild}` = guild name for join/leave messages\n\n"
+				"\n\n`() = optional` \n `<> = required`\n`< | > = possible values` \n  `@user/role = mention`\n`#channel = channel mention`  \n`prefix =  `\n`{user}` = username for join/leave messages\n`{guild}` = guild name for join/leave messages\n\n"
 			);
 
 		const modembed = new Discord.MessageEmbed()
-			.setFooter("Made by Ghostfighter50 | sudo help <command>")
+			.setFooter("Made by Ghostfighter50 |  help <command>")
 			.setColor(client.serverconfig[message.guild.id].EmbedColor);
 
 		const utilembed = new Discord.MessageEmbed()
-			.setFooter("Made by Ghostfighter50 | sudo help <command>")
+			.setFooter("Made by Ghostfighter50 |  help <command>")
 			.setColor(client.serverconfig[message.guild.id].EmbedColor);
 
 		const pointembed = new Discord.MessageEmbed()
-			.setFooter("Made by Ghostfighter50 | sudo help <command>")
+			.setFooter("Made by Ghostfighter50 |  help <command>")
 			.setColor(client.serverconfig[message.guild.id].EmbedColor);
 
 		const ticketembed = new Discord.MessageEmbed()
-			.setFooter("Made by Ghostfighter50 | sudo help <command>")
+			.setFooter("Made by Ghostfighter50 |  help <command>")
 			.setColor(client.serverconfig[message.guild.id].EmbedColor);
 
 		const configembed = new Discord.MessageEmbed()
-			.setFooter("Made by Ghostfighter50 | sudo help <command>")
+			.setFooter("Made by Ghostfighter50 |  help <command>")
 			.setColor(client.serverconfig[message.guild.id].EmbedColor);
 
 		const reactembed = new Discord.MessageEmbed()
@@ -51,7 +51,6 @@ module.exports = {
 		infoembed.fields.value = "";
 
 		client.commands.forEach((cmd) => {
-			console.log(cmd.usage);
 			if (cmd.type == "mod")
 				modembed.fields = {
 					value: `${modembed.fields.value}\n\`${cmd.usage}\``,
@@ -125,8 +124,7 @@ module.exports = {
 			});
 		} else if (args[0]) {
 			let cmd = client.commands.find((cmd) => cmd.name == args[0]);
-			if (!cmd)
-				return message.reply(":x: Command not found ! try : `sudo help`");
+			if (!cmd) return message.reply(":x: Command not found ! try : ` help`");
 			let embed = new Discord.MessageEmbed()
 				.setTitle("📖 " + cmd.name)
 				.addField("Aliases", "`" + cmd.aliases + "`")

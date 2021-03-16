@@ -23,29 +23,26 @@ module.exports = {
 			.setTitle("✅ Succesfully set settings to default !");
 
 		try {
-			config[guild.id] = {};
-			config[guild.id].JoinMessage = "Welcome {user} to {guild}";
-			config[guild.id].LeaveMessage = ":x: {user} left...";
-			config[guild.id].RaidMode = false;
-			config[guild.id].Levels = false;
-			config[guild.id].JoinLogger = true;
-			config[guild.id].SkidVerification = false;
-			config[guild.id].WelcomeChannel = "";
-			config[guild.id].ReportChannel = "";
-			config[guild.id].TestChannel = "";
-			config[guild.id].autoroles = [];
-			config[guild.id].VerifiedRole = "";
-			config[guild.id].UnverifiedRole = "";
-			config[guild.id].EmbedColor = "0x00AE86";
-			config[guild.id].LevelRoles = {};
-			config[guild.id].LevelRoles.level1 = "";
-			config[guild.id].LevelRoles.level2 = "";
-			config[guild.id].LevelRoles.level3 = "";
-			config[guild.id].Flags = [{}];
-			fs.writeFileSync(
-				client.serverconfig.path,
-				JSON.stringify(config, null, 2)
-			);
+			config[message.guild.id] = {};
+			config[message.guild.id].JoinMessage = "Welcome {user} to {guild}";
+			config[message.guild.id].LeaveMessage = ":x: {user} left...";
+			config[message.guild.id].RaidMode = false;
+			config[message.guild.id].Levels = false;
+			config[message.guild.id].JoinLogger = true;
+			config[message.guild.id].SkidVerification = false;
+			config[message.guild.id].WelcomeChannel = "";
+			config[message.guild.id].ReportChannel = "";
+			config[message.guild.id].TestChannel = "";
+			config[message.guild.id].autoroles = [];
+			config[message.guild.id].VerifiedRole = "";
+			config[message.guild.id].UnverifiedRole = "";
+			config[message.guild.id].EmbedColor = "0x00AE86";
+			config[message.guild.id].LevelRoles = {};
+			config[message.guild.id].LevelRoles.level1 = "";
+			config[message.guild.id].LevelRoles.level2 = "";
+			config[message.guild.id].LevelRoles.level3 = "";
+			config[message.guild.id].Flags = [{}];
+			fs.writeFileSync(client.config.path, JSON.stringify(config, null, 2));
 
 			message.channel.send(embed);
 		} catch (e) {

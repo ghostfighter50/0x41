@@ -1,6 +1,6 @@
 module.exports = async (client, member) => {
 	const Discord = require("discord.js");
-	if (client.serverconfig[member.guild.id].JoinMessage == false) return;
+	if (client.serverconfig[member.guild.id].JoinLogger == false) return;
 	let channel = member.guild.channels.cache.find(
 		(c) => c.id == client.serverconfig[member.guild.id].WelcomeChannel
 	);
