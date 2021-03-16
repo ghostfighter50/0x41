@@ -6,7 +6,6 @@ class ConfigManager {
 		this.guild = guild;
 	}
 	UpdateReport(channel) {
-		
 		this.config[this.guild].ReportChannel = channel;
 		this.fs.writeFileSync(
 			this.client.config.path,
@@ -14,7 +13,6 @@ class ConfigManager {
 		);
 	}
 	UpdateTest(channel) {
-		
 		this.config[this.guild].TestChannel = channel;
 		this.fs.writeFileSync(
 			this.client.config.path,
@@ -22,7 +20,6 @@ class ConfigManager {
 		);
 	}
 	UpdateWelcome(channel) {
-	
 		this.config[this.guild].WelcomeChannel = channel;
 		this.fs.writeFileSync(
 			this.client.config.path,
@@ -59,12 +56,10 @@ class ConfigManager {
 	}
 	SetLevel(number, role, points) {
 		if (isNaN(parseFloat(points))) return false;
-		
+
 		if (number == "1") this.config[this.guild].LevelRoles.level1 = role;
-		else if (number == "2")
-			this.config[this.guild].LevelRoles.level2 = role;
-		else if (number == "3")
-			this.config[this.guild].LevelRoles.level3 = role;
+		else if (number == "2") this.config[this.guild].LevelRoles.level2 = role;
+		else if (number == "3") this.config[this.guild].LevelRoles.level3 = role;
 		else return false;
 		this.fs.writeFileSync(
 			this.client.config.path,
@@ -91,7 +86,6 @@ class ConfigManager {
 		);
 	}
 	SetVerified(role) {
-
 		this.config[this.guild].VerifiedRole = role;
 		this.fs.writeFileSync(
 			this.client.config.path,
@@ -99,7 +93,6 @@ class ConfigManager {
 		);
 	}
 	SetUnverified(role) {
-	
 		this.config[this.guild].UnverifiedRole = role;
 		this.fs.writeFileSync(
 			this.client.config.path,
@@ -107,8 +100,8 @@ class ConfigManager {
 		);
 	}
 	SetJoinMessage(message) {
-		this.config[this.guild].JoinMessage = message
-		console.log(this.config[this.guild].JoinMessage)
+		this.config[this.guild].JoinMessage = message;
+		console.log(this.config[this.guild].JoinMessage);
 		this.fs.writeFileSync(
 			this.client.config.path,
 			JSON.stringify(this.config, null, 2)
@@ -123,7 +116,7 @@ class ConfigManager {
 	}
 	SetAutorole(role) {
 		if (isNaN(parseFloat(points))) return false;
-		
+
 		this.config[this.guild].Autoroles.push(role);
 		this.fs.writeFileSync(
 			this.client.config.path,
@@ -169,14 +162,14 @@ class ConfigManager {
 			JSON.stringify(this.config, null, 2)
 		);
 	}
-	
+
 	refresh() {
 		this.fs.writeFileSync(
 			this.client.config.path,
 			JSON.stringify(this.config, null, 2)
 		);
-		this.client.serverconfig = this.config
+		this.client.serverconfig = this.config;
 	}
 }
 
-module.exports =  ConfigManager
+module.exports = ConfigManager;
