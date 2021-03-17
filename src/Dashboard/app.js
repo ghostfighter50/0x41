@@ -1,7 +1,6 @@
 const express = require("express");
 const session = require("express-session");
 const app = express();
-const http = require("http").Server(app);
 const passport = require("passport");
 const { Strategy } = require("passport-discord");
 const bodyparser = require("body-parser");
@@ -33,8 +32,6 @@ module.exports.load = async (client) => {
 		)
 	);
 
-	http.port = process.env.PORT || 8000;
-	http.client = client;
 
 	app
 		.use(bodyparser.json())
@@ -59,9 +56,9 @@ module.exports.load = async (client) => {
 			res.redirect("/");
 		});
 
-	http.listen(http.port, function (err) {
+	app.listen(8000, function (err) {
 		if (err) throw err;
-		console.log(`[+] Dashboard is online at the port: ${http.port}`);
+		console.log(`[+] Dashboard is online at the port: ${8000}`);
 	});
 
 	process.on("unhandledRejection", (r) => {
