@@ -58,7 +58,7 @@ module.exports.load = async (client) => {
 
 	app.listen(8000, function (err) {
 		if (err) throw err;
-		console.log(`[+] Dashboard is online at the port: ${8000}`);
+		console.log(`[+] Dashboard is online at the port: 8000`);
 	});
 
 	process.on("unhandledRejection", (r) => {
