@@ -70,7 +70,7 @@ module.exports = {
 				true
 			)
 			.setTitle(`📖 Config `)
-			.setFooter("Made by Ghostfighter50 - [Dashboard] (https://the-0x41-bot.herokuapp.com/)")
+			.setFooter("Made by Ghostfighter50 - https://the-0x41-bot.herokuapp.com/")
 			.setColor(client.serverconfig[message.guild.id].EmbedColor);
 
 		message.channel.send(embed);

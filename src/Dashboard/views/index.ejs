@@ -43,7 +43,7 @@
     <header class="masthead text-center text-white">
       <div class="masthead-content">
         <div class="container">
-          <img class="img-fluid bot-avatar rounded-circle" src="<%=client.displayAvatarURL%>" width="200px" height="200px" alt="">
+          <img class="img-fluid bot-avatar rounded-circle" src="<%=client.displayAvatarURL()%>" width="200px" height="200px" alt="">
           <h3 class="masthead-heading mb-0" style="font-size: 3em !important;"><%=client.username%></h3>
             <br/>
             <a class="btn" href="<%=invite%>" role="button">
@@ -55,7 +55,17 @@
               <span>
                 <i class="fa fa-sign-in" aria-hidden="true"></i>
               </span>
-            Login</a>
+            Login</a><br>
+            <a class="btn" href="/stats" role="button">
+              <span>
+                <i class="fa fa-server" aria-hidden="true"></i>
+              </span>
+            Stats</a>
+            <a class="btn" href="/commands" role="button">
+              <span>
+                <i class="fa fa-tools" aria-hidden="true"></i>
+              </span>
+            Commands</a>
         </div>
       </div>
     </header>

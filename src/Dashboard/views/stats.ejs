@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Ghostfighter50">
+
+    <title><%=client.username%></title>
+
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/one-page-wonder.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9f0d730ee5.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/profile"><%=status%></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="bg-dark text-light text-center" style="padding-top: 65px;">
+        <div class="p-5">
+            <div class="container">
+                <h1 class="mb-3">Bot Statistics</h1>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container" style="padding-top: 20px; padding-bottom: 20px;">
+    <table class="table text-light">
+        <thead class="thead text-center text-light mdb-color lighten-1 lighten-1">
+            <tr>
+              <th style="font-size: 20px; color: black" scope="col">Type</th>
+              <th style="font-size: 20px; color: black" scope="col">Data</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="text-center">
+                <td style="font-size: 20px; color: black"><i class="fas fa-users"></i> Users</td>
+                <td style="font-size: 20px; color: black"><%= client.users.cache.size || 0 %> </td>
+              </tr>
+              <tr class="text-center">
+                <td style="font-size: 20px; color: black"><i class="fas fa-server"></i> Servers</td>
+                <td style="font-size: 20px; color: black"><%= client.guilds.cache.size || 0 %></td>
+              </tr>
+              <tr class="text-center">
+                <td style="font-size: 20px; color: black"><i class="fas fa-hashtag"></i> Channels</td>
+                <td style="font-size: 20px; color: black"><%= client.channels.cache.size || 0 %> (<%= client.channels.cache.filter(c => c.type === 'text').size %> Text and <%= client.channels.cache.filter(c => c.type === 'voice').size %> Voice)</td>
+              </tr>
+              <tr class="text-center">
+                <td style="font-size: 20px; color: black"><i class="fas fa-laugh"></i> Emojis</td>
+                <td style="font-size: 20px; color: black"><%= client.emojis.cache.size || 0 %> (<%= client.emojis.cache.filter(e => e.animated === false).size %> Normal and <%= client.emojis.cache.filter(e => e.animated === true).size %> Animated)</td>
+              </tr>
+              <tr class="text-center">
+                <td style="font-size: 20px; color: black"><i class="fab fa-discord"></i> Uptime</td>
+                <td style="font-size: 20px; color: black"><%= uptime %></td>
+              </tr>
+              <tr class="text-center">
+                <td style="font-size: 20px; color: black"><i class="fas fa-table-tennis"></i> Ping (Latency)</td>
+                <td style="font-size: 20px; color: black"><%= client.ws.ping || 0 %>ms</td>
+              </tr>
+              <tr class="text-center">
+                <td style="font-size: 20px; color: black"><i class="fab fa-discord"></i> Discord.js Version</td>
+                <td style="font-size: 20px; color: black">v<%= version %></td>
+              </tr>
+              <tr class="text-center">
+                <td style="font-size: 20px; color: black"><i class="fab fa-node"></i> Node.js Version</td>
+                <td style="font-size: 20px; color: black"><%= process.version %></td>
+              </tr>
+              <tr class="text-center">
+                <td style="font-size: 20px; color: black"><i class="fas fa-laptop"></i> Usage</td>
+                <td style="font-size: 20px; color: black">
+                    <ul>
+                        <li>Memory: <%= (process.memoryUsage().rss / 1024 / 1024).toFixed(2) %> MB</li>
+                        <li>CPU: <%= (process.cpuUsage().system / 1024 / 1024).toFixed(2) %>%</li>
+                        <li>Node CPU: <%= (process.cpuUsage().user / 1024 / 1024).toFixed(2) %>%</li>
+                    </ul>
+                </td>
+              </tr>                                   
+          </tbody>
+      </table>
+    </div>
+    
+   
+
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <footer class="py-5 bg-black">
+      <div class="container">
+        <p class="m-0 text-center text-white small"> &copy; <%=client.user.username%>  | <a href="https://github.com/Ghostfighter50/0x41">GitHub</a></p>
+      </div>
+    </footer>
+    </body>
+    </html>
