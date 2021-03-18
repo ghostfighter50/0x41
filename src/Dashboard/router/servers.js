@@ -28,7 +28,6 @@ router
 		});
 	})
 	.get("/:guildID/settings", CheckAuth, (req, res) => {
-		console.log(req.body)
 		let serv = req.client.server.client.guilds.cache.get(req.params.guildID);
 		if (!serv)
 			return res.redirect(
