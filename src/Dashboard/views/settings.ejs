@@ -38,7 +38,23 @@
     </nav>
 
   <header class="masthead text-center text-white">
+    <% if (message !== null) { %>
+      <% if (message.type == "success") { %>
+      <center>
+        <div class="float-center alert alert-success alert-dismissible p-2" style="width: 70%;" role="alert"><span type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+            <%= message.value %>
+        </div>
+      </center>
+      <% } else { %>
+        <center>
+        <div class="float-center alert alert-danger alert-dismissible" style="width: 70%;" role="alert"><span type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+          <%= message.value %>
+      </div>
+    </center>
+      <% } %>
+      <% } %>
     <div class="masthead-content">
+          
               <%if (guild.icon) {%>
               <img src="https://cdn.discordapp.com/icons/<%=guild.id%>/<%=guild.icon%>.png?size=128" class="client.user-avatar rounded-circle" width="150px" height="150px">
               <%}else{%>
@@ -102,7 +118,8 @@
                   <b>Leave Message: </b> <br/>
                   <textarea value="none" aria-valuemax="200" placeholder="{user} left {guild} !" id="LeaveMessage" class="form-control form-control-sm" name='LeaveMessage'></textarea>
                   <button type="submit" class="btn btn-success float-right"  onclick="msg()"style="color: #363636 !important;border-color: #ced4da !important " data-dismiss="modal">Send</button>            
-
+                  <br>
+                  <input type="color" name="EmbedColor" value="none"> Embed Color
                 </form> 
                   <br/>
             

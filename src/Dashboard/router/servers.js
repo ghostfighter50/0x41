@@ -41,6 +41,7 @@ router
 				.hasPermission("MANAGE_GUILD")
 		)
 		return res.redirect("/dashboard");
+		if(req.query.msg && req.query.type) {
 		res.render("settings.ejs", {
 			status: req.isAuthenticated()
 				? `${req.user.username}#${req.user.discriminator}`
@@ -50,7 +51,21 @@ router
 			avatarURL: `https://cdn.discordapp.com/avatars/${req.user.id}/${req.user.avatar}.png`,
 			iconURL: `https://cdn.discordapp.com/avatars/${req.user.id}/${req.user.avatar}.png?size=32`,
 			guild: serv,
+			message : {value : req.query.msg, type : req.query.type}
 		});
+	} else {
+		res.render("settings.ejs", {
+			status: req.isAuthenticated()
+				? `${req.user.username}#${req.user.discriminator}`
+				: "Login",
+			client : req.client.server.client,
+			user: req.user,
+			avatarURL: `https://cdn.discordapp.com/avatars/${req.user.id}/${req.user.avatar}.png`,
+			iconURL: `https://cdn.discordapp.com/avatars/${req.user.id}/${req.user.avatar}.png?size=32`,
+			guild: serv,
+			message : null
+		});
+	}
 	})
 	.post("/:guildID", CheckAuth, async function (req, res) {
 		if (!req.body.send_CHANNELID || req.body.send_CHANNELID === "NOT_SET")
@@ -67,6 +82,7 @@ router
 		let manager = new ConfigManager(req.params.guildID)
 		
 		console.log(req.body)
+		if(req.body.EmbedColor !== "#000000") {manager.SetColor(req.body.EmbedColor)}
 		if(req.body.JoinMesagge !== "") {manager.SetJoinMessage(req.body.JoinMessage)}
 		if(req.body.LeaveMessage !== "") {manager.SetLeaveMessage(req.body.LeaveMessage)}
 		if(req.body.Autorole !== "none" || req.body.Autorole.length > 0){ manager.SetAutorole(req.body.Autorole)}
@@ -81,7 +97,7 @@ router
 		if(req.body.JoinLogger !== "none" || req.body.JoinLogger.length > 0){ manager.JoinLogger(req.body.JoinLogger)}
 
 
-		await res.redirect(`/servers/${req.params.guildID}/settings`);
+		await res.redirect(`/servers/${req.params.guildID}/settings?msg=Settings Updated !&type=success`);
 	})
 	.post("/:guildID/settings/reset", CheckAuth, async function (req, res) {
 		let manager = new ConfigManager(req.params.guildID)
