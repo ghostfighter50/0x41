@@ -12,7 +12,7 @@ router
 			client: req.client.server.client.user,
 			user: req.user,
 			login: req.isAuthenticated() ? "yes" : "no",
-			invite: `https://discordapp.com/oauth2/authorize?client_id=${req.client.server.client.user.id}&scope=bot&permissions=-1`,
+			invite: `https://discordapp.com/oauth2/authorize?client_id=${req.client.server.client.user.id}&scope=bot&permissions=8`,
 		});
 	})
 	.get(

@@ -27,6 +27,8 @@ class ConfigManager {
 		);
 	}
 	JoinLogger(status) {
+		if(status == "true") status = true
+		else if(status == "false") status = false
 		this.config[this.guild].JoinLogger = status;
 		this.fs.writeFileSync(
 			this.client.config.path,
@@ -34,6 +36,8 @@ class ConfigManager {
 		);
 	}
 	SkidTest(status) {
+		if(status == "true") status = true
+		else if(status == "false") status = false
 		this.config[this.guild].SkidVerification == status;
 		this.fs.writeFileSync(
 			this.client.config.path,
@@ -41,6 +45,8 @@ class ConfigManager {
 		);
 	}
 	Levels(status) {
+		if(status == "true") status = true
+		else if(status == "false") status = false
 		this.config[this.guild].Levels = status;
 		this.fs.writeFileSync(
 			this.client.config.path,
@@ -79,6 +85,9 @@ class ConfigManager {
 		);
 	}
 	RaidMode(status) {
+		if(status == "true") status = true
+		else if(status == "false") status = false
+
 		this.config[this.guild].RaidMode == status;
 		this.fs.writeFileSync(
 			this.client.config.path,
@@ -115,9 +124,8 @@ class ConfigManager {
 		);
 	}
 	SetAutorole(role) {
-		if (isNaN(parseFloat(points))) return false;
 
-		this.config[this.guild].Autoroles.push(role);
+		this.config[this.guild].autoroles.push(role);
 		this.fs.writeFileSync(
 			this.client.config.path,
 			JSON.stringify(this.config, null, 2)

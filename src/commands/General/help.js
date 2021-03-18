@@ -38,7 +38,7 @@ module.exports = {
 
 		const reactembed = new Discord.MessageEmbed()
 			.setTitle(`📖 Help `)
-			.setFooter("Made by Ghostfighter50")
+			.setFooter("Made by Ghostfighter50 - [Dashboard] (https://the-0x41-bot.herokuapp.com/)")
 			.setColor(client.serverconfig[message.guild.id].EmbedColor)
 			.setDescription(
 				"\n** 📚 Informations **\n** 🔨 Moderation**\n** ⚙️ Utilities**\n** 📊 Points**\n** 📩 Tickets**\n** 🛠️ Config**"
@@ -131,7 +131,7 @@ module.exports = {
 				.addField("Description", "`" + cmd.description + "`")
 				.addField("Usage", "`" + cmd.usage + "`")
 				.addField("Admin", "`" + cmd.admin + "`")
-				.setFooter("Made by Ghostfighter50")
+				.setFooter("Made by Ghostfighter50 - [Dashboard] (https://the-0x41-bot.herokuapp.com/)")
 				.setColor(client.serverconfig[message.guild.id].EmbedColor);
 			message.channel.send(embed);
 		}

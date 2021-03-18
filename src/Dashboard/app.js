@@ -39,7 +39,7 @@ module.exports.load = async (client) => {
 		.use(function (req, res, next) {req.client.server.client = client ; next()})
 		.use(favicon(__dirname + '/public/img/favicon.ico'))
 		.use(bodyparser.json())
-		.use(bodyparser.urlencoded({ extended: true }))
+		.use(bodyparser.urlencoded({ extended: false }))
 		.engine("html", require("ejs").renderFile)
 		.use(express.static(path.join(__dirname, "/public")))
 		.set("view engine", "ejs")
@@ -60,9 +60,9 @@ module.exports.load = async (client) => {
 			res.redirect("/");
 		});
 
-	app.listen(8000, function (err) {
+	app.listen(process.env.PORT || 8000, function (err) {
 		if (err) throw err;
-		console.log(`[+] Dashboard is online at the port: 8000`);
+		console.log(`[+] Dashboard is online at the port: ${process.env.PORT || 8000}`);
 	});
 
 	process.on("unhandledRejection", (r) => {

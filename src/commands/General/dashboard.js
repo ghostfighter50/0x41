@@ -1,17 +1,17 @@
 module.exports = {
-	name: "invite",
-	description: "get the invite link",
-	aliases: ["inv"],
-	usage: "sudo invite",
+	name: "dashboard",
+	description: "get the dashboard link",
+	aliases: ["panel"],
+	usage: "sudo dashboard",
 	type: "gen",
 	admin: false,
 	async run(client, message, args) {
 		const Discord = require("discord.js");
 		const embed = new Discord.MessageEmbed()
 			.setThumbnail(message.author.avatarURL)
-			.setTitle(`Invite Me !`)
+			.setTitle(`Dashboard`)
 			.setURL(
-				"https://discord.com/oauth2/authorize?client_id=759383573575892992&permissions=8&scope=bot"
+				"https://www.the-0x41-bot.herokuapp.com/"
 			)
 			.setColor(client.serverconfig[message.guild.id].EmbedColor)
 			.setFooter("Made by Ghostfighter50 - [Dashboard] (https://the-0x41-bot.herokuapp.com/)");
