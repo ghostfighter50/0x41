@@ -5,6 +5,8 @@ const passport = require("passport");
 const { Strategy } = require("passport-discord");
 const bodyparser = require("body-parser");
 const path = require("path");
+var favicon = require('serve-favicon');
+
 
 module.exports.load = async (client) => {
 	passport.serializeUser((user, done) => {
@@ -34,6 +36,8 @@ module.exports.load = async (client) => {
 
 
 	app
+		.use(function (req, res, next) {req.client.server.client = client ; next()})
+		.use(favicon(__dirname + '/public/img/favicon.ico'))
 		.use(bodyparser.json())
 		.use(bodyparser.urlencoded({ extended: true }))
 		.engine("html", require("ejs").renderFile)

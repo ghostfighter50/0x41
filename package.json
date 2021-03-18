@@ -8,8 +8,6 @@
 	"author": "Ghostfighter50",
 	"license": "ISC",
 	"dependencies": {
-		"@oauth-everything/passport-discord": "^1.0.2",
-		"@types/cheerio": "^0.22.27",
 		"body-parser": "^1.19.0",
 		"cheerio": "^1.0.0-rc.5",
 		"discord.js": "^12.3.1",
@@ -26,8 +24,8 @@
 		"os-utils": "0.0.14",
 		"passport": "^0.4.1",
 		"passport-discord": "^0.1.4",
-		"request": "^2.88.2",
-		"serp": "^2.1.0"
+		"serp": "^2.1.0",
+		"serve-favicon": "^2.5.0"
 	},
 	"repository": {},
 	"bugs": {},

@@ -139,7 +139,8 @@
                     <option value="<%= c.id %>"  >@<%= c.name %></option>
                     <% }); %>
                     <option value="none" selected>None</option>
-                    <br> <br>
+                  </select>
+                  <br> <br>
                     <h4 class="display-5">Add Auto-role</h4>
                     <b>Select a role: </b>
                     <select id="Autorole" name="Autorole" aria-controls="config" class="form-control form-control-sm" style="margin-bottom: 5px;">
@@ -147,9 +148,9 @@
                       <option value="<%= c.id %>"  > @<%= c.name %></option>
                       <% }); %>
                       <option value="none" selected>None</option>
-                    </select>
                   </select>
-                  <button type="submit" class="btn btn-success float-right"  onclick="editchannels()"style="color: #363636 !important;border-color: #ced4da !important " data-dismiss="modal">Send</button>
+                  <br> <br>
+                  <button type="submit" class="btn btn-success float-right"  onclick="editroles()"style="color: #363636 !important;border-color: #ced4da !important " data-dismiss="modal">Send</button>
               </form>
                  </div>
             
@@ -243,7 +244,7 @@
                   <label class="custom-control-label" for="lvl">Set Leveling</label>
                 </div>
                 <h1>Soon !</h1>
-                  <button type="submit" class="btn btn-danger float-right"  onclick="msg()"style="color: #363636 !important;border-color: #ced4da !important " data-dismiss="modal">Send</button>            
+                  <button type="submit" class="btn btn-danger float-right"  onclick=""style="color: #363636 !important;border-color: #ced4da !important " data-dismiss="modal">Send</button>            
 
                 </form> 
                   <br/>
