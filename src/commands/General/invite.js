@@ -14,7 +14,9 @@ module.exports = {
 				"https://discord.com/oauth2/authorize?client_id=759383573575892992&permissions=8&scope=bot"
 			)
 			.setColor(client.serverconfig[message.guild.id].EmbedColor)
-			.setFooter("Made by Ghostfighter50 - https://the-0x41-bot.herokuapp.com/");
+			.setFooter(
+				"Made by Ghostfighter50 - https://the-0x41-bot.herokuapp.com/"
+			);
 
 		message.channel.send(embed);
 	},

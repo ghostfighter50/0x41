@@ -2,5 +2,7 @@
 	"token": "BOT TOKEN",
 	"prefix": "PREFIX",
 	"path": "PATH TO SERVERCONFIG.JSON",
-	"id": "YOUR DISCORD ID"
+	"id": "YOUR DISCORD ID",
+	"redirect": "YOUR REDIRECT URL",
+	"secret": "YOUR CLIENT SECRET"
 }

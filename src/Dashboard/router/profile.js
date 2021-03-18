@@ -9,9 +9,7 @@ router.get("/", CheckAuth, async (req, res) => {
 			: "Logout",
 		client: req.client.server.client.user,
 		user: req.user,
-		guilds: req.user.guilds.filter(
-			(u) => (u.permissions & 8) === 8
-		),
+		guilds: req.user.guilds.filter((u) => (u.permissions & 8) === 8),
 		avatarURL: `https://cdn.discordapp.com/avatars/${req.user.id}/${req.user.avatar}.png`,
 		iconURL: `https://cdn.discordapp.com/avatars/${req.user.id}/${req.user.avatar}.png?size=32`,
 	});

@@ -42,9 +42,9 @@ module.exports = {
 			.setColor(client.serverconfig[message.guild.id].EmbedColor)
 			.setDescription(
 				"\n** 📚 Informations **\n** 🔨 Moderation**\n** ⚙️ Utilities**\n** 📊 Points**\n** 📩 Tickets**\n** 🛠️ Config**"
-			)
+			);
 
-			modembed.fields.value = "";
+		modembed.fields.value = "";
 		configembed.fields.value = "";
 		pointembed.fields.value = "";
 		utilembed.fields.value = "";
@@ -132,7 +132,9 @@ module.exports = {
 				.addField("Description", "`" + cmd.description + "`")
 				.addField("Usage", "`" + cmd.usage + "`")
 				.addField("Admin", "`" + cmd.admin + "`")
-				.setFooter("Made by Ghostfighter50 - https://the-0x41-bot.herokuapp.com/")
+				.setFooter(
+					"Made by Ghostfighter50 - https://the-0x41-bot.herokuapp.com/"
+				)
 				.setColor(client.serverconfig[message.guild.id].EmbedColor);
 			message.channel.send(embed);
 		}
