@@ -349,6 +349,7 @@
         LeaveMessage : "<% config[guild.id].LeaveMessage%>",
         EmbedColor : "<% config[guild.id].EmbedColor%>"
       })    
+
     }  function editchannels() {
       $.post("/servers/<%=guild.id%>/settings", {
         Levels : "<% config[guild.id].Levels%>",
@@ -364,7 +365,8 @@
         JoinMessage : "<% config[guild.id].JoinMessage%>",
         LeaveMessage : "<% config[guild.id].LeaveMessage%>",
         EmbedColor : "<% config[guild.id].EmbedColor%>"
-      })        }
+      })
+    }
     function danger(){
       var levelstatus =  $("#levels")[0].checked
       var raidstatus =  $("#raid")[0].checked
