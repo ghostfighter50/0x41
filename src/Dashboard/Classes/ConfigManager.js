@@ -1,9 +1,9 @@
 class ConfigManager {
 	constructor(guild) {
 		this.client = require("../../bot");
-	    this.fs = require("fs");
-		this.data = this.fs.readFileSync("../../../serverconfig.json")
-		this.config = JSON.parse(this.data)
+		this.fs = require("fs");
+		this.data = this.fs.readFileSync("../../../serverconfig.json");
+		this.config = JSON.parse(this.data);
 		this.guild = guild;
 	}
 	UpdateReport(channel) {
@@ -124,8 +124,7 @@ class ConfigManager {
 		);
 	}
 	SetAutorole(role) {
-		if(role === null)
-		this.config[this.guild].autoroles.push(role);
+		if (role === null) this.config[this.guild].autoroles.push(role);
 		this.fs.writeFileSync(
 			this.client.config.path,
 			JSON.stringify(this.config, null, 2)
@@ -172,7 +171,7 @@ class ConfigManager {
 	}
 
 	refresh() {
-	//	console.log(this.config[this.guild])
+		//	console.log(this.config[this.guild])
 		this.fs.writeFileSync(
 			this.client.config.path,
 			JSON.stringify(this.config, null, 2)
