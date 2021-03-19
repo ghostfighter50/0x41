@@ -5,7 +5,8 @@ const passport = require("passport");
 const { Strategy } = require("passport-discord");
 const bodyparser = require("body-parser");
 const path = require("path");
-var favicon = require("serve-favicon");
+var favicon = require('serve-favicon');
+
 
 module.exports.load = async (client) => {
 	passport.serializeUser((user, done) => {
@@ -20,9 +21,9 @@ module.exports.load = async (client) => {
 	passport.use(
 		new Strategy(
 			{
-				clientID: client.user.id,
-				clientSecret: client.config.secret,
-				callbackURL: client.config.redirect,
+				clientID: "759383573575892992",
+				clientSecret: "bZOwoeZIa2VrN-xzvyJF6h9heCQY7UFi",
+				callbackURL: `http://127.0.0.1:8000/login`,
 				scope: scopes,
 			},
 			function (accessToken, refreshToken, profile, done) {
@@ -33,12 +34,10 @@ module.exports.load = async (client) => {
 		)
 	);
 
+
 	app
-		.use(function (req, res, next) {
-			req.client.server.client = client;
-			next();
-		})
-		.use(favicon(__dirname + "/public/img/favicon.ico"))
+		.use(function (req, res, next) {req.client.server.client = client ; next()})
+		.use(favicon(__dirname + '/public/img/favicon.ico'))
 		.use(bodyparser.json())
 		.use(bodyparser.urlencoded({ extended: false }))
 		.engine("html", require("ejs").renderFile)
@@ -63,9 +62,7 @@ module.exports.load = async (client) => {
 
 	app.listen(process.env.PORT || 8000, function (err) {
 		if (err) throw err;
-		console.log(
-			`[+] Dashboard is online at the port: ${process.env.PORT || 8000}`
-		);
+		console.log(`[+] Dashboard is online at the port: ${process.env.PORT || 8000}`);
 	});
 
 	process.on("unhandledRejection", (r) => {

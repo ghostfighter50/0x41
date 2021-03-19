@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="" >
+    <meta name="description" content="0x41's bot Dashboard !" >
     <meta name="author" content="Ghostfighter50">
 
     <title><%=client.user.username%> Settings</title>
@@ -112,15 +112,26 @@
             
             <!-- Modal body -->
             <div class="modal-body">
-              <form action="/servers/<%=guild.id%>/settings" method='post' id="msg">
                   <b>Join Message: </b> <br/>
-                  <textarea value="none" aria-valuemax="200" placeholder="Welcome {user} to {guild} !" class="form-control form-control-sm"id="JoinMessage" name='JoinMessage'></textarea><br>
+                  <% if (config[guild.id].JoinMessage) { %>
+                    <textarea value="<%= config[guild.id].JoinMessage%>" aria-valuemax="200" placeholder="Welcome {user} to {guild} !" class="form-control form-control-sm"id="JoinMessage" name='JoinMessage'><%= config[guild.id].JoinMessage %></textarea><br>
+                    <% } else { %>
+                    <textarea value="none" aria-valuemax="200" placeholder="Welcome {user} to {guild} !" class="form-control form-control-sm"id="JoinMessage" name='JoinMessage'></textarea><br>
+                    <%} %>
                   <b>Leave Message: </b> <br/>
+                  <% if (config[guild.id].LeaveMessage) { %>
+                    <textarea value="<%= config[guild.id].LeaveMessage%>" aria-valuemax="200" placeholder="{user} left {guild} !" id="LeaveMessage" class="form-control form-control-sm" name='LeaveMessage'><%= config[guild.id].LeaveMessage%></textarea>
+                  <% } else { %>
                   <textarea value="none" aria-valuemax="200" placeholder="{user} left {guild} !" id="LeaveMessage" class="form-control form-control-sm" name='LeaveMessage'></textarea>
-                  <button type="submit" class="btn btn-success float-right"  onclick="msg()"style="color: #363636 !important;border-color: #ced4da !important " data-dismiss="modal">Send</button>            
+                  <%} %>
                   <br>
+                  <% if (config[guild.id].EmbedColor) { %>
+                    <input type="color" name="EmbedColor" value="<%= config[guild.id].EmbedColor%>"> Embed Color
+                  <% } else {%>
                   <input type="color" name="EmbedColor" value="none"> Embed Color
-                </form> 
+                  <% } %>
+                  <button type="submit" class="btn btn-success float-right"  onclick="msg()"style="color: #363636 !important;border-color: #ced4da !important " data-dismiss="modal">Send</button>            
+
                   <br/>
             
        
@@ -148,8 +159,12 @@
                     <% guild.roles.cache.forEach(c => { %>
                     <option value="<%= c.id %>"  > @<%= c.name %></option>
                     <% }); %>
+                    <% if (config[guild.id].VerifiedRole) { %>
+                      <option value="<%= config[guild.id].VerifiedRole %>" selected><% let role = guild.roles.cache.find(c => c.id ==  config[guild.id].VerifiedRole); %><%= "@"+role.name %></option>
+                    <% } else { %>
                     <option value="none" selected>None</option>
-                  </select>
+                    <%} %>   
+                    </select>
                   <br> <br>
                   <h4 class="display-5">Unverified Role</h4>
                   <b>Select a role: </b>
@@ -157,7 +172,12 @@
                     <% guild.roles.cache.forEach(c => { %>
                     <option value="<%= c.id %>"  >@<%= c.name %></option>
                     <% }); %>
+                    
+                    <% if (config[guild.id].UnverifiedRole) { %>
+                      <option value="<%= config[guild.id].UnverifiedRole %>" selected><% let role = guild.roles.cache.find(c => c.id ==  config[guild.id].UnverifiedRole); %><%= "@"+role.name %></option>
+                    <% } else { %>
                     <option value="none" selected>None</option>
+                    <%} %>
                   </select>
                   <br> <br>
                     <h4 class="display-5">Add Auto-role</h4>
@@ -191,7 +211,6 @@
             
             <!-- Modal body -->
             <div class="modal-body">
-              <form action="/servers/<%=guild.id%>/settings" method='post' id="editchannels">
                 <h4 class="display-5">Report Channel</h4>
                 <b>Select a channel: </b>
                 <select id="ReportChannel" name="ReportChannel" aria-controls="config" class="form-control form-control-sm" style="margin-bottom: 5px;">
@@ -200,8 +219,12 @@
     .has("READ_MESSAGES")).forEach(c => { %>
                   <option value="<%= c.id %>"  >#<%= c.name %></option>
                   <% }); %>
-                  <option value="none" selected>None</option>
-                </select>
+                  <% if (config[guild.id].ReportChannel) { %>
+                      <option value="<%= config[guild.id].ReportChannel %>" selected><% let channel = guild.channels.cache.find(c => c.id ==  config[guild.id].ReportChannel); %><%= "#"+channel.name %></option>
+                    <% } else { %>
+                    <option value="none" selected>None</option>
+                    <%} %>
+                  </select>
                 <br> <br>
                 <h4 class="display-5">Welcome Channel</h4>
                 <b>Select a channel: </b>
@@ -211,8 +234,12 @@
     .has("READ_MESSAGES")).forEach(c => { %>
                   <option value="<%= c.id %>"  >#<%= c.name %></option>
                   <% }); %>
-                  <option value="none" selected>None</option>
-                </select>
+                  <% if (config[guild.id].WelcomeChannel) { %>
+                      <option value="<%= config[guild.id].WelcomeChannel %>" selected><% let channel = guild.channels.cache.find(c => c.id ==  config[guild.id].WelcomeChannel); %><%= "#"+channel.name %></option>
+                    <% } else { %>
+                    <option value="none" selected>None</option>
+                    <%} %>
+                  </select>
                 <br> <br>
                 <h4 class="display-5">Skid Test Channel</h4>
                 <b>Select a channel: </b>
@@ -222,11 +249,14 @@
     .has("READ_MESSAGES")).forEach(c => { %>
                   <option value="<%= c.id %>"  >#<%= c.name %></option>
                   <% }); %>
-                  <option value="none" selected>None</option>
-                </select>
+                  <% if (config[guild.id].TestChannel) { %>
+                      <option value="<%= config[guild.id].TestChannel %>" selected><% let channel = guild.channels.cache.find(c => c.id ==  config[guild.id].TestChannel); %><%= "#"+channel.name %></option>
+                    <% } else { %>
+                    <option value="none" selected>None</option>
+                    <%} %>
+                  </select>
                 <button type="submit" class="btn btn-success float-right"  onclick="editchannels()"style="color: #363636 !important;border-color: #ced4da !important " data-dismiss="modal">Send</button>            </div>
 
-                  </form> 
                   <br/>
             </div>
            
@@ -245,22 +275,22 @@
             
             <!-- Modal body -->
             <div class="modal-body">
-              <% if (client.serverconfig[guild.id].Raidmode == true) {%>
+              <% if (config[guild.id].Raidmode == true) {%>
                 <input id="raid" type="checkbox" data-onstyle="success" data-toggle="switchbutton" data-size="xs" checked>    <b>Raidmode</b><br>
               <%} else {%>
                 <input id="raid" type="checkbox" data-onstyle="success" data-toggle="switchbutton" data-size="xs">    <b>Raidmode</b><br>
               <%}%>
-              <% if (client.serverconfig[guild.id].SkidVerification == true) {%>
+              <% if (config[guild.id].SkidVerification == true) {%>
                 <input id="skid" type="checkbox" data-onstyle="success" data-toggle="switchbutton" data-size="xs" checked>    <b>Skid Verification</b><br>
               <%} else {%>
                 <input id="skid" type="checkbox" data-onstyle="success" data-toggle="switchbutton" data-size="xs" >    <b>Skid Verification</b><br>
               <%}%>
-              <% if (client.serverconfig[guild.id].JoinLogger == true) {%>
+              <% if (config[guild.id].JoinLogger == true) {%>
                 <input id="logger"type="checkbox" data-onstyle="success" data-toggle="switchbutton" data-size="xs" checked>    <b>Join Logger</b><br>
               <%} else {%>
                 <input  id="logger" type="checkbox" data-onstyle="success" data-toggle="switchbutton" data-size="xs" >    <b>Join Logger</b><br>
               <%}%>
-              <% if (client.serverconfig[guild.id].Levels == true) {%>
+              <% if (config[guild.id].Levels == true) {%>
                 <input id="levels" type="checkbox" data-onstyle="success" data-toggle="switchbutton" data-size="xs" checked>    <b>Leveling</b><br>
               <%} else {%>
                 <input id="levels" type="checkbox" data-onstyle="success" data-toggle="switchbutton" data-size="xs" >    <b>Leveling</b><br>
@@ -284,19 +314,78 @@
     
     <script>
     function msg() {
-      $("#msg").submit()
-    }
+      $.post("/servers/<%=guild.id%>/settings", {
+        Levels : "<% config[guild.id].Levels%>",
+        RaidMode : "<% config[guild.id].RaidMode%>",
+        JoinLogger : "<% config[guild.id].JoinLogger%>",
+        SkidVerification : "<% config[guild.id].SkidVerification%>",
+        TestChannel : "<% config[guild.id].TestChannel%>",
+        ReportChannel : "<% config[guild.id].ReportChannel%>",
+        WelcomeChannel : "<% config[guild.id].WelcomeChannel%>",
+        VerifiedRole : "<% config[guild.id].VerifiedRole%>",
+        UnverifiedRole : "<% config[guild.id].UnverifiedRole%>",
+        Autorole : null,
+        JoinMessage : $("#JoinMessage").val(),
+        LeaveMessage : $("#LeaveMessage").val(),
+        EmbedColor : $("#EmbedColor").val()
+      })
+
+  }
+      
+    
     function editroles() {
-      $("#rolesedit").submit()
+      $.post("/servers/<%=guild.id%>/settings", {
+        Levels : "<% config[guild.id].Levels%>",
+        RaidMode : "<% config[guild.id].RaidMode%>",
+        JoinLogger : "<% config[guild.id].JoinLogger%>",
+        SkidVerification : "<% config[guild.id].JoinLogger%>",
+        TestChannel : "<% config[guild.id].TestChannel%>",
+        ReportChannel : "<% config[guild.id].ReportChannel%>",
+        WelcomeChannel : "<% config[guild.id].WelcomeChannel%>",
+        VerifiedRole : $("#VerifiedRole").val(),
+        UnverifiedRole : $("#UnverifiedRole").val(),
+        Autorole : $("#Autorole").val(),
+        JoinMessage : "<% config[guild.id].JoinMessage%>",
+        LeaveMessage : "<% config[guild.id].LeaveMessage%>",
+        EmbedColor : "<% config[guild.id].EmbedColor%>"
+      })    
     }  function editchannels() {
-      $("#editchannels").submit()
-    }
+      $.post("/servers/<%=guild.id%>/settings", {
+        Levels : "<% config[guild.id].Levels%>",
+        RaidMode : "<% config[guild.id].RaidMode%>",
+        JoinLogger : "<% config[guild.id].JoinLogger%>",
+        SkidVerification : "<% config[guild.id].JoinLogger%>",
+        TestChannel : $("#TestChannel").val(),
+        ReportChannel : $("#ReportChannel").val(),
+        WelcomeChannel :  $("#WelcomeChannel").val(),
+        VerifiedRole : "<% config[guild.id].VerifiedRole%>",
+        UnverifiedRole : "<% config[guild.id].UnverifiedRole%>",
+        Autorole :null,
+        JoinMessage : "<% config[guild.id].JoinMessage%>",
+        LeaveMessage : "<% config[guild.id].LeaveMessage%>",
+        EmbedColor : "<% config[guild.id].EmbedColor%>"
+      })        }
     function danger(){
       var levelstatus =  $("#levels")[0].checked
       var raidstatus =  $("#raid")[0].checked
       var skidstatus =  $("#skid")[0].checked
       var joinstatus =  $("#logger")[0].checked
-      $.post("/servers/<%=guild.id%>/settings", {Levels : levelstatus, Raidmode : raidstatus, JoinLogger : joinstatus, SkidVerification : skidstatus})
+      $.post("/servers/<%=guild.id%>/settings", {
+        Levels : levelstatus,
+        RaidMode : raidstatus,
+        JoinLogger : joinstatus,
+        SkidVerification : skidstatus,
+        TestChannel : "<% config[guild.id].TestChannel%>",
+        ReportChannel : "<% config[guild.id].ReportChannel%>",
+        WelcomeChannel : "<% config[guild.id].WelcomeChannel%>",
+        VerifiedRole : "<% config[guild.id].VerifiedRole%>",
+        UnverifiedRole : "<% config[guild.id].UnverifiedRole%>",
+        Autorole : null,
+        JoinMessage : "<% config[guild.id].JoinMessage%>",
+        LeaveMessage : "<% config[guild.id].LeaveMessage%>",
+        EmbedColor : "<% config[guild.id].EmbedColor%>"
+        })
+
     }
     </script>
 

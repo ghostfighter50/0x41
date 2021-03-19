@@ -25,7 +25,7 @@ module.exports = {
 
 		try {
 			let role = message.mentions.roles.first();
-			client.serverconfig[message.guild.id].UnverifiedRole = role.id;
+			config[message.guild.id].UnverifiedRole = role.id;
 			fs.writeFileSync(client.config.path, JSON.stringify(config, null, 2));
 
 			message.channel.send(embed);

@@ -1,8 +1,9 @@
 class ConfigManager {
 	constructor(guild) {
 		this.client = require("../../bot");
-		this.config = require("../../../serverconfig.json");
-		this.fs = require("fs");
+	    this.fs = require("fs");
+		this.data = this.fs.readFileSync("../../../serverconfig.json")
+		this.config = JSON.parse(this.data)
 		this.guild = guild;
 	}
 	UpdateReport(channel) {
@@ -38,7 +39,7 @@ class ConfigManager {
 	SkidTest(status) {
 		if (status == "true") status = true;
 		else if (status == "false") status = false;
-		this.config[this.guild].SkidVerification == status;
+		this.config[this.guild].SkidVerification = status;
 		this.fs.writeFileSync(
 			this.client.config.path,
 			JSON.stringify(this.config, null, 2)
@@ -88,7 +89,7 @@ class ConfigManager {
 		if (status == "true") status = true;
 		else if (status == "false") status = false;
 
-		this.config[this.guild].RaidMode == status;
+		this.config[this.guild].RaidMode = status;
 		this.fs.writeFileSync(
 			this.client.config.path,
 			JSON.stringify(this.config, null, 2)
@@ -110,7 +111,6 @@ class ConfigManager {
 	}
 	SetJoinMessage(message) {
 		this.config[this.guild].JoinMessage = message;
-		console.log(this.config[this.guild].JoinMessage);
 		this.fs.writeFileSync(
 			this.client.config.path,
 			JSON.stringify(this.config, null, 2)
@@ -124,6 +124,7 @@ class ConfigManager {
 		);
 	}
 	SetAutorole(role) {
+		if(role === null)
 		this.config[this.guild].autoroles.push(role);
 		this.fs.writeFileSync(
 			this.client.config.path,
@@ -131,7 +132,7 @@ class ConfigManager {
 		);
 	}
 	ClearAutoroles() {
-		this.config[this.guild].Autoroles = [];
+		this.config[this.guild].autoroles = [];
 		this.fs.writeFileSync(
 			this.client.config.path,
 			JSON.stringify(this.config, null, 2)
@@ -171,6 +172,7 @@ class ConfigManager {
 	}
 
 	refresh() {
+	//	console.log(this.config[this.guild])
 		this.fs.writeFileSync(
 			this.client.config.path,
 			JSON.stringify(this.config, null, 2)

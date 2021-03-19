@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
+    <meta name="description" content="0x41's bot Dashboard !">
     <meta name="author" content="Ghostfighter50">
 
     <title><%=client.username%></title>
@@ -59,18 +59,44 @@
             <br/>
         <h3 class="masthead-heading mb-0" style="font-size: 3em !important;"><%=guild.name%></h3>
           <br/>
-              <h4 class="text-center">
-                <pre class="text-light text-left"> 
-                <b>Owner:                 </b> <%=guild.owner.user.tag%><br />
-                <b>ID:                    </b> <%=guild.id %><br />
-                <b>Number of Members:     </b> <%=guild.memberCount%><br />
-                <b>Voice Channels:        </b> <%=guild.channels.cache.filter(c => c.type === 'voice').size%><br />
-                <b>Text Channels:         </b> <%=guild.channels.cache.filter(c => c.type === 'text').size%> <br />
-                <b>Number of Roles:       </b> <%=guild.roles.cache.size%><br />
-                <b>Region:                </b> <%=guild.region%><br />
-                <b>Date of Creation:      </b> <%=guild.createdAt.toUTCString() -%><br /></pre>
-              </h4>
-              <a href="/servers/<%= guild.id%>/settings"><button class="btn1 btn">Settings</button></a>
+          <table class="table rounded bg-light">
+          <tbody>
+            <tr class="text-center">
+                <td style="font-size: 20px; color: black"><b>Owner:</b></td>
+                <td style="font-size: 20px; color: black"><%=guild.owner.user.tag%></td>
+            </tr>
+            <tr class="text-center">
+              <td style="font-size: 20px; color: black"><b>ID:</b></td>
+              <td style="font-size: 20px; color: black"><%=guild.id%></td>
+            </tr>
+             <tr class="text-center">
+                <td style="font-size: 20px; color: black"><b>Number of Members:</b></td>
+                <td style="font-size: 20px; color: black"><%=guild.memberCount%></td>
+             </tr>
+             <tr class="text-center">
+              <td style="font-size: 20px; color: black"><b>Voice Channels:</b></td>
+              <td style="font-size: 20px; color: black"><%=guild.channels.cache.filter(c => c.type === 'voice').size%></td>
+           </tr>
+           <tr class="text-center">
+            <td style="font-size: 20px; color: black"><b>Voice Thannels:</b></td>
+            <td style="font-size: 20px; color: black"><%=guild.channels.cache.filter(c => c.type === 'text').size%></td>
+         </tr>
+         <tr class="text-center">
+          <td style="font-size: 20px; color: black"><b>Number of Roles:</b></td>
+          <td style="font-size: 20px; color: black"><%=guild.roles.cache.size%></td>
+       </tr>
+       <tr class="text-center">
+        <td style="font-size: 20px; color: black"><b>Region:</b></td>
+        <td style="font-size: 20px; color: black"><%=guild.region%></td>
+     </tr>
+    </tr>
+    <tr class="text-center">
+     <td style="font-size: 20px; color: black"><b>Date of Creation:</b></td>
+     <td style="font-size: 20px; color: black"><%=guild.createdAt.toUTCString()%></td>
+  </tr>
+          </tbody>
+      </table><br><br>
+      <a href="/servers/<%= guild.id%>/settings"><button class="btn1 btn">Settings</button></a>
           </div>
         </div>
       </header>

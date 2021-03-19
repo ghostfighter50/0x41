@@ -25,7 +25,7 @@ module.exports = {
 
 		try {
 			let role = message.mentions.roles.first();
-			client.serverconfig[message.guild.id].VerifiedRole = role.id;
+			config[message.guild.id].VerifiedRole = role.id;
 
 			fs.writeFileSync(client.config.path, JSON.stringify(config, null, 2));
 
