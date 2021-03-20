@@ -74,9 +74,8 @@ router
 		await req.logout();
 		await res.redirect("/");
 	})
-	.get("/snake", async function(req, res) {
-		res.render('snake.ejs')
-	})
-
+	.get("/snake", async function (req, res) {
+		res.render("snake.ejs");
+	});
 
 module.exports = router;
