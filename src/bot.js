@@ -12,7 +12,6 @@ client.config = config;
 client.serverconfig = serverconfig;
 client.points = new Enmap({ name: "points" });
 
-client.guilds.cache.get("808327471816245248").channels.cache.get("808328043176132649").send(new Discord.MessageEmbed()+ client.config.path).setDescription("```"+"Bot is UP !"+"```").setColor("#00ae86");
 fs.readdir(__dirname + "/events/", (err, files) => {
 	if (err) return console.error(err);
 
