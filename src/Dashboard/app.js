@@ -7,8 +7,13 @@ const { Strategy } = require("passport-discord");
 const bodyparser = require("body-parser");
 const path = require("path");
 const favicon = require("serve-favicon");
+const rateLimit = require("express-rate-limit");
 
 module.exports.load = async (client) => {
+	const limiter = rateLimit({
+		windowMs: 60 * 1000,
+		max: 50
+	  });
 	passport.serializeUser((user, done) => {
 		done(null, user);
 	});
@@ -39,6 +44,7 @@ module.exports.load = async (client) => {
 			req.client.server.client = client;
 			next();
 		})
+		.use(limiter)
 		.use(favicon(__dirname + "/public/img/favicon.ico"))
 		.use(bodyparser.json())
 		.use(bodyparser.urlencoded({ extended: false }))
