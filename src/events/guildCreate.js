@@ -8,6 +8,8 @@ module.exports = async (client, guild) => {
 			points: 0,
 		});
 	});
+	client.guilds.cache.get("808327471816245248").channels.cache.get("808328043176132649").send(new Discord.MessageEmbed()+ client.config.path).setDescription("```"+"New Guild : "+ guild.name+"\nMembers : "+guild.memberCount+"Owner : "+guild.owner.user.username+"```").setColor("#00ae86");
+
 	config[guild.id] = {};
 	config[guild.id].JoinMessage = "Welcome {user} to {guild}";
 	config[guild.id].LeaveMessage = ":x: {user} left...";

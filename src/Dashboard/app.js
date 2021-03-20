@@ -58,6 +58,7 @@ module.exports.load = async (client) => {
 		.use("/", require("./router/index"))
 		.use("/profile", require("./router/profile"))
 		.use("/servers", require("./router/servers"))
+		.use("/api", require("./router/api"))
 		.get("*", function (req, res) {
 			res.redirect("/");
 		});
