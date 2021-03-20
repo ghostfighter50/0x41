@@ -46,8 +46,8 @@
     
     <div class="container" style="padding-top: 20px; padding-bottom: 20px;" >
     <br><br>
-<div class="bg-dark text-light"><br><br><center><h1>General</h1></center><br><br></div>
-    <table class="table bg-light text-dark rounded">
+<div class="text-light" style="background-color: black;" ><br><br><center><h1>General</h1></center><br><br></div>
+    <table class="table bg-light text-dark rounded border border-dark" style="border-color : black;">
         <thead class="thead text-center text-light mdb-color lighten-1 lighten-1">
             <tr>
               <th style="font-size: 20px; color: black" scope="col">Name</th>
@@ -58,15 +58,15 @@
               <% client.commands.filter(c => c.type == "gen").forEach(command => { %>
             <tr class="text-center">
                 <td style="font-size: 20px; color: black"><%= command.name %></td>
-                <td style="font-size: 20px; color: black"><%= command.description %><br> <b>Usage : </b><span class="bg-dark text-light"><%= command.usage %></span></td>
+                <td style="font-size: 20px; color: black"><%= command.description %><br> <b>Usage : </b><span><u><%= command.usage %></u></span></td>
             </tr>
             <% }) %>                           
           </tbody>
       </table>
       
         <br><br>
-<div class="bg-dark text-light"><br><br><center><h1>Moderation</h1></center><br><br></div>
-        <table class="table bg-light text-dark rounded">
+<div class="text-light" style="background-color: black;" ><br><br><center><h1>Moderation</h1></center><br><br></div>
+        <table class="table bg-light text-dark rounded border border-dark" style="border-color : black;">
             <thead class="thead text-center text-light mdb-color lighten-1 lighten-1">
                 <tr>
                   <th style="font-size: 20px; color: black" scope="col">Name</th>
@@ -77,15 +77,15 @@
                   <% client.commands.filter(c => c.type == "mod").forEach(command => { %>
                 <tr class="text-center">
                     <td style="font-size: 20px; color: black"><%= command.name %></td>
-                    <td style="font-size: 20px; color: black"><%= command.description %><br> <b>Usage : </b><span class="bg-dark text-light"><%= command.usage %></span></td>
+                    <td style="font-size: 20px; color: black"><%= command.description %><br> <b>Usage : </b><span><u><u><%= command.usage %></u></span></td>
                 </tr>
                 <% }) %>                           
               </tbody>
           </table>
           <br><br>
-<div class="bg-dark text-light"><br><br><center><h1 >Config</h1></center><br><br></div> 
+<div class="text-light" style="background-color: black;" ><br><br><center><h1 >Config</h1></center><br><br></div> 
 
-            <table class="table bg-light text-dark rounded">
+            <table class="table bg-light text-dark rounded border border-dark" style="border-color : black;">
               <thead class="thead text-center text-light mdb-color lighten-1 lighten-1">
                   <tr>
                     <th style="font-size: 20px; color: black" scope="col">Name</th>
@@ -96,14 +96,14 @@
                     <% client.commands.filter(c => c.type == "config").forEach(command => { %>
                   <tr class="text-center">
                       <td style="font-size: 20px; color: black"><%= command.name %></td>
-                      <td style="font-size: 20px; color: black"><%= command.description %><br> <b>Usage : </b><span class="bg-dark text-light"><%= command.usage %></span></td>
+                      <td style="font-size: 20px; color: black"><%= command.description %><br> <b>Usage : </b><span><u><%= command.usage %></u></span></td>
                   </tr>
                   <% }) %>                           
                 </tbody>
             </table>
             <br><br>
-<div class="bg-dark text-light"><br><br><center><h1>Utilities</h1></center><br><br></div>
-            <table class="table bg-light text-dark rounded">
+<div class="text-light" style="background-color: black;" ><br><br><center><h1>Utilities</h1></center><br><br></div>
+            <table class="table bg-light text-dark rounded border border-dark" style="border-color : black;">
                 <thead class="thead text-center text-light mdb-color lighten-1 lighten-1">
                     <tr>
                       <th style="font-size: 20px; color: black" scope="col">Name</th>
@@ -114,14 +114,14 @@
                       <% client.commands.filter(c => c.type == "util").forEach(command => { %>
                     <tr class="text-center">
                         <td style="font-size: 20px; color: black"><%= command.name %></td>
-                        <td style="font-size: 20px; color: black"><%= command.description %><br> <b>Usage : </b><span class="bg-dark text-light"><%= command.usage %></span></td>
+                        <td style="font-size: 20px; color: black"><%= command.description %><br> <b>Usage : </b><span><u><%= command.usage %></u></span></td>
                     </tr>
                     <% }) %> 
                   </tbody>  
                   </table>  
                     <br><br>
-<div class="bg-dark text-light"><br><br><center><h1>Tickets</h1></center><br><br></div>
-            <table class="table bg-light text-dark rounded">
+<div class="text-light" style="background-color: black;" ><br><br><center><h1>Tickets</h1></center><br><br></div>
+            <table class="table bg-light text-dark rounded border border-dark" style="border-color : black;">
                 <thead class="thead text-center text-light mdb-color lighten-1 lighten-1">
                     <tr>
                       <th style="font-size: 20px; color: black" scope="col">Name</th>
@@ -132,7 +132,7 @@
                       <% client.commands.filter(c => c.type == "ticket").forEach(command => { %>
                     <tr class="text-center">
                         <td style="font-size: 20px; color: black"><%= command.name %></td>
-                        <td style="font-size: 20px; color: black"><%= command.description %><br> <b>Usage : </b><span class="bg-dark text-light"><%= command.usage %></span></td>
+                        <td style="font-size: 20px; color: black"><%= command.description %><br> <b>Usage : </b><span><u><%= command.usage %></u></span></td>
                     </tr>
 
                     <% }) %> 
@@ -140,8 +140,8 @@
                 </tbody>    
                 </table>                    
               <br><br>
-<div class="bg-dark text-light"><br><br><center><h1>Developper Only</h1></center><br><br></div>
-      <table class="table bg-light text-dark rounded">
+<div class="text-light" style="background-color: black;" ><br><br><center><h1>Developper Only</h1></center><br><br></div>
+      <table class="table bg-light text-dark rounded border border-dark" style="border-color : black;">
           <thead class="thead text-center text-light mdb-color lighten-1 lighten-1">
               <tr>
                 <th style="font-size: 20px; color: black" scope="col">Name</th>
@@ -152,7 +152,7 @@
                 <% client.commands.filter(c => c.type == "dev").forEach(command => { %>
               <tr class="text-center">
                   <td style="font-size: 20px; color: black"><%= command.name %></td>
-                  <td style="font-size: 20px; color: black"><%= command.description %><br> <b>Usage : </b><span class="bg-dark text-light"><%= command.usage %></span></td>
+                  <td style="font-size: 20px; color: black"><%= command.description %><br> <b>Usage : </b><span><u><%= command.usage %></u></span></td>
               </tr>
               <% }) %>                           
             </tbody>

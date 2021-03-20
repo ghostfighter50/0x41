@@ -85,7 +85,10 @@ router
 		await res.redirect(`/servers/${req.params.guildID}`);
 	})
 	.post("/:guildID/settings", CheckAuth, async function (req, res) {
-		console.log(req.body);
+		console.log(req.body)
+		res.redirect(
+			`/servers/${req.params.guildID}/settings?msg=Settings Updated !&type=success`
+		);
 		if (req.body.Autoroles !== "none" && req.body.Autoroles !== null)
 			req.client.server.client.serverconfig[req.params.guildID].autoroles.push(
 				req.body.Autoroles
@@ -149,9 +152,7 @@ router
 			req.client.server.client.config.path,
 			JSON.stringify(req.client.server.client.serverconfig, null, 2)
 		);
-		res.redirect(
-			`/servers/${req.params.guildID}/settings?msg=Settings Updated !&type=success`
-		);
+		
 	})
 	.post("/:guildID/settings/reset", CheckAuth, async function (req, res) {
 		req.client.server.client.serverconfig[req.params.guildID] = {};
@@ -169,11 +170,9 @@ router
 			"none";
 		req.client.server.client.serverconfig[req.params.guildID].ReportChannel =
 			"none";
-		req.client.server.client.serverconfig[req.params.guildID].TestChannel =
-			"none";
+		req.client.server.client.serverconfig[req.params.guildID].TestChannel = "none";
 		req.client.server.client.serverconfig[req.params.guildID].autoroles = [];
-		req.client.server.client.serverconfig[req.params.guildID].VerifiedRole =
-			"none";
+		req.client.server.client.serverconfig[req.params.guildID].VerifiedRole = "none";
 		req.client.server.client.serverconfig[req.params.guildID].UnverifiedRole =
 			"none";
 		req.client.server.client.serverconfig[req.params.guildID].EmbedColor =
