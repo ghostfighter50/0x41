@@ -8,7 +8,7 @@ router
 		const serv = req.client.server.client.guilds.cache.get(req.params.guildID);
 		if (!serv) {
 			return res.redirect(
-				`https://discordapp.com/oauth2/authorize?client_id=${req.client.server.client.user.id}&scope=client&permissions=8&guild_id=${req.params.guildID}`
+				`https://discordapp.com/oauth2/authorize?client_id=${req.client.server.client.user.id}&scope=bot&permissions=8&guild_id=${req.params.guildID}`
 			);
 		}
 		if (
@@ -34,7 +34,7 @@ router
 		const serv = req.client.server.client.guilds.cache.get(req.params.guildID);
 		if (!serv) {
 			return res.redirect(
-				`https://discordapp.com/oauth2/authorize?client_id=${req.client.server.client.user.id}&scope=client&permissions=8&guild_id=${req.params.guildID}`
+				`https://discordapp.com/oauth2/authorize?client_id=${req.client.server.client.user.id}&scope=bot&permissions=8&guild_id=${req.params.guildID}`
 			);
 		}
 		if (

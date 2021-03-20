@@ -11,7 +11,7 @@ module.exports = {
 			.setThumbnail(message.author.avatarURL)
 			.setTitle("Invite Me !")
 			.setURL(
-				"https://discord.com/oauth2/authorize?client_id=759383573575892992&permissions=8&scope=bot"
+				"https://discord.com/oauth2/authorize?client_id=759383573575892992&scope=bot&permissions=8&scope=bot"
 			)
 			.setColor(client.serverconfig[message.guild.id].EmbedColor)
 			.setFooter(
