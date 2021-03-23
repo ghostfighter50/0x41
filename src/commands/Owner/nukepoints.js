@@ -7,7 +7,7 @@ module.exports = {
 	admin: false,
 	async run(client, message, args) {
 		const Discord = require("discord.js");
-		if (!message.member.id == "655346300958670848") {
+		if (!message.member.id == client.config.id) {
 			return message.channel.send("**Dev only command :no_entry:.**");
 		}
 		const filtered = client.points.filter((p) => p.guild === message.guild.id);

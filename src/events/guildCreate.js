@@ -8,7 +8,14 @@ module.exports = async (client, guild) => {
 			points: 0,
 		});
 	});
-	console.log("[+] New Guild : " + guild.name + "\nOwner : " + guild.owner.user.tag + "Members : " + guild.memberCount)
+	console.log(
+		"[+] New Guild : " +
+			guild.name +
+			"\nOwner : " +
+			guild.owner.user.tag +
+			"Members : " +
+			guild.memberCount
+	);
 	config[guild.id] = {};
 	config[guild.id].JoinMessage = "Welcome {user} to {guild}";
 	config[guild.id].LeaveMessage = ":x: {user} left...";

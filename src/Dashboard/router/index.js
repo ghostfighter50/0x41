@@ -38,7 +38,7 @@ router
 				"." +
 				milliseconds +
 				"s",
-			version: require("../../../package.json").version.toString(),
+			version: "12",
 			process: process,
 			login: req.isAuthenticated() ? "yes" : "no",
 		});

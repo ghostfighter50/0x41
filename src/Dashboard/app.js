@@ -12,8 +12,8 @@ const rateLimit = require("express-rate-limit");
 module.exports.load = async (client) => {
 	const limiter = rateLimit({
 		windowMs: 60 * 1000,
-		max: 50
-	  });
+		max: 100,
+	});
 	passport.serializeUser((user, done) => {
 		done(null, user);
 	});

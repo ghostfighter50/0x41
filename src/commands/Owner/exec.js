@@ -10,7 +10,7 @@ module.exports = {
 	async run(client, message, args) {
 		const Discord = require("discord.js");
 
-		if (message.author.id == "655346300958670848") {
+		if (message.author.id == client.config.id) {
 			childProcess.exec(args.join(" "), {}, (err, stdout, stderr) => {
 				if (stderr) {
 					return message.channel.send(
@@ -25,7 +25,7 @@ module.exports = {
 						.setColor(client.serverconfig[message.guild.id].EmbedColor)
 				);
 			});
-		} else if (message.author.id !== "655346300958670848") {
+		} else if (message.author.id !== client.config.id) {
 			return message.channel.send(deniedembed);
 		}
 	},

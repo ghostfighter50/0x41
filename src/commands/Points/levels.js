@@ -18,15 +18,15 @@ module.exports = {
 		);
 		if (level1 == undefined) {
 			return message.reply(
-				":x: you must set the 3 level roles before using command `sudo  set-level <1|2|3> <@role>`"
+				":x: you must set the 3 level roles before using command `sudo  set-level <1|2|3> <points> <@role>`"
 			);
 		} else if (level2 == undefined) {
 			return message.reply(
-				":x: you must set the 3 level roles before using command `sudo  set-level <1|2|3> <@role>`"
+				":x: you must set the 2 level roles before using command `sudo  set-level <1|2|3> <points> <@role>`"
 			);
 		} else if (level3 == undefined) {
 			return message.reply(
-				":x: you must set the 3 level roles before using command `sudo  set-level <1|2|3> <@role>`"
+				":x: you must set the 1 level roles before using command `sudo  set-level <1|2|3> <points> <@role>`"
 			);
 		}
 
@@ -59,7 +59,7 @@ module.exports = {
 			)
 			.setTitle("📖 Levels ")
 			.setColor(client.serverconfig[message.guild.id].EmbedColor)
-			.setFooter("Do sudo  set-level <1|2|3> <@role> to set a level");
+			.setFooter("Do sudo  set-level <1|2|3> <points> <@role> to set a level");
 
 		message.channel.send(embed);
 	},

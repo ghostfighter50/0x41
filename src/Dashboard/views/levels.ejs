@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="0x41's bot Dashboard !" >
+    <meta name="author" content="Ghostfighter50">
+
+    <title><%=client.user.username%> Levels</title>
+
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/one-page-wonder.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/profile"><%=status%></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  <header class="masthead text-center text-white">
+    <% if (message !== null) { %>
+      <% if (message.type == "success") { %>
+      <center>
+        <div class="float-center alert alert-success alert-dismissible p-2" style="width: 70%;" role="alert"><span type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+            <%= message.value %>
+        </div>
+      </center>
+      <% } else { %>
+        <center>
+        <div class="float-center alert alert-danger alert-dismissible" style="width: 70%;" role="alert"><span type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></span>
+          <%= message.value %>
+      </div>
+    </center>
+      <% } %>
+      <% } %>
+    <div class="masthead-content">
+          
+              <%if (guild.icon) {%>
+              <img src="https://cdn.discordapp.com/icons/<%=guild.id%>/<%=guild.icon%>.png?size=128" class="client.user-avatar rounded-circle" width="150px" height="150px">
+              <%}else{%>
+              <canvas class="client.user-avatar rounded-circle" id="<%= guild.name.replace(/\w+/g, name => name[0]).replace(/\s/g, '') %>" width="150px" height="150px"></canvas>
+
+              <script>
+              function createIcone() {
+                const nameAcronym = document.getElementById("<%= guild.name.replace(/\w+/g, name => name[0]).replace(/\s/g, '')  %>").getContext('2d');
+                  nameAcronym.font = '90px Arial';
+                  nameAcronym.textAlign = "center";
+                  nameAcronym.fillStyle = "white";
+                  nameAcronym.fillText("<%= guild.name.replace(/\w+/g, name => name[0]).replace(/\s/g, '')  %>", 75, 105);
+              }
+              createIcone();
+              </script>
+            <%}%>
+            <h3 class="masthead-heading mb-0" style="font-size: 3em !important;"><%=guild.name%></h3>
+
+            <br/>
+            <br/>
+            <button type="button" class="btn1 btn" data-toggle="modal" data-target="#Points">
+              Edit Points
+            </button>
+            <br/>
+            <br/>
+            <button type="button" class="btn1 btn" data-toggle="modal" data-target="#Flags">
+              Edit Flags
+            </button> 
+            <br/>
+            <br/>
+            <button type="button" class="btn1 btn" data-toggle="modal" data-target="#Roles">
+              Edit Level Roles
+            </button>
+            <br/>
+            <br/>
+
+          </div>
+        </div>
+      </header>
+
+      <br/>
+      <div class="modal fade" id="Points">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+        
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h3 class="modal-title">Edit Points</h3>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            
+            <!-- Modal body -->
+            <div class="modal-body">
+                  <h4 class="display-5">User:</h4>
+                  <select id="PointsUser" name="PointsUser" aria-controls="config" class="form-control form-control-sm" style="margin-bottom: 5px;">
+                    <% guild.members.cache.forEach(m => { %>
+                    <option value="<%= m.id %>"  >@<%= m.user.tag %></option>
+                    <% }); %>
+                    <option value="none" selected>None</option>
+                    </select>
+                  <br> <br>      
+                  <b>Points: </b>
+                  <input type="number" placeholder="Points to add/remove" id="PointsValue" name="PointsValue"/>              
+                  <br><br>
+                  <button class="btn btn-success float-left" onclick="add()">Add Points</button>  <button class="btn btn-danger float-left" onclick="remove()" >Remove Points</button>
+
+                  <button  type="button" class="btn btn-success float-right"  style="color: #363636 !important;border-color: #ced4da !important " data-dismiss="modal">Close</button>
+                </div>
+            
+            </div>
+            </div>
+            
+          </div>
+        </div>    
+      <div class="modal fade" id="Flags">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+        
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h3 class="modal-title">Edit Flags</h3>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            
+            <!-- Modal body -->
+            <div class="modal-body">
+                  <h4 class="display-5">Add Flag</h4>
+                  <b>Flag name: </b>
+                  <input type="text" placeholder="Flag name" id="FlagName" name="FlagName"/>          
+                  <br> <br>    
+                  <b>Flag value: </b>
+                  <input type="text" placeholder="Flag value" id="FlagValue" name="FlagName"/>        
+                  <br> <br>      
+                  <b>Flag points: </b>
+                  <input type="number" placeholder="Points gained by submitting this flag" id="FlagPoints" name="FlagPoints"/>              
+                  <br> <br>
+                  <button  type="button" class="btn btn-success float-right" onclick="flags()" style="color: #363636 !important;border-color: #ced4da !important " data-dismiss="modal">Send</button>
+                </div>
+            
+            </div>
+            </div>
+            
+          </div>
+        </div>    
+
+      <div class="modal fade" id="Roles">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+        
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h3 class="modal-title">Edit Level Roles</h3>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            
+            <!-- Modal body -->
+            <div class="modal-body">
+                  <h4 class="display-5">Add Level Role</h4>
+                  <b>Select a role: </b>
+                  <select id="LevelRole" name="LevelRole" aria-controls="config" class="form-control form-control-sm" style="margin-bottom: 5px;">
+                    <% guild.roles.cache.forEach(c => { %>
+                    <option value="<%= c.id %>"  > @<%= c.name %></option>
+                    <% }); %>
+                    <option value="none" selected>None</option>
+                    </select>
+                    <br> <br>
+                    <b>Select a level: </b>
+                    <select id="Level" name="Level" aria-controls="config" class="form-control form-control-sm" style="margin-bottom: 5px;">
+                        <option value="1" >Level 1</option>
+                        <option value="2" >Level 2</option>
+                        <option value="3" >Level 3</option>
+                        <option value="none" selected>None</option>
+                      </select>
+                      <br> <br>
+                    <b>Role's points: </b> 
+                    <input type="number" placeholder="Points to have this role" id="RolePoints" name="RolePoints"/>              
+                  <br> <br>
+                  <button  type="button" class="btn btn-success float-right" onclick="lvlroles()" style="color: #363636 !important;border-color: #ced4da !important " data-dismiss="modal">Send</button>
+                </div>
+            
+            </div>
+            </div>
+            
+          </div>
+        </div>    
+
+    
+    
+    <script>
+    function lvlroles() {
+        $.post("/servers/<%=guild.id%>/levels", {
+        Level : $("#Level").val(),
+        LevelRole : $("#LevelRole").val(),
+        RolePoints : $("#RolePoints").val(),
+        FlagName: "none",
+        FlagValue: "none",
+        FlagPoints: ""
+        })
+        window.location.reload()
+    }        
+    function flags() {
+        $.post("/servers/<%=guild.id%>/levels", {
+        Level : "none",
+        LevelRole : "none",
+        RolePoints : "",
+        FlagName: $("#FlagName").val(),
+        FlagValue: $("#FlagValue").val(),
+        FlagPoints: $("#FlagPoints").val()
+        })
+        window.location.reload()
+
+    } 
+    function add() {
+        $.post("/servers/<%=guild.id%>/levels/add", {
+            PointsUser : $("#PointsUser").val(),
+            PointsValue: $("#PointsValue").val()
+        })
+        window.location.reload()
+    } 
+    function remove() {
+        $.post("/servers/<%=guild.id%>/levels/remove", {
+            PointsUser : $("#PointsUser").val(),
+            PointsValue: $("#PointsValue").val()
+        })
+        window.location.reload()
+    } 
+    
+    </script>
+
+
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+    <footer class="py-5 bg-black">
+  <div class="container">
+    <p class="m-0 text-center text-white small"> &copy; <%=client.user.username%>  | <a href="https://github.com/Ghostfighter50/0x41">GitHub</a></p>
+  </div>
+</footer>
+</html>

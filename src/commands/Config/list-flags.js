@@ -26,12 +26,10 @@ module.exports = {
 			.setThumbnail(message.author.avatarURL)
 			.setColor(client.serverconfig[message.guild.id].EmbedColor)
 			.setTitle("Flags")
-			.setFooter(
-				"Use `sudo  set-flag <name> <value> <points>` to create a flag"
-			);
+			.setFooter("Use sudo set-flag <name> <value> <points> to create a flag");
 
 		try {
-			if (config[message.guild.id].Flags.length == 1) {
+			if (config[message.guild.id].Flags.length < 0) {
 				embed.addField("Flags :", "No Flags !", true);
 				return message.channel.send(embed);
 			}
